@@ -1,0 +1,190 @@
+{
+  "slug": "mehmed-iii",
+  "nameTr": "III. Mehmed",
+  "nameEn": "Mehmed III",
+  "wikiTitleTr": "III. Mehmed",
+  "kind": "sultan",
+  "roles": [
+    "13. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1566,
+    "place": "Manisa"
+  },
+  "death": {
+    "year": 1603,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1595,
+    "to": 1603
+  },
+  "summary": [
+    "III. Mehmed, 1595'te babası III. Murad'ın ölümü üzerine tahta çıkan 13. Osmanlı padişahıdır.",
+    "Tahta çıktığı gece 19 kardeşini öldürterek kardeş katlinin en ağır örneğini verdi.",
+    "Bir sancağı yöneterek yetişen son padişah oldu; ondan sonra şehzadeler sarayın içinde, yönetim deneyimi olmadan büyüdü."
+  ],
+  "actions": [
+    {
+      "id": "on-dokuz-kardes",
+      "year": 1595,
+      "text": "Tahta çıkarken 19 kardeşini öldürttü.",
+      "cause": "[[f:mehmed-ii|Fatih]]'in kanunnamesi, tahta çıkan padişahın taht kavgasını önlemek için kardeşlerini öldürtmesine izin veriyordu. Babası [[f:murad-iii|III. Murad]] da 1574'te beş kardeşini öldürtmüştü; ama onun sarayda çok sayıda çocuğu olmuştu. Mehmed, Manisa'dan gelip tahta oturduğunda sarayda en küçüğü henüz bebek olan 19 erkek kardeşi vardı.",
+      "consequence": "Şehzadeler aynı gece boğduruldu ve tabutları babalarınınkiyle birlikte saraydan çıkarıldı; bu görüntü İstanbul halkını derinden sarstı. Tepki öyle büyük oldu ki oğlu [[f:ahmed-i|I. Ahmed]] 1603'te tahta çıktığında kardeşini öldürtmedi. III. Mehmed [[c:sancak|sancağa]] çıkan son şehzadeydi; kendi oğullarını sarayda tuttu.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "hacova",
+      "year": 1596,
+      "text": "Eğri Kalesi'ni aldı ve Haçova Meydan Savaşı'nı kazandı.",
+      "cause": "Avusturya ile 1593'te başlayan savaş kötü gidiyordu; Estergon gibi önemli kaleler kaybedilmişti. Asker ve devlet adamları, [[f:suleyman-i|Kanuni]]'nin ölümünden beri hiçbir padişahın yapmadığı bir şeyi istedi: padişah ordunun başına geçmeliydi. III. Mehmed 1596'da, 30 yıl aradan sonra sefere çıkan ilk padişah olarak yola koyuldu.",
+      "consequence": "Ordu Ekim 1596'da Macaristan'daki Eğri Kalesi'ni aldı. Birkaç gün sonra Haçova'da Avusturya ve Erdel ordusu Osmanlı ordugâhına kadar girdi; padişah geri çekilmeyi düşündü, hocası Sadeddin Efendi onu yerinde kalmaya ikna etti. Düşman askerleri çadırları yağmalamaya dalınca aşçılar, seyisler ve deveciler baltalarla saldırdı, ardından gelen süvari hücumu yenilgiyi zafere çevirdi.",
+      "depth": "Zaferin ardından yapılan yoklamada savaş alanından kaçan yaklaşık 30.000 asker \"firari\" ilan edildi; maaşları ve toprakları ellerinden alındı. Cezadan kaçan bu silahlı adamların çoğu Anadolu'ya geçip Celali isyanlarına katıldı. Tarihçilerin çoğu Haçova'yı, kazanılan ama Anadolu'daki kargaşayı büyüten bir zafer olarak değerlendirir; III. Mehmed de bir daha sefere çıkmadı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1566,
+      "to": 1574,
+      "event": "Babası Şehzade Murad'ın yönettiği Manisa'da doğdu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1574,
+      "to": 1583,
+      "event": "Babası tahta çıkınca saraya geldi; 1582'de sünnet düğünü haftalarca süren şenliklerle kutlandı."
+    },
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1583,
+      "to": 1595,
+      "event": "12 yıl Manisa sancakbeyliği yaptı; sancağa gönderilen son şehzade oldu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1595,
+      "to": 1596,
+      "event": "Tahta çıktı ve aynı gece 19 kardeşini öldürttü."
+    },
+    {
+      "place": {
+        "slug": "egri",
+        "nameTr": "Eğri",
+        "historicName": "Eger",
+        "lat": 47.9025,
+        "lon": 20.3772
+      },
+      "precision": "city",
+      "from": 1596,
+      "to": 1596,
+      "event": "Ordusunun başında Eğri Kalesi'ni aldı ve yakındaki Haçova'da savaştı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1596,
+      "to": 1603,
+      "event": "Seferden döndükten sonra saraydan ayrılmadı; 37 yaşında burada öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "murad-iii",
+      "type": "child_of",
+      "note": "III. Murad'ın büyük oğludur."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "sancak",
+      "term": "Sancak",
+      "meaning": "Hem \"bayrak\" hem de bir sancakbeyinin yönettiği bölge demektir; şehzadeler yönetmeyi öğrenmek için bir sancağa gönderilirdi, buna \"sancağa çıkmak\" denirdi.",
+      "root": {
+        "letters": "sanç-",
+        "language": "Türkçe",
+        "meaning": "saplamak, batırmak (yere saplanan bayrak direğinden)"
+      },
+      "related": [
+        {
+          "term": "sancı",
+          "meaning": "saplanır gibi gelen ağrı"
+        },
+        {
+          "term": "sancakbeyi",
+          "meaning": "bir sancağın yöneticisi"
+        },
+        {
+          "term": "sancaktar",
+          "meaning": "bayrağı taşıyan kişi"
+        },
+        {
+          "term": "sancak",
+          "meaning": "denizcilikte geminin sağ yanı"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Mehmed III",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/mehmed-iii"
+    },
+    {
+      "id": "wiki",
+      "title": "III. Mehmed",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/III._Mehmed",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

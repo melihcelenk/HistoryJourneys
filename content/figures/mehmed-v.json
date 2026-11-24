@@ -1,0 +1,53 @@
+{
+  "slug": "mehmed-v",
+  "nameTr": "V. Mehmed (Mehmed Reşad)",
+  "nameEn": "Mehmed V",
+  "wikiTitleTr": "V. Mehmed",
+  "kind": "sultan",
+  "roles": ["35. Osmanlı padişahı"],
+  "birth": { "year": 1844, "place": "İstanbul" },
+  "death": { "year": 1918, "place": "İstanbul" },
+  "reign": { "from": 1909, "to": 1918 },
+  "summary": [
+    "V. Mehmed (Mehmed Reşad), 1909'da 64 yaşında tahta çıkan 35. Osmanlı padişahıdır.",
+    "Ülkeyi kendisi yönetmedi; yetkiyi Meclis'e ve İttihat ve Terakki'ye bıraktığı için \"meşrutiyet padişahı\" olarak anılır.",
+    "Onun döneminde girilen Birinci Dünya Savaşı imparatorluğun sonunu getirdi; kendisi yenilgiyi görmeden, ateşkesten dört ay önce öldü."
+  ],
+  "actions": [
+    {
+      "id": "rumeli-seyahati",
+      "year": 1911,
+      "text": "Rumeli'yi gezen son padişah oldu.",
+      "cause": "1910'da Arnavutluk'ta büyük bir isyan çıkmış, Makedonya'da çeteler arasındaki çatışmalar sürüyordu. İttihat ve Terakki hükümeti, padişahın bölgeyi ziyaret etmesinin halkı devlete yeniden bağlayacağını düşündü. Ağabeyi [[f:abdulhamid-ii|II. Abdülhamid]] o sırada Selanik'te gözetim altındaydı.",
+      "consequence": "5-26 Haziran 1911 arasında Selanik, Üsküp, Priştine ve Manastır'ı gezdi. Kosova ovasında, 1389'da orada ölen I. Murad'ın türbesinin yanında büyük bir kalabalıkla cuma namazı kıldı. Ancak gezinin etkisi kısa sürdü: Ekim 1912'de başlayan Balkan Savaşı'nda bu şehirlerin hepsi kaybedildi.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "cihad-ilani",
+      "year": 1914,
+      "text": "Birinci Dünya Savaşı'na girilirken halife sıfatıyla cihat ilan etti.",
+      "cause": "[[f:enver-pasa|Enver Paşa]] ve İttihat ve Terakki'nin önde gelenleri Ağustos 1914'te Almanya ile gizli bir ittifak imzalamıştı. 29 Ekim 1914'te Osmanlı bayrağı çekmiş iki Alman savaş gemisi Rus limanlarını bombaladı ve devlet savaşa girdi. Almanya, halifenin çağrısının İngiliz ve Fransız sömürgelerindeki Müslümanları ayaklandıracağını umuyordu.",
+      "consequence": "Cihat fetvası 14 Kasım 1914'te İstanbul'da Fatih Camii'nde okundu. Çağrı beklenen etkiyi yapmadı: sömürgelerdeki Müslümanlar ayaklanmadı, 1916'da Mekke Şerifi Hüseyin tam tersine Osmanlı'ya karşı isyan etti. Dört yıl süren savaşın sonunda imparatorluk dağıldı.",
+      "depth": "Padişahın bu kararlardaki payı çok sınırlıydı. Bazı kaynaklara göre Rus limanlarına yapılan baskını önceden bilmiyordu ve savaşa girilmesinden hoşnut değildi; yine de hükümetin önüne koyduğu belgeleri imzaladı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1844, "to": 1909, "event": "Abdülmecid'in oğlu olarak doğdu; ağabeyi II. Abdülhamid döneminde uzun yıllar gözetim altında yaşadı." },
+    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1909, "to": 1918, "event": "27 Nisan 1909'da Meclis kararıyla tahta çıktı ve saltanatının çoğunu burada geçirdi." },
+    { "place": { "slug": "selanik", "nameTr": "Selanik", "historicName": "Thessaloniki", "lat": 40.6401, "lon": 22.9444 }, "precision": "city", "from": 1911, "to": 1911, "event": "Rumeli gezisinin ilk büyük durağında coşkuyla karşılandı." },
+    { "place": { "slug": "manastir", "nameTr": "Manastır", "historicName": "Bitola", "lat": 41.0297, "lon": 21.3292 }, "precision": "city", "from": 1911, "to": 1911, "event": "Kosova'dan sonra Manastır'ı ziyaret ederek geziyi tamamladı." },
+    { "place": { "slug": "istanbul-yildiz", "nameTr": "Yıldız Sarayı, İstanbul", "lat": 41.0497, "lon": 29.0111 }, "precision": "building", "from": 1918, "to": 1918, "event": "3 Temmuz 1918'de burada öldü." },
+    { "place": { "slug": "istanbul-eyup", "nameTr": "Eyüp, İstanbul", "lat": 41.048, "lon": 28.934 }, "precision": "district", "from": 1918, "to": 1918, "event": "Haliç kıyısında kendi yaptırdığı türbeye gömüldü." }
+  ],
+  "relations": [
+    { "to": "abdulmecid", "type": "child_of", "note": "Abdülmecid'in oğludur." },
+    { "to": "mehmed-vi", "type": "sibling_of", "note": "Ölümünden sonra yerine kardeşi Vahdeddin geçti." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Mehmed V", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mehmed-v" },
+    { "id": "wiki", "title": "V. Mehmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/V._Mehmed", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

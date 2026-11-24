@@ -1,0 +1,167 @@
+{
+  "slug": "selim-ii",
+  "nameTr": "II. Selim",
+  "nameEn": "Selim II",
+  "wikiTitleTr": "II. Selim",
+  "kind": "sultan",
+  "roles": [
+    "11. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1524,
+    "place": "İstanbul"
+  },
+  "death": {
+    "year": 1574,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1566,
+    "to": 1574
+  },
+  "summary": [
+    "II. Selim, 1566'da babası Kanuni'nin ölümü üzerine tahta çıkan 11. Osmanlı padişahıdır.",
+    "Edirne'de Mimar Sinan'a, ustanın \"ustalık eserim\" dediği Selimiye Camii'ni yaptırdı.",
+    "Sekiz yıllık saltanatında hiç sefere çıkmadı; devleti sadrazamı Sokollu Mehmed Paşa yönetti ve padişahın saraydan hükmettiği dönem başladı."
+  ],
+  "actions": [
+    {
+      "id": "kibrisin-fethi",
+      "year": 1571,
+      "text": "Kıbrıs'ı Venediklilerden aldırdı.",
+      "cause": "Kıbrıs 1489'dan beri Venedik'in elindeydi ve İstanbul ile Mısır arasındaki deniz yolunun tam üzerinde duruyordu; adaya sığınan korsanlar hacı ve tüccar gemilerine saldırıyordu. Sadrazam [[f:sokollu-mehmed-pasa|Sokollu Mehmed Paşa]] Avrupa devletlerini birleştireceği gerekçesiyle sefere karşıydı, ama Selim savaştan yana olan vezirleri dinledi. Lala Mustafa Paşa komutasındaki ordu 1570'te adaya çıktı.",
+      "consequence": "Lefkoşa 1570'te, Magosa bir yıla yakın direndikten sonra Ağustos 1571'de alındı. Sokollu'nun korktuğu oldu: İspanya, Venedik ve Papalık donanmaları birleşti ve 7 Ekim 1571'de İnebahtı'da Osmanlı donanmasının büyük bölümünü yok etti. Sokollu bir kış içinde yeni bir donanma yaptırdı; Venedik 1573'te Kıbrıs'tan vazgeçip barış imzaladı ve ada 1878'e kadar Osmanlı yönetiminde kaldı.",
+      "depth": "Gemiler bir kışta yeniden yapıldı, ama İnebahtı'da ölen binlerce deneyimli denizcinin yeri aynı hızla doldurulamadı. Sokollu'nun Venedik elçisine \"Biz Kıbrıs'ı alarak kolunuzu kestik, siz donanmamızı yakarak sakalımızı tıraş ettiniz; kesilen kol yerine gelmez, sakal daha gür çıkar\" dediği, elçinin aktardığı bir anlatıdır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "selimiye-camii",
+      "year": 1568,
+      "text": "Edirne'de Selimiye Camii'ni yaptırdı.",
+      "cause": "Selim, kendi adını taşıyacak büyük camiyi İstanbul'a değil, imparatorluğun Avrupa'ya açılan kapısı olan eski başkent Edirne'ye yaptırmaya karar verdi. İşi, babası [[f:suleyman-i|Kanuni]]'nin baş mimarı olan ve o sırada 80 yaşına yaklaşan [[f:mimar-sinan|Mimar Sinan]]'a verdi.",
+      "consequence": "Yapımına 1568'de başlanan cami, yaklaşık 31 metre çapındaki kubbesini sekiz ayağa oturtan planı ve her biri 70 metreyi aşan dört ince minaresiyle Osmanlı mimarisinin doruğu sayılır. Sinan'ın İstanbul'daki Şehzade Camii'ne çıraklık, Süleymaniye'ye kalfalık, Selimiye'ye ustalık eserim dediği aktarılır. Cami 2011'de UNESCO Dünya Mirası Listesi'ne alındı.",
+      "depth": "Selim camisinin açılışını göremedi: Aralık 1574'te öldü, cami 1575'te ibadete açıldı. Sinan'ın, Selimiye'nin kubbesiyle Ayasofya'nınkini geçtiğini söylediği aktarılır; ölçümlere göre iki kubbenin çapı birbirine çok yakındır, Ayasofya'nın kubbesi ise yerden daha yüksektedir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1524,
+      "to": 1542,
+      "event": "Kanuni Sultan Süleyman ile Hürrem Sultan'ın oğlu olarak doğdu."
+    },
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1544,
+      "to": 1558,
+      "event": "Şehzade olarak 14 yıl Manisa'yı yönetti; oğlu Murad 1546'da burada doğdu."
+    },
+    {
+      "place": {
+        "slug": "konya",
+        "nameTr": "Konya",
+        "historicName": "İkonion",
+        "lat": 37.8746,
+        "lon": 32.4932
+      },
+      "precision": "city",
+      "from": 1558,
+      "to": 1562,
+      "event": "1559'da Konya Ovası'nda kardeşi Şehzade Bayezid'i yenerek tek veliaht kaldı."
+    },
+    {
+      "place": {
+        "slug": "kutahya",
+        "nameTr": "Kütahya",
+        "historicName": "Kotyaion",
+        "lat": 39.4242,
+        "lon": 29.9833
+      },
+      "precision": "city",
+      "from": 1562,
+      "to": 1566,
+      "event": "Babasının ölüm haberini Kütahya'da sancakbeyiyken aldı."
+    },
+    {
+      "place": {
+        "slug": "belgrad",
+        "nameTr": "Belgrad",
+        "historicName": "Nándorfehérvár",
+        "lat": 44.7866,
+        "lon": 20.4489
+      },
+      "precision": "city",
+      "from": 1566,
+      "to": 1566,
+      "event": "Zigetvar'dan dönen orduyu Belgrad'da karşılayarak başına geçti."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1566,
+      "to": 1574,
+      "event": "Devleti sekiz yıl buradan yönetti ve 50 yaşında sarayda öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "suleyman-i",
+      "type": "child_of",
+      "note": "Kanuni Sultan Süleyman'ın oğludur."
+    },
+    {
+      "to": "hurrem-sultan",
+      "type": "child_of",
+      "note": "Annesi Hürrem Sultan'dır."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Selim II",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/selim-ii"
+    },
+    {
+      "id": "wiki",
+      "title": "II. Selim",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/II._Selim",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

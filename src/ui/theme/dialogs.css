@@ -1,0 +1,348 @@
+/* Dialogs: scrolls that unroll over the darkened map. */
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: radial-gradient(ellipse at center, rgba(13, 10, 7, 0.55), rgba(13, 10, 7, 0.88));
+  animation: backdrop-in 200ms ease-out;
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, var(--dialog-width, 560px));
+  max-height: min(calc(100dvh - 32px), 760px);
+  padding: 22px 24px 20px;
+  animation: dialog-in 320ms var(--ease-out);
+}
+
+.dialog--wide {
+  --dialog-width: 880px;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+}
+
+.dialog__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dialog__title {
+  flex: 1;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: var(--wax-dark);
+}
+
+.dialog__body {
+  flex: 1;
+  min-height: 0;
+  margin: 0 -8px;
+  padding: 2px 8px 4px;
+}
+
+.dialog__body p + p {
+  margin-top: 0.6em;
+}
+
+.dialog__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ---------- Figure picker ---------- */
+
+.picker__search {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: rgba(255, 250, 228, 0.7);
+  border: 1px solid var(--ink-soft);
+  border-radius: 2px;
+  box-shadow: inset 0 2px 5px rgba(122, 84, 30, 0.3);
+}
+
+.picker__search::placeholder {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.picker__line {
+  margin: 12px 0 8px;
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+}
+
+.picker__line-note {
+  font-family: var(--font-body);
+  font-size: 1.15em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.picker__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.picker__figure {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 10px 6px 6px;
+  text-align: left;
+  background: rgba(255, 250, 228, 0.4);
+  border: 1px solid rgba(74, 48, 16, 0.35);
+  border-radius: 24px 4px 4px 24px;
+  cursor: pointer;
+  transition:
+    background 120ms,
+    transform 160ms var(--ease-out);
+}
+
+.picker__figure:hover {
+  background: rgba(255, 250, 228, 0.95);
+  transform: translateY(-2px);
+}
+
+.picker__figure[aria-current='true'] {
+  border-color: var(--wax);
+  box-shadow: inset 0 0 0 1px var(--wax);
+}
+
+.picker__figure .medallion {
+  --size: 40px;
+}
+
+.picker__name {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.picker__years {
+  font-size: 0.84rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---------- Concept ---------- */
+
+.concept__root {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0;
+}
+
+.concept__letters {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--parchment-light);
+  background: radial-gradient(circle at 36% 30%, #5a4226, var(--ink));
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 3px rgba(201, 164, 76, 0.7),
+    0 3px 6px rgba(60, 40, 10, 0.5);
+}
+
+.concept__related {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.concept__word {
+  padding: 7px 10px;
+  background: rgba(255, 250, 228, 0.55);
+  border: 1px solid rgba(74, 48, 16, 0.4);
+  border-top: 3px solid var(--brass);
+}
+
+.concept__term {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.concept__meaning {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---------- Games ---------- */
+
+.game-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.order-list {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  background: rgba(255, 250, 228, 0.5);
+  border: 1px solid rgba(74, 48, 16, 0.4);
+  border-radius: 3px;
+  transition: background 200ms;
+}
+
+.order-item[data-result='right'] {
+  background: rgba(94, 138, 62, 0.3);
+  border-color: #3c5a2a;
+}
+
+.order-item[data-result='wrong'] {
+  background: rgba(181, 51, 42, 0.2);
+  border-color: var(--wax);
+}
+
+.order-item .medallion {
+  --size: 36px;
+}
+
+.order-item__name {
+  flex: 1;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.order-item__year {
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.order-item__moves {
+  display: flex;
+  gap: 4px;
+}
+
+.order-item__moves .ink-btn {
+  min-width: 34px;
+  padding: 0;
+  justify-content: center;
+}
+
+.quiz__question {
+  margin: 4px 0 10px;
+  font-size: 1.08rem;
+}
+
+.quiz__options,
+.option-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quiz__option,
+.option {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  text-align: left;
+  background: rgba(255, 250, 228, 0.5);
+  border: 1px solid rgba(74, 48, 16, 0.4);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 120ms;
+}
+
+.quiz__option:hover:not(:disabled),
+.option:hover {
+  background: rgba(255, 250, 228, 0.95);
+}
+
+.option[aria-pressed='true'] {
+  background: rgba(201, 164, 76, 0.35);
+  border-color: var(--brass-dark);
+  box-shadow: inset 0 0 0 1px var(--brass);
+}
+
+.quiz__option[data-result='right'] {
+  background: rgba(94, 138, 62, 0.35);
+  border-color: #3c5a2a;
+}
+
+.quiz__option[data-result='wrong'] {
+  background: rgba(181, 51, 42, 0.22);
+  border-color: var(--wax);
+}
+
+.score {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--wax-dark);
+  margin-right: auto;
+}
+
+@media (max-width: 899px) {
+  .dialog-backdrop {
+    padding: 8px;
+  }
+
+  .dialog {
+    padding: 18px 16px 16px;
+  }
+
+  .picker__grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

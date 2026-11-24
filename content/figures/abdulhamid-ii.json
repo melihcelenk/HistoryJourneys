@@ -1,0 +1,76 @@
+{
+  "slug": "abdulhamid-ii",
+  "nameTr": "II. Abdülhamid",
+  "nameEn": "Abdul Hamid II",
+  "wikiTitleTr": "II. Abdülhamid",
+  "kind": "sultan",
+  "roles": ["34. Osmanlı padişahı"],
+  "birth": { "year": 1842, "place": "İstanbul" },
+  "death": { "year": 1918, "place": "İstanbul" },
+  "reign": { "from": 1876, "to": 1909 },
+  "summary": [
+    "II. Abdülhamid, 1876'dan 1909'a kadar 33 yıl hüküm süren 34. Osmanlı padişahıdır.",
+    "İlk anayasayı ilan etti, iki yıl geçmeden Meclis'i kapattı ve ülkeyi 30 yıl boyunca Yıldız Sarayı'ndan tek başına yönetti.",
+    "Açtığı modern okullarda yetişen subaylar ve memurlar, hem onu tahttan indiren hem de Cumhuriyet'i kuran kuşak oldu."
+  ],
+  "actions": [
+    {
+      "id": "kanun-i-esasi",
+      "year": 1876,
+      "text": "İlk Osmanlı anayasasını ilan etti, iki yıl sonra Meclis'i kapattı.",
+      "cause": "Hasta ağabeyi [[f:murad-v|V. Murad]]'ın yerine tahta çıkarken [[f:midhat-pasa|Midhat Paşa]]'ya anayasayı ilan edeceğine söz vermişti. Aralık 1876'da büyük devletlerin temsilcileri Balkanlar'da ıslahat istemek için İstanbul'da bir konferans topladı. Anayasa, konferansın açıldığı gün, 23 Aralık 1876'da top atışlarıyla duyuruldu.",
+      "consequence": "[[c:kanun-i-esasi|Kanun-ı Esasi]] ile Osmanlı tarihinde ilk kez seçilmiş üyeleri olan bir meclis kuruldu ve Meclis-i Mebusan 19 Mart 1877'de açıldı. Ancak Rusya ile savaş yenilgiyle sürerken padişah 13 Şubat 1878'de Meclis'i süresiz tatil etti. Meclis 30 yıl boyunca bir daha toplanmadı.",
+      "depth": "Abdülhamid anayasayı resmen hiç kaldırmadı; metin devlet yıllıklarında basılmaya devam etti, yalnızca uygulanmadı. Anayasanın 113. maddesi padişaha tehlikeli gördüğü kişileri sürgün etme yetkisi veriyordu; bu yetkiyi ilk olarak Şubat 1877'de anayasanın mimarı Midhat Paşa'ya karşı kullandı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "hicaz-demiryolu",
+      "year": 1900,
+      "text": "Şam'dan Medine'ye uzanan Hicaz Demiryolu'nu yaptırdı.",
+      "cause": "Hacılar Şam'dan Medine'ye deve kervanlarıyla haftalar süren bir yolculukla gidiyordu. Abdülhamid hem hac yolunu kısaltmak hem de Hicaz ve Yemen'e hızla asker gönderebilmek istiyordu. Halife olarak bütün Müslümanlara seslendi; hattın parasının önemli bir bölümü dünyanın dört yanından gelen bağışlarla toplandı.",
+      "consequence": "Yapımına 1 Eylül 1900'de başlanan hat 1908'de Medine'ye ulaştı ve yolculuk birkaç güne indi. Yaklaşık 1.300 kilometrelik demiryolu, yabancı sermayeye bırakılmadan bitirilen en büyük Osmanlı yatırımlarından biri oldu. Birinci Dünya Savaşı'nda Arap isyancıları hattı defalarca havaya uçurdu; savaştan sonra hat parçalandı.",
+      "depth": "Hattın asıl hedefi Mekke'ydi, ancak raylar Medine'den öteye geçemedi. İnşaatın başmühendisi Alman Heinrich August Meissner'di; yani \"tamamen yerli\" diye anlatılan proje yabancı uzmanlık olmadan yapılmadı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "ikinci-mesrutiyet-ve-hal",
+      "year": 1908,
+      "text": "1908'de anayasayı yeniden yürürlüğe koydu; bir yıl sonra tahttan indirildi.",
+      "cause": "Otuz yıllık baskı ve sansür döneminde, açtığı askerî ve sivil okullarda okuyan gençler gizli İttihat ve Terakki Cemiyeti'nde örgütlendi. Temmuz 1908'de Makedonya'da Resneli Niyazi ve [[f:enver-pasa|Enver]] gibi subaylar dağa çıktı. İsyan orduda yayılınca padişah 23 Temmuz 1908'de anayasayı yeniden yürürlüğe koydu.",
+      "consequence": "Nisan 1909'da İstanbul'da 31 Mart Vakası denen ayaklanma çıktı; Selanik'ten gelen Hareket Ordusu isyanı bastırdı. Meclis 27 Nisan 1909'da Abdülhamid'i tahttan indirdi ve yerine kardeşi [[f:mehmed-v|Mehmed Reşad]]'ı geçirdi. Abdülhamid önce Selanik'e gönderildi, 1912'de Beylerbeyi Sarayı'na getirildi ve 1918'de orada öldü.",
+      "depth": "Hakkındaki yargılar bugün de keskin biçimde ayrılır: karşıtları onu sansür ve hafiye ağı yüzünden \"Kızıl Sultan\" diye anmış, savunanlar ise imparatorluğu 33 yıl ayakta tuttuğu için \"Ulu Hakan\" demiştir. 31 Mart ayaklanmasında parmağı olup olmadığı da tartışmalıdır; birçok tarihçiye göre bunu gösteren kesin bir kanıt yoktur.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1842, "to": 1842, "event": "Abdülmecid'in oğlu olarak doğdu." },
+    { "place": { "slug": "paris", "nameTr": "Paris", "lat": 48.8566, "lon": 2.3522 }, "precision": "city", "from": 1867, "to": 1867, "event": "Amcası Abdülaziz'in Avrupa gezisine katılarak Paris, Londra ve Viyana'yı gördü." },
+    { "place": { "slug": "istanbul-yildiz", "nameTr": "Yıldız Sarayı, İstanbul", "lat": 41.0497, "lon": 29.0111 }, "precision": "building", "from": 1877, "to": 1909, "event": "Dolmabahçe yerine buraya yerleşti ve ülkeyi 30 yılı aşkın süre buradan yönetti." },
+    { "place": { "slug": "selanik", "nameTr": "Selanik", "historicName": "Thessaloniki", "lat": 40.6401, "lon": 22.9444 }, "precision": "city", "from": 1909, "to": 1912, "event": "Tahttan indirilince Alatini Köşkü'nde gözetim altında tutuldu." },
+    { "place": { "slug": "istanbul-beylerbeyi", "nameTr": "Beylerbeyi Sarayı, İstanbul", "lat": 41.0427, "lon": 29.04 }, "precision": "building", "from": 1912, "to": 1918, "event": "Balkan Savaşı çıkınca İstanbul'a getirildi; 10 Şubat 1918'de burada öldü." }
+  ],
+  "relations": [
+    { "to": "abdulmecid", "type": "child_of", "note": "Abdülmecid'in oğludur." },
+    { "to": "mehmed-v", "type": "sibling_of", "note": "Tahttan indirilince yerine kardeşi Mehmed Reşad geçti." },
+    { "to": "midhat-pasa", "type": "opposed", "note": "Midhat Paşa'yı 1877'de sürgüne gönderdi, 1881'de Yıldız Mahkemesi'nde yargılatıp Taif'e sürdü." }
+  ],
+  "concepts": [
+    {
+      "slug": "kanun-i-esasi",
+      "term": "Kanun-ı Esasi",
+      "meaning": "\"Temel yasa\" demektir: 1876'da ilan edilen ilk Osmanlı anayasasının adı.",
+      "root": { "letters": "e-s-s", "language": "Arapça", "meaning": "temel atmak, kurmak" },
+      "related": [
+        { "term": "esas", "meaning": "temel" },
+        { "term": "tesis", "meaning": "kurma; kurulmuş yapı" },
+        { "term": "müessese", "meaning": "kurum" },
+        { "term": "müessis", "meaning": "kurucu" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Abdülhamid II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulhamid-ii" },
+    { "id": "wiki", "title": "II. Abdülhamid", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._Abd%C3%BClhamid", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

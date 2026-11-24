@@ -1,0 +1,51 @@
+{
+  "slug": "mustafa-iv",
+  "nameTr": "IV. Mustafa",
+  "nameEn": "Mustafa IV",
+  "wikiTitleTr": "IV. Mustafa",
+  "kind": "sultan",
+  "roles": ["29. Osmanlı padişahı"],
+  "birth": { "year": 1779, "place": "İstanbul" },
+  "death": { "year": 1808, "place": "İstanbul" },
+  "reign": { "from": 1807, "to": 1808 },
+  "summary": [
+    "IV. Mustafa, 1807'de Kabakçı Mustafa İsyanı ile 27 yaşında tahta çıkarılan 29. Osmanlı padişahıdır.",
+    "On dört ay süren saltanatında III. Selim'in kurduğu Nizam-ı Cedid ordusu dağıtıldı.",
+    "Tahtını korumak için III. Selim'i öldürttü, ama kardeşi Mahmud kurtuldu ve onun yerine tahta geçti."
+  ],
+  "actions": [
+    {
+      "id": "nizam-i-cedidin-dagitilmasi",
+      "year": 1807,
+      "text": "İsyancıların desteğiyle tahta çıktı ve Nizam-ı Cedid'in dağıtılmasını onayladı.",
+      "cause": "Mayıs 1807'de Boğaz kalelerindeki yamaklar Kabakçı Mustafa'nın önderliğinde ayaklandı ve yeniçerilerle birleşti. İsyancılar yeniliklere karşı çıkan devlet adamlarından ve Şeyhülislam Ataullah Efendi'den destek aldı. 29 Mayıs'ta [[f:selim-iii|III. Selim]] tahttan indirildi ve amcasının oğlu Mustafa padişah ilan edildi.",
+      "consequence": "Yeni ordu dağıtıldı, kışlaları yağmalandı, yenilikçi devlet adamlarının birçoğu öldürüldü. Kabakçı Mustafa Boğaz kalelerinin komutanı yapıldı; İstanbul'da gerçek güç isyancıların elindeydi. Yenilik yanlılarından kurtulabilenler Rusçuk'a kaçıp oranın güçlü âyanı [[f:alemdar-mustafa-pasa|Alemdar Mustafa Paşa]]'ya sığındı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "selimin-oldurulmesi",
+      "year": 1808,
+      "text": "Tahtta kalmak için III. Selim ile kardeşi Mahmud'un öldürülmesini emretti.",
+      "cause": "Temmuz 1808'de Alemdar Mustafa Paşa binlerce askeriyle İstanbul'a geldi; önce Kabakçı Mustafa'yı öldürttü, 28 Temmuz'da da III. Selim'i yeniden tahta çıkarmak için sarayın kapısına dayandı. Hanedanda IV. Mustafa'dan başka iki erkek vardı: Selim ve Mahmud. İkisi de ölürse tahtta ondan başkası kalmayacak, kimse ona dokunamayacaktı.",
+      "consequence": "III. Selim dairesinde öldürüldü. [[f:mahmud-ii|Şehzade Mahmud]] ise saray görevlilerinin yardımıyla dama çıkarılarak kurtarıldı. Alemdar kapıyı kırıp içeri girdiğinde Selim'in cesediyle karşılaştı; IV. Mustafa'yı tahttan indirdi ve Mahmud'u padişah yaptı.",
+      "depth": "Yaygın anlatıya göre Cevri Kalfa adlı bir saray görevlisi, cellatların yüzüne sıcak kül savurarak Mahmud'a kaçması için zaman kazandırmıştır. IV. Mustafa da uzun yaşamadı: Kasım 1808'de yeniçeriler ayaklanıp onu yeniden tahta çıkarmak isteyince II. Mahmud'un emriyle öldürüldü. Böylece II. Mahmud hanedanın hayattaki tek erkeği kaldı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1779, "to": 1807, "event": "I. Abdülhamid'in oğlu olarak İstanbul'da doğdu; şehzadeliği sarayda geçti." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1807, "to": 1808, "event": "İsyanla tahta çıktı; on dört ay sonra tahttan indirildi ve aynı yıl sarayda öldürüldü." },
+    { "place": { "slug": "istanbul-bahcekapi", "nameTr": "I. Abdülhamid Türbesi, Bahçekapı, İstanbul", "lat": 41.0165, "lon": 28.9745 }, "precision": "building", "from": 1808, "to": 1808, "event": "Babası I. Abdülhamid'in Bahçekapı'daki türbesine gömüldü." }
+  ],
+  "relations": [
+    { "to": "abdulhamid-i", "type": "child_of", "note": "I. Abdülhamid'in oğludur." },
+    { "to": "mahmud-ii", "type": "sibling_of", "note": "Öldürtmek istediği kardeşi Mahmud, onun yerine tahta çıktı." },
+    { "to": "selim-iii", "type": "opposed", "note": "III. Selim'i deviren isyanla tahta çıktı ve 1808'de onun öldürülmesini emretti." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Mustafa IV", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-iv" },
+    { "id": "wiki", "title": "IV. Mustafa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/IV._Mustafa", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

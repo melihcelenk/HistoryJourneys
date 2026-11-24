@@ -1,0 +1,176 @@
+{
+  "slug": "osman-ii",
+  "nameTr": "II. Osman",
+  "nameEn": "Osman II (Osman the Young)",
+  "wikiTitleTr": "II. Osman",
+  "kind": "sultan",
+  "roles": [
+    "16. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1604,
+    "place": "İstanbul"
+  },
+  "death": {
+    "year": 1622,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1618,
+    "to": 1622
+  },
+  "summary": [
+    "II. Osman, 1618'de 13 yaşında tahta çıkan ve \"Genç Osman\" diye anılan 16. Osmanlı padişahıdır.",
+    "1621'deki Hotin Seferi'nden sonra yeniçerilerin yerine yeni bir ordu kurmayı tasarladı.",
+    "1622'de ayaklanan askerler tarafından 17 yaşında Yedikule'de öldürüldü; bir isyanda öldürülen ilk Osmanlı padişahı oldu."
+  ],
+  "actions": [
+    {
+      "id": "hotin-seferi",
+      "year": 1621,
+      "text": "Lehistan'a karşı Hotin Seferi'ne ordunun başında çıktı.",
+      "cause": "Lehistan'a bağlı Kazakların Karadeniz kıyılarına yaptığı baskınlar ve Boğdan üzerindeki çekişme iki devleti karşı karşıya getirmişti. Osmanlı sınır kuvvetleri 1620'de bir Leh ordusunu yenince genç padişah, atalarının yaptığı gibi büyük bir zaferi kendisi kazanmak istedi. Yola çıkmadan önce, yokluğunda tahta çıkarılmasından korktuğu kardeşi Şehzade Mehmed'i öldürttü.",
+      "consequence": "Osmanlı ordusu 1621 sonbaharında Dinyester kıyısındaki Hotin'de Leh ordusunun siperlerine beş hafta boyunca saldırdı, ama yarıp geçemedi. Kış yaklaşınca sınırları eskisi gibi bırakan bir barış yapıldı. Osman başarısızlığın suçunu isteksiz savaştığını düşündüğü yeniçerilere yükledi; dönüşte yoklama yaptırıp maaşlarını kısması askerle arasını büsbütün açtı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "yeni-ordu-plani",
+      "year": 1622,
+      "text": "Yeniçerilerin yerine yeni bir ordu kurmak için İstanbul'dan ayrılmaya kalkıştı.",
+      "cause": "Hotin'den sonra Osman, yeniçerilerle ve onlara bağlı düzenle savaş kazanılamayacağına inanmıştı. 1622 baharında hacca gideceğini duyurdu; o güne kadar hiçbir Osmanlı padişahı hacca gitmemişti. Dönemin kaynaklarına göre asıl amacı Anadolu, Suriye ve Mısır'dan [[c:sekban|sekban]] adı verilen tüfekli askerler toplayıp bu yeni orduyla İstanbul'a dönmekti.",
+      "consequence": "Hazinenin Üsküdar'a taşınacağı duyulunca yeniçeriler ve sipahiler 18 Mayıs 1622'de ayaklandı. Saraya girip amcası [[f:mustafa-i|I. Mustafa]]'yı yeniden padişah ilan ettiler; Osman'ı ise hakaretler arasında Yedikule'ye götürüp 20 Mayıs'ta boğdular. Yeniçeri Ocağı ancak 204 yıl sonra, 1826'da [[f:mahmud-ii|II. Mahmud]] tarafından kaldırılabildi.",
+      "depth": "Osman'ın planını kendi ağzından anlatan bir belge yoktur. Olayların başlıca kaynağı, isyanı içeriden izleyen eski yeniçeri Hüseyin Tûgî'nin yazdıklarıdır ve askerlerin bakışını yansıtır. Bu yüzden bazı tarihçiler \"yeni ordu\" planının gerçekten ne kadar ileri gittiğini, bazıları da bunun isyanı haklı göstermek için büyütülüp büyütülmediğini tartışır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1604,
+      "to": 1621,
+      "event": "I. Ahmed'in ilk oğlu olarak sarayda doğdu; 1618'de amcasının yerine tahta çıkarıldı."
+    },
+    {
+      "place": {
+        "slug": "hotin",
+        "nameTr": "Hotin",
+        "historicName": "Khotyn",
+        "lat": 48.5075,
+        "lon": 26.4922
+      },
+      "precision": "city",
+      "from": 1621,
+      "to": 1621,
+      "event": "Dinyester kıyısındaki Hotin'de Leh ordusunu kuşattı, ama sonuç alamadı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1622,
+      "to": 1622,
+      "event": "Hacca gitme hazırlığı yaparken sarayı isyancı askerler bastı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-yedikule",
+        "nameTr": "Yedikule Hisarı, İstanbul",
+        "lat": 40.9934,
+        "lon": 28.9233
+      },
+      "precision": "building",
+      "from": 1622,
+      "to": 1622,
+      "event": "İsyancılar tarafından Yedikule zindanına götürüldü ve burada öldürüldü."
+    },
+    {
+      "place": {
+        "slug": "istanbul-sultanahmet",
+        "nameTr": "Sultanahmet Camii, İstanbul",
+        "lat": 41.0054,
+        "lon": 28.9768
+      },
+      "precision": "building",
+      "from": 1622,
+      "to": 1622,
+      "event": "Babası I. Ahmed'in türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "ahmed-i",
+      "type": "child_of",
+      "note": "I. Ahmed'in en büyük oğludur."
+    },
+    {
+      "to": "murad-iv",
+      "type": "sibling_of",
+      "note": "IV. Murad onun baba bir kardeşidir."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "sekban",
+      "term": "Sekban",
+      "meaning": "Önceleri sarayın av köpeklerine bakan görevlilere, 17. yüzyılda ise Anadolu'da ücretle toplanan tüfekli askerlere verilen ad.",
+      "root": {
+        "letters": "seg + bân",
+        "language": "Farsça",
+        "meaning": "köpek + bakan, koruyan"
+      },
+      "related": [
+        {
+          "term": "seymen",
+          "meaning": "sekban sözünün halk ağzındaki biçimi"
+        },
+        {
+          "term": "bahçıvan",
+          "meaning": "bahçeye bakan (Farsça bâğ-bân)"
+        },
+        {
+          "term": "çoban",
+          "meaning": "sürüye bakan (Farsça şubân)"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Osman II",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/osman-ii"
+    },
+    {
+      "id": "wiki",
+      "title": "II. Osman",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/II._Osman",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

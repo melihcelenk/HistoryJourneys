@@ -1,0 +1,136 @@
+{
+  "slug": "murad-iii",
+  "nameTr": "III. Murad",
+  "nameEn": "Murad III",
+  "wikiTitleTr": "III. Murad",
+  "kind": "sultan",
+  "roles": [
+    "12. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1546,
+    "place": "Manisa"
+  },
+  "death": {
+    "year": 1595,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1574,
+    "to": 1595
+  },
+  "summary": [
+    "III. Murad, 1574'te babası II. Selim'in ölümü üzerine tahta çıkan 12. Osmanlı padişahıdır.",
+    "Onun döneminde İran'la 12 yıl süren savaşın sonunda Osmanlı sınırı Hazar Denizi'ne ulaştı.",
+    "Yirmi yıllık saltanatında hiç sefere çıkmadı; uzun savaşların açtığı para sıkıntısı ve asker isyanları, sonraki yüzyılın bunalımlarını hazırladı."
+  ],
+  "actions": [
+    {
+      "id": "iran-savasi",
+      "year": 1578,
+      "text": "Safevilere karşı 12 yıl sürecek savaşı başlattı.",
+      "cause": "1576'da Şah Tahmasb ölünce İran'da taht kavgası çıktı. Murad'ın çevresindeki vezirler bunu Kafkasya'yı almak için bir fırsat olarak gördü. Uzun ve pahalı bir doğu savaşına karşı çıkan sadrazam [[f:sokollu-mehmed-pasa|Sokollu Mehmed Paşa]] padişahı ikna edemedi; 1579'da da bir suikastta öldürüldü.",
+      "consequence": "Osmanlı orduları Gürcistan, Şirvan ve Dağıstan'a girdi, 1585'te Tebriz'i aldı. 1590'da imzalanan Ferhad Paşa Antlaşması'yla bütün bu yerler Osmanlılara bırakıldı ve imparatorluk doğuda en geniş sınırlarına ulaştı. Ama savaşın bedeli ağır oldu: 1580'lerin ortasında akçenin değeri yarıya indirildi, maaşı değersiz parayla ödenen yeniçeriler 1589'da ayaklanıp bir beylerbeyinin idamını sağladı.",
+      "depth": "Bu kazanımlar kalıcı olmadı. İran'ın yeni şahı I. Abbas 1603'te karşı saldırıya geçti ve birkaç yıl içinde Tebriz dahil kaybedilen yerleri geri aldı. 1589'daki \"Beylerbeyi Vakası\" ise yeniçerilerin isyanla padişaha istediğini yaptırdığı ilk büyük olaylardan sayılır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "rasathanenin-yikilmasi",
+      "year": 1580,
+      "text": "İstanbul Rasathanesi'ni yıktırdı.",
+      "cause": "Gökbilimci Takiyüddin, eskimiş yıldız cetvellerini yenilemek için bir gözlemevi kurmayı önermiş, III. Murad da bunu onaylamıştı. Tophane sırtlarında 1577'de çalışmaya başlayan rasathane, aletleriyle aynı yıllarda Danimarka'da Tycho Brahe'nin kurduğu gözlemevinden geri değildi. Aynı yıl gökyüzünde büyük bir kuyruklu yıldız göründü; Takiyüddin bunu uğur saydı, ama ardından veba salgını geldi.",
+      "consequence": "Şeyhülislam, gökleri gözlemenin uğursuzluk getirdiğini savunan bir görüş bildirdi. Padişahın emriyle Kaptan-ı Derya Kılıç Ali Paşa'nın adamları Ocak 1580'de rasathaneyi yıktı. Osmanlı topraklarında yeniden bir rasathane kurulması için yaklaşık üç yüzyıl beklemek gerekti.",
+      "depth": "Yıkımı yalnızca \"dine aykırı bulundu\" diye açıklamak eksik kalır. Bazı tarihçilere göre asıl neden saraydaki güç kavgasıydı: rasathaneyi destekleyen padişah hocası Hoca Sadeddin Efendi'nin rakipleri, kurumu ona karşı kullandı. Astronomi medreselerde okutulmaya ve camilerin muvakkithanelerinde vakit hesabı için kullanılmaya devam etti.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1546,
+      "to": 1558,
+      "event": "Babası Şehzade Selim'in yönettiği Manisa'da doğdu."
+    },
+    {
+      "place": {
+        "slug": "aksehir",
+        "nameTr": "Akşehir",
+        "historicName": "Philomelion",
+        "lat": 38.3575,
+        "lon": 31.4164
+      },
+      "precision": "city",
+      "from": 1558,
+      "to": 1562,
+      "event": "12 yaşında dedesi Kanuni tarafından Akşehir sancakbeyliğine atandı."
+    },
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1562,
+      "to": 1574,
+      "event": "12 yıl Manisa sancakbeyliği yaptı; oğlu Mehmed 1566'da burada doğdu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1574,
+      "to": 1595,
+      "event": "Tahta çıktı, beş kardeşini öldürttü ve ölümüne kadar sarayından yönetti."
+    }
+  ],
+  "relations": [
+    {
+      "to": "selim-ii",
+      "type": "child_of",
+      "note": "II. Selim'in büyük oğludur."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Murad III",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/murad-iii"
+    },
+    {
+      "id": "wiki",
+      "title": "III. Murad",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/III._Murad",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

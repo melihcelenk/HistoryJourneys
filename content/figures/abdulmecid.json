@@ -1,0 +1,74 @@
+{
+  "slug": "abdulmecid",
+  "nameTr": "Abdülmecid",
+  "nameEn": "Abdulmejid I",
+  "wikiTitleTr": "Abdülmecid",
+  "kind": "sultan",
+  "roles": ["31. Osmanlı padişahı"],
+  "birth": { "year": 1823, "place": "İstanbul" },
+  "death": { "year": 1861, "place": "İstanbul" },
+  "reign": { "from": 1839, "to": 1861 },
+  "summary": [
+    "Abdülmecid, 1839'da 16 yaşında tahta çıkan 31. Osmanlı padişahıdır.",
+    "Tahta çıkışından dört ay sonra Gülhane'de okunan Tanzimat Fermanı ile herkesin can, mal ve namus güvenliğini devlet güvencesine aldı.",
+    "1854'te Kırım Savaşı sırasında aldığı ilk dış borç, yaklaşık yirmi yıl sonra devleti iflasa götüren borçlanma döneminin başlangıcı oldu."
+  ],
+  "actions": [
+    {
+      "id": "tanzimat-fermani",
+      "year": 1839,
+      "text": "Tanzimat Fermanı'nı ilan ettirdi.",
+      "cause": "Babası [[f:mahmud-ii|II. Mahmud]] öldüğünde ordu Nizip'te Mısır Valisi Mehmed Ali Paşa'ya yenilmiş, donanma da Mısır'a teslim olmuştu. On altı yaşındaki padişahın tahtını koruyabilmesi için Avrupa devletlerinin, özellikle İngiltere'nin desteği gerekiyordu. Hariciye Nazırı [[f:mustafa-resid-pasa|Mustafa Reşid Paşa]], devletin kendini yenilediğini gösterecek bir ferman hazırladı.",
+      "consequence": "3 Kasım 1839'da Gülhane'de okunan fermanda padişah, Müslüman olsun olmasın bütün tebaasının can, mal ve namus güvenliğini tanıdı; kimsenin yargılanmadan cezalandırılmayacağına, verginin ve askerliğin belirli kurallara bağlanacağına söz verdi. Padişah kendi yetkisini ilk kez kanunla sınırlamış oluyordu. 1840'ta Avrupa devletleri Mısır meselesini Osmanlı lehine çözdü.",
+      "depth": "Ferman bir anayasa değildi; padişahın tek taraflı bir sözüydü ve uygulanmasını denetleyecek bir meclis yoktu. Sözlerin hepsi de tutulamadı: iltizamın kaldırılması denemesi başarısız olunca 1842'de eski yönteme dönüldü. Tarihçiler fermanda hem içeriden gelen yenilik isteğinin hem de Avrupa'nın desteğini kazanma hesabının payı olduğunu belirtir.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "kirim-savasi-ve-ilk-dis-borc",
+      "year": 1854,
+      "text": "Kırım Savaşı'na girdi ve ilk dış borcu aldı.",
+      "cause": "Rus Çarı I. Nikolay, Osmanlı ülkesindeki Ortodoksların koruyucusu olarak tanınmak istiyordu. İstek reddedilince Rus ordusu 1853'te Eflak ve Boğdan'ı işgal etti, Kasım'da da Sinop Limanı'ndaki Osmanlı filosunu yaktı. Rusya'nın Boğazlar'a inmesini istemeyen İngiltere ve Fransa, Osmanlı Devleti'nin yanında savaşa girdi.",
+      "consequence": "Müttefikler 1855'te Sivastopol'u aldı ve 1856 Paris Antlaşması ile Karadeniz savaş gemilerine kapatıldı. Ancak savaşın masrafı için 1854'te Londra'dan ilk dış borç alındı ve arkası geldi. Borçlar yirmi yıl içinde ödenemez hâle geldi; [[f:abdulhamid-ii|II. Abdülhamid]] döneminde devletin gelirlerinin bir bölümüne alacaklılar el koydu.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "islahat-fermani",
+      "year": 1856,
+      "text": "Islahat Fermanı'nı ilan etti.",
+      "cause": "Kırım Savaşı bittiğinde İngiltere ve Fransa, yardımlarının karşılığında Osmanlı Hristiyanlarının durumunun iyileştirilmesini istedi. Rusya'nın yeniden \"Ortodoksları koruma\" bahanesi bulmasını önlemek de gerekiyordu. Ferman, Paris barış görüşmeleri başlamadan bir hafta önce, 18 Şubat 1856'da ilan edildi.",
+      "consequence": "[[c:islahat-fermani|Islahat Fermanı]] gayrimüslimlere devlet memuru olma, askerî okullara girme ve mahkemelerde eşit tanıklık hakkı tanıdı; onlardan alınan cizye vergisi kaldırıldı. Hukuk önünde eşit \"Osmanlı\" vatandaşlığı düşüncesi böylece resmîleşti. Ferman, Paris Antlaşması'nın metninde de anıldı.",
+      "depth": "Ferman müttefik elçilerinin baskısıyla hazırlandığı için içeride sert eleştiri aldı; Tanzimat'ın mimarı Mustafa Reşid Paşa bile bu kadarının devletin bağımsızlığına zarar verdiğini yazdı. Müslümanların bir bölümü ayrıcalık kaybettiğini düşündü, gayrimüslimlerin bir bölümü de askerlik gibi yeni yükümlülüklerden hoşlanmadı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1823, "to": 1839, "event": "II. Mahmud'un oğlu olarak doğdu; Fransızca öğrendi ve Avrupa müziğine ilgi duyarak yetişti." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1839, "to": 1839, "event": "Sarayın dış bahçesi olan Gülhane'de, yabancı elçilerin de önünde Tanzimat Fermanı okundu." },
+    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1856, "to": 1861, "event": "Boğaz kıyısında yaptırdığı Avrupa tarzı yeni saraya taşındı; Topkapı Sarayı devlet merkezi olmaktan çıktı." },
+    { "place": { "slug": "istanbul-ihlamur", "nameTr": "Ihlamur Kasrı, İstanbul", "lat": 41.0486, "lon": 29.0019 }, "precision": "building", "from": 1861, "to": 1861, "event": "38 yaşında veremden öldü; Yavuz Selim Camii'nin yanındaki türbesine gömüldü." }
+  ],
+  "relations": [
+    { "to": "mahmud-ii", "type": "child_of", "note": "II. Mahmud'un oğludur." },
+    { "to": "abdulaziz", "type": "sibling_of", "note": "Kardeşi Abdülaziz, ondan sonra tahta çıktı." }
+  ],
+  "concepts": [
+    {
+      "slug": "islahat-fermani",
+      "term": "Islahat Fermanı",
+      "meaning": "\"Düzeltmeler buyruğu\" demektir: 1856'da Müslüman olmayan tebaaya eşit haklar tanıyan padişah buyruğu.",
+      "root": { "letters": "s-l-h", "language": "Arapça", "meaning": "iyi, düzgün olmak" },
+      "related": [
+        { "term": "ıslah", "meaning": "düzeltme, iyileştirme" },
+        { "term": "sulh", "meaning": "barış" },
+        { "term": "salih", "meaning": "iyi, yararlı" },
+        { "term": "maslahat", "meaning": "yararlı iş, önemli mesele" },
+        { "term": "ferman", "meaning": "Farsça: padişah buyruğu" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Abdülmecid", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulmecid" },
+    { "id": "wiki", "title": "Abdülmecid", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Abd%C3%BClmecid", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

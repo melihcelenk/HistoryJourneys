@@ -1,0 +1,162 @@
+{
+  "slug": "koprulu-mehmed-pasa",
+  "nameTr": "Köprülü Mehmed Paşa",
+  "nameEn": "Köprülü Mehmed Pasha",
+  "wikiTitleTr": "Köprülü Mehmed Paşa",
+  "kind": "statesman",
+  "roles": [
+    "Sadrazam (1656-1661)"
+  ],
+  "birth": {
+    "year": 1575,
+    "place": "Roşnik, Arnavutluk"
+  },
+  "death": {
+    "year": 1661,
+    "place": "Edirne"
+  },
+  "summary": [
+    "Köprülü Mehmed Paşa, Arnavutluk'ta doğan ve 1656'da seksen yaşlarındayken sadrazam olan devlet adamıdır.",
+    "Göreve gelirken işine kimsenin karışmaması için şartlar koştu ve beş yılda devlet otoritesini sert yöntemlerle yeniden kurdu.",
+    "Sadrazamlığı oğluna bırakarak Osmanlı yönetimine yaklaşık yarım yüzyıl damga vuran Köprülüler dönemini başlattı."
+  ],
+  "actions": [
+    {
+      "id": "sartli-sadrazamlik",
+      "year": 1656,
+      "text": "Şartlarını kabul ettirerek sadrazam oldu ve Çanakkale Boğazı'ndaki ablukayı kırdı.",
+      "cause": "1656'da Osmanlı Devleti ağır bir bunalım içindeydi: Girit Savaşı on bir yıldır sürüyordu, tahtta 14 yaşındaki [[f:mehmed-iv|IV. Mehmed]] vardı ve sadrazamlar birkaç ayda bir değişiyordu. Haziran 1656'da Venedik donanması Çanakkale Boğazı'nda Osmanlı donanmasını yendi, Bozcaada ve Limni'yi aldı; İstanbul'da kıtlık korkusu başladı. Padişahın annesi Turhan Sultan, tecrübeli ama gözden uzak bir vezir olan Köprülü Mehmed Paşa'yı çağırdı.",
+      "consequence": "Paşa 15 Eylül 1656'da sadrazam oldu; anlatıya göre önce sarayın işine karışmayacağına ve atamaların kendisine bırakılacağına dair söz aldı. 1657'de Boğaz'daki ablukayı kırdı, Bozcaada ve Limni'yi geri aldı. Anadolu'da Abaza Hasan Paşa'nın isyanını 1659'da bastırdı ve hazinenin gelir-gider dengesini düzeltti.",
+      "depth": "Şartların hikâyesi dönemin tarihçisi Naîmâ'dan gelir; bazı tarihçiler bunun yazılı bir anlaşma olduğundan kuşku duyar. Düzeni çok sayıda idamla sağladı; kaynaklarda geçen on binlerce kişilik sayılar abartılı bulunur, ancak sertliği konusunda görüş birliği vardır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "makamin-ogluna-gecmesi",
+      "year": 1661,
+      "text": "Sadrazamlığın oğlu Fazıl Ahmed Paşa'ya geçmesini sağladı.",
+      "cause": "Köprülü Mehmed Paşa 1661'de Edirne'de ağır hastalandı. Beş yılda kurduğu düzenin kendisinden sonra dağılmasından endişe ediyordu. Erzurum ve Şam valiliklerinde yetişen oğlu Fazıl Ahmed Paşa'yı yanına çağırttı ve padişaha onu önerdi.",
+      "consequence": "Paşa 31 Ekim 1661'de öldü; IV. Mehmed mührü 26 yaşındaki Fazıl Ahmed Paşa'ya verdi. Sadrazamlık Osmanlı tarihinde ilk kez babadan oğula geçti. Fazıl Ahmed on beş yıl görevde kaldı ve 1669'da Girit'in fethini tamamladı; aileden başka sadrazamlar da 18. yüzyılın başına kadar devleti yönetti.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "rosnik",
+        "nameTr": "Roşnik, Arnavutluk",
+        "historicName": "Roshnik",
+        "lat": 40.7333,
+        "lon": 20.05
+      },
+      "precision": "region",
+      "from": 1575,
+      "to": 1590,
+      "event": "Arnavutluk'ta doğdu; gençken devşirme olarak İstanbul'a getirildi."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1590,
+      "to": 1620,
+      "event": "Sarayda, önce mutfak hizmetinde, sonra hazinede çalıştı."
+    },
+    {
+      "place": {
+        "slug": "vezirkopru",
+        "nameTr": "Vezirköprü, Samsun",
+        "historicName": "Köprü",
+        "lat": 41.1436,
+        "lon": 35.4547
+      },
+      "precision": "city",
+      "from": 1620,
+      "to": 1644,
+      "event": "Amasya yakınındaki Köprü kasabasına yerleşip evlendi; \"Köprülü\" adı buradan gelir."
+    },
+    {
+      "place": {
+        "slug": "trabzon",
+        "nameTr": "Trabzon",
+        "historicName": "Trapezus",
+        "lat": 41.0027,
+        "lon": 39.7168
+      },
+      "precision": "city",
+      "from": 1644,
+      "to": 1645,
+      "event": "Trabzon beylerbeyi olarak görev yaptı."
+    },
+    {
+      "place": {
+        "slug": "canakkale",
+        "nameTr": "Çanakkale",
+        "historicName": "Kale-i Sultaniye",
+        "lat": 40.1553,
+        "lon": 26.4142
+      },
+      "precision": "region",
+      "from": 1657,
+      "to": 1657,
+      "event": "Boğaz'daki Venedik ablukasını kırdı; Bozcaada ve Limni'yi geri aldı."
+    },
+    {
+      "place": {
+        "slug": "edirne",
+        "nameTr": "Edirne",
+        "historicName": "Adrianopolis",
+        "lat": 41.677,
+        "lon": 26.556
+      },
+      "precision": "city",
+      "from": 1661,
+      "to": 1661,
+      "event": "31 Ekim 1661'de öldü; makamı oğlu Fazıl Ahmed Paşa'ya geçti."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-iv",
+      "type": "served_under",
+      "note": "IV. Mehmed'in sadrazamı olarak 1656-1661 arasında devleti yönetti."
+    },
+    {
+      "to": "ibrahim",
+      "type": "served_under",
+      "note": "Sultan İbrahim döneminde Trabzon beylerbeyliği gibi taşra görevlerinde bulundu."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Köprülü Mehmed Paşa",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/koprulu-mehmed-pasa"
+    },
+    {
+      "id": "wiki",
+      "title": "Köprülü Mehmed Paşa",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/K%C3%B6pr%C3%BCl%C3%BC_Mehmed_Pa%C5%9Fa",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

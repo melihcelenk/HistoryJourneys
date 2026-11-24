@@ -1,0 +1,106 @@
+/**
+ * Two-way mapping between the shareable part of the application state and the
+ * URL hash (NFR-3). Examples:
+ *   #/                                   start screen
+ *   #/yol/ataturk/mehmed-ii?r=1&k=ahmed-i&y=1609
+ *   #/yol/ataturk/mehmed-ii?k=ahmed-i&d=kosem-sultan
+ */
+
+import { SLUG_PATTERN } from '../domain/contentSchema';
+
+/** Map renderers, in the order they are offered. */
+export const MAP_KINDS = ['maplibre', 'pixi'] as const;
+export type MapKind = (typeof MAP_KINDS)[number];
+/** The renderer used when a link does not name one; it is left out of links. */
+export const DEFAULT_MAP_KIND: MapKind = 'pixi';
+/** The renderer that works everywhere; it takes over when another one cannot start. */
+export const FALLBACK_MAP_KIND: MapKind = 'maplibre';
+
+export interface UrlState {
+  from: string | null;
+  to: string | null;
+  /** Index of the chosen route among the alternatives. */
+  routeIndex: number;
+  /** Figure whose card is open on the route. */
+  focus: string | null;
+  /** Figure opened as a detour from the route. */
+  detour: string | null;
+  year: number | null;
+  map: MapKind | null;
+}
+
+export const EMPTY_URL_STATE: UrlState = {
+  from: null,
+  to: null,
+  routeIndex: 0,
+  focus: null,
+  detour: null,
+  year: null,
+  map: null,
+};
+
+const ROUTE_PREFIX = 'yol';
+const MAX_ROUTE_INDEX = 9;
+/** Years a link may carry; anything outside is ignored rather than shown on the timeline. */
+const MIN_YEAR = -3000;
+const MAX_YEAR = 2100;
+/** Names of the query parameters, shared by parsing and formatting. */
+const PARAM = { route: 'r', focus: 'k', detour: 'd', year: 'y', map: 'map' } as const;
+
+function slugOrNull(value: string | null | undefined): string | null {
+  return value && SLUG_PATTERN.test(value) ? value : null;
+}
+
+/** A year from a link, or null when it is missing, malformed or outside history. */
+function yearOrNull(value: string | null): number | null {
+  const year = intOrNull(value);
+  return year !== null && year >= MIN_YEAR && year <= MAX_YEAR ? year : null;
+}
+
+function routeIndexOrDefault(value: string | null): number {
+  const index = intOrNull(value) ?? 0;
+  return index >= 0 && index <= MAX_ROUTE_INDEX ? index : 0;
+}
+
+function intOrNull(value: string | null): number | null {
+  if (value === null || !/^-?\d{1,5}$/.test(value)) return null;
+  return Number(value);
+}
+
+/** Reads the state from a URL hash; anything malformed falls back to the empty state. */
+export function parseHash(hash: string): UrlState {
+  const [path = '', query = ''] = hash.replace(/^#\/?/, '').split('?');
+  const [prefix, rawFrom, rawTo] = path.split('/');
+  const params = new URLSearchParams(query);
+  const map = MAP_KINDS.find((kind) => kind === params.get(PARAM.map)) ?? null;
+  const from = prefix === ROUTE_PREFIX ? slugOrNull(rawFrom) : null;
+  const to = prefix === ROUTE_PREFIX ? slugOrNull(rawTo) : null;
+  if (!from || !to) return { ...EMPTY_URL_STATE, from, map };
+  return {
+    from,
+    to,
+    routeIndex: routeIndexOrDefault(params.get(PARAM.route)),
+    focus: slugOrNull(params.get(PARAM.focus)),
+    detour: slugOrNull(params.get(PARAM.detour)),
+    year: yearOrNull(params.get(PARAM.year)),
+    map,
+  };
+}
+
+/** Writes the state as a URL hash; default values are left out to keep links short. */
+export function formatHash(state: UrlState): string {
+  const params = new URLSearchParams();
+  if (state.map) params.set(PARAM.map, state.map);
+  if (!state.from) return withQuery('#/', params);
+  if (!state.to) return withQuery(`#/${ROUTE_PREFIX}/${state.from}`, params);
+  if (state.routeIndex > 0) params.set(PARAM.route, String(state.routeIndex));
+  if (state.focus) params.set(PARAM.focus, state.focus);
+  if (state.detour) params.set(PARAM.detour, state.detour);
+  if (state.year !== null) params.set(PARAM.year, String(state.year));
+  return withQuery(`#/${ROUTE_PREFIX}/${state.from}/${state.to}`, params);
+}
+
+function withQuery(path: string, params: URLSearchParams): string {
+  const query = params.toString();
+  return query ? `${path}?${query}` : path;
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "ahmed-iii",
+  "nameTr": "III. Ahmed",
+  "nameEn": "Ahmed III",
+  "wikiTitleTr": "III. Ahmed",
+  "kind": "sultan",
+  "roles": ["23. Osmanlı padişahı"],
+  "birth": { "year": 1673, "place": "Dobriç" },
+  "death": { "year": 1736, "place": "İstanbul" },
+  "reign": { "from": 1703, "to": 1730 },
+  "summary": [
+    "III. Ahmed, 1703'te bir ayaklanmayla tahta çıkan ve 27 yıl hüküm süren 23. Osmanlı padişahıdır.",
+    "Saltanatının son on iki yılı, Kâğıthane'deki Sadabad köşkleri ve lale bahçeleriyle anılan Lale Devri'dir.",
+    "1727'de ilk Türkçe matbaanın kurulmasına izin vererek Osmanlı'da basılı kitap çağını başlattı."
+  ],
+  "actions": [
+    {
+      "id": "prut-seferi",
+      "year": 1711,
+      "text": "Rusya'ya savaş açtı ve Prut'ta Çar Petro'nun ordusunu kuşattırdı.",
+      "cause": "Rus Çarı I. Petro 1696'da Azak Kalesi'ni almış, Karadeniz'e inmenin yolunu açmıştı. 1709'da Poltava'da Petro'ya yenilen İsveç Kralı XII. Karl Osmanlı topraklarına sığındı; Rus birlikleri onu kovalarken sınırı geçti. III. Ahmed 1710'da Rusya'ya savaş ilan etti.",
+      "consequence": "Temmuz 1711'de Sadrazam Baltacı Mehmed Paşa, Petro'nun ordusunu Prut Nehri kıyısında kuşattı. Zor durumda kalan Çar barış istedi; yapılan antlaşmayla Azak Osmanlılara geri verildi. Böylece Karlofça'dan sonraki ilk büyük toprak kazanımı elde edildi.",
+      "depth": "Baltacı'nın, eline düşen Çar'ı bu kadar hafif şartlarla bırakması o günden beri tartışılır. Çar'ın eşi Katerina'nın sadrazamı mücevherlerle kandırdığı hikâyesi yaygındır ama tarihçiler bunu kanıtlanmış saymaz; yeniçerilerin savaşmak istememesi gibi askerî nedenler öne çıkarılır.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "lale-devri-ve-matbaa",
+      "year": 1727,
+      "text": "Damadı İbrahim Paşa ile bir barış dönemi başlattı ve ilk Türkçe matbaaya izin verdi.",
+      "cause": "1716'da Petervaradin'de yenilen Osmanlılar ertesi yıl Belgrad'ı kaybetti ve 1718'de Pasarofça Antlaşması'nı imzaladı. III. Ahmed ile sadrazamı ve damadı Nevşehirli İbrahim Paşa, savaş yerine barışı ve Avrupa'yı tanımayı seçti. 1720'de Yirmisekiz Mehmed Çelebi elçi olarak Paris'e gönderildi.",
+      "consequence": "1722'de Kâğıthane'de [[c:sadabad|Sadabad]] kasrı ve bahçeleri yapıldı; İstanbul çeşmeler, kütüphaneler ve lale bahçeleriyle doldu. 1727'de çıkan fermanla [[f:ibrahim-muteferrika|İbrahim Müteferrika]] ilk Türkçe matbaayı kurdu ve 1729'da ilk kitap olan Vankulu Lügati basıldı.",
+      "depth": "\"Lale Devri\" adını o dönemde yaşayanlar kullanmadı; ad 20. yüzyılın başında Yahya Kemal ve Ahmed Refik tarafından yaygınlaştırıldı. Matbaa da Osmanlı ülkesindeki ilk matbaa değildi: İstanbul'daki Yahudiler 15. yüzyılın sonundan beri kitap basıyordu. Ferman yalnızca din dışı konulardaki kitapların basılmasına izin veriyordu.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "patrona-halil-isyani",
+      "year": 1730,
+      "text": "Patrona Halil İsyanı karşısında tahtı yeğenine bıraktı.",
+      "cause": "1720'lerde başlayan İran savaşları 1730'da kötüye gitti ve Tebriz elden çıktı. Savaş için toplanan vergiler ve pahalılık halkı bunaltırken saray çevresinin gösterişli eğlenceleri öfke çekiyordu. Eylül 1730'da Patrona Halil adlı bir yeniçeri birkaç arkadaşıyla çarşıda isyan başlattı.",
+      "consequence": "İsyan iki günde büyüdü. III. Ahmed tahtını kurtarmak için damadı İbrahim Paşa'yı boğdurup cesedini isyancılara verdi, ama bu yetmedi. Tahtı yeğeni [[f:mahmud-i|I. Mahmud]]'a bıraktı; Sadabad'daki köşkler yağmalandı ve yıkıldı. Kendisi 1736'daki ölümüne kadar sarayda kapalı yaşadı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "dobric", "nameTr": "Dobriç", "historicName": "Hacıoğlu Pazarcık", "lat": 43.5726, "lon": 27.8273 }, "precision": "city", "from": 1673, "to": 1673, "event": "Babası IV. Mehmed'in Lehistan seferi sırasında, yol üzerindeki bu kasabada doğdu." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1703, "to": 1703, "event": "Ağabeyi II. Mustafa'yı deviren ayaklanma sonunda Edirne'de tahta çıkarıldı." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1703, "to": 1730, "event": "Sarayı yeniden İstanbul'a taşıdı; avluya kendi kütüphanesini, kapının önüne ünlü çeşmesini yaptırdı." },
+    { "place": { "slug": "istanbul-kagithane", "nameTr": "Kâğıthane, İstanbul", "historicName": "Sadabad", "lat": 41.073, "lon": 28.966 }, "precision": "district", "from": 1722, "to": 1730, "event": "Kâğıthane Deresi kıyısında Sadabad Kasrı'nı yaptırdı; dönemin eğlenceleri burada düzenlendi." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1730, "to": 1736, "event": "Tahttan çekildikten sonra altı yıl sarayda kapalı yaşadı ve 1736'da öldü." }
+  ],
+  "relations": [
+    { "to": "mehmed-iv", "type": "child_of", "note": "IV. Mehmed'in oğludur." }
+  ],
+  "concepts": [
+    {
+      "slug": "sadabad",
+      "term": "Sadabad",
+      "meaning": "\"Mutluluk yurdu\" demektir: III. Ahmed döneminde Kâğıthane'de yapılan kasır ve bahçelerin adı.",
+      "root": { "letters": "sa'd + âbâd", "language": "Arapça ve Farsça", "meaning": "mutluluk + bayındır yer" },
+      "related": [
+        { "term": "saadet", "meaning": "mutluluk" },
+        { "term": "mesut", "meaning": "mutlu" },
+        { "term": "abat", "meaning": "bayındır, şen" },
+        { "term": "-abad", "meaning": "şehir adlarında \"bayındır yer\" anlamı veren ek (İslamabad, Aşkabat)" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Ahmed III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/ahmed-iii" },
+    { "id": "wiki", "title": "III. Ahmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Ahmed", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

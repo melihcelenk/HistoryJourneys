@@ -1,0 +1,167 @@
+{
+  "slug": "mehmed-iv",
+  "nameTr": "IV. Mehmed",
+  "nameEn": "Mehmed IV (the Hunter)",
+  "wikiTitleTr": "IV. Mehmed",
+  "kind": "sultan",
+  "roles": [
+    "19. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1642,
+    "place": "İstanbul"
+  },
+  "death": {
+    "year": 1693,
+    "place": "Edirne"
+  },
+  "reign": {
+    "from": 1648,
+    "to": 1687
+  },
+  "summary": [
+    "IV. Mehmed, 1648'de henüz 6 yaşındayken tahta çıkan 19. Osmanlı padişahıdır.",
+    "39 yıllık saltanatı Kanuni'den sonra en uzunudur; ava düşkünlüğü yüzünden \"Avcı Mehmed\" diye anılır.",
+    "1683'teki İkinci Viyana Kuşatması bozgunu onun döneminde yaşandı; Osmanlı Devleti bundan sonra Avrupa'da toprak kaybetmeye başladı."
+  ],
+  "actions": [
+    {
+      "id": "koprulunun-atanmasi",
+      "year": 1656,
+      "text": "Köprülü Mehmed Paşa'yı geniş yetkilerle sadrazam yaptı.",
+      "cause": "Mehmed, babası [[f:ibrahim|İbrahim]] tahttan indirilince çocuk yaşta padişah oldu; ilk yıllarda devleti büyükannesi [[f:kosem-sultan|Kösem Sultan]], onun 1651'de öldürülmesinden sonra da annesi Turhan Sultan yönetti. Sekiz yılda on üç sadrazam değişti. 1656'da Venedik donanması Çanakkale Boğazı'nın önündeki Bozcaada ile Limni'yi aldı ve İstanbul'un deniz yolunu kesti.",
+      "consequence": "Eylül 1656'da sadrazamlığa, yaşı sekseni bulmuş [[f:koprulu-mehmed-pasa|Köprülü Mehmed Paşa]] getirildi. Köprülü bir yıl içinde adaları geri aldı, isyancıları ezdi ve hazineyi toparladı. 1661'de ölünce yerine oğlu Fazıl Ahmed Paşa geçti; onun döneminde 1669'da Girit'in fethi tamamlandı, 1672'de Lehistan'dan Kamaniçe alındı ve Osmanlı Devleti Avrupa'daki en geniş sınırlarına ulaştı.",
+      "depth": "Köprülü'nün görevi kabul etmek için \"işlerime kimse karışmayacak, hakkımda söylenenlere kulak asılmayacak\" gibi şartlar koştuğu anlatılır. Bu şartlar olaydan yaklaşık yarım yüzyıl sonra yazan tarihçi Naîmâ'da geçer; bazı tarihçiler böyle bir pazarlığın gerçekten yapıldığından emin değildir. Atama kararını da 14 yaşındaki padişahtan çok annesi Turhan Sultan vermiştir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "ikinci-viyana-kusatmasi",
+      "year": 1683,
+      "text": "Ordusunu Viyana üzerine gönderdi.",
+      "cause": "1676'da sadrazam olan Merzifonlu Kara Mustafa Paşa, Köprülü ailesinin damadı ve yetiştirmesiydi. Macaristan'da Habsburglara karşı ayaklanan soylular Osmanlı'dan yardım isteyince sadrazam bunu, [[f:suleyman-i|Kanuni]]'nin 1529'da alamadığı Viyana'yı almak için bir fırsat saydı. IV. Mehmed orduyla birlikte Belgrad'a kadar geldi ve komutayı sadrazama bıraktı.",
+      "consequence": "Viyana 14 Temmuz 1683'te kuşatıldı; şehir düşmek üzereyken 12 Eylül'de Lehistan kralı Jan Sobieski'nin komuta ettiği yardım ordusu Osmanlı ordusunu bozguna uğrattı. Merzifonlu aynı yılın aralık ayında Belgrad'da idam edildi. Avusturya, Lehistan, Venedik ve sonradan Rusya birleşerek saldırıya geçti; 1686'da Budin kaybedildi, 1687'deki yenilgiden sonra ordu ayaklanıp IV. Mehmed'i tahttan indirdi ve yerine kardeşi [[f:suleyman-ii|II. Süleyman]]'ı geçirdi.",
+      "depth": "Kuşatmanın sorumluluğu tartışmalıdır. Bazı Osmanlı kaynaklarına göre seferin açıklanan hedefi sınırdaki Yanıkkale'ydi; sadrazam orduyu Viyana'ya kendi kararıyla yürüttü ve padişah bunu sonradan öğrendi. Savaş 16 yıl sürdü ve 1699'da, [[f:mustafa-ii|II. Mustafa]] döneminde imzalanan Karlofça Antlaşması'yla Macaristan'ın kaybıyla sonuçlandı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1642,
+      "to": 1658,
+      "event": "Sultan İbrahim'in ilk oğlu olarak doğdu; 1648'de 6 yaşında tahta çıkarıldı."
+    },
+    {
+      "place": {
+        "slug": "edirne",
+        "nameTr": "Edirne",
+        "historicName": "Adrianopolis",
+        "lat": 41.677,
+        "lon": 26.556
+      },
+      "precision": "city",
+      "from": 1658,
+      "to": 1672,
+      "event": "Sarayını çoğu zaman Edirne'de tuttu ve çevredeki ormanlarda büyük sürek avları düzenledi."
+    },
+    {
+      "place": {
+        "slug": "kamanice",
+        "nameTr": "Kamaniçe",
+        "historicName": "Kamianets-Podilskyi",
+        "lat": 48.6845,
+        "lon": 26.5853
+      },
+      "precision": "city",
+      "from": 1672,
+      "to": 1672,
+      "event": "Lehistan seferine ordusuyla birlikte katıldı; Kamaniçe Kalesi alındı."
+    },
+    {
+      "place": {
+        "slug": "belgrad",
+        "nameTr": "Belgrad",
+        "historicName": "Nándorfehérvár",
+        "lat": 44.7866,
+        "lon": 20.4489
+      },
+      "precision": "city",
+      "from": 1683,
+      "to": 1683,
+      "event": "Viyana üzerine yürüyen orduyu Belgrad'a kadar götürdü ve kuşatmanın sonucunu burada bekledi."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1687,
+      "to": 1687,
+      "event": "Ayaklanan ordunun isteğiyle tahttan indirildi ve sarayda bir daireye kapatıldı."
+    },
+    {
+      "place": {
+        "slug": "edirne",
+        "nameTr": "Edirne",
+        "historicName": "Adrianopolis",
+        "lat": 41.677,
+        "lon": 26.556
+      },
+      "precision": "city",
+      "from": 1693,
+      "to": 1693,
+      "event": "Gözetim altında yaşadığı Edirne'de 51 yaşında öldü; bedeni İstanbul'da annesinin türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "ibrahim",
+      "type": "child_of",
+      "note": "Sultan İbrahim'in en büyük oğludur."
+    },
+    {
+      "to": "suleyman-ii",
+      "type": "sibling_of",
+      "note": "1687'de tahttan indirilince yerine kardeşi II. Süleyman geçti."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Mehmed IV",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/mehmed-iv"
+    },
+    {
+      "id": "wiki",
+      "title": "IV. Mehmed",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/IV._Mehmed",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

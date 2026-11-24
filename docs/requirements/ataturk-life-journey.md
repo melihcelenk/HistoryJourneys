@@ -34,7 +34,7 @@ archives:
 
 ## 4. Data Requirements
 
-- **AJ-8** Stops are compiled from the chronologies in §2, with the ATAM chronology as the primary source.
+- **AJ-8** Stops are compiled by the LLM under the platform's generation rules (CG-1, CG-8) from the chronologies in §2, with the ATAM chronology as the primary source. Facts and dates are taken from the chronologies; their text is not reproduced, and each stop cites them.
 - **AJ-9** Each place has latitude and longitude and a location precision (building, district, city or region).
 - **AJ-10** Places are stored with both their historical and present-day names (for example *Selanik* / *Thessaloniki*).
 - **AJ-11** The journey uses the platform's entity model, so that people, events and places on Atatürk's cards link into the rest of History Journeys.

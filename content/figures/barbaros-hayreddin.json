@@ -1,0 +1,184 @@
+{
+  "slug": "barbaros-hayreddin",
+  "nameTr": "Barbaros Hayreddin Paşa",
+  "nameEn": "Hayreddin Barbarossa",
+  "wikiTitleTr": "Barbaros Hayreddin Paşa",
+  "kind": "soldier",
+  "roles": [
+    "Kaptan-ı derya",
+    "Cezayir beylerbeyi"
+  ],
+  "birth": {
+    "year": 1478,
+    "place": "Midilli"
+  },
+  "death": {
+    "year": 1546,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "Barbaros Hayreddin Paşa, 1478 dolaylarında Midilli'de doğan ve Kanuni döneminde Osmanlı donanmasını yöneten denizcidir.",
+    "28 Eylül 1538'de Preveze'de, Andrea Doria'nın komuta ettiği Haçlı donanmasını yendi.",
+    "Cezayir'i Osmanlı'ya bağlayarak ve Preveze'yi kazanarak Akdeniz'de onlarca yıl sürecek Osmanlı üstünlüğünü başlattı."
+  ],
+  "actions": [
+    {
+      "id": "cezayirin-baglanmasi",
+      "year": 1519,
+      "text": "Cezayir'i Osmanlı Devleti'ne bağladı.",
+      "cause": "Asıl adı Hızır'dı; ağabeyi Oruç Reis'le birlikte Batı Akdeniz'de korsanlık yapıyor, İspanya'dan kaçan Müslümanları Kuzey Afrika'ya taşıyordu. Avrupalılar kızıl sakalı yüzünden Oruç'a [[c:barbaros-lakabi|Barbaros]] diyordu. Kardeşler 1516'da Cezayir'i ele geçirdi, ancak Oruç 1518'de İspanyollarla savaşırken öldü ve Hızır tek başına kaldı.",
+      "consequence": "Hızır Reis 1519'da [[f:selim-i|Yavuz Sultan Selim]]'e elçi göndererek Cezayir'i Osmanlı'ya bağladığını bildirdi. Padişah ona beylerbeyi unvanı, 2.000 yeniçeri ve toplar gönderdi. Böylece Osmanlı sınırı bir anda Batı Akdeniz'e ulaştı; Cezayir 1830'a kadar Osmanlı toprağı sayıldı.",
+      "depth": "Bu bağlılık uzun süre gevşek kaldı: Cezayir'i İstanbul'dan gönderilen valilerden çok yerel denizciler ve yeniçeriler yönetti. \"Hayreddin\" (dinin hayırlısı) lakabını ona padişahın verdiği anlatılır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "preveze",
+      "year": 1538,
+      "text": "Preveze'de Haçlı donanmasını yendi.",
+      "cause": "[[f:suleyman-i|Kanuni]], İspanya Kralı ve Kutsal Roma İmparatoru Şarlken'in amirali Andrea Doria'ya denizde karşı koyamıyordu. 1533'te Barbaros'u İstanbul'a çağırdı ve onu kaptan-ı derya yaptı. Barbaros tersaneyi yeniledi, Ege adalarını aldı; bunun üzerine papa, Venedik ve İspanya 1538'de ortak bir donanma kurdu.",
+      "consequence": "İki donanma 28 Eylül 1538'de Yunanistan'ın batısındaki Preveze önünde karşılaştı. Barbaros, gemi sayısı kendisinden fazla olan müttefik donanmasını dağıttı; Doria gece çekildi. Akdeniz'de üstünlük, 1571'deki İnebahtı yenilgisine kadar Osmanlılarda kaldı; 28 Eylül bugün Türk Deniz Kuvvetleri Günü'dür.",
+      "depth": "Gemi sayıları kaynaktan kaynağa değişir. Bazı tarihçilere göre Doria'nın isteksiz davranmasında Venedik'le arasındaki güvensizlik ve kendi gemilerini riske atmak istememesi de rol oynadı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "midilli",
+        "nameTr": "Midilli",
+        "historicName": "Mytilene",
+        "lat": 39.1043,
+        "lon": 26.5553
+      },
+      "precision": "city",
+      "from": 1478,
+      "to": 1500,
+      "event": "Bir sipahinin oğlu olarak doğdu; kardeşleriyle deniz ticaretine başladı."
+    },
+    {
+      "place": {
+        "slug": "cezayir",
+        "nameTr": "Cezayir",
+        "historicName": "El-Cezayir",
+        "lat": 36.7538,
+        "lon": 3.0588
+      },
+      "precision": "city",
+      "from": 1516,
+      "to": 1533,
+      "event": "Ağabeyi Oruç'la şehri aldı; 1519'da Osmanlı'ya bağlayıp beylerbeyi oldu."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1533,
+      "to": 1534,
+      "event": "Kanuni'nin çağrısıyla geldi ve kaptan-ı derya oldu."
+    },
+    {
+      "place": {
+        "slug": "preveze",
+        "nameTr": "Preveze",
+        "historicName": "Preveza",
+        "lat": 38.9597,
+        "lon": 20.7517
+      },
+      "precision": "city",
+      "from": 1538,
+      "to": 1538,
+      "event": "Andrea Doria'nın komuta ettiği Haçlı donanmasını yendi."
+    },
+    {
+      "place": {
+        "slug": "toulon",
+        "nameTr": "Toulon",
+        "historicName": "Tulon",
+        "lat": 43.1242,
+        "lon": 5.928
+      },
+      "precision": "city",
+      "from": 1543,
+      "to": 1544,
+      "event": "Fransa'yla ittifak gereği Nice'i kuşattı ve donanmasıyla kışı Toulon'da geçirdi."
+    },
+    {
+      "place": {
+        "slug": "istanbul-besiktas",
+        "nameTr": "Beşiktaş, İstanbul",
+        "lat": 41.0422,
+        "lon": 29.0067
+      },
+      "precision": "district",
+      "from": 1546,
+      "to": 1546,
+      "event": "İstanbul'da öldü; Mimar Sinan'ın yaptığı Beşiktaş'taki türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "selim-i",
+      "type": "served_under",
+      "note": "1519'da Cezayir'i Yavuz Sultan Selim'e bağladı ve ondan beylerbeyi unvanı aldı."
+    },
+    {
+      "to": "suleyman-i",
+      "type": "served_under",
+      "note": "Kanuni'nin kaptan-ı deryası olarak Osmanlı donanmasını yönetti."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "barbaros-lakabi",
+      "term": "Barbaros",
+      "meaning": "İtalyanca \"Barbarossa\", yani \"kızıl sakal\" demektir; Avrupalıların önce Oruç Reis'e, sonra kardeşi Hızır'a taktığı lakap.",
+      "root": {
+        "letters": "barba + rossa",
+        "language": "İtalyanca",
+        "meaning": "sakal + kızıl"
+      },
+      "related": [
+        {
+          "term": "berber",
+          "meaning": "sakal ve saç kesen kişi; İtalyanca \"barbiere\" kelimesinden"
+        },
+        {
+          "term": "ruj",
+          "meaning": "dudak boyası; Fransızca \"rouge\" (kırmızı) kelimesinden"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Barbaros Hayreddin Paşa",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/barbaros-hayreddin-pasa"
+    },
+    {
+      "id": "wiki",
+      "title": "Barbaros Hayreddin Paşa",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Barbaros_Hayreddin_Pa%C5%9Fa",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "slug": "cem-sultan",
+  "nameTr": "Cem Sultan",
+  "nameEn": "Cem Sultan",
+  "wikiTitleTr": "Cem Sultan",
+  "kind": "royal",
+  "roles": [
+    "Osmanlı şehzadesi",
+    "Şair"
+  ],
+  "birth": {
+    "year": 1459,
+    "place": "Edirne"
+  },
+  "death": {
+    "year": 1495,
+    "place": "Napoli"
+  },
+  "summary": [
+    "Cem Sultan, 1459'da Edirne'de doğan ve Fatih Sultan Mehmed'in küçük oğlu olan Osmanlı şehzadesidir.",
+    "1481'de Bursa'da padişahlığını ilan etti, ancak tahtta yalnızca 18 gün kalabildi.",
+    "Sonraki 13 yılını Avrupa'da rehin geçirdi ve Avrupalı devletlerin Osmanlı'ya karşı elinde bir koz oldu."
+  ],
+  "actions": [
+    {
+      "id": "bursa-saltanati",
+      "year": 1481,
+      "text": "Bursa'da padişahlığını ilan etti.",
+      "cause": "[[f:mehmed-ii|Fatih]] 3 Mayıs 1481'de ölünce geride iki oğlu kaldı: Amasya'daki [[f:bayezid-ii|Bayezid]] ve Konya'daki Cem. Sadrazam Karamânî Mehmed Paşa Cem'i tutuyordu, ancak yeniçeriler sadrazamı öldürdü ve Bayezid tahta çıktı. Cem bunu kabul etmedi ve ordusuyla Bursa'ya yürüdü.",
+      "consequence": "Cem, Bursa'da adına hutbe okuttu ve para bastırdı; ağabeyine ülkeyi Anadolu ve Rumeli olarak ikiye bölmeyi önerdi. Bayezid öneriyi geri çevirdi ve 20 Haziran 1481'de Yenişehir Ovası'nda Cem'i yendi. Cem önce Kahire'ye, Memlük sultanının yanına kaçtı.",
+      "depth": "Bayezid'in öneriye \"Padişahlar arasında akrabalık olmaz\" anlamında bir sözle karşılık verdiği anlatılır; bu söz sonraki kroniklerden gelir. Mücadele iki kardeşin kişisel hırsından ibaret değildi: arkalarında ayrı devlet adamı ve asker grupları vardı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "rodosa-siginma",
+      "year": 1482,
+      "text": "Rodos şövalyelerine sığındı.",
+      "cause": "Cem 1482'de Anadolu'ya dönüp tahtı bir kez daha denedi, yine başaramadı. Rumeli'ye geçip oradan mücadele etmek istiyordu. Bunun için Rodos'taki Saint Jean şövalyelerinden geçiş izni istedi ve Temmuz 1482'de adaya çıktı.",
+      "consequence": "Şövalyeler verdikleri sözü tutmadı: Cem'i Fransa'ya götürüp yıllarca şatolarda tuttular. Bayezid, kardeşi serbest bırakılmasın diye her yıl 45.000 düka altın ödedi. Cem 1489'da Roma'da papaya teslim edildi, 1495'te Fransa Kralı VIII. Charles'ın eline geçti ve aynı yıl Napoli'de öldü; naaşı 1499'da Bursa'ya getirildi.",
+      "depth": "Ölüm sebebi kesin bilinmiyor. Dönemin bazı kaynakları Papa VI. Alexander'ın onu zehirlettiğini öne sürer; bazı tarihçiler ise hastalıktan öldüğünü düşünür. Cem yaşadığı sürece Bayezid batıya büyük bir sefer açmaktan kaçındı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "edirne",
+        "nameTr": "Edirne",
+        "historicName": "Adrianopolis",
+        "lat": 41.677,
+        "lon": 26.556
+      },
+      "precision": "city",
+      "from": 1459,
+      "to": 1469,
+      "event": "Edirne Sarayı'nda doğdu ve ilk eğitimini burada aldı."
+    },
+    {
+      "place": {
+        "slug": "konya",
+        "nameTr": "Konya",
+        "historicName": "İkonion",
+        "lat": 37.8746,
+        "lon": 32.4932
+      },
+      "precision": "city",
+      "from": 1474,
+      "to": 1481,
+      "event": "Karaman sancakbeyi olarak Konya'da yaşadı."
+    },
+    {
+      "place": {
+        "slug": "bursa",
+        "nameTr": "Bursa",
+        "historicName": "Prusa",
+        "lat": 40.1885,
+        "lon": 29.061
+      },
+      "precision": "city",
+      "from": 1481,
+      "to": 1481,
+      "event": "Padişahlığını ilan etti; adına para bastırdı ve 18 gün hüküm sürdü."
+    },
+    {
+      "place": {
+        "slug": "rodos",
+        "nameTr": "Rodos",
+        "historicName": "Rhodos",
+        "lat": 36.4349,
+        "lon": 28.2176
+      },
+      "precision": "city",
+      "from": 1482,
+      "to": 1482,
+      "event": "Rumeli'ye geçmek için şövalyelere sığındı; buradan Fransa'ya götürüldü."
+    },
+    {
+      "place": {
+        "slug": "roma",
+        "nameTr": "Roma",
+        "lat": 41.9028,
+        "lon": 12.4964
+      },
+      "precision": "city",
+      "from": 1489,
+      "to": 1495,
+      "event": "Papa VIII. Innocentius'a teslim edildi ve Vatikan'da tutuldu."
+    },
+    {
+      "place": {
+        "slug": "napoli",
+        "nameTr": "Napoli",
+        "lat": 40.8518,
+        "lon": 14.2681
+      },
+      "precision": "city",
+      "from": 1495,
+      "to": 1495,
+      "event": "Fransa kralının ordusuyla geldiği Napoli'de 25 Şubat 1495'te öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-ii",
+      "type": "child_of",
+      "note": "Fatih Sultan Mehmed'in küçük oğludur."
+    },
+    {
+      "to": "bayezid-ii",
+      "type": "opposed",
+      "note": "Ağabeyi II. Bayezid'e karşı taht mücadelesine girdi ve 1481'de Yenişehir'de yenildi."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Cem Sultan",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/cem-sultan"
+    },
+    {
+      "id": "wiki",
+      "title": "Cem Sultan",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Cem_Sultan",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

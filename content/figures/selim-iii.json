@@ -1,0 +1,74 @@
+{
+  "slug": "selim-iii",
+  "nameTr": "III. Selim",
+  "nameEn": "Selim III",
+  "wikiTitleTr": "III. Selim",
+  "kind": "sultan",
+  "roles": ["28. Osmanlı padişahı", "Besteci"],
+  "birth": { "year": 1761, "place": "İstanbul" },
+  "death": { "year": 1808, "place": "İstanbul" },
+  "reign": { "from": 1789, "to": 1807 },
+  "summary": [
+    "III. Selim, 1789'da 27 yaşında tahta çıkan, aynı zamanda usta bir besteci olan 28. Osmanlı padişahıdır.",
+    "1793'te Avrupa ordularındaki gibi eğitilen Nizam-ı Cedid ordusunu kurdu.",
+    "Yenilikleri 1807'de bir isyanla durduruldu, ama sarayda birlikte yaşadığı kuzeni II. Mahmud aynı yolu sonuna kadar götürdü."
+  ],
+  "actions": [
+    {
+      "id": "nizam-i-cedid",
+      "year": 1793,
+      "text": "Nizam-ı Cedid ordusunu kurdu.",
+      "cause": "Amcası [[f:abdulhamid-i|I. Abdülhamid]]'den devraldığı savaş 1791'de Avusturya ile Ziştovi, 1792'de Rusya ile Yaş antlaşmalarıyla bitti ve Kırım'ın kaybı kesinleşti. Yeniçeriler artık talim yapmıyor, çoğu esnaflıkla uğraşıp yalnızca maaş alıyordu. III. Selim devlet adamlarından neyin yanlış gittiğini anlatan raporlar istedi.",
+      "consequence": "1793'te İstanbul'un dışındaki Levent Çiftliği'nde, Avrupalı subayların eğittiği ve tek tip üniforma giyen yeni bir piyade birliği kuruldu. Masrafları için İrad-ı Cedid adlı ayrı bir hazine oluşturuldu, 1795'te de kara ordusu için mühendislik okulu açıldı. Bu askerler 1799'da Akkâ'da Napolyon'un ordusunu durduran savunmada yer aldı.",
+      "depth": "[[c:nizam-i-cedid|Nizam-ı Cedid]] yalnızca bir ordunun adı değildi; maliyeden diplomasiye uzanan bütün yenilik programına bu ad veriliyordu. III. Selim yeniçerileri kaldırmaya cesaret edemedi, yeni orduyu eskisinin yanında kurdu. İki ordunun yan yana durması, yeni vergilerle birleşince 1807'deki patlamayı hazırladı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "daimi-elcilikler",
+      "year": 1793,
+      "text": "Avrupa başkentlerinde ilk sürekli elçilikleri açtı.",
+      "cause": "Osmanlı Devleti o güne kadar Avrupa'ya yalnızca belirli bir iş için geçici elçiler gönderirdi; Avrupa devletlerinin ise İstanbul'da sürekli elçileri vardı. Fransız Devrimi'nin Avrupa'yı altüst ettiği yıllarda başkentlerde ne olup bittiğini ilk elden öğrenmek zorunlu hâle geldi.",
+      "consequence": "1793'te Yusuf Agâh Efendi Londra'ya ilk sürekli elçi olarak gitti; 1797'ye kadar Paris, Viyana ve Berlin'de de elçilikler açıldı. Elçilerle birlikte giden genç kâtipler yabancı dil öğrendi ve Avrupa'yı yakından gördü. 19. yüzyılın yenilikçi devlet adamları, örneğin [[f:mustafa-resid-pasa|Mustafa Reşid Paşa]], bu elçilik geleneğinin içinden yetişti.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "kabakci-mustafa-isyani",
+      "year": 1807,
+      "text": "Kabakçı Mustafa İsyanı karşısında Nizam-ı Cedid'i kaldırdı ve tahttan indirildi.",
+      "cause": "Yeni ordu, yeniçerilerin ayrıcalıklarını; yeni vergiler de bunlardan pay alan çevreleri tehdit ediyordu. 1806'da Rumeli âyanları yeni ordunun Edirne'ye girmesini engelledi. Mayıs 1807'de Boğaz'daki kalelerde görevli yamaklar, kendilerine yeni üniforma giydirilmek istenince Kabakçı Mustafa'nın önderliğinde ayaklandı.",
+      "consequence": "Kan dökülmesini istemeyen III. Selim yeni ordusunu isyancıların üzerine göndermedi ve Nizam-ı Cedid'i kaldırdığını açıkladı. Buna rağmen 29 Mayıs 1807'de tahttan indirildi, yerine [[f:mustafa-iv|IV. Mustafa]] geçti. Sarayda kapalı tutulduğu on dört ay boyunca kuzeni [[f:mahmud-ii|Şehzade Mahmud]] ile yakınlaştı ve ona tecrübelerini aktardı.",
+      "depth": "28 Temmuz 1808'de [[f:alemdar-mustafa-pasa|Alemdar Mustafa Paşa]] onu yeniden tahta çıkarmak için sarayı bastığında, IV. Mustafa'nın emriyle dairesinde öldürüldü. Bazı tarihçiler, isyanın ilk gününde yeni orduyu kullanmamasını tahtını ve hayatını kaybettiren asıl karar olarak görür.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1761, "to": 1789, "event": "Sarayda doğdu; şehzadeyken Fransa Kralı XVI. Louis ile mektuplaştı ve 1789'da tahta çıktı." },
+    { "place": { "slug": "istanbul-levent", "nameTr": "Levent, İstanbul", "historicName": "Levent Çiftliği", "lat": 41.0819, "lon": 29.0128 }, "precision": "district", "from": 1793, "to": 1807, "event": "Nizam-ı Cedid askerleri için şehrin dışındaki Levent Çiftliği'nde kışla ve talim alanı kurdurdu." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1807, "to": 1808, "event": "Tahttan indirildikten sonra sarayda kapalı tutuldu ve 28 Temmuz 1808'de burada öldürüldü." },
+    { "place": { "slug": "istanbul-laleli", "nameTr": "Laleli Camii, İstanbul", "lat": 41.0101, "lon": 28.9567 }, "precision": "building", "from": 1808, "to": 1808, "event": "Laleli Camii'nin yanında, babası III. Mustafa'nın türbesine gömüldü." }
+  ],
+  "relations": [
+    { "to": "mustafa-iii", "type": "child_of", "note": "III. Mustafa'nın oğludur." },
+    { "to": "mahmud-ii", "type": "influenced", "note": "Sarayda birlikte kapalı kaldıkları dönemde kuzeni Mahmud'a yenilik düşüncelerini aktardı." }
+  ],
+  "concepts": [
+    {
+      "slug": "nizam-i-cedid",
+      "term": "Nizam-ı Cedid",
+      "meaning": "\"Yeni düzen\" demektir: III. Selim'in yenilik programının ve kurduğu yeni ordunun adı.",
+      "root": { "letters": "n-z-m", "language": "Arapça", "meaning": "dizmek, düzene koymak" },
+      "related": [
+        { "term": "nizam", "meaning": "düzen" },
+        { "term": "tanzim", "meaning": "düzenleme; çoğulu Tanzimat" },
+        { "term": "muntazam", "meaning": "düzenli" },
+        { "term": "nazım", "meaning": "dizilmiş söz, şiir" },
+        { "term": "cedit", "meaning": "yeni" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Selim III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/selim-iii" },
+    { "id": "wiki", "title": "III. Selim", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Selim", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

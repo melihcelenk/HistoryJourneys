@@ -1,0 +1,189 @@
+{
+  "slug": "piri-reis",
+  "nameTr": "Pîrî Reis",
+  "nameEn": "Piri Reis",
+  "wikiTitleTr": "Pîrî Reis",
+  "kind": "scholar",
+  "roles": [
+    "Denizci ve haritacı",
+    "Mısır kaptanı"
+  ],
+  "birth": {
+    "year": 1470,
+    "place": "Gelibolu"
+  },
+  "death": {
+    "year": 1554,
+    "place": "Kahire"
+  },
+  "summary": [
+    "Pîrî Reis, 1470 dolaylarında Gelibolu'da doğan Osmanlı denizcisi ve haritacısıdır.",
+    "1513'te çizdiği dünya haritası, Amerika kıyılarını gösteren en eski haritalardan biridir.",
+    "Akdeniz'in limanlarını tek tek anlattığı Kitâb-ı Bahriye, kendisinden sonraki denizcilerin el kitabı oldu."
+  ],
+  "actions": [
+    {
+      "id": "dunya-haritasi",
+      "year": 1513,
+      "text": "Amerika kıyılarını da gösteren bir dünya haritası çizdi.",
+      "cause": "Pîrî, gençliğini amcası Kemal Reis'in gemilerinde Akdeniz'i dolaşarak geçirdi. Amcası 1511 dolaylarında bir fırtınada ölünce Gelibolu'ya çekildi ve yıllardır biriktirdiği notları ve haritaları bir araya getirdi. Kendi anlattığına göre yirmi kadar eski haritadan yararlandı; bunlardan biri Kristof Kolomb'un haritasıydı.",
+      "consequence": "Ceylan derisine çizdiği haritayı 1517'de Kahire'de, Mısır'ı yeni fethetmiş olan [[f:selim-i|Yavuz Sultan Selim]]'e sundu. Harita Avrupa ve Afrika'nın batı kıyılarıyla Güney Amerika'nın doğu kıyılarını gösterir. 1929'da Topkapı Sarayı'nda yeniden bulundu ve dünya çapında ilgi uyandırdı.",
+      "depth": "Haritanın yalnızca bir parçası günümüze ulaştı; geri kalanı kayıptır. Haritanın Antarktika'yı buzsuz hâliyle gösterdiği gibi popüler iddiaları tarihçiler kabul etmez. Değeri, Kolomb'un kayıp haritasından izler taşımasındadır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "kitab-i-bahriye",
+      "year": 1526,
+      "text": "Kitâb-ı Bahriye'yi Kanuni'ye sundu.",
+      "cause": "Pîrî Reis, Akdeniz kıyılarını anlatan kitabının ilk hâlini 1521'de tamamlamıştı. 1524'te Sadrazam İbrahim Paşa'yı Mısır'a götüren gemiye kılavuzluk etti. Paşa onun sık sık bir deftere baktığını görünce kitabı düzenleyip padişaha sunmasını istedi.",
+      "consequence": "Genişletilmiş kitap 1526'da [[f:suleyman-i|Kanuni Sultan Süleyman]]'a sunuldu. İçinde iki yüzden fazla harita vardır; limanları, sığlıkları, su alınacak yerleri tek tek anlatır. Bir [[c:reis-unvani|reis]]in ömür boyu topladığı bilgi böylece bütün denizcilerin kullanabileceği bir kitaba dönüştü.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "hurmuz-kusatmasi",
+      "year": 1552,
+      "text": "Hürmüz Kalesi'ni kuşattı, ancak alamadan geri döndü.",
+      "cause": "Portekizliler 16. yüzyılın başından beri Hint Okyanusu ticaretini ve Basra Körfezi'nin girişindeki Hürmüz Adası'nı ellerinde tutuyordu. Pîrî Reis 1547'de Süveyş'teki Osmanlı donanmasının başına getirildi ve 1548'de Aden'i geri aldı. 1552'de yaklaşık otuz gemiyle Hürmüz'e gönderildi.",
+      "consequence": "Önce Maskat'ı aldı, sonra Hürmüz Kalesi'ni kuşattı; kale düşmeyince kuşatmayı kaldırıp Basra'ya çekildi. Donanmayı orada bırakarak ganimet yüklü birkaç gemiyle Mısır'a döndü. Bu yüzden suçlu bulundu ve seksen yaşını aşmış hâlde Kahire'de idam edildi.",
+      "depth": "Neden kuşatmayı kaldırdığı tartışmalıdır. Bazı kaynaklar rüşvet aldığını öne sürer; bazı tarihçilere göre ise yaklaşan Portekiz donanmasından çekinmiş, Basra valisinin şikâyetleri de sonunu hazırlamıştır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "gelibolu",
+        "nameTr": "Gelibolu",
+        "historicName": "Kallipolis",
+        "lat": 40.41,
+        "lon": 26.67
+      },
+      "precision": "city",
+      "from": 1470,
+      "to": 1513,
+      "event": "Burada doğdu; amcası Kemal Reis'le denizlere açıldı ve 1513'te dünya haritasını burada çizdi."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1526,
+      "to": 1526,
+      "event": "Kitâb-ı Bahriye'nin genişletilmiş hâlini Kanuni'ye sundu."
+    },
+    {
+      "place": {
+        "slug": "aden",
+        "nameTr": "Aden",
+        "lat": 12.7855,
+        "lon": 45.0187
+      },
+      "precision": "city",
+      "from": 1548,
+      "to": 1548,
+      "event": "Mısır kaptanı olarak Aden'i Portekizlilerden geri aldı."
+    },
+    {
+      "place": {
+        "slug": "hurmuz",
+        "nameTr": "Hürmüz Adası",
+        "lat": 27.059,
+        "lon": 56.461
+      },
+      "precision": "city",
+      "from": 1552,
+      "to": 1552,
+      "event": "Portekizlilerin elindeki Hürmüz Kalesi'ni kuşattı, alamadı."
+    },
+    {
+      "place": {
+        "slug": "kahire",
+        "nameTr": "Kahire",
+        "historicName": "Kahire",
+        "lat": 30.0444,
+        "lon": 31.2357
+      },
+      "precision": "city",
+      "from": 1554,
+      "to": 1554,
+      "event": "1517'de haritasını Yavuz'a sunduğu şehirde idam edildi."
+    }
+  ],
+  "relations": [
+    {
+      "to": "selim-i",
+      "type": "served_under",
+      "note": "1517'de Mısır seferine katıldı ve dünya haritasını Kahire'de Yavuz Sultan Selim'e sundu."
+    },
+    {
+      "to": "suleyman-i",
+      "type": "served_under",
+      "note": "Kanuni döneminde Mısır kaptanlığı yaptı; Kitâb-ı Bahriye'yi ona sundu."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "reis-unvani",
+      "term": "Reis",
+      "meaning": "Osmanlı denizciliğinde gemi kaptanı; kelime anlamıyla \"baş olan kişi\".",
+      "root": {
+        "letters": "r-ʾ-s",
+        "language": "Arapça",
+        "meaning": "baş"
+      },
+      "related": [
+        {
+          "term": "reis",
+          "meaning": "başkan"
+        },
+        {
+          "term": "riyaset",
+          "meaning": "başkanlık"
+        },
+        {
+          "term": "reisicumhur",
+          "meaning": "cumhurbaşkanı"
+        },
+        {
+          "term": "reisülküttap",
+          "meaning": "kâtiplerin başı; Osmanlı'da dışişlerini yürüten görevli"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Pîrî Reis",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/piri-reis"
+    },
+    {
+      "id": "wiki",
+      "title": "Pîrî Reis",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/P%C3%AEr%C3%AE_Reis",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

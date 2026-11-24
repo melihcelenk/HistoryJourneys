@@ -1,0 +1,173 @@
+{
+  "slug": "evliya-celebi",
+  "nameTr": "Evliya Çelebi",
+  "nameEn": "Evliya Çelebi",
+  "wikiTitleTr": "Evliya Çelebi",
+  "kind": "scholar",
+  "roles": [
+    "Gezgin ve yazar"
+  ],
+  "birth": {
+    "year": 1611,
+    "place": "İstanbul"
+  },
+  "death": {
+    "year": 1685,
+    "place": "Kahire (kesin değil)"
+  },
+  "summary": [
+    "Evliya Çelebi, 1611'de İstanbul'da doğan ve 17. yüzyılda Osmanlı ülkesini baştan başa dolaşan gezgindir.",
+    "Elli yılı aşkın süre boyunca gördüklerini on ciltlik Seyahatnâme'de anlattı.",
+    "Kitabı, 17. yüzyılda şehirlerin, dillerin, yemeklerin ve gündelik hayatın nasıl olduğunu öğrenmek için bugün de başvurulan en zengin kaynaklardan biridir."
+  ],
+  "actions": [
+    {
+      "id": "seyahat-ruyasi",
+      "year": 1640,
+      "text": "Bir rüyanın ardından yollara düştü ve gördüklerini yazmaya başladı.",
+      "cause": "Evliya, saray kuyumcubaşısının oğluydu ve babasının dostlarından dinlediği yolculuk hikâyeleriyle büyüdü. Kendi anlattığına göre 19 Ağustos 1630 gecesi rüyasında Hz. Muhammed'i gördü; heyecandan \"şefaat ya Resulallah\" diyecekken \"seyahat ya Resulallah\" dedi. Önce on yıl boyunca İstanbul'u semt semt gezip yazdı.",
+      "consequence": "1640'ta ailesinden gizlice Bursa'ya giderek İstanbul dışındaki ilk yolculuğunu yaptı; aynı yıl Trabzon'a gitti. Sonraki kırk yılda Balkanlar'dan Kafkasya'ya, Viyana'dan Sudan'a kadar dolaştı. Yolculuklarının çoğunu, yanında görev aldığı paşaların ve elçilerin kafilesinde yaptı.",
+      "depth": "Rüyayı yalnızca kendi anlatımından biliyoruz; böyle bir rüyayla başlamak dönemin kitaplarında sık görülen bir açılıştır. Evliya kimi yerde abartır, kimi yerde duyduğunu görmüş gibi anlatır; Hezarfen Ahmed Çelebi'nin Galata Kulesi'nden uçuşu da yalnızca onun kitabında geçer. Tarihçiler Seyahatnâme'yi başka kaynaklarla karşılaştırarak kullanır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "saraya-giris",
+      "year": 1636,
+      "text": "Ayasofya'da okuduğu Kur'an'la IV. Murad'ın dikkatini çekti ve saraya alındı.",
+      "cause": "Evliya medrese eğitimi görmüş, güzel sesli bir hafızdı. 1636'da Kadir Gecesi'nde Ayasofya'da Kur'an okurken [[f:murad-iv|IV. Murad]] da camideydi. Akrabası Melek Ahmed Ağa'nın da aracılığıyla padişahın huzuruna çıkarıldı.",
+      "consequence": "Padişah onu saraya, Enderun'a aldırdı; Evliya burada müzik, hat ve dil eğitimi gördü ve padişahın sohbetlerinde bulundu. Birkaç yıl sonra sipahi olarak saraydan ayrıldı. Sarayda kurduğu ilişkiler, sonraki yıllarda paşaların yanında yolculuk etmesinin kapısını açtı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "viyana-elciligi",
+      "year": 1665,
+      "text": "Osmanlı elçilik heyetiyle Viyana'ya gitti.",
+      "cause": "Osmanlılar ile Habsburglar 1664'te Vasvar Antlaşması'nı imzalayarak savaşı bitirdi. Antlaşma gereği iki taraf birbirine elçi gönderecekti. [[f:mehmed-iv|IV. Mehmed]] döneminde yola çıkan Kara Mehmed Paşa'nın elçilik heyetine Evliya da katıldı.",
+      "consequence": "Evliya 1665'te Viyana'da Stephansdom Katedrali'ni, kütüphaneleri, hastaneleri ve cerrahların çalışmasını uzun uzun anlattı. Yazdıkları, bir Osmanlı'nın gözünden 17. yüzyıl Avrupa şehrinin en ayrıntılı tasvirlerinden biridir. 1671'de hacca gitti, ardından Mısır'a yerleşti ve kitabını orada tamamladı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1611,
+      "to": 1640,
+      "event": "Unkapanı'nda doğdu; medresede ve sarayda eğitim gördü, şehri semt semt gezip yazdı."
+    },
+    {
+      "place": {
+        "slug": "bursa",
+        "nameTr": "Bursa",
+        "historicName": "Prusa",
+        "lat": 40.1885,
+        "lon": 29.061
+      },
+      "precision": "city",
+      "from": 1640,
+      "to": 1640,
+      "event": "İstanbul dışındaki ilk yolculuğunu ailesinden gizlice buraya yaptı."
+    },
+    {
+      "place": {
+        "slug": "erzurum",
+        "nameTr": "Erzurum",
+        "historicName": "Theodosiopolis",
+        "lat": 39.9043,
+        "lon": 41.2679
+      },
+      "precision": "city",
+      "from": 1646,
+      "to": 1647,
+      "event": "Defterdarzade Mehmed Paşa'nın maiyetinde Erzurum'a gitti; buradan Kafkasya ve İran'a geçti."
+    },
+    {
+      "place": {
+        "slug": "viyana",
+        "nameTr": "Viyana",
+        "historicName": "Wien",
+        "lat": 48.2082,
+        "lon": 16.3738
+      },
+      "precision": "city",
+      "from": 1665,
+      "to": 1665,
+      "event": "Kara Mehmed Paşa'nın elçilik heyetiyle geldi ve şehri ayrıntılarıyla anlattı."
+    },
+    {
+      "place": {
+        "slug": "mekke",
+        "nameTr": "Mekke",
+        "historicName": "Mekke",
+        "lat": 21.3891,
+        "lon": 39.8579
+      },
+      "precision": "city",
+      "from": 1671,
+      "to": 1672,
+      "event": "Hac için Mekke'ye gitti."
+    },
+    {
+      "place": {
+        "slug": "kahire",
+        "nameTr": "Kahire",
+        "historicName": "Kahire",
+        "lat": 30.0444,
+        "lon": 31.2357
+      },
+      "precision": "city",
+      "from": 1672,
+      "to": 1685,
+      "event": "Mısır'a yerleşti, Nil boyunca Sudan'a kadar gitti ve Seyahatnâme'yi tamamladı."
+    }
+  ],
+  "relations": [
+    {
+      "to": "murad-iv",
+      "type": "served_under",
+      "note": "1636'da IV. Murad tarafından saraya alındı ve padişahın sohbetlerinde bulundu."
+    },
+    {
+      "to": "mehmed-iv",
+      "type": "served_under",
+      "note": "IV. Mehmed döneminde 1665'te Viyana'ya giden Osmanlı elçilik heyetinde görev aldı."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Evliya Çelebi",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/evliya-celebi"
+    },
+    {
+      "id": "wiki",
+      "title": "Evliya Çelebi",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Evliya_%C3%87elebi",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

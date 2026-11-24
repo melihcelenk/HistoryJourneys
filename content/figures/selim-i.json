@@ -1,0 +1,207 @@
+{
+  "slug": "selim-i",
+  "nameTr": "Yavuz Sultan Selim",
+  "nameEn": "Selim I (the Grim)",
+  "wikiTitleTr": "I. Selim",
+  "kind": "sultan",
+  "roles": [
+    "9. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1470,
+    "place": "Amasya"
+  },
+  "death": {
+    "year": 1520,
+    "place": "Çorlu"
+  },
+  "reign": {
+    "from": 1512,
+    "to": 1520
+  },
+  "summary": [
+    "Yavuz Sultan Selim, 1512'de babasını tahttan indirerek padişah olan 9. Osmanlı padişahıdır.",
+    "Yalnızca sekiz yıl süren saltanatında Suriye ile Mısır'ı alarak Osmanlı topraklarını yaklaşık iki katına çıkardı.",
+    "Mekke ve Medine'nin koruyuculuğunu ve halifeliği Osmanlılara getirdi; ondan sonraki padişahlar İslam dünyasının önderi sayıldı."
+  ],
+  "actions": [
+    {
+      "id": "babasini-tahttan-indirdi",
+      "year": 1512,
+      "text": "Babası II. Bayezid'i tahttan indirdi.",
+      "cause": "1500'lerin başında İran'da Şah İsmail'in kurduğu Safevi Devleti, Anadolu'daki Türkmenler arasında hızla taraftar topluyordu; 1511'deki Şahkulu İsyanı Osmanlı ordusunu güç durumda bıraktı. Yaşlı ve hasta [[f:bayezid-ii|II. Bayezid]] sert önlem almıyor, tahtı büyük oğlu Ahmed'e bırakmayı düşünüyordu. Trabzon'u 23 yıl yönetmiş olan Selim ise yeniçerilerin gözünde bu tehlikeyi durdurabilecek şehzadeydi.",
+      "consequence": "Yeniçeriler Selim'den yana ayaklanınca Bayezid 24 Nisan 1512'de tahtı ona bıraktı. Selim ertesi yıl kardeşleri Ahmed ve Korkut'u öldürterek tahtta rakipsiz kaldı. Böylece Osmanlı tarihinde ilk kez bir şehzade, babasını zorla tahttan indirerek padişah olmuştu.",
+      "depth": "Bayezid tahtı bıraktıktan yaklaşık bir ay sonra, Dimetoka'ya giderken yolda öldü. Dönemin bazı kaynakları onun Selim'in emriyle zehirlendiğini öne sürer; 64 yaşında ve uzun süredir hasta olduğu için doğal bir ölüm de olasıdır ve tarihçiler bu konuda kesin konuşmaz.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "caldiran",
+      "year": 1514,
+      "text": "Çaldıran'da Safevi şahı İsmail'i yendi.",
+      "cause": "Şah İsmail 1501'de Tebriz'de tahta çıkmış, Şiiliği devletin mezhebi yapmış ve Doğu Anadolu'ya kadar ilerlemişti. Selim onu hem sınırlar hem de Anadolu halkının bağlılığı için bir tehdit olarak görüyordu. 1514 baharında ordusuyla İstanbul'dan yola çıktı ve bütün Anadolu'yu baştan başa geçti.",
+      "consequence": "İki ordu 23 Ağustos 1514'te Van Gölü'nün kuzeydoğusundaki Çaldıran Ovası'nda karşılaştı; Osmanlı topları ve tüfekleri, ateşli silahı olmayan Safevi süvarisini bir günde dağıttı. Selim başkent Tebriz'e girdi, ama kışı orada geçirmek istemeyen yeniçeriler yüzünden geri döndü. Savaştan sonraki yıllarda Doğu ve Güneydoğu Anadolu Osmanlı yönetimine girdi.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "misir-seferi",
+      "year": 1517,
+      "text": "Memlük Devleti'ne son vererek Suriye, Mısır ve Hicaz'ı aldı.",
+      "cause": "Kahire merkezli Memlük Devleti, Suriye'yi, Mısır'ı ve kutsal şehirler Mekke ile Medine'yi yönetiyor, Abbasi soyundan gelen halifeyi de Kahire'de barındırıyordu. Memlükler Osmanlı-Safevi çekişmesinde Şah İsmail'e yakın durunca Selim 1516'da güneye yürüdü.",
+      "consequence": "Selim, 24 Ağustos 1516'da Halep yakınlarındaki Mercidabık'ta ve 22 Ocak 1517'de Kahire önlerindeki Ridaniye'de Memlükleri yendi. Mekke şerifi şehrin anahtarlarını Kahire'ye gönderdi; Hz. Muhammed'e ait olduğuna inanılan kutsal emanetler İstanbul'a taşındı. Osmanlı padişahları bundan sonra [[c:halife|halife]] unvanını da taşıdı. Denizci [[f:piri-reis|Piri Reis]], 1513'te çizdiği dünya haritasını Selim'e Kahire'de sundu.",
+      "depth": "Son Abbasi halifesi III. Mütevekkil'in halifeliği Ayasofya'da bir törenle Selim'e devrettiği anlatısı, olaydan yaklaşık 250 yıl sonra, 18. yüzyılda yazıya geçmiştir; Selim'in kendi döneminin kaynaklarında böyle bir tören geçmez. Tarihçilerin çoğuna göre Osmanlı halifeliği tek bir günde devralınmadı, kutsal şehirlerin koruyuculuğuna dayanarak zamanla benimsendi.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "amasya",
+        "nameTr": "Amasya",
+        "historicName": "Amaseia",
+        "lat": 40.6499,
+        "lon": 35.8353
+      },
+      "precision": "city",
+      "from": 1470,
+      "to": 1487,
+      "event": "Babası Şehzade Bayezid'in yönettiği Amasya'da doğdu."
+    },
+    {
+      "place": {
+        "slug": "trabzon",
+        "nameTr": "Trabzon",
+        "historicName": "Trapezus",
+        "lat": 41.0027,
+        "lon": 39.7168
+      },
+      "precision": "city",
+      "from": 1487,
+      "to": 1510,
+      "event": "Trabzon'u 23 yıl yönetti; oğlu Süleyman 1494'te burada doğdu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1512,
+      "to": 1514,
+      "event": "Yeniçerilerin desteğiyle babasının yerine tahta çıktı."
+    },
+    {
+      "place": {
+        "slug": "tebriz",
+        "nameTr": "Tebriz",
+        "historicName": "Tebriz",
+        "lat": 38.08,
+        "lon": 46.2919
+      },
+      "precision": "city",
+      "from": 1514,
+      "to": 1514,
+      "event": "Çaldıran zaferinden sonra Safevilerin başkentine girdi ve bir hafta kadar kaldı."
+    },
+    {
+      "place": {
+        "slug": "kahire",
+        "nameTr": "Kahire",
+        "historicName": "Kahire",
+        "lat": 30.0444,
+        "lon": 31.2357
+      },
+      "precision": "city",
+      "from": 1517,
+      "to": 1517,
+      "event": "Ridaniye zaferinden sonra Kahire'ye girerek Memlük Devleti'ne son verdi."
+    },
+    {
+      "place": {
+        "slug": "corlu",
+        "nameTr": "Çorlu",
+        "historicName": "Tzouroulos",
+        "lat": 41.1592,
+        "lon": 27.8
+      },
+      "precision": "district",
+      "from": 1520,
+      "to": 1520,
+      "event": "Edirne'ye giderken sırtında çıkan bir çıban yüzünden Çorlu yakınlarında öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "bayezid-ii",
+      "type": "child_of",
+      "note": "II. Bayezid'in oğludur."
+    },
+    {
+      "to": "bayezid-ii",
+      "type": "deposed",
+      "note": "1512'de yeniçerilerin desteğiyle babasını tahtı bırakmaya zorladı."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "halife",
+      "term": "Halife",
+      "meaning": "\"Birinin ardından gelen, onun yerine geçen\" demektir: Hz. Muhammed'den sonra Müslümanların başına geçen önderin unvanı.",
+      "root": {
+        "letters": "h-l-f",
+        "language": "Arapça",
+        "meaning": "arkadan gelmek, yerine geçmek"
+      },
+      "related": [
+        {
+          "term": "halef",
+          "meaning": "bir görevde birinin yerine geçen kişi"
+        },
+        {
+          "term": "hilafet",
+          "meaning": "halifelik makamı"
+        },
+        {
+          "term": "muhalif",
+          "meaning": "karşı görüşte olan"
+        },
+        {
+          "term": "ihtilaf",
+          "meaning": "anlaşmazlık"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Selim I",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/selim-i"
+    },
+    {
+      "id": "wiki",
+      "title": "I. Selim",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/I._Selim",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

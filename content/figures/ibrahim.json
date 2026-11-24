@@ -1,0 +1,139 @@
+{
+  "slug": "ibrahim",
+  "nameTr": "Sultan İbrahim",
+  "nameEn": "Ibrahim",
+  "wikiTitleTr": "İbrahim (Osmanlı padişahı)",
+  "kind": "sultan",
+  "roles": [
+    "18. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1615,
+    "place": "İstanbul"
+  },
+  "death": {
+    "year": 1648,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1640,
+    "to": 1648
+  },
+  "summary": [
+    "Sultan İbrahim, 1640'ta ağabeyi IV. Murad'ın ölümü üzerine tahta çıkan 18. Osmanlı padişahıdır.",
+    "Tahta çıktığında Osmanlı hanedanının hayattaki tek erkeğiydi; ondan sonraki bütün padişahlar onun soyundan gelir.",
+    "1645'te başlattığı Girit Seferi 24 yıl sürdü ve onu 1648'de tahtından ve hayatından eden bunalımı büyüttü."
+  ],
+  "actions": [
+    {
+      "id": "hanedani-surdurdu",
+      "year": 1640,
+      "text": "Hanedanın son erkeği olarak tahta çıktı ve soyun sürmesini sağladı.",
+      "cause": "Ağabeyi [[f:murad-iv|IV. Murad]] üç kardeşini öldürtmüş, kendi oğulları da küçük yaşta ölmüştü. Murad 1640'ta öldüğünde hanedanda 24 yaşındaki İbrahim'den başka erkek kalmamıştı. Yıllardır sarayda kapalı yaşayan İbrahim, haberi bir tuzak sanıp odasından çıkmak istemedi; ancak annesi [[f:kosem-sultan|Kösem Sultan]]'ın ısrarı ve ağabeyinin cenazesini görmesiyle ikna oldu.",
+      "consequence": "1642'de ilk oğlu Mehmed doğdu; ardından Süleyman ve Ahmed geldi. Üçü de ileride padişah oldu: [[f:mehmed-iv|IV. Mehmed]], [[f:suleyman-ii|II. Süleyman]] ve [[f:ahmed-ii|II. Ahmed]]. Saltanatının ilk dört yılında devleti ağabeyinden kalan sadrazam Kemankeş Kara Mustafa Paşa düzen içinde yönetti; İbrahim onu 1644'te idam ettirdikten sonra yönetim saray gözdelerinin eline geçti.",
+      "depth": "İbrahim halk arasında \"Deli\" lakabıyla bilinir; bu adı ona, onu tahttan indirenlerin anlatılarına dayanan sonraki yazarlar vermiştir. Bazı tarihçilere göre asıl sorun, kardeşlerinin öldürülüşünü izleyerek ve sıranın kendisine gelmesini bekleyerek geçen yılların bıraktığı ağır korku ve sinir hastalığıydı; saltanatının ilk yılları da bu lakabın anlattığı kadar düzensiz değildi.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "girit-seferi",
+      "year": 1645,
+      "text": "Venedik'in elindeki Girit'e sefer açtı.",
+      "cause": "1644'te Malta şövalyeleri, hacıları ve saray görevlisi Sünbül Ağa'yı Mısır'a götüren bir Osmanlı gemisini ele geçirdi. Korsanlar ganimetleriyle Venedik'e ait Girit'e uğramıştı. İbrahim bunu savaş nedeni saydı; Girit, Doğu Akdeniz'de Osmanlı'nın elinde olmayan son büyük adaydı.",
+      "consequence": "Osmanlı donanması 1645'te Hanya'yı, ertesi yıl Resmo'yu aldı; ama adanın başkenti Kandiye'nin kuşatması 21 yıl sürdü ve ancak 1669'da sonuçlandı. Venedik donanması karşılık olarak Çanakkale Boğazı'nı kapattı, İstanbul'da yiyecek kıtlaştı ve fiyatlar yükseldi. Savaşın yükü ve sarayın savurganlığı birleşince yeniçeriler ile ulema 8 Ağustos 1648'de İbrahim'i tahttan indirdi; on gün sonra da boğduruldu.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1615,
+      "to": 1640,
+      "event": "I. Ahmed ile Kösem Sultan'ın oğlu olarak doğdu; gençliği sarayda kapalı ve ölüm korkusu içinde geçti."
+    },
+    {
+      "place": {
+        "slug": "istanbul-eyup",
+        "nameTr": "Eyüp, İstanbul",
+        "lat": 41.048,
+        "lon": 28.934
+      },
+      "precision": "district",
+      "from": 1640,
+      "to": 1640,
+      "event": "Tahta çıktıktan sonra Eyüp'te kılıç kuşandı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1640,
+      "to": 1648,
+      "event": "Sekiz yıl padişahlık yaptı; 1648'de tahttan indirilip sarayda bir odaya kapatıldı ve orada öldürüldü."
+    },
+    {
+      "place": {
+        "slug": "istanbul-ayasofya",
+        "nameTr": "Ayasofya, İstanbul",
+        "historicName": "Hagia Sophia",
+        "lat": 41.0086,
+        "lon": 28.9802
+      },
+      "precision": "building",
+      "from": 1648,
+      "to": 1648,
+      "event": "Ayasofya'nın avlusunda, amcası I. Mustafa'nın yattığı türbeye gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "ahmed-i",
+      "type": "child_of",
+      "note": "I. Ahmed'in oğludur."
+    },
+    {
+      "to": "kosem-sultan",
+      "type": "child_of",
+      "note": "Annesi Kösem Sultan, onu tahta çıkmaya ikna etti; sekiz yıl sonra tahttan indirilmesine de onay verdi."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "İbrâhim",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/ibrahim--padisah"
+    },
+    {
+      "id": "wiki",
+      "title": "İbrahim (Osmanlı padişahı)",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/%C4%B0brahim_(Osmanl%C4%B1_padi%C5%9Fah%C4%B1)",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

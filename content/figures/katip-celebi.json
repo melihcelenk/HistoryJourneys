@@ -1,0 +1,203 @@
+{
+  "slug": "katip-celebi",
+  "nameTr": "Kâtip Çelebi",
+  "nameEn": "Kâtip Çelebi",
+  "wikiTitleTr": "Kâtip Çelebi",
+  "kind": "scholar",
+  "roles": [
+    "Bilgin, coğrafyacı ve bibliyografya yazarı",
+    "Ordu kâtibi"
+  ],
+  "birth": {
+    "year": 1609,
+    "place": "İstanbul"
+  },
+  "death": {
+    "year": 1657,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "Kâtip Çelebi, 1609'da İstanbul'da doğan ve Batı'da Hacı Halife adıyla tanınan 17. yüzyıl Osmanlı bilginidir.",
+    "Keşfü'z-zunûn adlı eserinde yaklaşık 15.000 kitabı ve 10.000 yazarı alfabe sırasıyla tanıttı.",
+    "Cihannümâ'da Avrupa atlaslarından yararlanarak Osmanlı okurunu yeni coğrafya bilgisiyle tanıştırdı ve sonraki yüzyılın yenilikçilerine yol gösterdi."
+  ],
+  "actions": [
+    {
+      "id": "kesfuz-zunun",
+      "year": 1633,
+      "text": "Halep'te kitap adlarını derlemeye başladı; bu çalışma Keşfü'z-zunûn'a dönüştü.",
+      "cause": "Asıl adı Mustafa'ydı; 1623'te, 14 yaşında orduya bağlı muhasebe kalemine [[c:katip-kelimesi|kâtip]] olarak girdi. On yıl boyunca doğu seferlerine katıldı; 1626'daki Bağdat kuşatmasını ve [[f:murad-iv|IV. Murad]]'ın 1635'teki Revan Seferi'ni gördü. Ordu 1633'te kışı Halep'te geçirirken sahafları ve kütüphaneleri dolaşıp gördüğü kitapların adlarını not etmeye başladı.",
+      "consequence": "1635'te seferleri bırakıp İstanbul'a döndü; kendisine kalan mirasla kitap satın aldı ve ömrünü okumaya, yazmaya verdi. Yirmi yıl süren çalışmanın sonunda Keşfü'z-zunûn ortaya çıktı: İslam dünyasında yazılmış yaklaşık 15.000 kitabın adını, yazarını ve konusunu veren bir kaynak. Eser 19. yüzyılda Latinceye çevrildi ve bugün de araştırmacıların başvuru kitabıdır.",
+      "depth": "Kâtip Çelebi medresede düzenli bir öğrenim görmedi; bilgisinin çoğunu kendi kendine ve özel derslerle edindi. Kitabı ölümünden sonra başkaları tarafından eklerle genişletildi.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "cihannuma",
+      "year": 1648,
+      "text": "Cihannümâ adlı coğrafya kitabını yazmaya başladı.",
+      "cause": "1645'te Girit Savaşı başlayınca Kâtip Çelebi denizleri ve haritaları merak etti ve eldeki İslam coğrafyası kitaplarının yetersiz olduğunu gördü. 1648'de Cihannümâ'yı yazmaya koyuldu, ancak Avrupa hakkında bilgi bulamayınca işi yarıda bıraktı. Birkaç yıl sonra, Müslüman olmuş bir Fransız olan Şeyh Mehmed İhlâsî'nin yardımıyla Mercator'un Atlas Minor'unu çevirtti.",
+      "consequence": "1654'te kitabı bu yeni kaynaklarla baştan yazmaya başladı; Dünya'nın yuvarlaklığını ve yeni keşfedilen kıtaları anlattı. Eseri bitiremeden 1657'de öldü. [[f:ibrahim-muteferrika|İbrahim Müteferrika]] kitabı 1732'de haritalarla birlikte bastı ve geniş bir okur kitlesine ulaştırdı.",
+      "depth": "Basılan Cihannümâ yalnızca Kâtip Çelebi'nin kaleminden çıkmadı: Müteferrika metne kendi eklerini ve başka yazarlardan bölümler kattı. Kâtip Çelebi'nin yazdığı kısım Asya'yı anlatır ve yarım kalmıştır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "mizanul-hak",
+      "year": 1656,
+      "text": "Mîzânü'l-Hak'ta dönemin dinî kavgalarında ölçülü olmayı savundu.",
+      "cause": "17. yüzyıl İstanbul'unda Kadızâdeliler denen vaizler ile tarikat çevreleri arasında sert bir çekişme vardı. Tütün ve kahve içmek, müzik, türbe ziyareti gibi konular camilerde kavgaya dönüşüyordu. Kâtip Çelebi gençliğinde Kadızâde Mehmed Efendi'nin derslerini dinlemişti ve iki tarafı da yakından tanıyordu.",
+      "consequence": "Ölümünden bir yıl önce yazdığı Mîzânü'l-Hak'ta yirmi kadar tartışmalı konuyu tek tek ele aldı. İnsanların yerleşik âdetlerinin zorla değiştirilemeyeceğini, aşırılığın toplumu böldüğünü yazdı. Kitapta ayrıca medreselerde matematik ve felsefe gibi akli bilimlerin ihmal edilmesinden yakındı; eser birçok Avrupa diline çevrildi.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1609,
+      "to": 1624,
+      "event": "Bir sipahinin oğlu olarak doğdu; 14 yaşında muhasebe kalemine kâtip olarak girdi."
+    },
+    {
+      "place": {
+        "slug": "bagdat",
+        "nameTr": "Bağdat",
+        "historicName": "Bağdat",
+        "lat": 33.3152,
+        "lon": 44.3661
+      },
+      "precision": "city",
+      "from": 1626,
+      "to": 1626,
+      "event": "Sonuçsuz kalan Bağdat kuşatmasına ordu kâtibi olarak katıldı."
+    },
+    {
+      "place": {
+        "slug": "erzurum",
+        "nameTr": "Erzurum",
+        "historicName": "Theodosiopolis",
+        "lat": 39.9043,
+        "lon": 41.2679
+      },
+      "precision": "city",
+      "from": 1627,
+      "to": 1628,
+      "event": "Abaza Mehmed Paşa isyanı sırasındaki Erzurum kuşatmalarında bulundu."
+    },
+    {
+      "place": {
+        "slug": "halep",
+        "nameTr": "Halep",
+        "historicName": "Haleb",
+        "lat": 36.2021,
+        "lon": 37.1343
+      },
+      "precision": "city",
+      "from": 1633,
+      "to": 1634,
+      "event": "Ordunun kışladığı Halep'te sahafları dolaşıp kitap adlarını derlemeye başladı."
+    },
+    {
+      "place": {
+        "slug": "mekke",
+        "nameTr": "Mekke",
+        "historicName": "Mekke",
+        "lat": 21.3891,
+        "lon": 39.8579
+      },
+      "precision": "city",
+      "from": 1634,
+      "to": 1634,
+      "event": "Halep'ten hacca gitti; bu yüzden Hacı Halife diye anıldı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-zeyrek",
+        "nameTr": "Zeyrek, İstanbul",
+        "lat": 41.0197,
+        "lon": 28.9573
+      },
+      "precision": "district",
+      "from": 1635,
+      "to": 1657,
+      "event": "Revan Seferi'nden sonra İstanbul'a yerleşti; kitaplarını burada yazdı ve 1657'de öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "murad-iv",
+      "type": "served_under",
+      "note": "IV. Murad'ın doğu seferlerinde, 1635 Revan Seferi dahil, ordu kâtibi olarak görev yaptı."
+    },
+    {
+      "to": "ibrahim-muteferrika",
+      "type": "influenced",
+      "note": "Müteferrika onun Cihannümâ'sını ve başka kitaplarını matbaasında bastı."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "katip-kelimesi",
+      "term": "Kâtip",
+      "meaning": "Yazı işlerini yürüten görevli; kelime anlamıyla \"yazan kişi\".",
+      "root": {
+        "letters": "k-t-b",
+        "language": "Arapça",
+        "meaning": "yazmak"
+      },
+      "related": [
+        {
+          "term": "kitap",
+          "meaning": "yazılmış eser"
+        },
+        {
+          "term": "mektup",
+          "meaning": "yazılmış şey"
+        },
+        {
+          "term": "kütüphane",
+          "meaning": "kitapların durduğu yer"
+        },
+        {
+          "term": "mektep",
+          "meaning": "yazı öğrenilen yer, okul"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Kâtib Çelebi",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/katib-celebi"
+    },
+    {
+      "id": "wiki",
+      "title": "Kâtip Çelebi",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/K%C3%A2tip_%C3%87elebi",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

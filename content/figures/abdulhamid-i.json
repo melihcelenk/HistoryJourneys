@@ -1,0 +1,59 @@
+{
+  "slug": "abdulhamid-i",
+  "nameTr": "I. Abdülhamid",
+  "nameEn": "Abdul Hamid I",
+  "wikiTitleTr": "I. Abdülhamid",
+  "kind": "sultan",
+  "roles": ["27. Osmanlı padişahı"],
+  "birth": { "year": 1725, "place": "İstanbul" },
+  "death": { "year": 1789, "place": "İstanbul" },
+  "reign": { "from": 1774, "to": 1789 },
+  "summary": [
+    "I. Abdülhamid, 1774'te savaşın ortasında 48 yaşında tahta çıkan 27. Osmanlı padişahıdır.",
+    "Aynı yıl imzalanan Küçük Kaynarca Antlaşması ile halkı Müslüman olan Kırım ilk kez Osmanlı Devleti'nden koptu.",
+    "Bu kayıp, ordunun ve donanmanın Avrupa örneğine göre yenilenmesi gerektiği düşüncesini devletin baş meselesi hâline getirdi."
+  ],
+  "actions": [
+    {
+      "id": "kucuk-kaynarca-antlasmasi",
+      "year": 1774,
+      "text": "Rusya ile Küçük Kaynarca Antlaşması'nı imzalattı.",
+      "cause": "Ağabeyi [[f:mustafa-iii|III. Mustafa]]'nın 1768'de açtığı savaşta donanma Çeşme'de yanmış, Kırım işgal edilmişti. Ocak 1774'te tahta çıkan I. Abdülhamid savaşı sürdürmeyi denedi, ama Haziran'da ordu Kozluca'da bir kez daha yenildi. Barış istemekten başka yol kalmadı.",
+      "consequence": "21 Temmuz 1774'te imzalanan antlaşmayla Kırım Hanlığı bağımsız sayıldı, Rusya Karadeniz'de ticaret gemisi yüzdürme ve Boğazlar'dan geçme hakkını aldı. Karadeniz artık bir Osmanlı gölü değildi. Bağımsız denen Kırım'ı Rusya 1783'te kendi topraklarına kattı.",
+      "depth": "Antlaşma iki açıdan sonradan çok tartışıldı. Padişah, Kırım Müslümanlarının dinî önderi sayılarak halife unvanını ilk kez uluslararası bir antlaşmada kullandı. Rusya ise İstanbul'da bir Ortodoks kilisesiyle ilgili maddeyi geniş yorumlayıp bütün Ortodoks Osmanlı tebaasının koruyucusu olduğunu ileri sürdü; tarihçiler metnin bu kadar geniş bir hak vermediğini belirtir.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "muhendishane-i-bahri",
+      "year": 1775,
+      "text": "Donanma için mühendislik okulu açtırdı.",
+      "cause": "Çeşme felaketi, donanmada hesap ve harita bilen subay bulunmadığını göstermişti. Çeşme'den sağ kurtulan Kaptanıderya Cezayirli Gazi Hasan Paşa yeni bir donanma kurmaya girişti. Fransız subay Baron de Tott'un da katkısıyla Haliç'teki tersanede bir okul açılması kararlaştırıldı.",
+      "consequence": "1775'te açılan okulda geometri, denizcilik ve harita dersleri verildi; okul sonradan Mühendishane-i Bahrî-i Hümâyun adını aldı. Sadrazam Halil Hamid Paşa 1780'lerde bu yenilikleri hızlı ateş eden topçu birlikleriyle sürdürdü. Bugünkü İstanbul Teknik Üniversitesi ve Deniz Harp Okulu köklerini bu okula dayandırır.",
+      "depth": "Okulun kuruluş yılı çoğu yerde 1773 olarak verilir ve [[f:mustafa-iii|III. Mustafa]] dönemine bağlanır. Arşiv belgelerine dayanan araştırmalara göre ise okul 29 Nisan 1775'te, I. Abdülhamid zamanında açılmıştır.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "ozi-ve-1787-savasi",
+      "year": 1787,
+      "text": "Kırım'ı geri almak için Rusya'ya yeniden savaş açtı.",
+      "cause": "Rusya'nın 1783'te Kırım'ı topraklarına katması İstanbul'da büyük öfke yarattı. Çariçe II. Katerina'nın 1787'de Avusturya imparatoruyla birlikte Kırım'ı gezmesi bir meydan okuma sayıldı. Sadrazam Koca Yusuf Paşa'nın baskısıyla Ağustos 1787'de savaş ilan edildi.",
+      "consequence": "1788'de Avusturya da Rusya'nın yanında savaşa girdi. Aralık 1788'de Ruslar Özi Kalesi'ni aldı ve içindeki halkın büyük bölümünü öldürdü. Haberi okuyan padişah felç geçirdi ve 7 Nisan 1789'da öldü; savaşı yeğeni [[f:selim-iii|III. Selim]] devraldı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1725, "to": 1774, "event": "Sarayda doğdu; babası III. Ahmed tahttan çekildikten sonra kırk yılı aşkın süre kapalı yaşadı ve 1774'te padişah oldu." },
+    { "place": { "slug": "istanbul-beylerbeyi-camii", "nameTr": "Beylerbeyi Camii, İstanbul", "lat": 41.0447, "lon": 29.0453 }, "precision": "building", "from": 1778, "to": 1778, "event": "Annesi Râbia Sultan adına Boğaz kıyısında Beylerbeyi Camii'ni yaptırdı." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1789, "to": 1789, "event": "Özi'nin düştüğü haberini okurken felç geçirdi ve öldü." },
+    { "place": { "slug": "istanbul-bahcekapi", "nameTr": "I. Abdülhamid Türbesi, Bahçekapı, İstanbul", "lat": 41.0165, "lon": 28.9745 }, "precision": "building", "from": 1789, "to": 1789, "event": "Bahçekapı'da kendi yaptırdığı külliyenin türbesine gömüldü." }
+  ],
+  "relations": [
+    { "to": "ahmed-iii", "type": "child_of", "note": "III. Ahmed'in oğludur." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Abdülhamid I", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulhamid-i" },
+    { "id": "wiki", "title": "I. Abdülhamid", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/I._Abd%C3%BClhamid", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

@@ -1,0 +1,11 @@
+[
+  {"type": "succeeded", "nameTr": "Taht sırası", "weight": 1.0, "group": "succession"},
+  {"type": "child_of", "nameTr": "Ebeveyn ve çocuk", "weight": 1.2, "group": "family"},
+  {"type": "sibling_of", "nameTr": "Kardeş", "weight": 1.6, "group": "family"},
+  {"type": "spouse_of", "nameTr": "Eş", "weight": 1.6, "group": "family"},
+  {"type": "served_under", "nameTr": "Hizmet", "weight": 1.4, "group": "service"},
+  {"type": "taught", "nameTr": "Hoca ve öğrenci", "weight": 1.4, "group": "ideas"},
+  {"type": "influenced", "nameTr": "Etki", "weight": 1.8, "group": "ideas"},
+  {"type": "opposed", "nameTr": "Karşıtlık", "weight": 2.0, "group": "conflict"},
+  {"type": "deposed", "nameTr": "Tahttan indirme", "weight": 1.8, "group": "conflict"}
+]

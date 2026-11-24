@@ -1,0 +1,185 @@
+{
+  "slug": "murad-iv",
+  "nameTr": "IV. Murad",
+  "nameEn": "Murad IV",
+  "wikiTitleTr": "IV. Murad",
+  "kind": "sultan",
+  "roles": [
+    "17. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1612,
+    "place": "İstanbul"
+  },
+  "death": {
+    "year": 1640,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1623,
+    "to": 1640
+  },
+  "summary": [
+    "IV. Murad, 1623'te henüz 11 yaşındayken tahta çıkan 17. Osmanlı padişahıdır.",
+    "1638'de Bağdat'ı Safevilerden geri aldı ve \"Bağdat Fatihi\" diye anıldı.",
+    "1639'da imzalanan Kasr-ı Şirin Antlaşması'yla çizilen sınır, bugünkü Türkiye-İran sınırının temelidir."
+  ],
+  "actions": [
+    {
+      "id": "yonetimi-ele-aldi",
+      "year": 1632,
+      "text": "Devletin yönetimini isyancı askerlerin elinden aldı.",
+      "cause": "Murad tahta çıktığında çocuktu; devleti dokuz yıl annesi [[f:kosem-sultan|Kösem Sultan]] ve vezirler yönetti. Bu yıllarda Bağdat Safevilere kaybedildi, Anadolu'da isyanlar sürdü, İstanbul'da askerler istedikleri veziri görevden aldırdı. 1632'de ayaklanan sipahiler, sadrazam Hafız Ahmed Paşa'yı sarayda padişahın gözü önünde öldürdü.",
+      "consequence": "Murad birkaç ay sonra isyanı kışkırttığına inandığı sadrazam Topal Recep Paşa'yı idam ettirdi ve asker ile ulemadan bağlılık yemini aldı. Ardından elebaşları tek tek ortadan kaldırıldı; saltanatının kalan yıllarında binlerce kişi idam edildi. Yirmi yıla yakın süren kargaşa sona erdi, ama Murad üç kardeşini de öldürttü ve hanedanda kendisinden başka yalnızca kardeşi [[f:ibrahim|İbrahim]] kaldı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "tutun-ve-kahvehane-yasagi",
+      "year": 1633,
+      "text": "Tütünü yasakladı ve kahvehaneleri kapattırdı.",
+      "cause": "Eylül 1633'te Cibali'de çıkan yangın İstanbul'un büyük bir bölümünü kül etti ve halkta büyük bir öfke doğurdu. Kahvehaneler, insanların toplanıp devlet işlerini konuştuğu ve askerlerin isyan planladığı yerler olarak görülüyordu. Dönemin etkili vaizi Kadızade Mehmed Efendi de tütünü ve kahveyi dine aykırı yenilikler sayıyordu.",
+      "consequence": "Murad yangından sonra bütün [[c:kahvehane|kahvehaneleri]] yıktırdı, tütün içmeyi ve gece sokağa çıkmayı yasakladı. Geceleri kılık değiştirip şehri kendisi dolaştığı, yasağı çiğneyenleri oracıkta idam ettirdiği anlatılır. Yasak onun ölümünden sonra gevşedi; birkaç yıl içinde tütün yeniden serbestçe içiliyordu.",
+      "depth": "Bazı tarihçilere göre yasağın asıl amacı sağlık ya da din değil, muhaliflerin toplandığı yerleri kapatarak şehri denetim altına almaktı; yangın ve vaizlerin sözleri buna gerekçe oldu. Dönemin bilgini [[f:katip-celebi|Kâtip Çelebi]] de bu kadar yaygınlaşmış bir alışkanlığı zorla yasaklamanın işe yaramadığını yazmıştır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "bagdat-seferi",
+      "year": 1638,
+      "text": "Bağdat'ı Safevilerden geri aldı.",
+      "cause": "Bağdat 1534'te [[f:suleyman-i|Kanuni]] tarafından alınmıştı; 1624'te, Murad'ın çocukluk yıllarında Şah I. Abbas şehri ele geçirdi. Sonraki iki kuşatma başarısız oldu. Murad 1635'te ordusunun başında Revan'ı aldı, 1638'de de bizzat Bağdat üzerine yürüdü.",
+      "consequence": "Kırk gün kadar süren kuşatmanın sonunda Bağdat 25 Aralık 1638'de teslim oldu. 17 Mayıs 1639'da imzalanan Kasr-ı Şirin Antlaşması'yla Bağdat ve Irak Osmanlılarda, Revan ve Azerbaycan Safevilerde kaldı; 1514'ten beri aralıklarla süren savaşlar sona erdi. Murad iki seferinin anısına Topkapı Sarayı'na Revan ve Bağdat köşklerini yaptırdı, İstanbul'a döndükten kısa süre sonra da 27 yaşında öldü.",
+      "depth": "Kasr-ı Şirin'de çizilen sınırın \"bugüne kadar hiç değişmediği\" sık söylenir, ama bu bir basitleştirmedir. Antlaşma sınırı genel hatlarıyla belirledi; sonraki yüzyıllarda yeni savaşlar ve antlaşmalar oldu, sınır taşları ancak 19. ve 20. yüzyıllarda tek tek yerine kondu.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1612,
+      "to": 1635,
+      "event": "I. Ahmed ile Kösem Sultan'ın oğlu olarak sarayda doğdu; 1623'te 11 yaşında tahta çıktı."
+    },
+    {
+      "place": {
+        "slug": "revan",
+        "nameTr": "Revan",
+        "historicName": "Erivan",
+        "lat": 40.1792,
+        "lon": 44.4991
+      },
+      "precision": "city",
+      "from": 1635,
+      "to": 1635,
+      "event": "İlk büyük seferinde Revan Kalesi'ni Safevilerden aldı."
+    },
+    {
+      "place": {
+        "slug": "bagdat",
+        "nameTr": "Bağdat",
+        "historicName": "Bağdat",
+        "lat": 33.3152,
+        "lon": 44.3661
+      },
+      "precision": "city",
+      "from": 1638,
+      "to": 1639,
+      "event": "Kırk gün kadar süren kuşatmanın sonunda Bağdat'ı geri aldı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-sultanahmet",
+        "nameTr": "Sultanahmet Camii, İstanbul",
+        "lat": 41.0054,
+        "lon": 28.9768
+      },
+      "precision": "building",
+      "from": 1640,
+      "to": 1640,
+      "event": "İstanbul'da 27 yaşında öldü ve babasının türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "ahmed-i",
+      "type": "child_of",
+      "note": "I. Ahmed'in oğludur."
+    },
+    {
+      "to": "kosem-sultan",
+      "type": "child_of",
+      "note": "Annesi Kösem Sultan, çocukluğunda devleti onun adına yönetti."
+    },
+    {
+      "to": "ibrahim",
+      "type": "sibling_of",
+      "note": "Sağ bıraktığı tek kardeşi İbrahim, ondan sonra tahta çıktı."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "kahvehane",
+      "term": "Kahvehane",
+      "meaning": "\"Kahve evi\" demektir: insanların kahve içip sohbet ettiği yer; İstanbul'da ilk kahvehaneler 16. yüzyılın ortasında açıldı.",
+      "root": {
+        "letters": "kahve + hâne",
+        "language": "Arapça ve Farsça",
+        "meaning": "kahve + ev"
+      },
+      "related": [
+        {
+          "term": "kahvaltı",
+          "meaning": "\"kahve altı\": kahveden önce yenen hafif yemek"
+        },
+        {
+          "term": "kahverengi",
+          "meaning": "kavrulmuş kahvenin rengi"
+        },
+        {
+          "term": "hane",
+          "meaning": "ev"
+        },
+        {
+          "term": "café",
+          "meaning": "kahve sözünün Avrupa dillerine geçmiş biçimi"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Murad IV",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/murad-iv"
+    },
+    {
+      "id": "wiki",
+      "title": "IV. Murad",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/IV._Murad",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

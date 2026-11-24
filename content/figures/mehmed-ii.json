@@ -1,0 +1,202 @@
+{
+  "slug": "mehmed-ii",
+  "nameTr": "Fatih Sultan Mehmed",
+  "nameEn": "Mehmed II (the Conqueror)",
+  "wikiTitleTr": "II. Mehmed",
+  "kind": "sultan",
+  "roles": [
+    "7. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1432,
+    "place": "Edirne"
+  },
+  "death": {
+    "year": 1481,
+    "place": "Gebze"
+  },
+  "reign": {
+    "from": 1451,
+    "to": 1481
+  },
+  "summary": [
+    "Fatih Sultan Mehmed, 1451'de 19 yaşında ikinci kez tahta çıkan 7. Osmanlı padişahıdır.",
+    "1453'te, henüz 21 yaşındayken İstanbul'u 53 günlük bir kuşatmayla fethetti.",
+    "Başkenti İstanbul'a taşıdı; koyduğu saray ve taht kuralları kendisinden sonra yüzyıllarca uygulandı."
+  ],
+  "actions": [
+    {
+      "id": "istanbulun-fethi",
+      "year": 1453,
+      "text": "İstanbul'u fethetti.",
+      "cause": "1453'e gelindiğinde Bizans İmparatorluğu'ndan geriye neredeyse yalnızca surlarla çevrili İstanbul kalmıştı; ama şehir Osmanlı topraklarının tam ortasında duruyor, Anadolu ile Rumeli arasındaki geçişi kesebiliyordu. II. Mehmed 1452'de Boğaz'ın en dar yerine Rumeli Hisarı'nı yaptırdı ve Macar usta Urban'a o güne dek görülmemiş büyüklükte toplar döktürdü. Hocası [[f:aksemseddin|Akşemseddin]] de kuşatma boyunca ordunun yanındaydı.",
+      "consequence": "Kuşatma 6 Nisan'da başladı ve 29 Mayıs 1453'te şehir alındı; son Bizans imparatoru XI. Konstantinos surlarda öldü. II. Mehmed o günden sonra [[c:fatih|Fatih]] diye anıldı, Ayasofya'yı camiye çevirdi ve başkenti Edirne'den İstanbul'a taşıdı. Boşalmış şehri canlandırmak için imparatorluğun dört yanından Müslüman, Rum, Ermeni ve Yahudi aileler getirtti.",
+      "depth": "Fetih tek bir hamleyle olmadı. Haliç'in girişi zincirle kapalı olduğu için yaklaşık 70 gemi 22 Nisan gecesi yağlanmış kızaklar üzerinde karadan Haliç'e indirildi; şehir ancak bundan beş hafta sonra düştü. Fethin \"Orta Çağ'ı bitirdiği\" ise bir olgu değil, tarihçilerin çağları ayırmak için sonradan benimsediği bir kabuldür.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "fatih-kanunnamesi",
+      "year": 1477,
+      "text": "Devletin ve sarayın kurallarını bir kanunnamede topladı.",
+      "cause": "Osmanlılarda tahtın kime geçeceğini belirleyen bir kural yoktu; padişah ölünce oğulları taht için savaşıyor, ülke iç savaşa sürükleniyordu. II. Mehmed 1451'de tahta çıkarken henüz bebek olan kardeşi Ahmed'i öldürtmüştü. Saltanatının son yıllarında vezirlerin sırasından saray törenlerine kadar devlet düzenini yazıya geçirtti.",
+      "consequence": "Kanunname, tahta çıkan padişahın \"dünya düzeni için\" kardeşlerini öldürtmesine izin veren maddesiyle hatırlanır. Bu madde 1595'te en ağır biçimde uygulandı: [[f:mehmed-iii|III. Mehmed]] 19 kardeşini birden öldürttü. Uygulamayı ilk kez bozan, 1603'te kardeşini sağ bırakan [[f:ahmed-i|I. Ahmed]] oldu.",
+      "depth": "Kardeş katlini Fatih başlatmadı; I. Murad ve Yıldırım Bayezid de taht için kardeşlerini öldürtmüştü, Fatih bunu yazılı kurala bağladı. Kanunnamenin tam tarihi bilinmez ve elimizdeki en eski kopyaları Fatih'ten çok sonraya aittir; bu yüzden bazı tarihçiler kardeş katli maddesinin sonradan eklendiğini öne sürmüştür. Tarihçilerin çoğu ise metnin özünü Fatih dönemine ait sayar.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "ali-kuscu-daveti",
+      "year": 1472,
+      "text": "Gökbilimci Ali Kuşçu'yu İstanbul'a getirtti.",
+      "cause": "Fatih, fethettiği şehrin yalnızca siyasetin değil bilimin de merkezi olmasını istiyordu; 1470'te tamamlanan Fatih Külliyesi'nde sekiz büyük medrese açtırmıştı. [[f:ali-kuscu|Ali Kuşçu]] ise Semerkant'ta Uluğ Bey'in rasathanesinde yetişmiş, Uluğ Bey 1449'da öldürülünce Tebriz'e, Akkoyunlu hükümdarı Uzun Hasan'ın yanına gitmişti. Uzun Hasan onu elçi olarak İstanbul'a gönderdi ve Fatih kalması için ısrar etti.",
+      "consequence": "Ali Kuşçu 1472'de ailesiyle İstanbul'a yerleşti ve yüksek bir maaşla Ayasofya Medresesi'nin başına geçti. 1474'teki ölümüne kadar yalnızca iki yıl ders verebildi, ama matematik ve astronomi onun etkisiyle Osmanlı medreselerinde daha çok okutulur oldu. Fatih için yazdığı astronomi kitabına, padişahın 1473'teki Otlukbeli zaferi nedeniyle \"Fethiye\" adını verdi.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "edirne",
+        "nameTr": "Edirne",
+        "historicName": "Adrianopolis",
+        "lat": 41.677,
+        "lon": 26.556
+      },
+      "precision": "city",
+      "from": 1432,
+      "to": 1443,
+      "event": "II. Murad'ın oğlu olarak başkent Edirne'de doğdu."
+    },
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1443,
+      "to": 1451,
+      "event": "Şehzade olarak Manisa'yı yönetti; arada 1444-1446'da babası tahtı bırakınca 12 yaşında ilk kez padişah oldu."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1453,
+      "to": 1453,
+      "event": "53 gün süren kuşatmanın sonunda 29 Mayıs'ta şehre girdi."
+    },
+    {
+      "place": {
+        "slug": "belgrad",
+        "nameTr": "Belgrad",
+        "historicName": "Nándorfehérvár",
+        "lat": 44.7866,
+        "lon": 20.4489
+      },
+      "precision": "city",
+      "from": 1456,
+      "to": 1456,
+      "event": "Belgrad'ı kuşattı ama alamadı; çarpışmalarda kendisi de yaralandı."
+    },
+    {
+      "place": {
+        "slug": "trabzon",
+        "nameTr": "Trabzon",
+        "historicName": "Trapezus",
+        "lat": 41.0027,
+        "lon": 39.7168
+      },
+      "precision": "city",
+      "from": 1461,
+      "to": 1461,
+      "event": "Trabzon Rum İmparatorluğu'na son vererek Karadeniz kıyısını Osmanlı topraklarına kattı."
+    },
+    {
+      "place": {
+        "slug": "gebze",
+        "nameTr": "Gebze",
+        "historicName": "Dakibyza",
+        "lat": 40.8028,
+        "lon": 29.4307
+      },
+      "precision": "district",
+      "from": 1481,
+      "to": 1481,
+      "event": "Yeni bir sefere çıkarken Gebze yakınlarındaki ordugâhta 49 yaşında öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-iii",
+      "type": "influenced",
+      "note": "III. Mehmed, Fatih'in kanunnamesindeki kardeş katli maddesine dayanarak 19 kardeşini öldürttü."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "fatih",
+      "term": "Fatih",
+      "meaning": "\"Fetheden, açan\" demektir: bir şehri ya da ülkeyi alıp kendi yönetimine açan kişi.",
+      "root": {
+        "letters": "f-t-h",
+        "language": "Arapça",
+        "meaning": "açmak"
+      },
+      "related": [
+        {
+          "term": "fetih",
+          "meaning": "bir yeri savaşla alma, açma"
+        },
+        {
+          "term": "Fatiha",
+          "meaning": "Kur'an'ı \"açan\" ilk sure"
+        },
+        {
+          "term": "miftah",
+          "meaning": "anahtar"
+        },
+        {
+          "term": "fettah",
+          "meaning": "kapıları açan"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Mehmed II",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/mehmed-ii"
+    },
+    {
+      "id": "wiki",
+      "title": "II. Mehmed",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/II._Mehmed",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "mustafa-iii",
+  "nameTr": "III. Mustafa",
+  "nameEn": "Mustafa III",
+  "wikiTitleTr": "III. Mustafa",
+  "kind": "sultan",
+  "roles": ["26. Osmanlı padişahı"],
+  "birth": { "year": 1717, "place": "Edirne" },
+  "death": { "year": 1774, "place": "İstanbul" },
+  "reign": { "from": 1757, "to": 1774 },
+  "summary": [
+    "III. Mustafa, 1757'de 40 yaşında tahta çıkan 26. Osmanlı padişahıdır.",
+    "1770'te Rus donanması Çeşme Limanı'nda Osmanlı donanmasını bir gecede yaktı.",
+    "1768'de açtığı Rus savaşı, ölümünden altı ay sonra Kırım'ın kaybına giden Küçük Kaynarca Antlaşması ile bitti."
+  ],
+  "actions": [
+    {
+      "id": "fatih-camiinin-yeniden-yapimi",
+      "year": 1767,
+      "text": "Depremde yıkılan Fatih Camii'ni yeniden yaptırdı.",
+      "cause": "Mayıs 1766'da İstanbul büyük bir depremle sarsıldı. [[f:mehmed-ii|Fatih Sultan Mehmed]]'in 1470'te tamamlattığı Fatih Camii'nin kubbesi çöktü, duvarları onarılamayacak kadar zarar gördü. Şehrin surları, çarşıları ve birçok camisi de hasar aldı.",
+      "consequence": "III. Mustafa camiyi temelden yeniden yaptırdı; yapı 1771'de açıldı. Aynı yıllarda Eyüp Sultan Camii gibi zarar gören başka yapılar da onarıldı. Padişah bundan önce, 1763'te kendi adına Laleli Camii'ni de yaptırmıştı.",
+      "depth": "Bugün gezilen Fatih Camii, Fatih'in yaptırdığı cami değildir; III. Mustafa'nın yaptırdığı, farklı planlı ikinci yapıdır. İlk camiden yalnızca avlu, taç kapı ve minarelerin alt bölümleri gibi parçalar kalmıştır.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "rus-savasi",
+      "year": 1768,
+      "text": "Rusya'ya savaş açtı.",
+      "cause": "Sadrazam Koca Ragıp Paşa 1763'te ölene kadar devleti savaştan uzak tutmuştu. Rus Çariçesi II. Katerina 1764'te Lehistan tahtına kendi adayını oturttu ve ülkeye asker soktu. 1768'de Leh direnişçileri kovalayan Rus birlikleri Osmanlı sınırını geçip Balta kasabasını yakınca III. Mustafa savaş ilan etti.",
+      "consequence": "Uzun barış yıllarında ihmal edilen ordu hazırlıksızdı. 1770'te Kartal'da kara ordusu yenildi, aynı yaz Baltık'tan gelen Rus donanması Çeşme'de Osmanlı donanmasını yaktı; 1771'de Kırım işgal edildi. Padişah savaş sürerken Ocak 1774'te öldü ve barışı kardeşi [[f:abdulhamid-i|I. Abdülhamid]] imzalamak zorunda kaldı.",
+      "depth": "Rus donanması Baltık Denizi'nden çıkıp bütün Avrupa'yı dolaşarak Ege'ye geldi. Anlatıya göre Osmanlı devlet adamları böyle bir yolun mümkün olduğuna önce inanmamıştır. Padişah yenilgilerden sonra Fransız subay Baron de Tott'a topçuluğu yenileme görevi verdi; ancak bu çabalar savaşın gidişini değiştirmeye yetmedi.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1717, "to": 1717, "event": "III. Ahmed'in oğlu olarak Edirne Sarayı'nda doğdu." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1730, "to": 1757, "event": "Babası tahttan çekildikten sonra 27 yıl sarayda kapalı yaşadı; 1757'de padişah oldu." },
+    { "place": { "slug": "istanbul-laleli", "nameTr": "Laleli Camii, İstanbul", "lat": 41.0101, "lon": 28.9567 }, "precision": "building", "from": 1760, "to": 1763, "event": "Kendi adına Laleli Camii'ni ve külliyesini yaptırdı." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1774, "to": 1774, "event": "Rus savaşı sürerken sarayda öldü; Laleli Camii'nin yanındaki türbesine gömüldü." }
+  ],
+  "relations": [
+    { "to": "ahmed-iii", "type": "child_of", "note": "III. Ahmed'in oğludur." },
+    { "to": "abdulhamid-i", "type": "sibling_of", "note": "Kardeşi I. Abdülhamid, ondan sonra tahta çıktı." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Mustafa III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-iii" },
+    { "id": "wiki", "title": "III. Mustafa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Mustafa", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

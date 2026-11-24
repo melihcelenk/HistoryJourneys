@@ -1,0 +1,60 @@
+{
+  "slug": "abdulaziz",
+  "nameTr": "Abdülaziz",
+  "nameEn": "Abdulaziz",
+  "wikiTitleTr": "Abdülaziz",
+  "kind": "sultan",
+  "roles": ["32. Osmanlı padişahı"],
+  "birth": { "year": 1830, "place": "İstanbul" },
+  "death": { "year": 1876, "place": "İstanbul" },
+  "reign": { "from": 1861, "to": 1876 },
+  "summary": [
+    "Abdülaziz, 1861'den 1876'ya kadar hüküm süren 32. Osmanlı padişahıdır.",
+    "1867'de Paris ve Londra'ya giderek Avrupa'yı ordusunun başında değil, konuk olarak gezen ilk ve tek padişah oldu.",
+    "1876'da bir darbeyle tahttan indirilmesi, aynı yılın sonunda ilan edilen ilk Osmanlı anayasasına giden yolu açtı."
+  ],
+  "actions": [
+    {
+      "id": "avrupa-seyahati",
+      "year": 1867,
+      "text": "Avrupa'ya dostluk gezisine çıkan ilk padişah oldu.",
+      "cause": "Fransa İmparatoru III. Napolyon, 1867'de Paris'te açılan uluslararası sergiye Abdülaziz'i davet etti. O yıllarda Girit'te isyan vardı ve Osmanlı Devleti'nin Avrupa'nın büyük devletleriyle arasını iyi tutması gerekiyordu. O güne kadar padişahlar ülke dışına yalnızca sefere çıkarken gitmişti.",
+      "consequence": "Abdülaziz 21 Haziran 1867'de yola çıktı; Paris'te III. Napolyon, Londra'da Kraliçe Victoria tarafından ağırlandı, dönüşte Viyana'ya uğradı ve 7 Ağustos'ta İstanbul'a döndü. Yanında yeğenleri, geleceğin padişahları [[f:murad-v|Murad]] ile [[f:abdulhamid-ii|Abdülhamid]] de vardı. Gezide gördüğü demiryolları ve zırhlı gemiler, sonraki yıllardaki demiryolu ve donanma yatırımlarını hızlandırdı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "donanma-ve-borclar",
+      "year": 1875,
+      "text": "Borç parayla büyük bir zırhlı donanma kurdu; devlet 1875'te borçlarını ödeyemez hale geldi.",
+      "cause": "Osmanlı Devleti ilk dış borcunu ağabeyi [[f:abdulmecid|Abdülmecid]] döneminde, 1854'te Kırım Savaşı sırasında almıştı. Abdülaziz denizlere çok meraklıydı ve Rusya'ya karşı güçlü bir donanma istiyordu. İngiltere ve Fransa'ya zırhlı gemiler sipariş edildi; saraylar ve demiryolları da yeni borçlarla yapıldı.",
+      "consequence": "Osmanlı donanması gemi sayısı bakımından dünyanın en büyük donanmalarından biri oldu. Ancak borçların faizi ödenemez hale geldi ve Ekim 1875'te hükümet faiz ödemelerini yarıya indirdiğini duyurdu. Bu iflas ilanı hem Avrupa'da hem İstanbul'da büyük tepki çekti ve padişahın tahtını sarstı.",
+      "depth": "Donanmanın \"dünyada üçüncü\" olduğu sık sık söylenir; bu sıralama gemi sayısına dayanır. Gemiler yurt dışından satın alınmıştı, onları kullanacak yetişmiş subay ve mühendis ise azdı. Bu yüzden bazı tarihçiler donanmanın kâğıt üzerindeki gücünün gerçek savaş gücünü yansıtmadığını söyler.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "tahttan-indirilme",
+      "year": 1876,
+      "text": "Bir darbeyle tahttan indirildi ve beş gün sonra öldü.",
+      "cause": "1875'teki mali iflasın ardından Hersek'te ve Bulgaristan'da isyanlar çıktı. Mayıs 1876'da İstanbul'da medrese öğrencileri hükümete karşı gösteri yaptı. Serasker Hüseyin Avni Paşa, [[f:midhat-pasa|Midhat Paşa]] ve arkadaşları padişahı devirmeye karar verdi.",
+      "consequence": "30 Mayıs 1876 sabahı Dolmabahçe Sarayı karadan ve denizden kuşatıldı; Abdülaziz tahttan indirildi ve yerine yeğeni V. Murad geçti. 4 Haziran'da Feriye Sarayı'ndaki odasında bilekleri kesilmiş halde bulundu. Aynı yıl içinde bir padişah daha değişti ve Aralık 1876'da ilk anayasa ilan edildi.",
+      "depth": "Ölümü bugün de tartışılır. Cesedi inceleyen hekimler, bileklerini bir makasla kendisinin kestiği sonucuna vardı. 1881'de II. Abdülhamid döneminde kurulan Yıldız Mahkemesi ise olayı cinayet saydı ve Midhat Paşa ile arkadaşlarını mahkûm etti; tarihçiler iki görüş arasında bölünmüştür.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1830, "to": 1861, "event": "II. Mahmud'un oğlu olarak doğdu; 1861'de ağabeyi Abdülmecid'in ölümüyle tahta çıktı." },
+    { "place": { "slug": "kahire", "nameTr": "Kahire", "historicName": "Kahire", "lat": 30.0444, "lon": 31.2357 }, "precision": "city", "from": 1863, "to": 1863, "event": "Nisan 1863'te Mısır'ı ziyaret etti ve büyük gösterilerle karşılandı." },
+    { "place": { "slug": "paris", "nameTr": "Paris", "lat": 48.8566, "lon": 2.3522 }, "precision": "city", "from": 1867, "to": 1867, "event": "III. Napolyon'un konuğu olarak uluslararası sergiyi gezdi." },
+    { "place": { "slug": "londra", "nameTr": "Londra", "lat": 51.5074, "lon": -0.1278 }, "precision": "city", "from": 1867, "to": 1867, "event": "Kraliçe Victoria tarafından ağırlandı ve İngiliz donanmasını inceledi." },
+    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1876, "to": 1876, "event": "30 Mayıs 1876'da sarayı kuşatılarak tahttan indirildi; beş gün sonra yakındaki Feriye Sarayı'nda öldü." }
+  ],
+  "relations": [
+    { "to": "mahmud-ii", "type": "child_of", "note": "II. Mahmud'un oğludur." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Abdülaziz", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulaziz" },
+    { "id": "wiki", "title": "Abdülaziz", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Abd%C3%BClaziz", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

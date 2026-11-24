@@ -1,0 +1,71 @@
+{
+  "slug": "mahmud-i",
+  "nameTr": "I. Mahmud",
+  "nameEn": "Mahmud I",
+  "wikiTitleTr": "I. Mahmud",
+  "kind": "sultan",
+  "roles": ["24. Osmanlı padişahı"],
+  "birth": { "year": 1696, "place": "Edirne" },
+  "death": { "year": 1754, "place": "İstanbul" },
+  "reign": { "from": 1730, "to": 1754 },
+  "summary": [
+    "I. Mahmud, 1730'da Patrona Halil İsyanı ile 34 yaşında tahta çıkarılan 24. Osmanlı padişahıdır.",
+    "1739'daki Belgrad Antlaşması ile yirmi yıl önce kaybedilen Belgrad'ı Avusturya'dan geri aldı.",
+    "Fransız asıllı Humbaracı Ahmed Paşa'ya orduda ilk Avrupa tarzı eğitimi başlattırarak sonraki askerî yeniliklerin yolunu açtı."
+  ],
+  "actions": [
+    {
+      "id": "patrona-halilin-ortadan-kaldirilmasi",
+      "year": 1730,
+      "text": "Kendisini tahta çıkaran Patrona Halil'i ortadan kaldırdı.",
+      "cause": "Eylül 1730'daki isyan amcası [[f:ahmed-iii|III. Ahmed]]'i tahttan indirmiş, 27 yıldır sarayda kapalı yaşayan Mahmud'u padişah yapmıştı. Ancak gerçek güç isyancıların elindeydi: Patrona Halil devlet görevlerine kendi adamlarını atatıyor, divan toplantılarına katılıyordu.",
+      "consequence": "Kasım 1730'da Patrona Halil ve yakın arkadaşları, bir görev verileceği söylenerek saraya çağrıldı ve orada öldürüldü. İsyancıların geri kalanı İstanbul'dan temizlendi. Genç padişah böylece yönetimi kendi eline aldı ve 24 yıl tahtta kaldı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "humbaraci-ocagi-ve-hendesehane",
+      "year": 1734,
+      "text": "Humbaracı Ahmed Paşa'ya topçuluğu yeniletti ve ilk mühendislik okulunu açtırdı.",
+      "cause": "Avusturya karşısındaki yenilgiler, Avrupa ordularının top ve hesap işinde öne geçtiğini göstermişti. 1729'da Osmanlı'ya sığınan Fransız general Comte de Bonneval Müslüman oldu ve Ahmed adını aldı. I. Mahmud onu, havan topu kullanan [[c:humbaraci|humbaracı]] birliğini yeniden düzenlemekle görevlendirdi.",
+      "consequence": "Humbaracı Ocağı Avrupa ordularındaki gibi düzenli eğitim ve maaş düzenine geçirildi. 1734'te Üsküdar'da, subaylara geometri öğreten Hendesehane açıldı. Bu, Osmanlı ordusunda Avrupa'dan uzman getirilerek yapılan ilk yenilikti; [[f:selim-iii|III. Selim]]'in yeni ordusuna giden yol buradan başladı.",
+      "depth": "Hendesehane uzun ömürlü olmadı; yeniçerilerin tepkisi yüzünden birkaç yıl içinde etkisini yitirdi. Kalıcı mühendislik okulları ancak 1770'lerden sonra kurulabildi.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "belgrad-antlasmasi",
+      "year": 1739,
+      "text": "Avusturya ve Rusya ile savaşıp Belgrad Antlaşması'nı imzalattı.",
+      "cause": "1736'da Rusya Kırım'a ve Azak'a saldırdı; ertesi yıl müttefiki Avusturya da savaşa katıldı. Osmanlı Devleti iki cephede birden savaşmak zorunda kaldı. Avusturya, 1718'deki Pasarofça Antlaşması'yla aldığı Belgrad'ı elinde tutuyordu.",
+      "consequence": "Osmanlı ordusu 1739 yazında Belgrad yakınındaki Hisarcık'ta Avusturyalıları yendi ve şehri kuşattı. Eylül 1739'da imzalanan Belgrad Antlaşması ile Belgrad geri alındı; Rusya da Karadeniz'de savaş gemisi bulundurmamayı kabul etti. Batı sınırında bundan sonra yaklaşık otuz yıl barış sürdü.",
+      "depth": "Barış görüşmelerinde arabuluculuk yapan Fransa'ya karşılık olarak 1740'ta kapitülasyonlar süresiz hâle getirildi. O gün bir teşekkür gibi görünen bu ticaret ayrıcalıkları, 19. yüzyılda Osmanlı ekonomisi için ağır bir yüke dönüştü.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1696, "to": 1703, "event": "Babası II. Mustafa'nın yaşadığı Edirne Sarayı'nda doğdu ve çocukluğunu burada geçirdi." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1703, "to": 1730, "event": "Babası tahttan indirilince İstanbul'a getirildi ve 27 yıl sarayda kapalı yaşadı; 1730'da padişah oldu." },
+    { "place": { "slug": "istanbul-nuruosmaniye", "nameTr": "Nuruosmaniye Camii, İstanbul", "lat": 41.0103, "lon": 28.9707 }, "precision": "building", "from": 1748, "to": 1754, "event": "Kapalıçarşı'nın yanında büyük bir cami yaptırmaya başladı ama bittiğini göremedi." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1754, "to": 1754, "event": "Cuma namazından dönerken at üzerinde fenalaşıp saray kapısında öldü; Yeni Cami'deki türbeye gömüldü." }
+  ],
+  "relations": [
+    { "to": "mustafa-ii", "type": "child_of", "note": "II. Mustafa'nın oğludur." },
+    { "to": "osman-iii", "type": "sibling_of", "note": "Kardeşi III. Osman, ondan sonra tahta çıktı." }
+  ],
+  "concepts": [
+    {
+      "slug": "humbaraci",
+      "term": "Humbaracı",
+      "meaning": "Havan topuyla atılan ya da elle fırlatılan bombaları (humbara) kullanan asker.",
+      "root": { "letters": "humbara", "language": "Farsça", "meaning": "küçük küp, içi doldurulmuş kap" },
+      "related": [
+        { "term": "kumbara", "meaning": "aynı kelimeden gelir: para biriktirilen küçük kap" },
+        { "term": "humbarahane", "meaning": "bomba yapılan yer; humbaracı kışlası" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Mahmud I", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mahmud-i" },
+    { "id": "wiki", "title": "I. Mahmud", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/I._Mahmud", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

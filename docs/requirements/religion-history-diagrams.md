@@ -1,5 +1,9 @@
 # Religion History Diagrams — Requirements
 
+> **Status:** deferred. Work starts after the History Journeys platform prototype
+> (platform requirements §8.1). Spaced repetition here uses the platform's FSRS
+> scheduler (platform decision D7), not a separate review algorithm.
+
 ## 1. Purpose
 
 An interactive, modern web application that presents Christianity, Judaism,

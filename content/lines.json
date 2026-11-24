@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "osmanli-saltanati",
+    "nameTr": "Osmanlı saltanatı",
+    "description": "Fatih'ten son padişah Vahdeddin'e taht sırası; ana hat.",
+    "linkType": "succeeded",
+    "members": ["mehmed-ii", "bayezid-ii", "selim-i", "suleyman-i", "selim-ii", "murad-iii", "mehmed-iii", "ahmed-i", "mustafa-i", "osman-ii", "murad-iv", "ibrahim", "mehmed-iv", "suleyman-ii", "ahmed-ii", "mustafa-ii", "ahmed-iii", "mahmud-i", "osman-iii", "mustafa-iii", "abdulhamid-i", "selim-iii", "mustafa-iv", "mahmud-ii", "abdulmecid", "abdulaziz", "murad-v", "abdulhamid-ii", "mehmed-v", "mehmed-vi"]
+  },
+  {
+    "slug": "devlet-adamlari",
+    "nameTr": "Devlet adamları ve reform",
+    "description": "Sadrazamlar, reformcular ve Cumhuriyet'e uzanan devlet fikri.",
+    "members": ["sokollu-mehmed-pasa", "koprulu-mehmed-pasa", "alemdar-mustafa-pasa", "mustafa-resid-pasa", "midhat-pasa", "namik-kemal", "enver-pasa", "ataturk", "ismet-inonu"]
+  },
+  {
+    "slug": "ilim-ve-sanat",
+    "nameTr": "İlim ve sanat",
+    "description": "Âlimler, denizciler, mimarlar ve yazarlar.",
+    "members": ["aksemseddin", "ali-kuscu", "piri-reis", "barbaros-hayreddin", "mimar-sinan", "katip-celebi", "evliya-celebi", "ibrahim-muteferrika"]
+  },
+  {
+    "slug": "hanedan",
+    "nameTr": "Hanedanın diğer yüzleri",
+    "description": "Tahtın çevresindeki şehzadeler ve sultanlar.",
+    "members": ["cem-sultan", "hurrem-sultan", "kosem-sultan"]
+  }
+]

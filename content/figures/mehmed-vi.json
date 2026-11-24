@@ -1,0 +1,74 @@
+{
+  "slug": "mehmed-vi",
+  "nameTr": "VI. Mehmed (Vahdeddin)",
+  "nameEn": "Mehmed VI",
+  "wikiTitleTr": "VI. Mehmed",
+  "kind": "sultan",
+  "roles": ["36. ve son Osmanlı padişahı"],
+  "birth": { "year": 1861, "place": "İstanbul" },
+  "death": { "year": 1926, "place": "San Remo" },
+  "reign": { "from": 1918, "to": 1922 },
+  "summary": [
+    "VI. Mehmed (Vahdeddin), 1918'den 1922'ye kadar hüküm süren 36. ve son Osmanlı padişahıdır.",
+    "Tahta çıkmasından dört ay sonra Mondros Mütarekesi imzalandı ve başkent İstanbul işgal edildi.",
+    "17 Kasım 1922'de bir İngiliz savaş gemisiyle ülkeden ayrıldı; altı yüzyılı aşan saltanat onunla bitti ve Cumhuriyet'in yolu açıldı."
+  ],
+  "actions": [
+    {
+      "id": "mustafa-kemali-samsuna-gonderme",
+      "year": 1919,
+      "text": "Mustafa Kemal Paşa'yı ordu müfettişi olarak Samsun'a gönderdi.",
+      "cause": "30 Ekim 1918'de imzalanan Mondros [[c:mutareke|Mütarekesi]]'nden sonra Karadeniz bölgesinde Türk ve Rum çeteleri arasında çatışmalar çıktı. İngilizler, düzen sağlanmazsa bölgeyi işgal edeceklerini bildirdi. Vahdeddin, 1917'de veliahtken çıktığı Almanya gezisinde yaverliğini yapan [[f:ataturk|Mustafa Kemal Paşa]]'yı tanıyordu; hükümet onu geniş yetkilerle 9. Ordu Müfettişi atadı.",
+      "consequence": "Mustafa Kemal 19 Mayıs 1919'da Samsun'a çıktı, ancak düzeni sağlamak yerine direnişi örgütlemeye başladı. İstanbul hükümeti onu geri çağırdı; o da 8 Temmuz 1919'da askerlikten istifa etti. Böylece padişahın görevlendirdiği paşa, padişahın hükümetine karşı yürüyen hareketin önderi oldu.",
+      "depth": "Vahdeddin'in niyeti tartışmalıdır. Bazı yazarlara göre padişah onu direnişi başlatsın diye bilerek gönderdi. Tarihçilerin çoğu ise atama belgelerine dayanarak amacın bölgede asayişi sağlamak olduğunu söyler; Atatürk de Nutuk'ta kendisini İstanbul'dan uzaklaştırmak istediklerini anlatır.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "ankaraya-karsi-tutum",
+      "year": 1920,
+      "text": "Ankara'daki Meclis'i tanımadı; hükümeti Sevr Antlaşması'nı imzaladı.",
+      "cause": "İtilaf devletleri 16 Mart 1920'de İstanbul'u resmen işgal etti ve padişah 11 Nisan'da Meclis-i Mebusan'ı dağıttı. Anadolu'daki direnişçiler 23 Nisan 1920'de Ankara'da yeni bir meclis açtı. Vahdeddin, tahtını ve halifeliği ancak İngilizlerle anlaşarak koruyabileceğine inanıyordu.",
+      "consequence": "Şeyhülislamın fetvası direnişçileri asi ilan etti; İstanbul'daki sıkıyönetim mahkemesi Mayıs 1920'de Mustafa Kemal'i gıyabında idama mahkûm etti ve padişah kararı onayladı. Hükümetinin temsilcileri 10 Ağustos 1920'de Anadolu'yu paylaştıran Sevr Antlaşması'nı imzaladı. Antlaşma hiç yürürlüğe girmedi; savaşı Ankara kazandı.",
+      "depth": "Onu savunanlar, işgal altındaki bir şehirde İngiliz toplarının gölgesinde hareket ettiğini ve Sevr'i kendisinin onaylamadığını hatırlatır. Eleştirenler ise Anadolu'ya geçme imkânı varken işgalcilerle iş birliğini seçtiğini söyler; bu tartışma bugün de sürmektedir.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "ulkeden-ayrilma",
+      "year": 1922,
+      "text": "Saltanat kaldırılınca bir İngiliz savaş gemisiyle ülkeden ayrıldı.",
+      "cause": "Kurtuluş Savaşı kazanılınca İtilaf devletleri Lozan'daki barış görüşmelerine hem Ankara'yı hem İstanbul'u çağırdı. Türkiye Büyük Millet Meclisi buna karşılık 1 Kasım 1922'de saltanatı kaldırdı. Mecliste hakkında \"vatan haini\" denilen Vahdeddin can güvenliğinden endişe ederek İngiliz işgal komutanına sığınma isteğini yazıyla bildirdi.",
+      "consequence": "17 Kasım 1922 sabahı Yıldız Sarayı'ndan gizlice çıkarılıp İngiliz zırhlısı Malaya ile Malta'ya götürüldü. Meclis ertesi gün amcasının oğlu Abdülmecid Efendi'yi halife seçti. Vahdeddin bir süre Hicaz'da kaldıktan sonra İtalya'da San Remo'ya yerleşti, 1926'da orada öldü ve Şam'a gömüldü.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1861, "to": 1861, "event": "Abdülmecid'in en küçük oğlu olarak doğdu; babası aynı yıl öldü." },
+    { "place": { "slug": "berlin", "nameTr": "Berlin", "lat": 52.52, "lon": 13.405 }, "precision": "city", "from": 1917, "to": 1918, "event": "Veliaht olarak Almanya'yı ziyaret etti; yaveri Mustafa Kemal Paşa'ydı." },
+    { "place": { "slug": "istanbul-yildiz", "nameTr": "Yıldız Sarayı, İstanbul", "lat": 41.0497, "lon": 29.0111 }, "precision": "building", "from": 1918, "to": 1922, "event": "İşgal yıllarında burada oturdu; 17 Kasım 1922'de buradan ayrılıp ülkeyi terk etti." },
+    { "place": { "slug": "mekke", "nameTr": "Mekke", "historicName": "Mekke", "lat": 21.3891, "lon": 39.8579 }, "precision": "city", "from": 1923, "to": 1923, "event": "Malta'dan sonra Hicaz Kralı Hüseyin'in konuğu olarak Mekke'ye gitti." },
+    { "place": { "slug": "sanremo", "nameTr": "San Remo", "lat": 43.8159, "lon": 7.7761 }, "precision": "city", "from": 1923, "to": 1926, "event": "Sürgün yıllarını burada borç içinde geçirdi ve 16 Mayıs 1926'da öldü." },
+    { "place": { "slug": "sam", "nameTr": "Şam", "historicName": "Dımaşk", "lat": 33.5138, "lon": 36.2765 }, "precision": "city", "from": 1926, "to": 1926, "event": "Cenazesi Şam'a getirilerek Sultan Selim Camii'nin bahçesine gömüldü." }
+  ],
+  "relations": [
+    { "to": "abdulmecid", "type": "child_of", "note": "Abdülmecid'in en küçük oğludur." },
+    { "to": "abdulhamid-ii", "type": "sibling_of", "note": "II. Abdülhamid'in küçük kardeşidir; onun saltanatı boyunca ağabeyine yakın durdu." }
+  ],
+  "concepts": [
+    {
+      "slug": "mutareke",
+      "term": "Mütareke",
+      "meaning": "Savaşan tarafların çarpışmayı karşılıklı olarak bırakması; ateşkes anlaşması.",
+      "root": { "letters": "t-r-k", "language": "Arapça", "meaning": "bırakmak" },
+      "related": [
+        { "term": "terk", "meaning": "bırakma" },
+        { "term": "tereke", "meaning": "ölen kişinin geride bıraktığı mal" },
+        { "term": "metruk", "meaning": "bırakılmış, terk edilmiş" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Mehmed VI", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mehmed-vi" },
+    { "id": "wiki", "title": "VI. Mehmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/VI._Mehmed", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

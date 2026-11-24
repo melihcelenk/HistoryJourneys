@@ -1,0 +1,178 @@
+{
+  "slug": "ibrahim-muteferrika",
+  "nameTr": "İbrahim Müteferrika",
+  "nameEn": "İbrahim Müteferrika",
+  "wikiTitleTr": "İbrahim Müteferrika",
+  "kind": "scholar",
+  "roles": [
+    "Matbaacı ve yayıncı",
+    "Diplomat ve yazar"
+  ],
+  "birth": {
+    "year": 1674,
+    "place": "Kolojvar, Erdel"
+  },
+  "death": {
+    "year": 1745,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "İbrahim Müteferrika, 1674'te Erdel'in Kolojvar şehrinde doğan Macar asıllı Osmanlı matbaacısıdır.",
+    "1727'de İstanbul'da Türkçe kitap basan ilk matbaayı kurdu ve 1729'da ilk kitabı olan Vankulu Lügati'ni yayımladı.",
+    "On yedi eser bastı; kitabın elle çoğaltıldığı bir dünyada bilginin basılarak yayılabileceğini Osmanlı okuruna gösterdi."
+  ],
+  "actions": [
+    {
+      "id": "matbaanin-kurulmasi",
+      "year": 1727,
+      "text": "İstanbul'da Türkçe kitap basan ilk matbaayı kurdu.",
+      "cause": "Osmanlı ülkesinde Yahudiler 15. yüzyılın sonundan, Ermeniler ve Rumlar da sonraki yüzyıllardan beri kendi dillerinde kitap basıyordu; Türkçe kitaplar ise hattatlarca elle çoğaltılıyordu. Genç yaşta İstanbul'a gelip Müslüman olan İbrahim, sarayda müteferrika olarak görev yapıyordu. Paris elçiliğinden dönen Yirmisekiz Mehmed Çelebi'nin oğlu Said Efendi'yle birlikte bir [[c:matbaa-kelimesi|matbaa]] kurmaya girişti ve basımın yararlarını anlatan bir risale yazdı.",
+      "consequence": "[[f:ahmed-iii|III. Ahmed]] 1727'de fermanla izin verdi; şeyhülislam da din dışı kitapların basılabileceğine fetva verdi. Matbaa, İbrahim'in İstanbul'daki evinde kuruldu ve ilk kitap, iki ciltlik Vankulu Lügati, 1729'da çıktı. 1742'ye kadar tarih, coğrafya ve dil üzerine on yedi eser basıldı.",
+      "depth": "Hattatların geçimlerini yitirme korkusuyla ayaklandığı anlatısı dönemin belgelerinde doğrulanmaz. Kitaplar birkaç yüz ile bin adet arasında basıldı ve pahalıydı; İbrahim'in ölümünden sonra matbaa uzun süre neredeyse durdu. Basımın Osmanlı'da yaygınlaşması 19. yüzyılı buldu.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "cihannuma-baskisi",
+      "year": 1732,
+      "text": "Kâtip Çelebi'nin Cihannümâ'sını haritalarla birlikte bastı.",
+      "cause": "Müteferrika basacağı kitapları kendisi seçiyordu ve özellikle coğrafya ile tarihe önem veriyordu. [[f:katip-celebi|Kâtip Çelebi]]'nin yetmiş yıl önce yarım bıraktığı Cihannümâ, Avrupa atlaslarına dayanan ender Türkçe eserlerdendi. Müteferrika haritacılıktan da anlıyordu; daha önce Marmara ve Karadeniz haritaları basmıştı.",
+      "consequence": "Kitap 1732'de onlarca harita ve çizimle birlikte yayımlandı; Müteferrika metne Kopernik'in Güneş merkezli sistemini de tanıtan ekler koydu. Aynı yıl [[f:mahmud-i|I. Mahmud]]'a, Avrupa ordularının düzenini anlatan ve Osmanlı ordusunun yenilenmesini öneren Usûlü'l-Hikem adlı kendi kitabını sundu. Bu fikirler, sonraki yüzyılın askerî reformlarının erken habercilerindendir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "kolojvar",
+        "nameTr": "Kolojvar",
+        "historicName": "Kolozsvár / Cluj-Napoca",
+        "lat": 46.7712,
+        "lon": 23.6236
+      },
+      "precision": "city",
+      "from": 1674,
+      "to": 1692,
+      "event": "Macar bir ailenin çocuğu olarak doğdu ve burada din eğitimi gördü."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1692,
+      "to": 1727,
+      "event": "İstanbul'a geldi, Müslüman oldu; müteferrika olarak diplomatik görevlerde çalıştı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-yavuzselim",
+        "nameTr": "Yavuz Selim, Fatih, İstanbul",
+        "historicName": "Sultan Selim",
+        "lat": 41.0266,
+        "lon": 28.9516
+      },
+      "precision": "district",
+      "from": 1727,
+      "to": 1743,
+      "event": "Evinde kurduğu matbaada on yedi eser bastı."
+    },
+    {
+      "place": {
+        "slug": "yalova",
+        "nameTr": "Yalova",
+        "historicName": "Yalakabad",
+        "lat": 40.655,
+        "lon": 29.2769
+      },
+      "precision": "city",
+      "from": 1744,
+      "to": 1745,
+      "event": "Matbaaya yerli kâğıt sağlamak için Yalova'da bir kâğıt imalathanesinin kurulmasına öncülük etti."
+    },
+    {
+      "place": {
+        "slug": "istanbul-galata-mevlevihanesi",
+        "nameTr": "Galata Mevlevihanesi, İstanbul",
+        "lat": 41.0283,
+        "lon": 28.9747
+      },
+      "precision": "building",
+      "from": 1745,
+      "to": 1745,
+      "event": "İstanbul'da öldü; mezarı bugün Galata Mevlevihanesi'nin bahçesindedir."
+    }
+  ],
+  "relations": [
+    {
+      "to": "ahmed-iii",
+      "type": "served_under",
+      "note": "Matbaayı III. Ahmed'in 1727 tarihli fermanıyla kurdu; onun döneminde müteferrikalık yaptı."
+    },
+    {
+      "to": "mahmud-i",
+      "type": "served_under",
+      "note": "I. Mahmud döneminde basımı ve diplomatik görevlerini sürdürdü; Usûlü'l-Hikem'i ona sundu."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "matbaa-kelimesi",
+      "term": "Matbaa",
+      "meaning": "Kitap ve yazı basılan yer, basımevi.",
+      "root": {
+        "letters": "t-b-ʿ",
+        "language": "Arapça",
+        "meaning": "basmak, iz bırakmak, damga vurmak"
+      },
+      "related": [
+        {
+          "term": "tab etmek",
+          "meaning": "basmak"
+        },
+        {
+          "term": "matbu",
+          "meaning": "basılı"
+        },
+        {
+          "term": "matbuat",
+          "meaning": "basın"
+        },
+        {
+          "term": "tabiat",
+          "meaning": "bir şeye basılmış gibi yerleşik olan özellik; doğa"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "İbrahim Müteferrika",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/ibrahim-muteferrika"
+    },
+    {
+      "id": "wiki",
+      "title": "İbrahim Müteferrika",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/%C4%B0brahim_M%C3%BCteferrika",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

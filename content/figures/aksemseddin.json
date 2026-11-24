@@ -1,0 +1,149 @@
+{
+  "slug": "aksemseddin",
+  "nameTr": "Akşemseddin",
+  "nameEn": "Akshamsaddin",
+  "wikiTitleTr": "Akşemseddin",
+  "kind": "scholar",
+  "roles": [
+    "Âlim ve hekim",
+    "Fatih Sultan Mehmed'in hocası"
+  ],
+  "birth": {
+    "year": 1389,
+    "place": "Şam"
+  },
+  "death": {
+    "year": 1459,
+    "place": "Göynük"
+  },
+  "summary": [
+    "Akşemseddin, 1389'da Şam'da doğan ve Fatih Sultan Mehmed'in hocası olarak tanınan âlim ve hekimdir.",
+    "1453'te İstanbul kuşatmasında genç padişahın yanında yer aldı ve umudun kırıldığı günlerde ona kuşatmayı sürdürmesini yazdı.",
+    "Fetihten sonra yerini gösterdiği Eyüp Sultan türbesi, sonraki padişahların kılıç kuşandığı yer oldu."
+  ],
+  "actions": [
+    {
+      "id": "kusatma-mektubu",
+      "year": 1453,
+      "text": "İstanbul kuşatmasında Fatih'e kuşatmayı sürdürmesini öğütledi.",
+      "cause": "[[f:mehmed-ii|II. Mehmed]] Nisan 1453'te İstanbul'u kuşattığında hocası Akşemseddin de ordugâhtaydı. 20 Nisan'da dört yardım gemisi Osmanlı donanmasını yarıp Haliç'e girdi; ordunun morali çöktü. Başta Sadrazam Çandarlı Halil Paşa olmak üzere bazı devlet adamları kuşatmanın kaldırılmasını istiyordu.",
+      "consequence": "Akşemseddin padişaha bir mektup yazarak gevşekliğe yer olmadığını, kusuru olanların cezalandırılıp kuşatmanın sürdürülmesi gerektiğini bildirdi. Kuşatma devam etti ve şehir 29 Mayıs 1453'te alındı. Fetihten sonra Ayasofya'da kılınan ilk cuma namazında hutbeyi onun okuduğu anlatılır.",
+      "depth": "Kuşatmayı sürdürme kararı yalnızca bu mektuba bağlanamaz; Zağanos Paşa gibi komutanlar da aynı görüşü savunuyordu. Mektup Topkapı Sarayı arşivinde korunur ve Akşemseddin'in padişahla ne kadar açık konuşabildiğini gösterir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "eyup-turbesi",
+      "year": 1453,
+      "text": "Ebû Eyyûb el-Ensârî'nin kabrinin yerini gösterdi.",
+      "cause": "Hz. Muhammed'in arkadaşlarından Ebû Eyyûb el-Ensârî, 7. yüzyılda Arapların İstanbul kuşatması sırasında surların önünde ölmüş ve oraya gömülmüştü. Fetihten sonra II. Mehmed, hocasından bu kabrin yerini bulmasını istedi.",
+      "consequence": "Akşemseddin'in gösterdiği yerde, Haliç kıyısında birkaç yıl içinde bir türbe ve cami yapıldı. Çevresinde büyüyen semt bugün Eyüp adını taşıyor. Sonraki yüzyıllarda padişahlar tahta çıkınca bu türbede kılıç kuşandı; tören Osmanlı'nın bir tür taç giyme töreni oldu.",
+      "depth": "Kabrin bulunuşu dönemin bütün kroniklerinde geçmez; ayrıntılar büyük ölçüde sonradan yazılan menkıbelere dayanır. Bazı tarihçilere göre kabrin yeri Bizans döneminde de biliniyordu.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "sam",
+        "nameTr": "Şam",
+        "historicName": "Dımaşk",
+        "lat": 33.5138,
+        "lon": 36.2765
+      },
+      "precision": "city",
+      "from": 1389,
+      "to": 1396,
+      "event": "Şam'da doğdu; çocuk yaşta ailesiyle Anadolu'ya göç etti."
+    },
+    {
+      "place": {
+        "slug": "amasya",
+        "nameTr": "Amasya",
+        "historicName": "Amaseia",
+        "lat": 40.6499,
+        "lon": 35.8353
+      },
+      "precision": "region",
+      "from": 1396,
+      "to": 1425,
+      "event": "Amasya yöresinde büyüdü, medrese öğrenimi gördü ve Osmancık'ta müderrislik yaptı."
+    },
+    {
+      "place": {
+        "slug": "ankara",
+        "nameTr": "Ankara",
+        "historicName": "Angora",
+        "lat": 39.9334,
+        "lon": 32.8597
+      },
+      "precision": "city",
+      "from": 1425,
+      "to": 1430,
+      "event": "Ankara'da Hacı Bayram-ı Velî'ye bağlandı ve onun önde gelen halifesi oldu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-eyup",
+        "nameTr": "Eyüp, İstanbul",
+        "lat": 41.048,
+        "lon": 28.934
+      },
+      "precision": "district",
+      "from": 1453,
+      "to": 1453,
+      "event": "Kuşatmaya katıldı; fetihten sonra Ebû Eyyûb el-Ensârî'nin kabrinin yerini gösterdi."
+    },
+    {
+      "place": {
+        "slug": "goynuk",
+        "nameTr": "Göynük, Bolu",
+        "lat": 40.4006,
+        "lon": 30.7883
+      },
+      "precision": "city",
+      "from": 1454,
+      "to": 1459,
+      "event": "Fetihten sonra İstanbul'da kalmadı; yıllar önce yerleştiği Göynük'e döndü ve 1459'da burada öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-ii",
+      "type": "taught",
+      "note": "Fatih Sultan Mehmed'in hocasıydı."
+    },
+    {
+      "to": "mehmed-ii",
+      "type": "influenced",
+      "note": "1453 kuşatmasında yazdığı mektupla padişahı kuşatmayı sürdürmeye yüreklendirdi."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Akşemseddin",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/aksemseddin"
+    },
+    {
+      "id": "wiki",
+      "title": "Akşemseddin",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Ak%C5%9Femseddin",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

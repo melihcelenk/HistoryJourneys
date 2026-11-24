@@ -1,0 +1,66 @@
+{
+  "slug": "ahmed-i",
+  "nameTr": "I. Ahmed",
+  "nameEn": "Ahmed I",
+  "wikiTitleTr": "I. Ahmed",
+  "kind": "sultan",
+  "roles": ["14. Osmanlı padişahı"],
+  "birth": { "year": 1590, "place": "Manisa" },
+  "death": { "year": 1617, "place": "İstanbul" },
+  "reign": { "from": 1603, "to": 1617 },
+  "summary": [
+    "I. Ahmed, 1603'te henüz 13 yaşındayken tahta çıkan 14. Osmanlı padişahıdır.",
+    "İstanbul'un simgesi olan altı minareli Sultanahmet Camii'ni yaptırdı.",
+    "Kardeşini öldürtmeyerek tahtın babadan oğula değil, hanedanın en yaşlı üyesine geçmesinin yolunu açtı."
+  ],
+  "actions": [
+    {
+      "id": "sultanahmet-camii",
+      "year": 1609,
+      "text": "Sultanahmet Camii'ni yaptırdı.",
+      "cause": "Kendisinden önceki padişahlar büyük camilerini savaş ganimetleriyle yaptırmıştı. I. Ahmed ise büyük bir zafer kazanamamıştı; yine de adını İstanbul'a kazımak istedi. Caminin yapımını [[f:mimar-sinan|Mimar Sinan]]'ın öğrencisi Sedefkâr Mehmed Ağa'ya verdi.",
+      "consequence": "1617'de açılan cami, Ayasofya'nın tam karşısında altı minaresiyle yükseldi. İçindeki 20.000'den fazla mavi İznik çinisi yüzünden Avrupalılar ona \"Mavi Cami\" dedi. Bulunduğu meydan bugün hâlâ onun adını taşıyor.",
+      "depth": "Cami ganimetle değil hazineden yaptırıldığı için dönemin bazı âlimleri tarafından eleştirildi. Altı minarenin Mekke'deki Mescid-i Haram ile aynı sayıda olması da tartışma yarattı; anlatıya göre padişah Mekke'ye yedinci bir minare yaptırarak bunu çözdü.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "kardes-katli",
+      "year": 1603,
+      "text": "Kardeşi Mustafa'yı öldürtmedi; taht hanedanın en yaşlı üyesine geçmeye başladı.",
+      "cause": "[[f:mehmed-ii|Fatih]]'in kanunnamesine dayanan eski uygulamada tahta çıkan padişah, taht kavgası çıkmasın diye kardeşlerini öldürtürdü. Babası [[f:mehmed-iii|III. Mehmed]] 1595'te tahta çıkarken 19 kardeşini birden boğdurmuş, saraydan çıkan tabutlar halkı derinden sarsmıştı. I. Ahmed tahta çıktığında henüz çocuğu yoktu; kardeşi ölürse hanedan tek kişiye kalacaktı.",
+      "consequence": "Kardeşi [[f:mustafa-i|Mustafa]] sarayda gözetim altında yaşadı ve 1617'de I. Ahmed ölünce tahta oğlu değil, o çıktı. Böylece taht, hanedanın en yaşlı ve en olgun üyesine geçmeye başladı; bu kurala [[c:ekber-ve-ersed|ekber ve erşed]] denir. Şehzadeler artık sancağa gönderilmedi, sarayda \"kafes\" denen dairelerde büyüdü.",
+      "depth": "Bu kuralı I. Ahmed tek bir kararla koymadı. 1617'de I. Mustafa'nın tahta çıkışı ilk örnek oldu; kural sonraki on yıllarda uygulamayla yerleşti. Kardeş katli de bir anda bitmedi: [[f:murad-iv|IV. Murad]] sonraki yıllarda kardeşlerini öldürttü.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "manisa", "nameTr": "Manisa", "historicName": "Mağnisa", "lat": 38.614, "lon": 27.426 }, "precision": "city", "from": 1590, "to": 1595, "event": "Babası III. Mehmed'in şehzade olarak yönettiği Manisa'da doğdu." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1595, "to": 1617, "event": "Babası tahta çıkınca saraya geldi; 1603'te 13 yaşında padişah oldu." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1612, "to": 1613, "event": "Av ve dinlenme için gittiği Edirne'de bir kış geçirdi." },
+    { "place": { "slug": "istanbul-sultanahmet", "nameTr": "Sultanahmet Camii, İstanbul", "lat": 41.0054, "lon": 28.9768 }, "precision": "building", "from": 1617, "to": 1617, "event": "27 yaşında tifüsten öldü; yaptırdığı caminin yanındaki türbesine gömüldü." }
+  ],
+  "relations": [
+    { "to": "mehmed-iii", "type": "child_of", "note": "III. Mehmed'in oğludur." },
+    { "to": "mustafa-i", "type": "sibling_of", "note": "Öldürtmediği kardeşi Mustafa, ondan sonra tahta çıktı." },
+    { "to": "kosem-sultan", "type": "spouse_of", "note": "Kösem Sultan onun hasekisiydi." }
+  ],
+  "concepts": [
+    {
+      "slug": "ekber-ve-ersed",
+      "term": "Ekber ve erşed",
+      "meaning": "\"En yaşlı ve en olgun\" demektir: tahtın hanedanın en yaşlı erkek üyesine geçmesi kuralı.",
+      "root": { "letters": "k-b-r", "language": "Arapça", "meaning": "büyük olmak" },
+      "related": [
+        { "term": "ekber", "meaning": "en büyük" },
+        { "term": "kibir", "meaning": "büyüklenme" },
+        { "term": "tekbir", "meaning": "\"Allahu ekber\" diyerek Allah'ı yüceltme" },
+        { "term": "kebir", "meaning": "büyük" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Ahmed I", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/ahmed-i" },
+    { "id": "wiki", "title": "I. Ahmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/I._Ahmed", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "suleyman-ii",
+  "nameTr": "II. Süleyman",
+  "nameEn": "Suleiman II",
+  "wikiTitleTr": "II. Süleyman",
+  "kind": "sultan",
+  "roles": ["20. Osmanlı padişahı"],
+  "birth": { "year": 1642, "place": "İstanbul" },
+  "death": { "year": 1691, "place": "Edirne" },
+  "reign": { "from": 1687, "to": 1691 },
+  "summary": [
+    "II. Süleyman, yaklaşık kırk yıl sarayda kapalı yaşadıktan sonra 1687'de 45 yaşında tahta çıkan 20. Osmanlı padişahıdır.",
+    "Sadrazamlığa getirdiği Köprülü Fazıl Mustafa Paşa, 1690'da Belgrad'ı Avusturya'dan geri aldı.",
+    "Böylece Viyana bozgunundan beri süren geri çekiliş durdu ve devlet Tuna boyunda yeniden tutunacak zaman kazandı."
+  ],
+  "actions": [
+    {
+      "id": "tahta-cikis",
+      "year": 1687,
+      "text": "Ayaklanan ordunun tahttan indirdiği kardeşinin yerine padişah oldu.",
+      "cause": "1683'teki Viyana bozgunundan sonra Osmanlı ordusu art arda yenildi; 1686'da Budin düştü, 1687'de Mohaç yakınındaki savaş kaybedildi. Öfkeli ordu İstanbul'a yürüdü ve 8 Kasım 1687'de [[f:mehmed-iv|IV. Mehmed]]'i tahttan indirdi. Yerine, [[f:ibrahim|Sultan İbrahim]]'in öteki oğlu Süleyman saraydaki dairesinden çıkarıldı.",
+      "consequence": "Yeni padişah askere [[c:culus-bahsisi|cülus bahşişi]] dağıtmak zorundaydı ama hazine boştu; saraydaki altın ve gümüş kaplar darphaneye gönderilip para basıldı. Buna rağmen İstanbul aylarca zorbaların elinde kaldı ve 1688'de Sadrazam Siyavuş Paşa konağında öldürüldü. Sonunda halk sancak-ı şerifin altında toplanarak isyancıları dağıttı.",
+      "depth": "Anlatıya göre kendisini tahta çıkarmaya gelenleri görünce öldürüleceğini sanmış ve dairesinden çıkmak istememiştir. Bu hikâye, şehzadelerin [[f:ahmed-i|I. Ahmed]] döneminden beri sarayda kapalı tutulduğu kafes hayatının nasıl bir korku içinde geçtiğini anlatmak için sık aktarılır.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "belgradin-geri-alinmasi",
+      "year": 1690,
+      "text": "Köprülü Fazıl Mustafa Paşa'yı sadrazam yaptı ve Belgrad'ı geri aldırdı.",
+      "cause": "Avusturya ordusu 1688'de Belgrad'ı, 1689'da Niş'i almış ve Balkanların içine kadar ilerlemişti. II. Süleyman 1689'da sadrazamlığa, [[f:koprulu-mehmed-pasa|Köprülü Mehmed Paşa]]'nın oğlu Fazıl Mustafa Paşa'yı getirdi. Yeni sadrazam orduyu ve maliyeyi hızla toparladı.",
+      "consequence": "1690 sonbaharında önce Niş, ardından yaklaşık bir haftalık kuşatmayla Belgrad geri alındı. Tuna yeniden sınır oldu. Ağır hasta olan II. Süleyman bu zaferden sekiz ay sonra, Haziran 1691'de Edirne'de öldü.",
+      "depth": "Bu başarıda Avusturya'nın 1688'den itibaren batıda Fransa ile de savaşmak zorunda kalması ve kuvvetlerini ikiye bölmesi önemli rol oynadı. Kazanım savaşı da bitirmedi: Fazıl Mustafa Paşa, padişahın ölümünden iki ay sonra Salankamen'de öldü ve savaş 1699'a kadar sürdü.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1642, "to": 1689, "event": "Sarayda doğdu, yaklaşık kırk yıl kafeste yaşadı ve 1687'de burada tahta çıktı." },
+    { "place": { "slug": "sofya", "nameTr": "Sofya", "historicName": "Sofia", "lat": 42.6977, "lon": 23.3219 }, "precision": "city", "from": 1689, "to": 1689, "event": "Avusturya seferine çıkan orduyla birlikte Sofya'ya kadar gitti." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1690, "to": 1691, "event": "Hastalığı ağırlaşmış halde Edirne'ye götürüldü ve 1691'de burada öldü." },
+    { "place": { "slug": "istanbul-suleymaniye", "nameTr": "Süleymaniye Camii, İstanbul", "lat": 41.0162, "lon": 28.9640 }, "precision": "building", "from": 1691, "to": 1691, "event": "Cenazesi İstanbul'a getirildi ve Süleymaniye Camii'nin bahçesindeki türbeye gömüldü." }
+  ],
+  "relations": [
+    { "to": "ibrahim", "type": "child_of", "note": "Sultan İbrahim'in oğludur." },
+    { "to": "ahmed-ii", "type": "sibling_of", "note": "Kardeşi II. Ahmed, ondan sonra tahta çıktı." }
+  ],
+  "concepts": [
+    {
+      "slug": "culus-bahsisi",
+      "term": "Cülus bahşişi",
+      "meaning": "Yeni padişah tahta çıktığında askere dağıtılan para. \"Cülus\" tahta oturma demektir.",
+      "root": { "letters": "c-l-s", "language": "Arapça", "meaning": "oturmak" },
+      "related": [
+        { "term": "celse", "meaning": "oturum" },
+        { "term": "meclis", "meaning": "oturulup toplanılan yer" },
+        { "term": "iclas", "meaning": "tahta oturtma" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Süleyman II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/suleyman-ii" },
+    { "id": "wiki", "title": "II. Süleyman", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._S%C3%BCleyman", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

@@ -1,0 +1,51 @@
+{
+  "slug": "osman-iii",
+  "nameTr": "III. Osman",
+  "nameEn": "Osman III",
+  "wikiTitleTr": "III. Osman",
+  "kind": "sultan",
+  "roles": ["25. Osmanlı padişahı"],
+  "birth": { "year": 1699, "place": "Edirne" },
+  "death": { "year": 1757, "place": "İstanbul" },
+  "reign": { "from": 1754, "to": 1757 },
+  "summary": [
+    "III. Osman, 51 yıl sarayda kapalı yaşadıktan sonra 1754'te 55 yaşında tahta çıkan 25. Osmanlı padişahıdır.",
+    "Ağabeyinin başlattığı camiyi 1755'te tamamlatıp ona Nuruosmaniye adını verdi.",
+    "Ölümünden kısa süre önce sadrazamlığa getirdiği Koca Ragıp Paşa, ondan sonraki padişahın döneminde devlete uzun bir barış dönemi yaşattı."
+  ],
+  "actions": [
+    {
+      "id": "nuruosmaniye-camii",
+      "year": 1755,
+      "text": "Nuruosmaniye Camii'ni tamamlattı.",
+      "cause": "Ağabeyi [[f:mahmud-i|I. Mahmud]] 1748'de Kapalıçarşı'nın yanında büyük bir cami yaptırmaya başlamış, ama 1754'te bitmeden ölmüştü. Tahta çıkan III. Osman yarım kalan yapıyı devraldı.",
+      "consequence": "Cami 1755'te açıldı ve \"Osman'ın nuru\" anlamına gelen Nuruosmaniye adını aldı. Kıvrımlı kemerleri ve at nalı biçimindeki avlusuyla, Avrupa'daki barok üslubun izlerini taşıyan ilk padişah camisi oldu. Sonraki yüz yılda İstanbul'da yapılan camiler bu yeni üslubu izledi.",
+      "depth": "Caminin büyük bölümü I. Mahmud döneminde yapılmıştı; bu yüzden eser iki padişahın ortak işidir. Mimarı olarak genellikle Rum asıllı Simeon Kalfa gösterilir. Ad, caminin kubbesinde de yazılı olan Kur'an'daki Nur ayetine de gönderme yapar.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "koca-ragip-pasa",
+      "year": 1757,
+      "text": "Koca Ragıp Paşa'yı sadrazamlığa getirdi.",
+      "cause": "III. Osman üç yıllık saltanatında sadrazamlarını defalarca değiştirdi; hiçbiri görevde uzun kalamadı. İstanbul bu yıllarda iki büyük yangın ve sert bir kış da yaşadı. Padişah 1757 başında Halep valisi olan deneyimli devlet adamı Ragıp Paşa'yı başkente çağırdı.",
+      "consequence": "Ragıp Paşa göreve başladıktan sekiz ay sonra III. Osman öldü. Yeni padişah [[f:mustafa-iii|III. Mustafa]] onu görevde tuttu ve paşa 1763'teki ölümüne kadar sadrazam kaldı. Avrupa Yedi Yıl Savaşları ile sarsılırken Osmanlı Devleti bu savaşın dışında kaldı.",
+      "depth": "Tarihçiler, III. Osman'ın sabırsız ve kuşkucu yönetimini çoğu zaman yarım yüzyıl süren kafes hayatına bağlar. Müzikten hoşlanmadığı ve saraydaki çalgıcıları uzaklaştırdığı gibi hakkında anlatılan birçok hikâye de bu çerçevede aktarılır.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1699, "to": 1703, "event": "Babası II. Mustafa'nın yaşadığı Edirne Sarayı'nda doğdu." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1703, "to": 1754, "event": "Babası tahttan indirilince saraya getirildi ve 51 yıl kafeste yaşadı; 1754'te padişah oldu." },
+    { "place": { "slug": "istanbul-nuruosmaniye", "nameTr": "Nuruosmaniye Camii, İstanbul", "lat": 41.0103, "lon": 28.9707 }, "precision": "building", "from": 1755, "to": 1755, "event": "Ağabeyinin başlattığı camiyi tamamlatıp törenle açtı." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1757, "to": 1757, "event": "Üç yıllık saltanatın ardından sarayda öldü; Yeni Cami'deki türbeye gömüldü." }
+  ],
+  "relations": [
+    { "to": "mustafa-ii", "type": "child_of", "note": "II. Mustafa'nın oğludur." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Osman III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/osman-iii" },
+    { "id": "wiki", "title": "III. Osman", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Osman", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

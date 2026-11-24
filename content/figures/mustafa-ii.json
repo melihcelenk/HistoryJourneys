@@ -1,0 +1,61 @@
+{
+  "slug": "mustafa-ii",
+  "nameTr": "II. Mustafa",
+  "nameEn": "Mustafa II",
+  "wikiTitleTr": "II. Mustafa",
+  "kind": "sultan",
+  "roles": ["22. Osmanlı padişahı"],
+  "birth": { "year": 1664, "place": "Edirne" },
+  "death": { "year": 1703, "place": "İstanbul" },
+  "reign": { "from": 1695, "to": 1703 },
+  "summary": [
+    "II. Mustafa, 1695'te 30 yaşında tahta çıkan ve ordusunun başında sefere giden 22. Osmanlı padişahıdır.",
+    "1697'de Zenta'da ordusu Tisa Nehri'ni geçerken baskına uğradı ve ağır bir yenilgi aldı.",
+    "Ardından imzalanan 1699 Karlofça Antlaşması ile Osmanlı Devleti ilk kez büyük çapta toprak kaybetti ve Macaristan'ı bıraktı."
+  ],
+  "actions": [
+    {
+      "id": "zenta-seferi",
+      "year": 1697,
+      "text": "Ordunun başında üç kez Avusturya seferine çıktı.",
+      "cause": "Osmanlı ordusu 1683'teki Viyana bozgunundan beri Avusturya, Lehistan, Venedik ve Rusya'ya karşı aynı anda savaşıyordu. II. Mustafa tahta çıkar çıkmaz, [[f:suleyman-i|Kanuni]] gibi ordunun başında sefere gideceğini ilan etti. 1695 ve 1696 seferlerinde Lipova'yı aldı ve Tımışvar yakınında Avusturyalıları yendi.",
+      "consequence": "Üçüncü seferde, 11 Eylül 1697'de ordu Zenta'da köprüden Tisa Nehri'ni geçerken Prens Eugen'in baskınına uğradı. Padişah karşı kıyıdan, nehrin öbür yanında kalan askerinin yok edilişini izledi; Sadrazam Elmas Mehmed Paşa da ölenler arasındaydı. II. Mustafa bir daha sefere çıkmadı.",
+      "depth": "İlk iki seferdeki başarılar, Avusturya'nın asıl kuvvetlerini batıda Fransa'ya karşı tuttuğu yıllara denk gelir. 1697'de Fransa ile barış yapılınca Avusturya en yetenekli komutanını ve birliklerini doğuya kaydırabildi.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "karlofca-antlasmasi",
+      "year": 1699,
+      "text": "Karlofça Antlaşması'nı kabul etti.",
+      "cause": "Zenta yenilgisinden sonra on altı yıldır süren savaşı sürdürecek ne para ne asker kalmıştı. Sadrazamlığa getirilen Amcazade Hüseyin Paşa barıştan yanaydı. İngiltere ve Hollanda'nın arabuluculuğuyla Tuna kıyısındaki Karlofça kasabasında görüşmeler başladı.",
+      "consequence": "26 Ocak 1699'da imzalanan antlaşmayla Macaristan ve Erdel Avusturya'ya, Podolya Lehistan'a, Mora ile Dalmaçya kıyıları Venedik'e bırakıldı. Osmanlı Devleti ilk kez bu ölçüde toprak kaybetti. Bundan sonra amaç yeni yerler almak değil, kaybedilenleri geri almak oldu.",
+      "depth": "Karlofça çoğu zaman \"gerileme döneminin başlangıcı\" diye öğretilir. Bugün birçok tarihçi bu tür keskin dönem adlarını tartışmalı bulur; Osmanlı Devleti sonraki yirmi yılda Rusya'dan Azak'ı, Venedik'ten Mora'yı geri almayı başardı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "edirne-vakasi",
+      "year": 1703,
+      "text": "Edirne'ye yerleşti ve devlet işlerini hocası Feyzullah Efendi'ye bıraktı.",
+      "cause": "Karlofça'dan sonra padişah İstanbul'a dönmedi, doğduğu şehir olan Edirne'de yaşadı. Şehzadeliğinden beri hocası olan Şeyhülislam Feyzullah Efendi, oğullarını ve yakınlarını en yüksek görevlere yerleştirdi. Başkentin terk edilmesi İstanbul esnafını, maaşların gecikmesi de askeri kızdırdı.",
+      "consequence": "Temmuz 1703'te İstanbul'da maaşını alamayan askerlerin başlattığı ayaklanmaya esnaf ve medrese öğrencileri de katıldı. İsyancılar Edirne'ye yürüdü; padişahın askerleri onlara karşı savaşmadı. II. Mustafa 22 Ağustos 1703'te tahttan indirildi, yerine kardeşi [[f:ahmed-iii|III. Ahmed]] geçti; Feyzullah Efendi öldürüldü.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1664, "to": 1695, "event": "Edirne Sarayı'nda doğdu; 1695'te yine burada tahta çıktı." },
+    { "place": { "slug": "belgrad", "nameTr": "Belgrad", "historicName": "Nándorfehérvár", "lat": 44.7866, "lon": 20.4489 }, "precision": "city", "from": 1695, "to": 1697, "event": "Avusturya seferlerinde ordusuyla Belgrad'dan geçerek Tuna'nın kuzeyine ilerledi." },
+    { "place": { "slug": "zenta", "nameTr": "Zenta", "historicName": "Senta", "lat": 45.928, "lon": 20.077 }, "precision": "city", "from": 1697, "to": 1697, "event": "Ordusu Tisa Nehri'ni geçerken baskına uğradı ve bozguna uğradı." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1699, "to": 1703, "event": "Karlofça'dan sonra Edirne'de yaşadı; 1703'teki ayaklanmayla tahttan indirildi." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1703, "to": 1703, "event": "Tahttan indirildikten dört ay sonra sarayda öldü; Yeni Cami'deki türbeye gömüldü." }
+  ],
+  "relations": [
+    { "to": "mehmed-iv", "type": "child_of", "note": "IV. Mehmed'in oğludur." },
+    { "to": "ahmed-iii", "type": "sibling_of", "note": "Kardeşi III. Ahmed, Edirne Vakası'nda onun yerine tahta çıkarıldı." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Mustafa II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-ii" },
+    { "id": "wiki", "title": "II. Mustafa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._Mustafa", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

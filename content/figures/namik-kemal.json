@@ -1,0 +1,75 @@
+{
+  "slug": "namik-kemal",
+  "nameTr": "Namık Kemal",
+  "nameEn": "Namık Kemal",
+  "wikiTitleTr": "Nâmık Kemal",
+  "kind": "artist",
+  "roles": ["Şair, gazeteci ve oyun yazarı", "Yeni Osmanlılar'ın önde gelen ismi"],
+  "birth": { "year": 1840, "place": "Tekirdağ" },
+  "death": { "year": 1888, "place": "Sakız Adası" },
+  "summary": [
+    "Namık Kemal, 1840'ta Tekirdağ'da doğan ve \"vatan şairi\" olarak anılan yazar ve gazetecidir.",
+    "1873'te sahnelenen \"Vatan yahut Silistre\" oyunu seyirciyi sokağa döktü ve ona Kıbrıs'ta 38 ay süren bir sürgüne mal oldu.",
+    "\"Vatan\" ve \"hürriyet\" kelimelerine bugünkü anlamlarını kazandıran yazıları, Mustafa Kemal'in kuşağını yetiştirdi."
+  ],
+  "actions": [
+    {
+      "id": "avrupaya-kacis-ve-hurriyet-gazetesi",
+      "year": 1868,
+      "text": "Avrupa'ya kaçtı ve Londra'da Hürriyet gazetesini çıkardı.",
+      "cause": "Namık Kemal, 1865'te İstanbul'da kurulan gizli Yeni Osmanlılar Cemiyeti'ne katılmış, Tasvir-i Efkâr gazetesinde [[f:abdulaziz|Abdülaziz]] döneminin hükümetini eleştiren yazılar yazıyordu. Hükümet onu başkentten uzaklaştırmak için Erzurum'a memur olarak atadı. O ise Mısırlı Prens Mustafa Fazıl Paşa'nın çağrısıyla Mayıs 1867'de arkadaşı Ziya Paşa ile birlikte Paris'e kaçtı.",
+      "consequence": "1868'de Londra'da Hürriyet gazetesini çıkarmaya başladı. Yazılarında padişahın yetkilerinin bir meclisle sınırlanmasını, yani halkın yönetime danışılmasını savundu; [[c:hurriyet|hürriyet]] ve vatan kelimelerini siyasetin diline soktu. 1870'te İstanbul'a döndü; savunduğu fikirler 1876'da ilk anayasanın hazırlanmasına zemin oldu.",
+      "depth": "Yeni Osmanlılar bugünkü anlamda demokrat değildi: meclis fikrini İslam'daki \"meşveret\" (danışma) ilkesine dayandırıyor ve asıl olarak imparatorluğu kurtarmayı amaçlıyorlardı. Onları Avrupa'da geçindiren Mustafa Fazıl Paşa'nın da kendi hesabı vardı; Mısır valiliği hakkını kaybetmişti ve hükümetle anlaşınca desteğini çekti.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "vatan-yahut-silistre",
+      "year": 1873,
+      "text": "\"Vatan yahut Silistre\" oyununu yazdı ve sürgüne gönderildi.",
+      "cause": "Namık Kemal, halka vatan sevgisini en iyi tiyatronun anlatacağını düşünüyordu. Oyunda 1854'te Kırım Savaşı sırasında Ruslara karşı Silistre Kalesi'ni savunan gönüllüleri anlattı. Oyun 1 Nisan 1873'te İstanbul'da Gedikpaşa Tiyatrosu'nda sahnelendi.",
+      "consequence": "Seyirci oyundan sonra \"Yaşasın vatan! Yaşasın Kemal!\" diye bağırarak sokaklara döküldü. Saray bunu bir tehdit saydı; Namık Kemal birkaç gün sonra tutuklanıp Kıbrıs'ta Magosa'ya sürüldü ve 38 ay orada kaldı. 1876'da Abdülaziz tahttan indirilince [[f:murad-v|V. Murad]]'ın affıyla İstanbul'a döndü.",
+      "depth": "Kalabalığın \"Muradımız budur\" diye bağırdığı, sarayın da bu sözü veliaht Murad'a destek olarak yorumladığı anlatılır. Sürgün kararının oyundan çok bu gösterilerden ve gazetesi İbret'teki yazılardan kaynaklandığı kabul edilir.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "anayasa-ve-ikinci-surgun",
+      "year": 1876,
+      "text": "İlk anayasayı hazırlayan kurulda görev aldı; ardından yeniden İstanbul'dan uzaklaştırıldı.",
+      "cause": "1876'da tahta çıkan [[f:abdulhamid-ii|II. Abdülhamid]] anayasa sözü vermişti. [[f:midhat-pasa|Midhat Paşa]]'nın başkanlık ettiği anayasa kuruluna, bu fikri yıllardır savunan Namık Kemal de alındı. Kanun-ı Esasi 23 Aralık 1876'da ilan edildi.",
+      "consequence": "Şubat 1877'de Midhat Paşa sürgün edilince Namık Kemal de tutuklandı, beş ay kadar hapis yattı ve Midilli Adası'nda oturmaya zorlandı. Sonraki yıllarda Midilli, Rodos ve Sakız adalarında mutasarrıf, yani yönetici olarak görev yaptı; İstanbul'a bir daha dönemedi. 2 Aralık 1888'de Sakız'da öldü; şiirlerini ezbere bilen Mustafa Kemal'in ileride \"hislerimin babası Namık Kemal'dir\" dediği aktarılır.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "tekirdag", "nameTr": "Tekirdağ", "historicName": "Rodosto", "lat": 40.978, "lon": 27.511 }, "precision": "city", "from": 1840, "to": 1840, "event": "21 Aralık 1840'ta dedesinin evinde doğdu." },
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1857, "to": 1867, "event": "Tercüme Odası'nda memur oldu, Tasvir-i Efkâr'da yazdı ve Yeni Osmanlılar'a katıldı." },
+    { "place": { "slug": "paris", "nameTr": "Paris", "lat": 48.8566, "lon": 2.3522 }, "precision": "city", "from": 1867, "to": 1868, "event": "Hükümetin baskısından kaçarak Ziya Paşa ile birlikte buraya sığındı." },
+    { "place": { "slug": "londra", "nameTr": "Londra", "lat": 51.5074, "lon": -0.1278 }, "precision": "city", "from": 1868, "to": 1870, "event": "Hürriyet gazetesini çıkardı ve İngiliz parlamentosunu yakından izledi." },
+    { "place": { "slug": "magosa", "nameTr": "Gazimağusa", "historicName": "Magosa", "lat": 35.125, "lon": 33.9417 }, "precision": "city", "from": 1873, "to": 1876, "event": "38 ay kale içinde sürgün yaşadı; birçok oyununu ve romanını burada yazdı." },
+    { "place": { "slug": "sakiz", "nameTr": "Sakız Adası", "historicName": "Chios", "lat": 38.368, "lon": 26.1358 }, "precision": "city", "from": 1887, "to": 1888, "event": "Mutasarrıfken 2 Aralık 1888'de öldü; mezarı Gelibolu yakınlarındaki Bolayır'dadır." }
+  ],
+  "relations": [
+    { "to": "ataturk", "type": "influenced", "note": "Vatan ve hürriyet şiirleri genç Mustafa Kemal'i derinden etkiledi." },
+    { "to": "abdulaziz", "type": "opposed", "note": "Abdülaziz döneminin yönetimini eleştirdiği için Avrupa'ya kaçmak zorunda kaldı, 1873'te Magosa'ya sürüldü." },
+    { "to": "midhat-pasa", "type": "served_under", "note": "1876'da Midhat Paşa'nın başkanlık ettiği anayasa kurulunda çalıştı." },
+    { "to": "abdulhamid-ii", "type": "served_under", "note": "II. Abdülhamid döneminde İstanbul'dan uzak tutularak Midilli, Rodos ve Sakız'da mutasarrıflık yaptı." }
+  ],
+  "concepts": [
+    {
+      "slug": "hurriyet",
+      "term": "Hürriyet",
+      "meaning": "Özgürlük; kimsenin kölesi ya da kulu olmama hali. Namık Kemal'le birlikte siyasi bir anlam kazandı.",
+      "root": { "letters": "h-r-r", "language": "Arapça", "meaning": "özgür olmak" },
+      "related": [
+        { "term": "hür", "meaning": "özgür" },
+        { "term": "ahrar", "meaning": "özgür kişiler, hürler" },
+        { "term": "hürriyetperver", "meaning": "özgürlüksever" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Nâmık Kemal", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/namik-kemal" },
+    { "id": "wiki", "title": "Namık Kemal", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Nam%C4%B1k_Kemal", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

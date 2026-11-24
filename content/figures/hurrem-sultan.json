@@ -1,0 +1,159 @@
+{
+  "slug": "hurrem-sultan",
+  "nameTr": "Hürrem Sultan",
+  "nameEn": "Hurrem Sultan (Roxelana)",
+  "wikiTitleTr": "Hürrem Sultan",
+  "kind": "royal",
+  "roles": [
+    "Kanuni Sultan Süleyman'ın nikâhlı eşi",
+    "Haseki sultan"
+  ],
+  "birth": {
+    "year": 1504,
+    "place": "Rohatın (bugünkü Ukrayna)"
+  },
+  "death": {
+    "year": 1558,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "Hürrem Sultan, 16. yüzyılın başında bugünkü Ukrayna'da doğan ve Kanuni Sultan Süleyman'ın eşi olan haseki sultandır.",
+    "Saraya esir bir cariye olarak girdi; Kanuni onu azat edip nikâhladı ve bu, yüzyıllardır görülmemiş bir şeydi.",
+    "Onunla birlikte padişah eşleri ve anneleri devlet işlerinde söz sahibi olmaya başladı."
+  ],
+  "actions": [
+    {
+      "id": "kanuni-ile-nikah",
+      "year": 1534,
+      "text": "Kanuni Sultan Süleyman'la nikâhlandı.",
+      "cause": "Osmanlı padişahları uzun zamandır evlenmiyor, çocuklarını cariyelerinden ediniyordu. Bir cariye padişaha bir oğul doğurunca zamanı gelince onunla birlikte sancağa gider, saraydan uzaklaşırdı. Kırım Tatarlarının bir akınında esir alınan Hürrem, 1520 dolaylarında saraya girdi ve [[f:suleyman-i|Kanuni]]'ye beş oğul, bir kız doğurdu.",
+      "consequence": "Kanuni geleneği bozdu: Hürrem'i azat etti ve 1534 dolaylarında görkemli bir düğünle nikâhladı. Hürrem oğullarıyla sancağa gitmedi, başkentte padişahın yanında kaldı ve onun için [[c:haseki-sultan|haseki sultan]] unvanı kullanıldı. 1566'da tahta onun oğlu [[f:selim-ii|II. Selim]] çıktı.",
+      "depth": "Hürrem'in 1536'da Sadrazam İbrahim Paşa'nın, 1553'te Şehzade Mustafa'nın idam edilmesinde payı olduğu dönemin elçi raporlarında ve bazı kroniklerde öne sürülür. Bunu doğrulayan kesin bir belge yoktur; tarihçiler bu konuda aynı görüşte değildir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "haseki-kulliyesi",
+      "year": 1539,
+      "text": "İstanbul'da Haseki Külliyesi'ni yaptırdı.",
+      "cause": "O güne kadar İstanbul'da büyük külliyeleri padişahlar ve vezirler yaptırırdı. Hürrem Sultan, padişahın nikâhlı eşi olarak kendi gelirleri ve vakıfları olan bir hanedan üyesiydi. Cami, medrese, imaret ve hastaneden oluşan bir külliye için İstanbul'un Avratpazarı semtini seçti.",
+      "consequence": "Külliyenin camisi 1538-1539'da tamamlandı; yapı, başmimarlığa yeni getirilen [[f:mimar-sinan|Mimar Sinan]]'ın İstanbul'daki ilk büyük işlerindendir. Semt bugün hâlâ Haseki adını taşıyor ve külliyenin hastanesi çalışmayı sürdürüyor. Hürrem ayrıca Kudüs'te bir imaret, Ayasofya'nın yanında da bir hamam yaptırdı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "rohatin",
+        "nameTr": "Rohatın, Ukrayna",
+        "historicName": "Rohatyn",
+        "lat": 49.409,
+        "lon": 24.61
+      },
+      "precision": "city",
+      "from": 1504,
+      "to": 1520,
+      "event": "O dönemde Lehistan Krallığı'na bağlı olan Rohatın'da doğdu; bir Tatar akınında esir alındı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-eski-saray",
+        "nameTr": "Eski Saray, Beyazıt, İstanbul",
+        "lat": 41.0107,
+        "lon": 28.9641
+      },
+      "precision": "building",
+      "from": 1520,
+      "to": 1541,
+      "event": "Harem'in bulunduğu Eski Saray'a cariye olarak girdi; burada Kanuni'nin eşi oldu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1541,
+      "to": 1558,
+      "event": "Topkapı Sarayı'na yerleşti ve padişahla aynı çatı altında yaşadı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-suleymaniye",
+        "nameTr": "Süleymaniye Camii, İstanbul",
+        "lat": 41.0162,
+        "lon": 28.964
+      },
+      "precision": "building",
+      "from": 1558,
+      "to": 1558,
+      "event": "15 Nisan 1558'de öldü; Süleymaniye Camii'nin avlusundaki türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "suleyman-i",
+      "type": "influenced",
+      "note": "Kanuni'nin en yakın sırdaşıydı; padişah seferdeyken ona başkentteki gelişmeleri mektuplarla bildirdi."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "haseki-sultan",
+      "term": "Haseki sultan",
+      "meaning": "Padişahın gözde eşine verilen unvan; \"padişaha özel\" anlamına gelir.",
+      "root": {
+        "letters": "h-s-s",
+        "language": "Arapça (Farsça -ekî ekiyle)",
+        "meaning": "özel olmak, birine ayrılmak"
+      },
+      "related": [
+        {
+          "term": "has",
+          "meaning": "özel, birine ait"
+        },
+        {
+          "term": "hususi",
+          "meaning": "özel"
+        },
+        {
+          "term": "mahsus",
+          "meaning": "birine ayrılmış"
+        },
+        {
+          "term": "tahsis",
+          "meaning": "bir şeyi birine ayırma"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Hürrem Sultan",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/hurrem-sultan"
+    },
+    {
+      "id": "wiki",
+      "title": "Hürrem Sultan",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/H%C3%BCrrem_Sultan",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

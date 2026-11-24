@@ -1,0 +1,50 @@
+{
+  "slug": "ahmed-ii",
+  "nameTr": "II. Ahmed",
+  "nameEn": "Ahmed II",
+  "wikiTitleTr": "II. Ahmed",
+  "kind": "sultan",
+  "roles": ["21. Osmanlı padişahı"],
+  "birth": { "year": 1643, "place": "İstanbul" },
+  "death": { "year": 1695, "place": "Edirne" },
+  "reign": { "from": 1691, "to": 1695 },
+  "summary": [
+    "II. Ahmed, 1691'de 48 yaşında Edirne'de tahta çıkan 21. Osmanlı padişahıdır.",
+    "Tahta çıkışından iki ay sonra ordusu Salankamen'de yenildi ve sadrazamı savaş alanında öldü.",
+    "Ölümünden haftalar önce başlatılan malikâne sistemi, vergi toplama hakkını ömür boyu satarak 18. yüzyılda taşrada güçlü âyanların doğmasına zemin hazırladı."
+  ],
+  "actions": [
+    {
+      "id": "salankamen-savasi",
+      "year": 1691,
+      "text": "Sadrazam Köprülü Fazıl Mustafa Paşa'yı görevinde bırakıp Avusturya üzerine gönderdi.",
+      "cause": "Fazıl Mustafa Paşa 1690'da Niş'i ve Belgrad'ı geri almış, orduya yeniden güven vermişti. Haziran 1691'de [[f:suleyman-ii|II. Süleyman]] ölünce tahta çıkan II. Ahmed, cephedeki sadrazamı değiştirmedi. Hedef, 1686'da kaybedilen Macaristan'a yeniden girmekti.",
+      "consequence": "19 Ağustos 1691'de Tuna kıyısındaki Salankamen'de iki ordu karşılaştı. Sadrazam savaş sırasında vurularak öldü, başsız kalan ordu dağılıp Belgrad'a çekildi. Macaristan geri alınamadı ve savaş 1699'daki Karlofça Antlaşması'na kadar sürdü.",
+      "depth": "II. Ahmed bu sefere kendisi katılmadı; saltanatı boyunca Edirne'den ayrılmadı. Osmanlı kaynakları, sadrazam vurulana kadar savaşın Osmanlılar lehine gittiğini yazar ve yenilgiyi onun ölümüyle çıkan paniğe bağlar.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "malikane-sistemi",
+      "year": 1695,
+      "text": "Vergi kaynaklarının ömür boyu kiraya verildiği malikâne sistemini başlattı.",
+      "cause": "1683'ten beri süren savaş hazineyi tüketmişti. O güne kadar vergi toplama işi, iltizam denen yöntemle bir ile üç yıllığına en çok para verene bırakılıyordu. Kısa sürede kâr etmek isteyen mültezimler köylüyü eziyor, köyler boşalıyordu.",
+      "consequence": "Ocak 1695'te çıkan fermanla bazı vergi kaynakları, büyük bir peşinat karşılığında ömür boyu satılmaya başlandı. Hazine hemen nakit buldu. Ancak bu gelirleri ellerinde toplayan taşra ileri gelenleri zamanla zenginleşti ve 18. yüzyılın güçlü âyanları ortaya çıktı.",
+      "depth": "Ferman, II. Ahmed'in ölümünden yalnızca birkaç hafta önce çıktı; sistemi asıl uygulayan ve yayan, halefi [[f:mustafa-ii|II. Mustafa]] dönemi oldu. Uygulama önce Şam, Halep, Diyarbekir gibi belirli bölgelerde başladı, sonraki yıllarda ülkenin geneline yayıldı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1643, "to": 1691, "event": "Sarayda doğdu ve tahta çıkana kadar hayatının büyük bölümünü kafeste geçirdi." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1691, "to": 1695, "event": "Edirne'de tahta çıktı, saltanatının tamamını burada geçirdi ve burada öldü." },
+    { "place": { "slug": "istanbul-suleymaniye", "nameTr": "Süleymaniye Camii, İstanbul", "lat": 41.0162, "lon": 28.9640 }, "precision": "building", "from": 1695, "to": 1695, "event": "Cenazesi İstanbul'a getirilip Süleymaniye Camii'nin bahçesindeki türbeye gömüldü." }
+  ],
+  "relations": [
+    { "to": "ibrahim", "type": "child_of", "note": "Sultan İbrahim'in oğludur." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Ahmed II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/ahmed-ii" },
+    { "id": "wiki", "title": "II. Ahmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._Ahmed", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

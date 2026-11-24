@@ -1,0 +1,181 @@
+{
+  "slug": "bayezid-ii",
+  "nameTr": "II. Bayezid",
+  "nameEn": "Bayezid II",
+  "wikiTitleTr": "II. Bayezid",
+  "kind": "sultan",
+  "roles": [
+    "8. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1447,
+    "place": "Dimetoka"
+  },
+  "death": {
+    "year": 1512,
+    "place": "Havsa"
+  },
+  "reign": {
+    "from": 1481,
+    "to": 1512
+  },
+  "summary": [
+    "II. Bayezid, 1481'de babası Fatih'in ölümü üzerine tahta çıkan 8. Osmanlı padişahıdır.",
+    "Saltanatının ilk 14 yılı, tahtı paylaşmak isteyen kardeşi Cem Sultan'ın gölgesinde geçti.",
+    "1492'de İspanya'dan sürülen Yahudilere kapılarını açtı; 1512'de tahtı oğlu Selim'e bırakmaya zorlanan ilk padişah oldu."
+  ],
+  "actions": [
+    {
+      "id": "cem-ile-taht-kavgasi",
+      "year": 1481,
+      "text": "Kardeşi Cem Sultan'ı yenerek tahtı tek başına elinde tuttu.",
+      "cause": "[[f:mehmed-ii|Fatih]] 1481'de öldüğünde iki oğlu vardı: Amasya'daki Bayezid ve Konya'daki Cem. İstanbul'a önce Bayezid ulaştı ve yeniçerilerin desteğiyle tahta çıktı. [[f:cem-sultan|Cem]] ise Bursa'da kendi adına para bastırdı ve ülkeyi ikiye bölmeyi önerdi: Rumeli ağabeyinin, Anadolu kendisinin olacaktı.",
+      "consequence": "Bayezid teklifi reddetti ve Haziran 1481'de Yenişehir Ovası'nda kardeşini yendi. Cem önce Kahire'ye, 1482'de de Rodos şövalyelerine sığındı; oradan Fransa'ya ve Roma'ya götürüldü, 1495'te Napoli'de öldü. Bayezid, Cem Avrupalıların elindeyken batıya büyük bir sefer açmaktan kaçındı; savaştan uzak duran dindar padişah [[c:veli|Veli]] diye anıldı.",
+      "depth": "Bayezid, kardeşini serbest bırakmamaları için önce Rodos şövalyelerine, sonra Papa'ya her yıl on binlerce altın ödedi; Cem böylece Avrupa siyasetinde 13 yıl boyunca bir rehine oldu. Ölümünün Papa VI. Alexander'ın verdirdiği zehirle olduğu söylentisi o günden beri anlatılır, ama kanıtlanmış değildir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "sefarad-yahudileri",
+      "year": 1492,
+      "text": "İspanya'dan sürülen Yahudileri Osmanlı topraklarına kabul etti.",
+      "cause": "1492'de İspanya kralı Ferdinand ile kraliçe Isabella, Endülüs'teki son Müslüman devleti olan Gırnata'yı aldı. Aynı yıl çıkardıkları fermanla ülkedeki Yahudilere iki yol bıraktılar: Hristiyan olmak ya da dört ay içinde ülkeyi terk etmek. On binlerce insan gidecek bir yer arıyordu.",
+      "consequence": "Bayezid sürgünlerin ülkesine yerleşmesine izin verdi ve yöneticilere onlara engel olunmamasını emretti. Gelenler İstanbul, Selanik, Edirne ve İzmir'e yerleşti; Selanik yüzyıllar boyunca nüfusunun büyük bölümü Yahudi olan bir liman şehri oldu. Bu göçmenler İstanbul'da Osmanlı topraklarındaki ilk matbaayı kurdu; Türkçe kitap basan ilk matbaayı ise bundan iki yüzyıldan fazla sonra [[f:ibrahim-muteferrika|İbrahim Müteferrika]] açacaktı.",
+      "depth": "Bayezid'in \"Ferdinand'a akıllı diyorsunuz, oysa kendi ülkesini yoksullaştırıp benimkini zenginleştiriyor\" dediği anlatılır; bu söz olaydan sonraki Yahudi kaynaklarından gelir, padişahın gerçekten böyle söylediği kesin değildir. İlk Yahudi matbaasının tarihi de tartışmalıdır: genellikle 1493 denir, bazı araştırmacılar 1504'ü savunur.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "dimetoka",
+        "nameTr": "Dimetoka",
+        "historicName": "Didymoteicho",
+        "lat": 41.3497,
+        "lon": 26.4961
+      },
+      "precision": "city",
+      "from": 1447,
+      "to": 1454,
+      "event": "Şehzade Mehmed'in (sonra Fatih) oğlu olarak Dimetoka'da doğdu."
+    },
+    {
+      "place": {
+        "slug": "amasya",
+        "nameTr": "Amasya",
+        "historicName": "Amaseia",
+        "lat": 40.6499,
+        "lon": 35.8353
+      },
+      "precision": "city",
+      "from": 1454,
+      "to": 1481,
+      "event": "Çocuk yaşta gönderildiği Amasya'yı 27 yıl yönetti; şehir bu dönemde bir bilim ve hat sanatı merkezi oldu."
+    },
+    {
+      "place": {
+        "slug": "yenisehir-bursa",
+        "nameTr": "Yenişehir, Bursa",
+        "lat": 40.2644,
+        "lon": 29.6528
+      },
+      "precision": "district",
+      "from": 1481,
+      "to": 1481,
+      "event": "Yenişehir Ovası'nda kardeşi Cem'in ordusunu yendi."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1481,
+      "to": 1512,
+      "event": "31 yıl boyunca imparatorluğu buradan yönetti; 1509'daki büyük depremden sonra şehri yeniden yaptırdı."
+    },
+    {
+      "place": {
+        "slug": "havsa",
+        "nameTr": "Havsa, Edirne",
+        "lat": 41.549,
+        "lon": 26.821
+      },
+      "precision": "district",
+      "from": 1512,
+      "to": 1512,
+      "event": "Tahtı bıraktıktan bir ay sonra, doğduğu Dimetoka'ya giderken yolda öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-ii",
+      "type": "child_of",
+      "note": "Fatih Sultan Mehmed'in oğludur."
+    },
+    {
+      "to": "cem-sultan",
+      "type": "sibling_of",
+      "note": "Kardeşi Cem Sultan'la 1481'de taht için savaştı ve onu yendi."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "veli",
+      "term": "Veli",
+      "meaning": "\"Allah'ın dostu, ermiş\" demektir; II. Bayezid dindarlığı yüzünden \"Bayezid-i Veli\" diye anıldı.",
+      "root": {
+        "letters": "v-l-y",
+        "language": "Arapça",
+        "meaning": "yakın olmak, dost olmak, sahip çıkmak"
+      },
+      "related": [
+        {
+          "term": "evliya",
+          "meaning": "veliler (velinin çoğulu)"
+        },
+        {
+          "term": "vali",
+          "meaning": "bir ili yöneten kişi"
+        },
+        {
+          "term": "velayet",
+          "meaning": "bir çocuğun sorumluluğunu üstlenme"
+        },
+        {
+          "term": "mevla",
+          "meaning": "sahip, efendi"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Bayezid II",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/bayezid-ii"
+    },
+    {
+      "id": "wiki",
+      "title": "II. Bayezid",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/II._Bayezid",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

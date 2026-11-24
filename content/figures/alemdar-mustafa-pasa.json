@@ -1,0 +1,66 @@
+{
+  "slug": "alemdar-mustafa-pasa",
+  "nameTr": "Alemdar Mustafa Paşa",
+  "nameEn": "Alemdar Mustafa Pasha",
+  "wikiTitleTr": "Alemdar Mustafa Paşa",
+  "kind": "statesman",
+  "roles": ["Rusçuk âyanı", "Sadrazam"],
+  "birth": { "year": 1765, "place": "Hotin" },
+  "death": { "year": 1808, "place": "İstanbul" },
+  "summary": [
+    "Alemdar Mustafa Paşa, 1808'de ordusuyla İstanbul'a yürüyerek padişah değiştiren Rusçuk âyanı ve sadrazamdır.",
+    "III. Selim'i kurtarmaya yetişemedi, ama IV. Mustafa'yı tahttan indirip 23 yaşındaki II. Mahmud'u padişah yaptı.",
+    "Yalnızca dört ay süren sadrazamlığında imzalattığı Sened-i İttifak, padişahın gücünü yazılı bir belgeyle sınırlayan ilk adım sayılır."
+  ],
+  "actions": [
+    {
+      "id": "istanbula-yuruyus",
+      "year": 1808,
+      "text": "İstanbul'a yürüyüp IV. Mustafa'yı tahttan indirdi ve II. Mahmud'u tahta çıkardı.",
+      "cause": "Mayıs 1807'de Kabakçı Mustafa isyanı [[f:selim-iii|III. Selim]]'i tahttan indirmiş, Nizam-ı Cedid adlı yeni orduyu dağıtmıştı. İsyandan kaçan yenilik yanlısı devlet adamları Rusçuk'a, bölgenin en güçlü âyanı olan Alemdar'ın yanına sığındı. \"Rusçuk yârânı\" denen bu grup onu Selim'i yeniden tahta çıkarmaya ikna etti.",
+      "consequence": "Alemdar Temmuz 1808'de binlerce askeriyle İstanbul'a geldi ve 28 Temmuz'da Topkapı Sarayı'na yürüdü. [[f:mustafa-iv|IV. Mustafa]] tahtını korumak için hanedanın öteki iki erkeğinin öldürülmesini emretti; III. Selim öldürüldü, şehzade Mahmud ise kurtarıldı. Alemdar IV. Mustafa'yı indirip [[f:mahmud-ii|II. Mahmud]]'u tahta çıkardı ve kendisi sadrazam oldu.",
+      "depth": "[[c:alemdar|Alemdar]] baştan beri bir yenilikçi değildi; Nizam-ı Cedid'e önceleri yakınlık duymuyordu ve bu davaya Rusçuk yârânı sayesinde kazanıldı. Saraya yürümeden önce günlerce beklemesi de eleştirilir: niyeti duyulunca saray kapıları kapatıldı ve bu gecikme Selim'in hayatına mal oldu.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "sened-i-ittifak",
+      "year": 1808,
+      "text": "Âyanları İstanbul'a toplayıp Sened-i İttifak'ı imzalattı.",
+      "cause": "O yıllarda Anadolu ve Rumeli'nin büyük bölümünü, kendi askeri ve geliri olan âyanlar, yani yerel güç sahipleri yönetiyordu. Kendisi de bir âyan olan Alemdar, yeni bir ordu kurabilmek için onların desteğine muhtaçtı. Bu yüzden önde gelen âyanları İstanbul'a çağırdı.",
+      "consequence": "Ekim 1808'de imzalanan belgede âyanlar padişaha bağlı kalmaya, asker ve vergi toplanmasına yardım etmeye söz verdi; devlet de onların haklarını ve bu hakların çocuklarına geçmesini tanıdı. Alemdar, Nizam-ı Cedid'in devamı olarak Sekbân-ı Cedid adlı yeni bir ordu kurdu. Bundan rahatsız olan yeniçeriler 15 Kasım 1808'de konağını bastı; Alemdar çıkış yolu kalmayınca barut mahzenini ateşleyerek kendisiyle birlikte yüzlerce yeniçeriyi havaya uçurdu.",
+      "depth": "Belge kimi zaman İngiltere'deki Magna Carta'ya benzetilir, ama birçok tarihçi bu benzetmeyi abartılı bulur: belgeyi çağrılan âyanların yalnızca birkaçı imzaladı, II. Mahmud onu istemeyerek kabul etti ve Alemdar'ın ölümünden sonra hiç uygulanmadı. Mahmud sonraki yıllarda âyanları tek tek ortadan kaldırdı, 1826'da da Yeniçeri Ocağı'nı kapattı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "hotin", "nameTr": "Hotin", "historicName": "Khotyn", "lat": 48.5075, "lon": 26.4922 }, "precision": "city", "from": 1765, "to": 1765, "event": "Rusçuklu bir yeniçerinin oğlu olarak Dinyester kıyısındaki bu kale şehrinde doğdu." },
+    { "place": { "slug": "ruscuk", "nameTr": "Rusçuk", "historicName": "Ruse", "lat": 43.8356, "lon": 25.9657 }, "precision": "city", "from": 1806, "to": 1808, "event": "Tirsinikli İsmail Ağa'nın ölümünden sonra bölgenin âyanı oldu; Ruslara karşı Tuna cephesini savundu." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1808, "to": 1808, "event": "Burada bulunan orduya ve sadrazama katılarak İstanbul'a doğru yola çıktı." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1808, "to": 1808, "event": "28 Temmuz 1808'de sarayın kapılarını zorlayarak içeri girdi ve II. Mahmud'u tahta çıkardı." },
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1808, "to": 1808, "event": "Kasım 1808'de Bâbıâli'deki konağında yeniçerilerce kuşatıldı ve barut mahzenini patlatarak öldü." }
+  ],
+  "relations": [
+    { "to": "mustafa-iv", "type": "deposed", "note": "28 Temmuz 1808'de saraya yürüyerek IV. Mustafa'yı tahttan indirdi." },
+    { "to": "mahmud-ii", "type": "served_under", "note": "Tahta çıkardığı II. Mahmud'un ilk sadrazamı oldu." },
+    { "to": "selim-iii", "type": "served_under", "note": "III. Selim ona 1807'de vezirlik, Silistre valiliği ve Tuna seraskerliği verdi; Alemdar da onu yeniden tahta çıkarmak için yola çıktı." }
+  ],
+  "concepts": [
+    {
+      "slug": "alemdar",
+      "term": "Alemdar",
+      "meaning": "\"Bayrak taşıyan\" demektir; Türkçesi bayraktardır. Mustafa Paşa bu lakabı, gençliğinde Rusçuk âyanı Tirsinikli İsmail Ağa'nın bayraktarlığını yaptığı için aldı.",
+      "root": { "letters": "alem + -dâr", "language": "Arapça + Farsça", "meaning": "bayrak + tutan" },
+      "related": [
+        { "term": "alem", "meaning": "bayrak; minare ve kubbelerin tepesindeki hilal" },
+        { "term": "sancaktar", "meaning": "sancak taşıyan" },
+        { "term": "hazinedar", "meaning": "hazineye bakan görevli" },
+        { "term": "defterdar", "meaning": "mali işlere bakan görevli" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Alemdar Mustafa Paşa", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/alemdar-mustafa-pasa" },
+    { "id": "wiki", "title": "Alemdar Mustafa Paşa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Alemdar_Mustafa_Pa%C5%9Fa", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

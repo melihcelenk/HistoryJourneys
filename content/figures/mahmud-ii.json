@@ -1,0 +1,72 @@
+{
+  "slug": "mahmud-ii",
+  "nameTr": "II. Mahmud",
+  "nameEn": "Mahmud II",
+  "wikiTitleTr": "II. Mahmud",
+  "kind": "sultan",
+  "roles": ["30. Osmanlı padişahı"],
+  "birth": { "year": 1785, "place": "İstanbul" },
+  "death": { "year": 1839, "place": "İstanbul" },
+  "reign": { "from": 1808, "to": 1839 },
+  "summary": [
+    "II. Mahmud, 1808'de 23 yaşında tahta çıkan ve 31 yıl hüküm süren 30. Osmanlı padişahıdır.",
+    "1826'da, dört yüzyılı aşkın geçmişi olan Yeniçeri Ocağı'nı tek bir günde ortadan kaldırdı.",
+    "Kurduğu yeni ordu, okullar ve bakanlıklar, oğlu Abdülmecid döneminde ilan edilen Tanzimat'ın zeminini hazırladı."
+  ],
+  "actions": [
+    {
+      "id": "sened-i-ittifak",
+      "year": 1808,
+      "text": "Âyanlarla Sened-i İttifak'ı imzaladı.",
+      "cause": "II. Mahmud'u tahta çıkaran güç, Rusçuk âyanı [[f:alemdar-mustafa-pasa|Alemdar Mustafa Paşa]]'nın ordusuydu. Sadrazam olan Alemdar, taşrada kendi askerleri ve gelirleriyle neredeyse bağımsız davranan âyanları 1808 sonbaharında İstanbul'a çağırdı. Amaç, onları devlete bağlamak ve yeniliklere destek sağlamaktı.",
+      "consequence": "İmzalanan belgede âyanlar padişaha bağlı kalmaya ve asker vermeye, padişah da onların haklarını tanımaya söz verdi. Belge kısa ömürlü oldu: Kasım 1808'de yeniçeriler ayaklandı ve Alemdar konağında kuşatılınca cephaneliği ateşleyerek öldü. II. Mahmud sonraki yıllarda âyanları birer birer etkisiz hâle getirip taşrayı yeniden merkeze bağladı.",
+      "depth": "Padişahın yetkisinin ilk kez yazılı bir belgeyle sınırlandığı düşünüldüğü için Sened-i İttifak bazen İngiltere'deki Magna Carta'ya benzetilir. Birçok tarihçi bu benzetmeyi abartılı bulur: belgeyi İstanbul'a gelen az sayıda âyan imzalamış, II. Mahmud da onu hiçbir zaman içine sindirmemiştir.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "yeniceri-ocaginin-kaldirilmasi",
+      "year": 1826,
+      "text": "Yeniçeri Ocağı'nı kaldırdı.",
+      "cause": "Yeniçeriler 1807'de [[f:selim-iii|III. Selim]]'in yeni ordusunu dağıtmış, 1808'de Alemdar'ı öldürmüştü. II. Mahmud on sekiz yıl bekledi; ocağın başına kendine bağlı adamları getirdi, ulemanın ve halkın desteğini kazandı. 1821'de başlayan Yunan isyanını yeniçeriler bastıramazken Mısır valisinin Avrupa tarzı eğitilmiş askerleri Mora'da başarı kazanınca harekete geçti.",
+      "consequence": "Yeni bir talimli birlik kurulacağı duyurulunca yeniçeriler 14 Haziran 1826 gecesi kazan kaldırdı. Ertesi gün sancak-ı şerif Sultanahmet Camii'ne dikildi, halk orada toplandı ve Et Meydanı'ndaki kışlalar topa tutuldu. Ocak kaldırıldı, yerine Asâkir-i Mansûre-i Muhammediyye adlı yeni ordu kuruldu; bu olay tarihe [[c:vaka-i-hayriye|Vaka-i Hayriye]] adıyla geçti.",
+      "depth": "\"Hayırlı olay\" adını olayı kazananlar verdi; o gün ve izleyen haftalarda binlerce yeniçeri öldürüldü, ocakla bağı olan Bektaşî tekkeleri kapatıldı. Devlet bir süre deneyimli bir ordudan yoksun kaldı: 1828'de saldıran Rusya karşısında yeni ordu tutunamadı ve 1829 Edirne Antlaşması ile Yunanistan'ın bağımsızlığına giden yol açıldı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "takvim-i-vekayi-ve-nufus-sayimi",
+      "year": 1831,
+      "text": "İlk resmî gazeteyi çıkarttı ve ilk nüfus sayımını yaptırdı.",
+      "cause": "Yeni orduya asker ve para bulmak için devletin ülkede kaç kişinin yaşadığını bilmesi gerekiyordu. Yapılan yenilikler, örneğin memurlara fes ve pantolon giyme zorunluluğu, halk arasında tepki çekiyordu. Mısır Valisi Kavalalı Mehmed Ali Paşa da 1828'de Kahire'de kendi gazetesini çıkarmaya başlamıştı.",
+      "consequence": "1831'de yapılan sayımda, asker ve vergi kaynağı sayıldıkları için yalnızca erkekler yazıldı. Aynı yılın Kasım ayında ilk Türkçe gazete olan Takvim-i Vekayi yayımlanmaya başladı ve devletin kararlarını halka duyurdu. Sonraki yıllarda posta örgütü, tıp ve harp okulları ile ilk bakanlıklar kuruldu.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1785, "to": 1808, "event": "Sarayda doğdu; 1808'de cellatlardan dama kaçarak kurtuldu ve aynı gün padişah oldu." },
+    { "place": { "slug": "istanbul-sultanahmet", "nameTr": "Sultanahmet Camii, İstanbul", "lat": 41.0054, "lon": 28.9768 }, "precision": "building", "from": 1826, "to": 1826, "event": "Sancak-ı şerif bu camiye dikildi; yeniçerilere karşı toplanan halk ve askerler buradan yönetildi." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1831, "to": 1831, "event": "Halkın durumunu yerinde görmek için çıktığı yurt gezilerinden birinde Edirne'yi ziyaret etti." },
+    { "place": { "slug": "istanbul-camlica", "nameTr": "Çamlıca, İstanbul", "lat": 41.0275, "lon": 29.0686 }, "precision": "district", "from": 1839, "to": 1839, "event": "Veremden hasta hâlde getirildiği Çamlıca'daki köşkte, ordusunun Nizip'te Mısır kuvvetlerine yenildiği günlerde öldü." }
+  ],
+  "relations": [
+    { "to": "abdulhamid-i", "type": "child_of", "note": "I. Abdülhamid'in oğludur." }
+  ],
+  "concepts": [
+    {
+      "slug": "vaka-i-hayriye",
+      "term": "Vaka-i Hayriye",
+      "meaning": "\"Hayırlı olay\" demektir: Yeniçeri Ocağı'nın 1826'da kaldırılmasına dönemin yönetiminin verdiği ad.",
+      "root": { "letters": "h-y-r", "language": "Arapça", "meaning": "iyi olmak" },
+      "related": [
+        { "term": "hayır", "meaning": "iyilik" },
+        { "term": "hayrat", "meaning": "herkesin yararlanması için yaptırılan çeşme, köprü gibi eserler" },
+        { "term": "vaka", "meaning": "olay" },
+        { "term": "vakanüvis", "meaning": "olayları yazan resmî tarihçi" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Mahmud II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mahmud-ii" },
+    { "id": "wiki", "title": "II. Mahmud", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._Mahmud", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

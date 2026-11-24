@@ -1,0 +1,78 @@
+{
+  "slug": "ataturk",
+  "nameTr": "Mustafa Kemal Atatürk",
+  "nameEn": "Mustafa Kemal Atatürk",
+  "wikiTitleTr": "Mustafa Kemal Atatürk",
+  "kind": "leader",
+  "roles": ["Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı", "Kurtuluş Savaşı'nın başkomutanı"],
+  "birth": { "year": 1881, "place": "Selanik" },
+  "death": { "year": 1938, "place": "İstanbul" },
+  "reign": { "from": 1923, "to": 1938 },
+  "summary": [
+    "Mustafa Kemal Atatürk, 1881'de Selanik'te doğan ve 1923'te Türkiye Cumhuriyeti'ni kuran asker ve devlet adamıdır.",
+    "19 Mayıs 1919'da Samsun'a çıkarak işgal altındaki ülkede Kurtuluş Savaşı'nı başlattı.",
+    "Saltanatı kaldırıp cumhuriyeti ilan ederek altı yüzyıllık hanedan yönetiminin yerine halkın seçtiği bir meclisi koydu."
+  ],
+  "actions": [
+    {
+      "id": "canakkale-savunmasi",
+      "year": 1915,
+      "text": "Çanakkale'de Arıburnu ve Anafartalar'da düşman çıkarmasını durdurdu.",
+      "cause": "Osmanlı Devleti 1914'te [[f:enver-pasa|Enver Paşa]]'nın öncülüğünde Almanya'nın yanında savaşa girmişti. Sofya'da askerî ataşe olan Yarbay Mustafa Kemal cephede görev istedi ve Tekirdağ'da kurulan 19. Tümen'in başına geçti. 25 Nisan 1915'te İngiliz ve müttefik birlikleri Gelibolu Yarımadası'na çıkarma yaptı.",
+      "consequence": "Mustafa Kemal emir beklemeden 57. Alay'ı Conkbayırı'na sürdü ve çıkarmayı kıyıda durdurdu; askerlerine \"Ben size taarruzu değil, ölmeyi emrediyorum\" dediği aktarılır. Ağustos 1915'te Anafartalar Grubu komutanı olarak ikinci büyük çıkarmayı da durdurdu. Düşman Ocak 1916'da yarımadayı boşalttı; \"Anafartalar Kahramanı\" olarak tanınması, 1919'da Anadolu'daki komutanların ona güvenmesini kolaylaştırdı.",
+      "depth": "Çanakkale tek bir komutanın zaferi değildi: 5. Ordu'nun başında Alman general Liman von Sanders vardı ve cephede yüz binlerce asker savaştı. Mustafa Kemal'in adı savaş sırasında halk arasında pek bilinmiyordu; ünü asıl 1919'dan sonra yayıldı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "samsuna-cikis",
+      "year": 1919,
+      "text": "Samsun'a çıkarak Millî Mücadele'yi başlattı.",
+      "cause": "30 Ekim 1918'de imzalanan Mondros Mütarekesi'yle ordu dağıtıldı, İstanbul işgal edildi; 15 Mayıs 1919'da Yunan ordusu İzmir'e çıktı. [[f:mehmed-vi|Vahdeddin]]'in hükümeti, Karadeniz bölgesindeki karışıklıkları yatıştırması için Mustafa Kemal Paşa'yı 9. Ordu Müfettişi atadı. O ise bu görevi Anadolu'ya geçmek için bir fırsat olarak gördü.",
+      "consequence": "19 Mayıs 1919'da Samsun'a çıktı. Haziranda Amasya'dan \"Milletin bağımsızlığını yine milletin azim ve kararı kurtaracaktır\" diyen genelgeyi yayımladı; İstanbul geri çağırınca temmuzda askerlikten istifa etti. Erzurum ve Sivas kongrelerinden sonra 23 Nisan 1920'de Ankara'da Büyük Millet Meclisi açıldı ve onu başkan seçti.",
+      "depth": "Direniş Samsun'dan önce başlamıştı: birçok şehirde müdafaa-i hukuk cemiyetleri kurulmuş, Ege'de Kuvayımilliye birlikleri savaşa girmiş, Kâzım Karabekir Erzurum'daki kolordusunu dağıtmamıştı. Mustafa Kemal'in yaptığı, bu dağınık hareketleri tek bir meclis ve tek bir ordu altında birleştirmekti.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "cumhuriyetin-ilani",
+      "year": 1923,
+      "text": "Saltanatı kaldırdı ve Cumhuriyet'i ilan etti.",
+      "cause": "30 Ağustos 1922'de Başkomutanlık Meydan Muharebesi kazanıldı ve savaş bitti. İtilaf devletleri barış görüşmelerine Ankara ile birlikte padişahın hükümetini de çağırınca Meclis 1 Kasım 1922'de saltanatı kaldırdı. [[f:ismet-inonu|İsmet Paşa]] 24 Temmuz 1923'te Lozan'da barışı imzaladı; ancak yeni devletin adı ve başkanı hâlâ belli değildi.",
+      "consequence": "29 Ekim 1923'te Meclis anayasayı değiştirerek devletin yönetim biçiminin [[c:cumhuriyet|cumhuriyet]] olduğunu kabul etti ve Mustafa Kemal'i oybirliğiyle ilk cumhurbaşkanı seçti. Başkent Ankara oldu, ilk hükümeti İsmet Paşa kurdu. 3 Mart 1924'te halifelik de kaldırıldı ve Osmanlı hanedanı ülke dışına çıkarıldı.",
+      "depth": "Karar herkesin onayıyla alınmadı. Kurtuluş Savaşı'nın önde gelen isimlerinden Rauf Orbay, Kâzım Karabekir ve Ali Fuat Cebesoy, kendilerine danışılmadığını ve işin aceleye getirildiğini söyledi. 1924'te kurdukları Terakkiperver Cumhuriyet Fırkası ertesi yıl kapatıldı.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "selanik", "nameTr": "Selanik", "historicName": "Thessaloniki", "lat": 40.6401, "lon": 22.9444 }, "precision": "city", "from": 1881, "to": 1896, "event": "Ali Rıza Efendi ile Zübeyde Hanım'ın oğlu olarak doğdu; Askerî Rüştiye'de matematik öğretmeni ona \"Kemal\" adını verdi." },
+    { "place": { "slug": "manastir", "nameTr": "Manastır", "historicName": "Bitola", "lat": 41.0297, "lon": 21.3292 }, "precision": "city", "from": 1896, "to": 1899, "event": "Askerî İdadi'de okudu; Namık Kemal'in şiirleriyle ve Fransızcayla burada tanıştı." },
+    { "place": { "slug": "canakkale", "nameTr": "Çanakkale", "historicName": "Kale-i Sultaniye", "lat": 40.1553, "lon": 26.4142 }, "precision": "region", "from": 1915, "to": 1915, "event": "Gelibolu Yarımadası'nda Arıburnu ve Anafartalar'da düşman çıkarmasını durdurdu." },
+    { "place": { "slug": "samsun", "nameTr": "Samsun", "historicName": "Amisos", "lat": 41.2867, "lon": 36.33 }, "precision": "city", "from": 1919, "to": 1919, "event": "19 Mayıs 1919'da Bandırma vapuruyla karaya çıktı; Millî Mücadele başladı." },
+    { "place": { "slug": "ankara", "nameTr": "Ankara", "historicName": "Angora", "lat": 39.9334, "lon": 32.8597 }, "precision": "city", "from": 1919, "to": 1938, "event": "27 Aralık 1919'da geldi; Meclis'i burada açtı, savaşı buradan yönetti ve şehri başkent yaptı." },
+    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1938, "to": 1938, "event": "10 Kasım 1938'de saat dokuzu beş geçe burada öldü." }
+  ],
+  "relations": [
+    { "to": "mehmed-v", "type": "served_under", "note": "Mehmed Reşad döneminde subay olarak Trablusgarp, Balkan ve Çanakkale cephelerinde görev yaptı." },
+    { "to": "mehmed-vi", "type": "served_under", "note": "1917-1918 Almanya gezisinde veliaht Vahdeddin'in yaveriydi; 1919'da onun hükümetince ordu müfettişi olarak Samsun'a gönderildi." },
+    { "to": "mehmed-vi", "type": "opposed", "note": "İstanbul hükümetine karşı Millî Mücadele'yi yürüttü; önderliğindeki Meclis 1922'de saltanatı kaldırdı." },
+    { "to": "abdulhamid-ii", "type": "opposed", "note": "Genç bir subayken II. Abdülhamid yönetimine karşı gizli cemiyetlere katıldı; 1909'da Hareket Ordusu'nda görev aldı." },
+    { "to": "enver-pasa", "type": "served_under", "note": "1911-1912'de Trablusgarp Savaşı'nda Enver Bey'in komuta ettiği Bingazi bölgesinde Derne cephesinde savaştı; Birinci Dünya Savaşı'nda Enver Paşa başkomutan vekiliydi." }
+  ],
+  "concepts": [
+    {
+      "slug": "cumhuriyet",
+      "term": "Cumhuriyet",
+      "meaning": "Devlet başkanının babadan oğula geçmediği, halkın ya da halkın seçtiği meclisin belirlediği yönetim biçimi.",
+      "root": { "letters": "c-m-h-r", "language": "Arapça", "meaning": "topluluk, halk kalabalığı" },
+      "related": [
+        { "term": "cumhur", "meaning": "halk, topluluk" },
+        { "term": "cumhurbaşkanı", "meaning": "cumhuriyetle yönetilen devletin başkanı" },
+        { "term": "cumhuriyetçi", "meaning": "cumhuriyet yönetimini savunan kişi" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Mustafa Kemal Atatürk", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-kemal-ataturk" },
+    { "id": "wiki", "title": "Mustafa Kemal Atatürk", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

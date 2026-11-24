@@ -1,0 +1,207 @@
+{
+  "slug": "mimar-sinan",
+  "nameTr": "Mimar Sinan",
+  "nameEn": "Mimar Sinan",
+  "wikiTitleTr": "Mimar Sinan",
+  "kind": "artist",
+  "roles": [
+    "Osmanlı başmimarı"
+  ],
+  "birth": {
+    "year": 1490,
+    "place": "Ağırnas, Kayseri"
+  },
+  "death": {
+    "year": 1588,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "Mimar Sinan, 1490 dolaylarında Kayseri'nin Ağırnas köyünde doğan ve yarım yüzyıl boyunca Osmanlı başmimarlığı yapan mimardır.",
+    "Üç padişaha başmimarlık etti ve Edirne'deki Selimiye Camii'ni seksen yaşını geçtikten sonra tamamladı.",
+    "Büyük bir kubbenin altında tek ve aydınlık bir mekân kurma fikrini en ileri noktasına taşıdı; ondan sonraki Osmanlı camileri onun yolunu izledi."
+  ],
+  "actions": [
+    {
+      "id": "prut-koprusu",
+      "year": 1538,
+      "text": "Prut Nehri üzerine on üç günde köprü kurdu ve başmimar oldu.",
+      "cause": "Sinan 1512'de [[f:selim-i|Yavuz Sultan Selim]] döneminde devşirme olarak İstanbul'a getirildi ve yeniçeri oldu. Belgrad, Rodos, Mohaç ve Bağdat seferlerine katıldı; ordunun köprülerini, gemilerini yaptı. 1538'deki Karaboğdan Seferi'nde ordu Prut Nehri'nin bataklık kıyısında günlerce köprü kuramadı.",
+      "consequence": "İş Sinan'a verildi ve köprü on üç günde tamamlandı. Kısa süre sonra [[f:suleyman-i|Kanuni]] onu Hassa [[c:mimar-kelimesi|Mimarları]] Ocağı'nın başına, yani başmimarlığa getirdi. Sinan bu görevde ölümüne kadar, yaklaşık elli yıl kaldı.",
+      "depth": "Sinan mimarlığı bir okulda değil, yirmi yılı aşan askerlik sırasında öğrendi. Seferler boyunca gördüğü Selçuklu, Bizans ve İran yapılarının onun eğitimi olduğu kabul edilir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "suleymaniye",
+      "year": 1557,
+      "text": "Süleymaniye Camii ve Külliyesi'ni tamamladı.",
+      "cause": "Kanuni, saltanatının en güçlü yıllarında İstanbul'un tepelerinden birine kendi adını taşıyacak bir cami istedi. Sinan daha önce, 1548'de padişahın genç yaşta ölen oğlu için Şehzade Camii'ni bitirmişti. Süleymaniye'nin yapımına 1550'de başlandı.",
+      "consequence": "Külliye 1557'de açıldı: caminin çevresinde medreseler, hastane, imaret, hamam ve kütüphane yer alıyordu. Yapı o günden beri İstanbul'un pek çok depremini büyük bir hasar görmeden atlattı. Kanuni ve [[f:hurrem-sultan|Hürrem Sultan]]'ın türbeleri caminin avlusunda, Sinan'ın türbesi ise hemen yanındadır.",
+      "depth": "Sinan'ın Şehzade'ye çıraklık, Süleymaniye'ye kalfalık, Selimiye'ye ustalık eseri dediği aktarılır. Bu söz, anılarını yazdırdığı arkadaşı Sâî Mustafa Çelebi'nin kaleminden gelir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "selimiye",
+      "year": 1575,
+      "text": "Edirne'de Selimiye Camii'ni tamamladı.",
+      "cause": "[[f:selim-ii|II. Selim]] kendi camisini İstanbul'da değil, Edirne'de yaptırmak istedi. Sinan ise yıllardır Ayasofya'nın kubbesi kadar büyük bir kubbeyi daha yalın bir yapıyla taşımanın yolunu arıyordu. Yapıma 1568'de başlandı.",
+      "consequence": "Cami 1575'te açıldı; yaklaşık 31 metre çapındaki kubbe sekiz ayağa oturur ve iç mekân tek bir bütün olarak görünür. Dört minaresi 70 metreyi aşar. Sinan görevini [[f:murad-iii|III. Murad]] döneminde de sürdürdü ve 1588'de İstanbul'da öldü; Selimiye 2011'de UNESCO Dünya Mirası Listesi'ne alındı.",
+      "depth": "Sinan anılarında Ayasofya'dan büyük bir kubbe yaptığını söyler. Ölçümlere göre iki kubbenin çapı birbirine çok yakındır, Ayasofya'nınki ise yerden daha yüksektir. Ona mal edilen yapı sayısı listeden listeye 370 ile 470 arasında değişir; bunların bir kısmını yönettiği ocaktaki mimarlar yapmıştır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "agirnas",
+        "nameTr": "Ağırnas, Kayseri",
+        "lat": 38.7906,
+        "lon": 35.6211
+      },
+      "precision": "city",
+      "from": 1490,
+      "to": 1512,
+      "event": "Hristiyan bir ailenin oğlu olarak doğdu; 1512'de devşirme olarak alındı."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1512,
+      "to": 1521,
+      "event": "Acemi Oğlanlar Ocağı'nda yetişti; dülgerlik öğrendi ve yeniçeri oldu."
+    },
+    {
+      "place": {
+        "slug": "belgrad",
+        "nameTr": "Belgrad",
+        "historicName": "Nándorfehérvár",
+        "lat": 44.7866,
+        "lon": 20.4489
+      },
+      "precision": "city",
+      "from": 1521,
+      "to": 1521,
+      "event": "Kanuni'nin Belgrad Seferi'ne yeniçeri olarak katıldı."
+    },
+    {
+      "place": {
+        "slug": "mohac",
+        "nameTr": "Mohaç",
+        "historicName": "Mohács",
+        "lat": 45.993,
+        "lon": 18.683
+      },
+      "precision": "city",
+      "from": 1526,
+      "to": 1526,
+      "event": "Mohaç Seferi'nde orduda görev aldı."
+    },
+    {
+      "place": {
+        "slug": "edirne",
+        "nameTr": "Edirne",
+        "historicName": "Adrianopolis",
+        "lat": 41.677,
+        "lon": 26.556
+      },
+      "precision": "city",
+      "from": 1568,
+      "to": 1575,
+      "event": "Ustalık eseri saydığı Selimiye Camii'ni yaptı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-suleymaniye",
+        "nameTr": "Süleymaniye Camii, İstanbul",
+        "lat": 41.0162,
+        "lon": 28.964
+      },
+      "precision": "building",
+      "from": 1588,
+      "to": 1588,
+      "event": "İstanbul'da öldü; 1557'de tamamladığı Süleymaniye'nin yanındaki sade türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "suleyman-i",
+      "type": "served_under",
+      "note": "Kanuni onu başmimarlığa getirdi; Şehzade ve Süleymaniye camilerini onun için yaptı."
+    },
+    {
+      "to": "selim-ii",
+      "type": "served_under",
+      "note": "II. Selim için Edirne'de Selimiye Camii'ni yaptı."
+    },
+    {
+      "to": "murad-iii",
+      "type": "served_under",
+      "note": "III. Murad döneminde de başmimarlığı sürdürdü."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "mimar-kelimesi",
+      "term": "Mimar",
+      "meaning": "Yapıları tasarlayan ve yapımını yöneten kişi; kelime anlamıyla \"bir yeri bayındır kılan\".",
+      "root": {
+        "letters": "ʿ-m-r",
+        "language": "Arapça",
+        "meaning": "bayındır kılmak, yaşamak"
+      },
+      "related": [
+        {
+          "term": "imar",
+          "meaning": "bir yeri bayındır hâle getirme"
+        },
+        {
+          "term": "tamir",
+          "meaning": "onarım"
+        },
+        {
+          "term": "mamur",
+          "meaning": "bayındır"
+        },
+        {
+          "term": "ömür",
+          "meaning": "yaşam süresi"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Mimar Sinan",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/mimar-sinan"
+    },
+    {
+      "id": "wiki",
+      "title": "Mimar Sinan",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Mimar_Sinan",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

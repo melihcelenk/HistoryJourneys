@@ -1,0 +1,180 @@
+{
+  "slug": "sokollu-mehmed-pasa",
+  "nameTr": "Sokollu Mehmed Paşa",
+  "nameEn": "Sokollu Mehmed Pasha",
+  "wikiTitleTr": "Sokollu Mehmed Paşa",
+  "kind": "statesman",
+  "roles": [
+    "Sadrazam (1565-1579)",
+    "Kaptan-ı derya"
+  ],
+  "birth": {
+    "year": 1505,
+    "place": "Sokoloviçi, Bosna"
+  },
+  "death": {
+    "year": 1579,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "Sokollu Mehmed Paşa, 1505'te Bosna'da doğan ve 1565'ten 1579'a kadar aralıksız sadrazamlık yapan devlet adamıdır.",
+    "Üç padişaha sadrazamlık etti ve 1566'da Zigetvar'da Kanuni'nin ölümünü haftalarca ordudan gizledi.",
+    "Padişahların devlet işlerinden uzaklaştığı yıllarda devleti fiilen o yönetti; 1579'da öldürülmesi bir dönemin sonu sayılır."
+  ],
+  "actions": [
+    {
+      "id": "zigetvar-olumu-gizleme",
+      "year": 1566,
+      "text": "Zigetvar'da Kanuni'nin ölümünü ordudan gizledi.",
+      "cause": "Sokollu, Bosna'dan devşirme olarak alınmış, sarayda yetişmiş ve [[f:barbaros-hayreddin|Barbaros]]'un ölümünden sonra 1546'da kaptan-ı derya olmuştu; 1565'te sadrazamlığa yükseldi. 72 yaşındaki [[f:suleyman-i|Kanuni]] 1566'da Macaristan'daki Zigetvar Kalesi'ni kuşatırken çadırında öldü. Tahtın tek vârisi [[f:selim-ii|Şehzade Selim]] o sırada Kütahya'daydı; ölüm duyulursa ordunun dağılmasından korkuluyordu.",
+      "consequence": "Sokollu ölümü yalnızca birkaç kişiyle paylaştı ve padişah yaşıyormuş gibi emirler çıkarmayı sürdürdü. Kale ertesi gün alındı; ordu ancak haftalar sonra, Selim Belgrad'a ulaştığında gerçeği öğrendi. Taht kavgasız el değiştirdi ve Sokollu, kızıyla evli olduğu II. Selim'in de sadrazamı oldu.",
+      "depth": "Ölümün kaç gün gizlendiği kaynaklarda farklı verilir; en sık anılan süre 48 gündür. Sırrı korumak için padişahın hekiminin öldürüldüğü gibi ayrıntılar sonraki anlatılardan gelir ve doğrulanamaz.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "don-volga-kanali",
+      "year": 1569,
+      "text": "Don ve Volga nehirlerini bir kanalla birleştirmeye çalıştı.",
+      "cause": "Rus Çarlığı 1556'da Astrahan'ı alarak Orta Asya'dan gelen ticaret ve hac yolunu kesmişti. Sokollu, Don ile Volga'yı birbirine en çok yaklaştıkları yerde bir kanalla bağlamayı tasarladı. Böylece Osmanlı donanması Karadeniz'den Hazar Denizi'ne geçebilecek, İran'a da kuzeyden ulaşılabilecekti.",
+      "consequence": "1569'da gönderilen ordu ve işçiler kazıya başladı, ancak kış bastırınca iş yarıda bırakıldı ve Astrahan kuşatması da sonuçsuz kaldı. Proje bir daha ele alınmadı. İki nehir ancak 1952'de, Sovyetler Birliği döneminde açılan kanalla birleşti.",
+      "depth": "Bazı tarihçilere göre başarısızlıkta, Osmanlı'nın bölgede güçlenmesini istemeyen Kırım Hanı Devlet Giray'ın isteksizliği de etkili oldu. Sokollu'nun Akdeniz ile Kızıldeniz'i birleştirecek bir Süveyş kanalı da düşündüğü aktarılır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "donanmanin-yeniden-kurulmasi",
+      "year": 1572,
+      "text": "İnebahtı yenilgisinden sonra donanmayı bir kışta yeniden kurdurdu.",
+      "cause": "Osmanlılar 1570-1571'de Kıbrıs'ı Venedik'ten aldı; Sokollu bu sefere baştan karşı çıkmıştı. Bunun üzerine kurulan Haçlı donanması 7 Ekim 1571'de İnebahtı'da Osmanlı donanmasının neredeyse tamamını yok etti. Avrupa'da Osmanlıların denizde bittiği düşünülüyordu.",
+      "consequence": "Sokollu tersanelere kış boyunca aralıksız çalışma emri verdi ve 1572 baharında yüz elliden fazla yeni kadırga denize indirildi. Venedik 1573'te barış isteyerek Kıbrıs'ın Osmanlı'da kaldığını kabul etti. Sokollu, [[f:murad-iii|III. Murad]] döneminde de görevde kaldı; 11 Ekim 1579'da divanında derviş kılığındaki bir saldırgan tarafından hançerlenerek öldürüldü.",
+      "depth": "Venedik elçisine \"Biz Kıbrıs'ı alarak kolunuzu kestik, siz donanmamızı yakarak sakalımızı tıraş ettiniz; kesilen kol yerine gelmez, sakal ise daha gür çıkar\" dediği aktarılır. Yeni gemiler hızla yapıldı, ancak İnebahtı'da kaybedilen deneyimli denizcilerin yeri kolay dolmadı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "rudo",
+        "nameTr": "Sokoloviçi, Rudo",
+        "historicName": "Sokolovići",
+        "lat": 43.6167,
+        "lon": 19.3667
+      },
+      "precision": "region",
+      "from": 1505,
+      "to": 1519,
+      "event": "Bosna'da bir Sırp ailesinin oğlu olarak doğdu; gençken devşirme olarak alındı."
+    },
+    {
+      "place": {
+        "slug": "edirne",
+        "nameTr": "Edirne",
+        "historicName": "Adrianopolis",
+        "lat": 41.677,
+        "lon": 26.556
+      },
+      "precision": "city",
+      "from": 1519,
+      "to": 1521,
+      "event": "Edirne Sarayı'nda eğitim gördü."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1521,
+      "to": 1565,
+      "event": "Enderun'da yetişti; kaptan-ı deryalık ve vezirlikten sonra 1565'te sadrazam oldu."
+    },
+    {
+      "place": {
+        "slug": "zigetvar",
+        "nameTr": "Zigetvar",
+        "historicName": "Szigetvár",
+        "lat": 46.048,
+        "lon": 17.805
+      },
+      "precision": "city",
+      "from": 1566,
+      "to": 1566,
+      "event": "Kuşatma sırasında ölen Kanuni'nin ölümünü ordudan gizledi."
+    },
+    {
+      "place": {
+        "slug": "belgrad",
+        "nameTr": "Belgrad",
+        "historicName": "Nándorfehérvár",
+        "lat": 44.7866,
+        "lon": 20.4489
+      },
+      "precision": "city",
+      "from": 1566,
+      "to": 1566,
+      "event": "Yeni padişah II. Selim'i karşıladı ve Kanuni'nin ölümünü orduya duyurdu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-eyup",
+        "nameTr": "Eyüp, İstanbul",
+        "lat": 41.048,
+        "lon": 28.934
+      },
+      "precision": "district",
+      "from": 1579,
+      "to": 1579,
+      "event": "İstanbul'daki sarayında öldürüldü; Eyüp'teki türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "suleyman-i",
+      "type": "served_under",
+      "note": "Kanuni'nin son sadrazamıydı; Zigetvar'da onun ölümünü ordudan gizledi."
+    },
+    {
+      "to": "selim-ii",
+      "type": "served_under",
+      "note": "II. Selim'in saltanatı boyunca sadrazamlık yaptı; kızı İsmihan Sultan'la evliydi."
+    },
+    {
+      "to": "murad-iii",
+      "type": "served_under",
+      "note": "III. Murad döneminde 1579'da öldürülünceye kadar sadrazam olarak kaldı."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Sokullu Mehmed Paşa",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/sokullu-mehmed-pasa"
+    },
+    {
+      "id": "wiki",
+      "title": "Sokollu Mehmed Paşa",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Sokollu_Mehmed_Pa%C5%9Fa",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

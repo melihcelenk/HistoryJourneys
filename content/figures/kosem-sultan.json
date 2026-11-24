@@ -1,0 +1,136 @@
+{
+  "slug": "kosem-sultan",
+  "nameTr": "Kösem Sultan",
+  "nameEn": "Kösem Sultan",
+  "wikiTitleTr": "Kösem Sultan",
+  "kind": "royal",
+  "roles": [
+    "Valide sultan",
+    "Saltanat naibi",
+    "I. Ahmed'in hasekisi"
+  ],
+  "birth": {
+    "year": 1589,
+    "place": "Bilinmiyor"
+  },
+  "death": {
+    "year": 1651,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "Kösem Sultan, 1589 dolaylarında doğan, I. Ahmed'in eşi ve iki padişahın annesi olan valide sultandır.",
+    "1623'te 11 yaşındaki oğlu IV. Murad tahta çıkınca devleti onun adına dokuz yıl boyunca yönetti.",
+    "Yaklaşık otuz yıl süren nüfuzu, 1651'de sarayda boğdurulmasıyla sona erdi ve valide sultanların gücünün sınırını gösterdi."
+  ],
+  "actions": [
+    {
+      "id": "saltanat-naipligi",
+      "year": 1623,
+      "text": "Çocuk yaştaki oğlu IV. Murad adına devleti yönetti.",
+      "cause": "[[f:ahmed-i|I. Ahmed]] 1617'de ölünce Kösem Eski Saray'a gönderildi. Sonraki altı yılda taht üç kez el değiştirdi: [[f:mustafa-i|I. Mustafa]] iki kez tahttan indirildi, [[f:osman-ii|Genç Osman]] 1622'de yeniçerilerce öldürüldü. 1623'te tahta Kösem'in 11 yaşındaki oğlu [[f:murad-iv|IV. Murad]] çıkarıldı.",
+      "consequence": "Kösem valide sultan olarak saraya döndü ve oğlu adına devleti yönetti; divan toplantılarını perde arkasından izledi, sadrazamlarla yazıştı. Bu, Osmanlı tarihinde bir padişah annesinin resmen naiplik yaptığı ilk dönemdir. IV. Murad 1632'de yönetimi kendi eline aldı.",
+      "depth": "Naiplik yılları sakin geçmedi: Bağdat 1624'te Safevilerin eline geçti, Anadolu'da Abaza Mehmed Paşa isyan etti, hazine askerin maaşını ödemekte zorlandı. Bazı tarihçiler Kösem'i bu karışıklıkta devleti ayakta tutan kişi olarak, bazıları ise karışıklığın ortaklarından biri olarak değerlendirir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "ibrahimin-tahttan-indirilmesi",
+      "year": 1648,
+      "text": "Oğlu Sultan İbrahim'in tahttan indirilmesine onay verdi.",
+      "cause": "IV. Murad 1640'ta ölünce hanedanın hayattaki tek erkeği, Kösem'in öteki oğlu [[f:ibrahim|İbrahim]] tahta çıktı. İbrahim'in savurganlığı, Girit Savaşı'nın yükü ve Venedik'in Çanakkale Boğazı'nı kapatması tepkiyi büyüttü. 1648'de yeniçeriler ve ulema ayaklandı ve padişahın tahttan indirilmesi için valide sultanın onayını istedi.",
+      "consequence": "Kösem önce direndi, sonra kabul etti; 8 Ağustos 1648'de İbrahim tahttan indirildi ve on gün sonra öldürüldü. Tahta İbrahim'in altı yaşındaki oğlu [[f:mehmed-iv|IV. Mehmed]] çıktı ve Kösem \"büyük valide\" olarak yeniden naip oldu. Yeni padişahın annesi Turhan Sultan'la arasındaki çekişme, 2 Eylül 1651 gecesi Kösem'in Topkapı Sarayı'nda boğdurulmasıyla bitti.",
+      "depth": "Dönemin kaynaklarına göre Kösem, IV. Mehmed'i tahttan indirip yerine annesi daha etkisiz olan [[f:suleyman-ii|Şehzade Süleyman]]'ı geçirmeyi planlıyordu. Bu bilgi, mücadeleyi kazanan Turhan Sultan'ın çevresinden gelen anlatılara dayanır; bu yüzden tarihçiler ona ihtiyatla yaklaşır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "istanbul-eski-saray",
+        "nameTr": "Eski Saray, Beyazıt, İstanbul",
+        "lat": 41.0107,
+        "lon": 28.9641
+      },
+      "precision": "building",
+      "from": 1617,
+      "to": 1623,
+      "event": "I. Ahmed'in ölümünden sonra Eski Saray'a gönderildi."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1623,
+      "to": 1651,
+      "event": "Daha önce haseki olarak yaşadığı saraya valide sultan olarak döndü ve devleti buradan yönetti."
+    },
+    {
+      "place": {
+        "slug": "istanbul-uskudar-cinili",
+        "nameTr": "Çinili Camii, Üsküdar, İstanbul",
+        "lat": 41.0206,
+        "lon": 29.0263
+      },
+      "precision": "building",
+      "from": 1640,
+      "to": 1640,
+      "event": "Üsküdar'da yaptırdığı Çinili Camii tamamlandı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-sultanahmet",
+        "nameTr": "Sultanahmet Camii, İstanbul",
+        "lat": 41.0054,
+        "lon": 28.9768
+      },
+      "precision": "building",
+      "from": 1651,
+      "to": 1651,
+      "event": "Sarayda öldürüldükten sonra eşi I. Ahmed'in türbesine gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "ibrahim",
+      "type": "deposed",
+      "note": "1648'de oğlu İbrahim'in tahttan indirilmesine onay verdi."
+    },
+    {
+      "to": "murad-iv",
+      "type": "influenced",
+      "note": "1623-1632 arasında çocuk yaştaki IV. Murad adına naip olarak devleti yönetti."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Kösem Sultan",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/kosem-sultan"
+    },
+    {
+      "id": "wiki",
+      "title": "Kösem Sultan",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/K%C3%B6sem_Sultan",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "midhat-pasa",
+  "nameTr": "Midhat Paşa",
+  "nameEn": "Midhat Pasha",
+  "wikiTitleTr": "Midhat Paşa",
+  "kind": "statesman",
+  "roles": ["Sadrazam", "Tuna ve Bağdat valisi", "İlk anayasanın mimarı"],
+  "birth": { "year": 1822, "place": "İstanbul" },
+  "death": { "year": 1884, "place": "Taif" },
+  "summary": [
+    "Midhat Paşa, 1822'de İstanbul'da doğan ve iki kez sadrazamlık yapan Tanzimat dönemi devlet adamıdır.",
+    "1876'da ilan edilen ilk Osmanlı anayasasını hazırlayan kurulun başındaydı.",
+    "Taif'te sürgündeyken boğdurulması onu sonraki kuşakların gözünde \"hürriyet şehidi\" yaptı; Jön Türkler 1908'de onun anayasasını geri getirdi."
+  ],
+  "actions": [
+    {
+      "id": "tuna-vilayeti",
+      "year": 1864,
+      "text": "Tuna Vilayeti'ni bütün ülkeye örnek olacak biçimde yönetti.",
+      "cause": "Midhat Paşa 1861'den sonra Niş valiliğinde yol yapımı ve güvenlik konusundaki başarısıyla dikkat çekmişti. [[f:abdulaziz|Abdülaziz]] döneminde hükümet, taşra yönetimini yeniden düzenleyen 1864 Vilayet Nizamnamesi'ni önce tek bir yerde denemek istedi. Merkezi Rusçuk olan yeni Tuna Vilayeti'nin başına o getirildi.",
+      "consequence": "Üç buçuk yılda yollar ve köprüler yaptırdı, Tuna'da vapur işletti, kimsesiz çocuklara meslek öğreten ıslahhaneler açtı. Çiftçiye ucuz kredi veren \"menafi sandıkları\" ileride Ziraat Bankası'na dönüştü; 1865'te çıkardığı Tuna gazetesi ilk vilayet gazetesi oldu. Bu model sonra bütün vilayetlere yayıldı; kendisi 1869'da Bağdat valiliğine gönderildi.",
+      "depth": "Aynı valilik Bulgar tarih yazımında farklı hatırlanır. Midhat Paşa bağımsızlık isteyen Bulgar komitelerini sert biçimde bastırdı ve yakalanan çete üyelerini idam ettirdi; bu yüzden bazı tarihçiler ıslahatlarının bir amacının da Bulgar milliyetçiliğinin önünü kesmek olduğunu söyler.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "darbe-ve-anayasa",
+      "year": 1876,
+      "text": "Abdülaziz'in tahttan indirilmesinde rol aldı ve ilk anayasayı hazırlattı.",
+      "cause": "1875'te devlet borçlarını ödeyemez hale geldi, Balkanlar'da isyanlar çıktı. Midhat Paşa çözümü padişahın yetkilerini sınırlayan bir anayasada görüyordu. Serasker Hüseyin Avni Paşa ve Mütercim Rüşdi Paşa ile anlaşarak 30 Mayıs 1876'da Abdülaziz'i tahttan indirdiler.",
+      "consequence": "Tahta çıkarılan [[f:murad-v|V. Murad]] hastalanınca Midhat Paşa, anayasa sözü veren [[f:abdulhamid-ii|II. Abdülhamid]]'in padişah olmasını sağladı ve Aralık 1876'da ikinci kez sadrazam oldu. [[f:namik-kemal|Namık Kemal]]'in de üyesi olduğu kurulun hazırladığı Kanun-ı Esasi 23 Aralık 1876'da ilan edildi. Ancak padişah, 5 Şubat 1877'de onu görevden alıp bir vapurla İtalya'ya sürgüne gönderdi.",
+      "depth": "Darbenin askerî gücü Hüseyin Avni Paşa'daydı; Midhat Paşa işin sivil ve fikrî kanadını temsil ediyordu. Anayasa da onun tek başına yazdığı bir metin değildi: saray taslağı değiştirdi ve padişaha sürgün yetkisi veren 113. madde eklendi. Midhat Paşa bu maddeyi kabul etti ve ilk kurbanı kendisi oldu.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "yildiz-mahkemesi-ve-taif",
+      "year": 1881,
+      "text": "Yıldız Mahkemesi'nde yargılandı ve Taif'e sürüldü.",
+      "cause": "Midhat Paşa 1878'de affedilip Suriye, ardından Aydın valiliğine atanmıştı. 1881'de II. Abdülhamid, amcası Abdülaziz'in ölümünün intihar değil cinayet olduğu iddiasıyla soruşturma açtırdı. İzmir'de tutuklanacağını anlayan Midhat Paşa Fransız konsolosluğuna sığındı, ardından teslim oldu.",
+      "consequence": "Haziran 1881'de Yıldız Sarayı'nın bahçesinde kurulan mahkeme onu idama mahkûm etti; padişah cezayı ömür boyu sürgüne çevirdi. Arabistan'da Taif Kalesi'ne gönderildi ve 8 Mayıs 1884'te hücresinde boğularak öldürüldü. Kemikleri 1951'de İstanbul'a getirilerek Hürriyet-i Ebediye Tepesi'ne gömüldü.",
+      "depth": "Yıldız Mahkemesi'nin adil olmadığı, tarihçilerin çoğunun paylaştığı bir görüştür: mahkeme sarayda kuruldu, yargılama birkaç günde bitti ve savunmaya çok az imkân tanındı. Öldürme emrinin doğrudan padişahtan gelip gelmediği ise belgelerle kesinleşmiş değildir.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1822, "to": 1861, "event": "Doğdu; on yaşında Kur'an'ı ezberledi ve Bâbıâli kalemlerinde memur olarak yetişti." },
+    { "place": { "slug": "ruscuk", "nameTr": "Rusçuk", "historicName": "Ruse", "lat": 43.8356, "lon": 25.9657 }, "precision": "city", "from": 1864, "to": 1868, "event": "Tuna Vilayeti'nin merkezinden yollar, okullar ve kredi sandıkları kurdu." },
+    { "place": { "slug": "bagdat", "nameTr": "Bağdat", "historicName": "Bağdat", "lat": 33.3152, "lon": 44.3661 }, "precision": "city", "from": 1869, "to": 1872, "event": "Vali olarak şehre tramvay, matbaa ve gazete getirdi; aşiretleri toprağa yerleştirmeye çalıştı." },
+    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1876, "to": 1877, "event": "Abdülaziz'in burada tahttan indirilmesinde rol aldı; Şubat 1877'de yine bu saraya çağrılıp sürgüne gönderildi." },
+    { "place": { "slug": "izmir", "nameTr": "İzmir", "historicName": "Smyrna", "lat": 38.4237, "lon": 27.1428 }, "precision": "city", "from": 1880, "to": 1881, "event": "Aydın valisiyken tutuklanmak istendi ve yargılanmak üzere İstanbul'a götürüldü." },
+    { "place": { "slug": "taif", "nameTr": "Taif", "lat": 21.2703, "lon": 40.4158 }, "precision": "city", "from": 1881, "to": 1884, "event": "Kalede üç yıl sürgün yaşadı ve 8 Mayıs 1884'te boğularak öldürüldü." }
+  ],
+  "relations": [
+    { "to": "mustafa-resid-pasa", "type": "served_under", "note": "Genç bir memurken Mustafa Reşid Paşa'nın himayesinde yükseldi ve onun verdiği teftiş görevleriyle tanındı." },
+    { "to": "abdulaziz", "type": "served_under", "note": "Abdülaziz döneminde Niş, Tuna ve Bağdat valiliği, 1872'de de sadrazamlık yaptı." },
+    { "to": "abdulaziz", "type": "deposed", "note": "30 Mayıs 1876'da Abdülaziz'i tahttan indiren grubun önde gelen ismiydi." },
+    { "to": "abdulhamid-ii", "type": "served_under", "note": "II. Abdülhamid'in ilk sadrazamlarından biri olarak Kanun-ı Esasi'yi ilan ettirdi." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Midhat Paşa", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/midhat-pasa" },
+    { "id": "wiki", "title": "Mithat Paşa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Mithat_Pa%C5%9Fa", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

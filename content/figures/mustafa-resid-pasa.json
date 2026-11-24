@@ -1,0 +1,66 @@
+{
+  "slug": "mustafa-resid-pasa",
+  "nameTr": "Mustafa Reşid Paşa",
+  "nameEn": "Mustafa Reşid Pasha",
+  "wikiTitleTr": "Mustafa Reşid Paşa",
+  "kind": "statesman",
+  "roles": ["Sadrazam", "Hariciye Nazırı", "Tanzimat'ın mimarı"],
+  "birth": { "year": 1800, "place": "İstanbul" },
+  "death": { "year": 1858, "place": "İstanbul" },
+  "summary": [
+    "Mustafa Reşid Paşa, 1800'de İstanbul'da doğan ve altı kez sadrazamlık yapan Osmanlı diplomatı ve devlet adamıdır.",
+    "3 Kasım 1839'da Gülhane'de, padişahın ve yabancı elçilerin önünde Tanzimat Fermanı'nı kendi sesiyle okudu.",
+    "Padişahın bile yasaya uyacağını ilan eden bu ferman, 1876 anayasasına ve sonunda Cumhuriyet'e uzanan yolun ilk adımı sayılır."
+  ],
+  "actions": [
+    {
+      "id": "elcilik-ve-baltalimani",
+      "year": 1834,
+      "text": "Paris ve Londra'da elçilik yaptı, Avrupa'nın desteğini aramayı devletin temel siyaseti haline getirdi.",
+      "cause": "1830'larda Mısır Valisi Mehmed Ali Paşa isyan etmiş, ordusu 1833'te Kütahya'ya kadar ilerlemişti. [[f:mahmud-ii|II. Mahmud]], Avrupa başkentlerinde yeniden sürekli elçilikler açmaya karar verdi. Kaleminin gücüyle padişahın dikkatini çeken Reşid Bey 1834'te Paris'e [[c:sefir-elci|sefir]] olarak gönderildi, ardından Londra'ya atandı.",
+      "consequence": "Avrupa'da Fransızca öğrendi, devlet adamlarıyla dostluk kurdu ve 1837'de Hariciye Nazırı oldu. İngiltere'yi Mehmed Ali Paşa'ya karşı Osmanlı'nın yanına çekmek için 1838'de Baltalimanı Ticaret Antlaşması'nı imzaladı. 1840'ta İngiltere ve müttefikleri Mısır ordusunu Suriye'den çıkardı; isyan sona erdi.",
+      "depth": "Baltalimanı Antlaşması bu desteğin bedeliydi: devlet tekelleri kaldırıldı ve İngiliz mallarına düşük gümrükle pazar açıldı. Birçok tarihçiye göre bu antlaşma yerli zanaat ve üretimin ucuz Avrupa malları karşısında çökmesini hızlandırdı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "tanzimat-fermani",
+      "year": 1839,
+      "text": "Tanzimat Fermanı'nı hazırladı ve Gülhane'de okudu.",
+      "cause": "Haziran 1839'da Osmanlı ordusu Nizip'te Mısır ordusuna yenildi, birkaç gün sonra II. Mahmud öldü ve donanma Mısır'a teslim oldu. Tahta 16 yaşındaki [[f:abdulmecid|Abdülmecid]] çıktı. Reşid Paşa genç padişahı, devletin ancak köklü bir yenilikle ve Avrupa'nın desteğiyle ayakta kalabileceğine ikna etti.",
+      "consequence": "3 Kasım 1839'da okunan ferman, hangi dinden olursa olsun bütün halkın can, mal ve namus güvenliğini, vergilerin herkesten gücüne göre alınmasını ve kimsenin yargılanmadan cezalandırılmamasını vaat ediyordu. Padişah bu kurallara uyacağına yemin etti. Ardından yeni kanunlar, mahkemeler ve okullar geldi; Reşid Paşa'nın yetiştirdiği Âli ve Fuad paşalar ile [[f:midhat-pasa|Midhat Paşa]] bu işi sürdürdü.",
+      "depth": "Fermanın neden çıkarıldığı tartışılır: bazı tarihçilere göre asıl amaç Mısır bunalımında Avrupa'nın desteğini kazanmaktı, bazılarına göre ise ferman III. Selim'den beri süren ıslahat çabalarının doğal devamıydı. Ferman bir anayasa da değildi; padişahın sözünü tutup tutmadığını denetleyecek seçilmiş bir meclis yoktu.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1829, "to": 1829, "event": "İstanbul'da doğup büyüyen Reşid, Rusya ile yapılan barış görüşmelerine başkâtip olarak katıldı." },
+    { "place": { "slug": "kutahya", "nameTr": "Kütahya", "historicName": "Kotyaion", "lat": 39.4242, "lon": 29.9833 }, "precision": "city", "from": 1833, "to": 1833, "event": "Mısır ordusunun komutanı Kavalalı İbrahim Paşa ile yapılan görüşmelerde yer aldı." },
+    { "place": { "slug": "paris", "nameTr": "Paris", "lat": 48.8566, "lon": 2.3522 }, "precision": "city", "from": 1834, "to": 1836, "event": "Elçi olarak görev yaptı ve Fransızca öğrendi." },
+    { "place": { "slug": "londra", "nameTr": "Londra", "lat": 51.5074, "lon": -0.1278 }, "precision": "city", "from": 1836, "to": 1837, "event": "Elçilik yaptı ve İngiliz devlet adamlarının güvenini kazandı." },
+    { "place": { "slug": "istanbul-topkapi", "nameTr": "Topkapı Sarayı, İstanbul", "historicName": "Kostantiniyye", "lat": 41.0115, "lon": 28.9834 }, "precision": "building", "from": 1839, "to": 1839, "event": "Sarayın dış bahçesi Gülhane'de Tanzimat Fermanı'nı okudu." },
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1846, "to": 1858, "event": "1846'dan başlayarak altı kez sadrazam oldu; 7 Ocak 1858'de görevdeyken öldü." }
+  ],
+  "relations": [
+    { "to": "mahmud-ii", "type": "served_under", "note": "II. Mahmud onu Paris ve Londra'ya elçi olarak gönderdi, 1837'de Hariciye Nazırı yaptı." },
+    { "to": "abdulmecid", "type": "served_under", "note": "Abdülmecid adına Tanzimat Fermanı'nı ilan etti ve onun döneminde altı kez sadrazamlık yaptı." }
+  ],
+  "concepts": [
+    {
+      "slug": "sefir-elci",
+      "term": "Sefir",
+      "meaning": "Bir devleti başka bir devletin başkentinde temsil eden görevli; elçi. Görev yaptığı yere sefaret denir.",
+      "root": { "letters": "s-f-r", "language": "Arapça", "meaning": "yola çıkmak, yolculuk etmek" },
+      "related": [
+        { "term": "sefer", "meaning": "yolculuk; savaş için yola çıkma" },
+        { "term": "sefaret", "meaning": "elçilik" },
+        { "term": "misafir", "meaning": "yolcu; konuk" },
+        { "term": "seferber", "meaning": "savaşa hazır duruma getirilmiş" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Mustafa Reşid Paşa", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-resid-pasa" },
+    { "id": "wiki", "title": "Mustafa Reşid Paşa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Mustafa_Re%C5%9Fid_Pa%C5%9Fa", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

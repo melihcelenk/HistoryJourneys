@@ -1,12 +1,41 @@
 # History Journeys
 
 An open-source platform for exploring history through the people who made it.
-Pick any two historical figures and travel from one to the other through the
-people, events and ideas that connect them: on an interactive map, as a chain of
-short cards, or on a diagram, with games that help what you learn stay with you.
+Pick two historical figures and the site works out a route between them through
+the people, events and ideas that connect them. If you prefer another way, switch
+to one of the alternative routes. Follow the route on an interactive map, as a
+chain of short cards, or on a diagram, with games that help what you learn stay
+with you.
 
-> **Status:** requirements phase. This repository currently contains the product
-> requirements only; no code has been written yet.
+> **Status:** first playable version. The platform runs with about 50 figures
+> around the Ottoman succession from Mehmed II to Atatürk. Content is generated
+> by an LLM under a written rule set and has not been reviewed by a human yet.
+
+## Getting started
+
+Requires Node.js 22 or newer.
+
+```bash
+npm install
+npm run dev        # builds the content database and starts the development server
+```
+
+| Command | Purpose |
+|---------|---------|
+| `npm run build` | Production build into `dist/` (static files; works on any host). |
+| `npm run test:all` | Type check, lint, unit tests and end-to-end tests. |
+| `npm run db:build` | Rebuild the content database from `content/`. |
+| `npm run content:verify` | Compare birth and death years with Wikidata. |
+
+How the code is organized: [docs/general/ARCHITECTURE.md](docs/general/ARCHITECTURE.md).
+Publishing on the web and in the Microsoft Store:
+[docs/general/STORE_PUBLISHING.md](docs/general/STORE_PUBLISHING.md).
+
+## Contributing content
+
+Every figure is one file under `content/figures/`. To correct a fact, edit the
+file and open a pull request; `npm run db:build` checks the file against the
+schema and the rule set in `content/rules/RULESET.md`.
 
 ## Projects
 
@@ -32,5 +61,8 @@ cards, diagrams and review system rather than building their own.
 
 ## License
 
-Code is released under the [MIT License](LICENSE). Data obtained from third-party
-sources keeps its original license; see the requirements for each source.
+Code is released under the [MIT License](LICENSE). Generated content (cards,
+actions, causes and consequences) is released under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Data obtained
+from third-party sources keeps its original license; see the requirements for
+each source.

@@ -1,0 +1,157 @@
+{
+  "slug": "ali-kuscu",
+  "nameTr": "Ali Kuşçu",
+  "nameEn": "Ali Qushji",
+  "wikiTitleTr": "Ali Kuşçu",
+  "kind": "scholar",
+  "roles": [
+    "Astronom ve matematikçi",
+    "Ayasofya Medresesi müderrisi"
+  ],
+  "birth": {
+    "year": 1403,
+    "place": "Semerkant"
+  },
+  "death": {
+    "year": 1474,
+    "place": "İstanbul"
+  },
+  "summary": [
+    "Ali Kuşçu, 1403'te Semerkant'ta doğan ve Uluğ Bey'in rasathanesini yöneten astronom ve matematikçidir.",
+    "Ömrünün son yıllarında Fatih Sultan Mehmed'in çağrısıyla İstanbul'a geldi ve günde 200 akçe maaşla Ayasofya Medresesi'nin başına geçti.",
+    "Semerkant'ın matematik ve astronomi geleneğini İstanbul'a taşıyarak Osmanlı medreselerinde bu bilimlerin okutulmasının önünü açtı."
+  ],
+  "actions": [
+    {
+      "id": "istanbula-gelis",
+      "year": 1472,
+      "text": "İstanbul'a gelip Ayasofya Medresesi'nin müderrisi oldu.",
+      "cause": "Hocası ve hükümdarı Uluğ Bey 1449'da kendi oğlunun emriyle öldürülünce Semerkant'taki rasathane sahipsiz kaldı. Ali Kuşçu şehirden ayrıldı ve Tebriz'de Akkoyunlu hükümdarı Uzun Hasan'ın yanına yerleşti. Uzun Hasan onu elçi olarak [[f:mehmed-ii|Fatih]]'e gönderdi; padişah da onu İstanbul'da kalmaya çağırdı.",
+      "consequence": "Ali Kuşçu elçilik görevini tamamladıktan sonra ailesiyle İstanbul'a göç etti ve Ayasofya Medresesi'ne [[c:muderris-unvani|müderris]] oldu. Burada matematik ve astronomi okuttu, İstanbul'un enlem ve boylamını yeniden hesapladı. İki yıl sonra, 1474'te öldü ve Eyüp'e gömüldü.",
+      "depth": "Fatih'in yol boyunca her konak için ona bin akçe ödediği anlatılır; bu ayrıntı sonraki biyografi yazarlarından gelir. İstanbul'da yalnızca iki yıl yaşadığı için etkisi daha çok kitapları ve yetiştirdiği öğrenciler üzerinden yayıldı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "fethiye",
+      "year": 1473,
+      "text": "Astronomi kitabı Fethiye'yi Fatih'e sundu.",
+      "cause": "Fatih 1473'te Uzun Hasan'a karşı sefere çıktı; Ali Kuşçu da orduyla birlikteydi. Eski koruyucusu ile yeni koruyucusu Otlukbeli'nde karşı karşıya geldi. Ali Kuşçu sefer sırasında gezegenlerin hareketlerini anlatan bir astronomi kitabı üzerinde çalışıyordu.",
+      "consequence": "Osmanlı ordusu 11 Ağustos 1473'te Otlukbeli'nde kazandı. Ali Kuşçu kitabını zaferin ardından padişaha sundu ve ona \"fetih\" kelimesinden gelen Fethiye adını verdi. Matematik kitabına da padişahın adından esinlenerek Muhammediye dedi; iki eser Osmanlı medreselerinde uzun süre ders kitabı olarak okutuldu.",
+      "depth": "İki kitap da sıfırdan yazılmadı: Ali Kuşçu, daha önce Farsça yazdığı astronomi ve hesap risalelerini genişletip Arapçaya çevirdi. Bazı bilim tarihçilerine göre onun asıl özgün yanı, astronominin Aristoteles fiziğine dayanmak zorunda olmadığını savunmasıdır.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "semerkant",
+        "nameTr": "Semerkant",
+        "historicName": "Semerkand",
+        "lat": 39.6542,
+        "lon": 66.9597
+      },
+      "precision": "city",
+      "from": 1403,
+      "to": 1449,
+      "event": "Uluğ Bey'in doğancıbaşısının oğlu olarak doğdu; Semerkant Rasathanesi'nde çalıştı ve müdürü oldu."
+    },
+    {
+      "place": {
+        "slug": "tebriz",
+        "nameTr": "Tebriz",
+        "historicName": "Tebriz",
+        "lat": 38.08,
+        "lon": 46.2919
+      },
+      "precision": "city",
+      "from": 1450,
+      "to": 1472,
+      "event": "Uluğ Bey'in öldürülmesinden sonra Semerkant'tan ayrıldı; Tebriz'de Uzun Hasan'ın sarayına girdi."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1472,
+      "to": 1474,
+      "event": "Fatih'in çağrısıyla geldi; Ayasofya Medresesi'nde matematik ve astronomi okuttu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-eyup",
+        "nameTr": "Eyüp, İstanbul",
+        "lat": 41.048,
+        "lon": 28.934
+      },
+      "precision": "district",
+      "from": 1474,
+      "to": 1474,
+      "event": "Aralık 1474'te öldü ve Eyüp Sultan Türbesi'nin yakınına gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-ii",
+      "type": "served_under",
+      "note": "Fatih'in çağrısıyla İstanbul'a geldi; Ayasofya Medresesi'nde müderrislik yaptı ve iki kitabını ona sundu."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "muderris-unvani",
+      "term": "Müderris",
+      "meaning": "Medresede ders veren hoca; bugünkü profesörün karşılığı.",
+      "root": {
+        "letters": "d-r-s",
+        "language": "Arapça",
+        "meaning": "okumak, öğrenmek"
+      },
+      "related": [
+        {
+          "term": "ders",
+          "meaning": "öğretilen konu"
+        },
+        {
+          "term": "medrese",
+          "meaning": "ders okutulan yer"
+        },
+        {
+          "term": "tedrisat",
+          "meaning": "öğretim"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Ali Kuşçu",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/ali-kuscu"
+    },
+    {
+      "id": "wiki",
+      "title": "Ali Kuşçu",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Ali_Ku%C5%9F%C3%A7u",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

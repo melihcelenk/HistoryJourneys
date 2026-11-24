@@ -18,3 +18,11 @@ logs/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Generated content database (npm run db:build)
+public/data/
+
+# Test output
+test-results/
+playwright-report/
+dev-dist/

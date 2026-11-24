@@ -1,0 +1,61 @@
+{
+  "slug": "ismet-inonu",
+  "nameTr": "İsmet İnönü",
+  "nameEn": "İsmet İnönü",
+  "wikiTitleTr": "İsmet İnönü",
+  "kind": "leader",
+  "roles": ["Türkiye'nin 2. cumhurbaşkanı", "İlk başbakan", "Lozan başdelegesi"],
+  "birth": { "year": 1884, "place": "İzmir" },
+  "death": { "year": 1973, "place": "Ankara" },
+  "summary": [
+    "İsmet İnönü, 1884'te İzmir'de doğan asker ve Türkiye'nin ikinci cumhurbaşkanıdır.",
+    "24 Temmuz 1923'te Lozan'da, yeni Türkiye'nin bağımsızlığını ve sınırlarını dünyaya tanıtan barış antlaşmasını imzaladı.",
+    "1950'de seçimi kaybedince iktidarı sandıkla devretti; böylece Türkiye'de hükümetlerin oyla değişmesi kural haline geldi."
+  ],
+  "actions": [
+    {
+      "id": "inonu-muharebeleri",
+      "year": 1921,
+      "text": "Batı Cephesi komutanı olarak İnönü'de Yunan ordusunu iki kez durdurdu.",
+      "cause": "1920'de Ankara hükümetinin düzenli ordusu yeni kuruluyordu ve bazı Kuvayımilliye birlikleri bu orduya katılmayı reddediyordu. Bursa'yı elinde tutan Yunan ordusu Ocak 1921'de Eskişehir yönünde ilerlemeye başladı. Cephenin komutanı, [[f:ataturk|Mustafa Kemal]]'in güvendiği kurmay subay Albay İsmet'ti.",
+      "consequence": "Ocak 1921'de ve Mart sonunda İnönü mevzilerinde yapılan iki muharebede Yunan ordusu geri çekildi. Bu, düzenli ordunun ilk başarısıydı; Ankara hükümeti Londra'daki konferansa çağrıldı ve 16 Mart 1921'de Sovyet Rusya ile Moskova Antlaşması imzalandı. Mustafa Kemal ona \"Siz orada yalnız düşmanı değil, milletin makûs talihini de yendiniz\" diye yazdı; 1934'te soyadı olarak da bu savaşların adını verdi.",
+      "depth": "Bazı tarihçilere göre Birinci İnönü büyük bir meydan savaşı değil, Yunan ordusunun keşif amaçlı bir ileri harekâtıydı; önemi askerî olmaktan çok siyasiydi. İsmet Paşa aynı yılın temmuzunda Kütahya-Eskişehir muharebelerini kaybetti ve ordu Sakarya'nın doğusuna çekilmek zorunda kaldı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "lozan-antlasmasi",
+      "year": 1923,
+      "text": "Lozan Antlaşması'nı imzaladı.",
+      "cause": "Savaş kazanılınca Ekim 1922'de Mudanya'da ateşkes görüşmelerini İsmet Paşa yürüttü. Mustafa Kemal, diplomat olmadığı halde barış görüşmeleri için de onu seçti ve dışişleri bakanı yaptı. Karşısında İngiltere Dışişleri Bakanı Lord Curzon gibi deneyimli diplomatlar vardı ve [[f:mehmed-vi|Vahdeddin]]'in hükümetinin 1920'de imzaladığı Sevr Antlaşması masadaydı.",
+      "consequence": "20 Kasım 1922'de başlayan görüşmeler şubatta kesildi, nisanda yeniden başladı ve 24 Temmuz 1923'te antlaşma imzalandı. Sevr geçersiz oldu, yabancılara tanınan ayrıcalıklar olan kapitülasyonlar kaldırıldı, Türkiye'nin bağımsızlığı tanındı. Üç ay sonra Cumhuriyet ilan edildi ve İsmet Paşa ilk başbakan oldu.",
+      "depth": "Lozan'da her istenen alınamadı. Musul sorunu çözülemedi ve şehir 1926'da Irak'a bırakıldı; Boğazlar 1936'daki Montrö Sözleşmesi'ne kadar uluslararası bir komisyonun denetiminde kaldı; Hatay ise ancak 1939'da Türkiye'ye katıldı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "cok-partili-hayat",
+      "year": 1950,
+      "text": "Çok partili seçimlere izin verdi ve kaybedince iktidarı devretti.",
+      "cause": "Atatürk'ün 1938'deki ölümünden sonra cumhurbaşkanı seçildi ve \"Millî Şef\" unvanıyla tek partili düzenin başına geçti. Türkiye'yi İkinci Dünya Savaşı'nın dışında tuttu. Savaşı demokrasilerin kazanması ve ülke içindeki hoşnutsuzluk üzerine 1945'te yeni partilerin kurulmasına izin verdi; Demokrat Parti Ocak 1946'da kuruldu.",
+      "consequence": "14 Mayıs 1950 seçimlerini Demokrat Parti büyük farkla kazandı. İnönü sonucu kabul etti; cumhurbaşkanlığını Celâl Bayar'a bırakıp muhalefet lideri oldu. 27 yıllık tek parti iktidarı kan dökülmeden, oyla sona erdi.",
+      "depth": "İlk çok partili seçim olan 1946 seçimi \"açık oy, gizli sayım\" yöntemiyle yapıldı ve sonuçlarına hile karıştığı yaygın biçimde kabul edilir. 1950'de bazı komutanların seçim sonucunu tanımamayı önerdiği, İnönü'nün bunu reddettiği anlatılır.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "izmir", "nameTr": "İzmir", "historicName": "Smyrna", "lat": 38.4237, "lon": 27.1428 }, "precision": "city", "from": 1884, "to": 1884, "event": "Adliye memuru Hacı Reşid Bey'in oğlu olarak 24 Eylül 1884'te doğdu." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1906, "to": 1910, "event": "Kurmay yüzbaşı olarak 2. Ordu'da göreve başladı ve İttihat ve Terakki'ye katıldı." },
+    { "place": { "slug": "inonu", "nameTr": "İnönü, Eskişehir", "lat": 39.816, "lon": 30.145 }, "precision": "district", "from": 1921, "to": 1921, "event": "Batı Cephesi komutanı olarak Yunan ordusunu iki kez burada durdurdu." },
+    { "place": { "slug": "lozan", "nameTr": "Lozan", "historicName": "Lausanne", "lat": 46.5197, "lon": 6.6323 }, "precision": "city", "from": 1922, "to": 1923, "event": "Sekiz ay süren görüşmelerin sonunda barış antlaşmasını imzaladı." },
+    { "place": { "slug": "ankara", "nameTr": "Ankara", "historicName": "Angora", "lat": 39.9334, "lon": 32.8597 }, "precision": "city", "from": 1923, "to": 1973, "event": "Başbakan, cumhurbaşkanı ve muhalefet lideri olarak yarım yüzyıl burada yaşadı; 25 Aralık 1973'te öldü ve Anıtkabir'e gömüldü." }
+  ],
+  "relations": [
+    { "to": "ataturk", "type": "served_under", "note": "Kurtuluş Savaşı'nda onun Batı Cephesi komutanı, Lozan'da başdelegesi, Cumhuriyet'te başbakanıydı." },
+    { "to": "mehmed-v", "type": "served_under", "note": "Mehmed Reşad döneminde kurmay subay olarak Yemen'de ve Birinci Dünya Savaşı cephelerinde görev yaptı." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "İnönü, Mustafa İsmet", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/inonu-mustafa-ismet" },
+    { "id": "wiki", "title": "İsmet İnönü", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/%C4%B0smet_%C4%B0n%C3%B6n%C3%BC", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

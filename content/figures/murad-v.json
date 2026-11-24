@@ -1,0 +1,53 @@
+{
+  "slug": "murad-v",
+  "nameTr": "V. Murad",
+  "nameEn": "Murad V",
+  "wikiTitleTr": "V. Murad",
+  "kind": "sultan",
+  "roles": ["33. Osmanlı padişahı"],
+  "birth": { "year": 1840, "place": "İstanbul" },
+  "death": { "year": 1904, "place": "İstanbul" },
+  "reign": { "from": 1876, "to": 1876 },
+  "summary": [
+    "V. Murad, 1876'da yalnızca 93 gün tahtta kalan 33. Osmanlı padişahıdır.",
+    "Akıl sağlığının bozulduğu gerekçesiyle tahttan indirildi ve ömrünün kalan 28 yılını Çırağan Sarayı'nda kapalı geçirdi.",
+    "Anayasa isteyenlerin umudu olan Murad'ın düşüşü, tahtı anayasa sözü veren kardeşi II. Abdülhamid'e bıraktı."
+  ],
+  "actions": [
+    {
+      "id": "darbeyle-tahta-cikis",
+      "year": 1876,
+      "text": "Amcası Abdülaziz'i deviren darbeyle tahta çıktı.",
+      "cause": "Veliaht Murad Fransızca bilen, piyano çalan ve beste yapan, Avrupa'yı 1867'de amcasıyla birlikte görmüş bir şehzadeydi. [[f:namik-kemal|Namık Kemal]] gibi Yeni Osmanlılar'la görüşüyor, anayasalı bir yönetimden yana görünüyordu. [[f:abdulaziz|Abdülaziz]]'i devirmeye karar veren [[f:midhat-pasa|Midhat Paşa]] ve arkadaşları bu yüzden onu tahta çıkarmak istedi.",
+      "consequence": "30 Mayıs 1876'da dairesinden alınıp padişah ilan edildi. Beş gün sonra amcasının bilekleri kesilmiş halde ölü bulunması, 15 Haziran'da da Çerkes Hasan adlı subayın bir toplantıyı basıp Serasker Hüseyin Avni Paşa'yı öldürmesi sinirlerini iyice bozdu. Kılıç kuşanma töreni bile yapılamadı.",
+      "depth": "Murad darbeyi kendisi planlamadı; kapısına gelen askerleri görünce öldürüleceğini sandığı anlatılır. Bazı kaynaklar sinir bozukluğunda uzun süredir kullandığı alkolün de payı olduğunu yazar.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "tahttan-indirilme",
+      "year": 1876,
+      "text": "Hastalığı yüzünden 93 gün sonra tahttan indirildi.",
+      "cause": "Padişah devlet işlerine bakamıyor, elçileri kabul edemiyordu. Balkanlar'da savaş sürerken devlet başsız kalmıştı. Midhat Paşa, veliaht [[f:abdulhamid-ii|Abdülhamid]] ile görüştü ve ondan anayasayı ilan edeceği sözünü aldı.",
+      "consequence": "31 Ağustos 1876'da şeyhülislamın fetvasıyla tahttan indirildi ve ailesiyle birlikte Çırağan Sarayı'na kapatıldı. 20 Mayıs 1878'de gazeteci Ali Suavi, onu yeniden tahta çıkarmak için bir grup göçmenle sarayı bastı; baskın başarısız oldu ve Ali Suavi öldürüldü. Murad 1904'teki ölümüne kadar Çırağan'dan çıkamadı.",
+      "depth": "Onu muayene eden Viyanalı hekim Leidesdorf, dinlenmeyle birkaç ayda iyileşebileceğini bildirmişti. Bazı kaynaklara göre Murad gerçekten de sonradan sağlığına kavuştu, ancak taht artık kardeşindeydi ve II. Abdülhamid onu 28 yıl sıkı gözetim altında tuttu.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1840, "to": 1867, "event": "Abdülmecid'in en büyük oğlu olarak doğdu; Fransızca ve müzik eğitimi aldı." },
+    { "place": { "slug": "paris", "nameTr": "Paris", "lat": 48.8566, "lon": 2.3522 }, "precision": "city", "from": 1867, "to": 1867, "event": "Amcası Abdülaziz'in Avrupa gezisine veliaht olarak katıldı." },
+    { "place": { "slug": "londra", "nameTr": "Londra", "lat": 51.5074, "lon": -0.1278 }, "precision": "city", "from": 1867, "to": 1867, "event": "Amcasıyla birlikte İngiliz sarayında ağırlandı." },
+    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1876, "to": 1876, "event": "30 Mayıs'tan 31 Ağustos 1876'ya kadar 93 gün padişahlık yaptı." },
+    { "place": { "slug": "istanbul-ciragan", "nameTr": "Çırağan Sarayı, İstanbul", "lat": 41.0437, "lon": 29.0164 }, "precision": "building", "from": 1876, "to": 1904, "event": "Tahttan indirildikten sonra 28 yıl burada gözetim altında yaşadı ve burada öldü." }
+  ],
+  "relations": [
+    { "to": "abdulmecid", "type": "child_of", "note": "Abdülmecid'in en büyük oğludur." },
+    { "to": "abdulhamid-ii", "type": "sibling_of", "note": "Yerine tahta geçen II. Abdülhamid, iki yaş küçük kardeşidir." }
+  ],
+  "concepts": [],
+  "sources": [
+    { "id": "tdv", "title": "Murad V", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/murad-v" },
+    { "id": "wiki", "title": "V. Murad", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/V._Murad", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

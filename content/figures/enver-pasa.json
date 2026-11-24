@@ -1,0 +1,75 @@
+{
+  "slug": "enver-pasa",
+  "nameTr": "Enver Paşa",
+  "nameEn": "Enver Pasha",
+  "wikiTitleTr": "Enver Paşa",
+  "kind": "soldier",
+  "roles": ["Harbiye Nazırı ve Başkomutan Vekili", "İttihat ve Terakki önderi"],
+  "birth": { "year": 1881, "place": "İstanbul" },
+  "death": { "year": 1922, "place": "Belcivan (bugünkü Tacikistan)" },
+  "summary": [
+    "Enver Paşa, 1881'de İstanbul'da doğan ve 1914'te henüz 32 yaşındayken Harbiye Nazırı olan İttihat ve Terakki önderidir.",
+    "Osmanlı Devleti'ni Almanya'nın yanında Birinci Dünya Savaşı'na soktu ve Sarıkamış'ta on binlerce askerini kışın ortasında kaybetti.",
+    "Yenilgiden sonra ülkeden kaçtı; Anadolu'daki direnişin önderliği rakibi Mustafa Kemal'e kaldı."
+  ],
+  "actions": [
+    {
+      "id": "hurriyetin-ilani",
+      "year": 1908,
+      "text": "Dağa çıkarak Meşrutiyet'in yeniden ilanını sağlayan subaylardan biri oldu.",
+      "cause": "[[f:abdulhamid-ii|II. Abdülhamid]] 1878'de Meclis'i kapatmış, ülkeyi otuz yıldır tek başına yönetiyordu. Makedonya'daki 3. Ordu'nun genç subayları gizli [[c:ittihat-ve-terakki|İttihat ve Terakki]] Cemiyeti'nde örgütlenmişti; Enver de 1906'da cemiyete katıldı. Haziran 1908'de İngiltere ile Rusya'nın Makedonya'yı Osmanlı'dan koparacağı söylentisi yayılınca subaylar harekete geçti.",
+      "consequence": "Temmuz 1908'de önce Resneli Niyazi, ardından Enver askerleriyle dağa çıktı. Padişah 23 Temmuz 1908'de anayasayı yeniden yürürlüğe koydu ve Enver \"Hürriyet Kahramanı\" olarak ünlendi. 1909'da İstanbul'daki ayaklanmayı bastıran Hareket Ordusu'na katıldı; bu olayın sonunda Abdülhamid tahttan indirildi.",
+      "depth": "1908 devrimi tek bir kahramanın işi değildi. Dağa ilk çıkan Resneli Niyazi'ydi, cemiyeti Selanik'te Talat Bey gibi siviller yönetiyordu; Enver'in adı, genç ve gösterişli bir subay olarak gazetelerde öne çıktığı için simgeleşti.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "savasa-giris-ve-sarikamis",
+      "year": 1914,
+      "text": "Osmanlı Devleti'ni Almanya'nın yanında savaşa soktu ve Sarıkamış harekâtını yönetti.",
+      "cause": "Ocak 1913'te Enver, Balkan Savaşı'ndaki yenilgileri gerekçe göstererek Bâbıâli'yi bastı ve hükümeti devirdi; temmuzda Edirne geri alınınca ünü daha da arttı. Ocak 1914'te Harbiye Nazırı oldu, [[f:mehmed-v|V. Mehmed]]'in yeğeni Naciye Sultan'la evlenerek saraya damat girdi. Almanya'nın savaşı kazanacağına inanıyordu ve 2 Ağustos 1914'te gizli bir ittifak antlaşması imzalandı.",
+      "consequence": "29 Ekim 1914'te Osmanlı bayrağı çekmiş iki Alman gemisi Rus limanlarını bombaladı ve devlet savaşa girdi. Enver, Aralık 1914'te 3. Ordu'nun başına geçip Rusların elindeki Sarıkamış'a kışın ortasında saldırdı. Ordu Allahuekber Dağları'nda soğuk, açlık ve salgın yüzünden eridi; on binlerce asker öldü ve Enver bir daha cephede komuta etmedi.",
+      "depth": "Sarıkamış'ta 90.000 askerin donarak öldüğü sık sık söylenir; bazı araştırmacılara göre ise toplam kayıp daha düşüktür ve ölümlerin yalnızca bir bölümü donma yüzündendir. Savaşa giriş kararı da yalnızca Enver'in değildi; Talat ve Cemal paşaların da içinde olduğu dar bir grup tarafından alındı.",
+      "sources": ["tdv", "wiki"]
+    },
+    {
+      "id": "kacis-ve-turkistan",
+      "year": 1918,
+      "text": "Yenilgiden sonra ülkeden kaçtı ve Türkistan'da çarpışırken öldü.",
+      "cause": "Ekim 1918'de savaş kaybedilince İttihat ve Terakki hükümeti istifa etti. Enver, Talat ve Cemal paşalar 2 Kasım 1918 gecesi bir Alman gemisiyle İstanbul'dan ayrıldı. Enver, Berlin ve Moskova'da Bolşeviklerle anlaşarak yeniden güç kazanmayı umuyordu.",
+      "consequence": "1921'de Sakarya Savaşı sürerken Batum'a gelip Anadolu'ya geçmeyi bekledi; ancak savaşı [[f:ataturk|Mustafa Kemal]] kazanınca bu yol kapandı. Bunun üzerine Türkistan'a gitti ve Sovyet yönetimine karşı savaşan Basmacı hareketinin başına geçti. 4 Ağustos 1922'de Belcivan yakınlarında Kızıl Ordu birliklerine karşı yaptığı bir süvari hücumunda vurularak öldü.",
+      "sources": ["tdv", "wiki"]
+    }
+  ],
+  "journey": [
+    { "place": { "slug": "istanbul", "nameTr": "İstanbul", "historicName": "Kostantiniyye", "lat": 41.0082, "lon": 28.9784 }, "precision": "city", "from": 1881, "to": 1902, "event": "Doğdu; Harbiye'yi ve kurmay okulunu bitirerek 1902'de kurmay yüzbaşı oldu." },
+    { "place": { "slug": "manastir", "nameTr": "Manastır", "historicName": "Bitola", "lat": 41.0297, "lon": 21.3292 }, "precision": "city", "from": 1903, "to": 1908, "event": "3. Ordu'da çetelerle çarpıştı, İttihat ve Terakki'nin buradaki örgütünü kurdu ve 1908'de dağa çıktı." },
+    { "place": { "slug": "berlin", "nameTr": "Berlin", "lat": 52.52, "lon": 13.405 }, "precision": "city", "from": 1909, "to": 1911, "event": "Askerî ataşe olarak görev yaptı ve Alman ordusuna hayranlık duydu." },
+    { "place": { "slug": "edirne", "nameTr": "Edirne", "historicName": "Adrianopolis", "lat": 41.677, "lon": 26.556 }, "precision": "city", "from": 1913, "to": 1913, "event": "Temmuz 1913'te Bulgarlardan geri alınan şehre birliklerinin başında girdi." },
+    { "place": { "slug": "sarikamis", "nameTr": "Sarıkamış", "lat": 40.3381, "lon": 42.5731 }, "precision": "region", "from": 1914, "to": 1915, "event": "Komuta ettiği 3. Ordu kış harekâtında büyük bölümüyle yok oldu." },
+    { "place": { "slug": "belcivan", "nameTr": "Belcivan", "historicName": "Baljuvon", "lat": 38.31, "lon": 69.67 }, "precision": "region", "from": 1922, "to": 1922, "event": "4 Ağustos 1922'de Kızıl Ordu'ya karşı çarpışırken öldü; naaşı 1996'da İstanbul'a getirildi." }
+  ],
+  "relations": [
+    { "to": "abdulhamid-ii", "type": "opposed", "note": "1908'de onun yönetimine karşı dağa çıktı; 1909'da onu tahttan indiren Hareket Ordusu'nda görev aldı." },
+    { "to": "mehmed-v", "type": "served_under", "note": "Mehmed Reşad'ın Harbiye Nazırı ve başkomutan vekiliydi." },
+    { "to": "ataturk", "type": "opposed", "note": "İki subay arasında savaş yıllarında başlayan rekabet sürdü; Enver 1921'de Anadolu'daki hareketin önderliğini ondan almayı denedi." }
+  ],
+  "concepts": [
+    {
+      "slug": "ittihat-ve-terakki",
+      "term": "İttihat ve Terakki",
+      "meaning": "\"Birlik ve ilerleme\" demektir: 1908'de Meşrutiyet'i geri getiren ve 1913-1918 arasında ülkeyi yöneten cemiyetin adı.",
+      "root": { "letters": "v-h-d", "language": "Arapça", "meaning": "bir olmak" },
+      "related": [
+        { "term": "ittihat", "meaning": "birleşme, birlik" },
+        { "term": "vahdet", "meaning": "birlik" },
+        { "term": "tevhid", "meaning": "birleme; Allah'ın birliğine inanma" },
+        { "term": "terakki", "meaning": "ilerleme, yükselme" }
+      ]
+    }
+  ],
+  "sources": [
+    { "id": "tdv", "title": "Enver Paşa", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/enver-pasa" },
+    { "id": "wiki", "title": "Enver Paşa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Enver_Pa%C5%9Fa", "license": "CC BY-SA 4.0" }
+  ],
+  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+}

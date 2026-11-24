@@ -1,0 +1,122 @@
+{
+  "slug": "mustafa-i",
+  "nameTr": "I. Mustafa",
+  "nameEn": "Mustafa I",
+  "wikiTitleTr": "I. Mustafa",
+  "kind": "sultan",
+  "roles": [
+    "15. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1591,
+    "place": "Manisa"
+  },
+  "death": {
+    "year": 1639,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1617,
+    "to": 1618
+  },
+  "summary": [
+    "I. Mustafa, 1617'de ağabeyi I. Ahmed'in ölümü üzerine tahta çıkan 15. Osmanlı padişahıdır.",
+    "İki kez padişah oldu ve iki kez tahttan indirildi; ilk saltanatı yalnızca 96 gün sürdü.",
+    "Babasının değil ağabeyinin yerine geçen ilk padişahtı; ondan sonra taht hanedanın en yaşlı erkeğine geçmeye başladı."
+  ],
+  "actions": [
+    {
+      "id": "agabeyinin-yerine-tahta-cikti",
+      "year": 1617,
+      "text": "Ağabeyinin ardından tahta çıkan ilk padişah oldu.",
+      "cause": "O güne kadar taht 14 kuşak boyunca hep babadan oğula geçmişti. [[f:ahmed-i|I. Ahmed]] 1617'de 27 yaşında ölünce en büyük oğlu [[f:osman-ii|Osman]] henüz 13 yaşındaydı. Ahmed'in öldürtmeyip sarayda gözetim altında tuttuğu kardeşi Mustafa ise yetişkindi; şeyhülislam ve vezirler tahta onu çıkardı.",
+      "consequence": "Mustafa'nın devleti yönetemeyeceği kısa sürede anlaşıldı; kaynaklar onun altınları denizdeki balıklara attığını ve vezirlerin kavuklarını çekiştirdiğini anlatır. 96 gün sonra, 26 Şubat 1618'de saray ağaları onu odasına kapattı ve yerine yeğeni Osman'ı tahta çıkardı. Bir padişahın savaşsız ve kansız biçimde saray kararıyla değiştirilebildiği görülmüş oldu.",
+      "depth": "Doğum yılı kesin değildir; kaynakların çoğu 1591, bazıları 1600 dolaylarını verir. Akıl sağlığının doğuştan mı bozuk olduğu da bilinmez: bazı tarihçilere göre, çocukluğunda 19 amcasının boğdurulduğunu öğrenmesi ve 14 yıl boyunca her an öldürülme korkusuyla kapalı yaşaması onu bu hale getirmiştir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "ikinci-saltanat",
+      "year": 1622,
+      "text": "İsyancı askerlerin eliyle ikinci kez tahta çıktı.",
+      "cause": "Mayıs 1622'de yeniçeriler [[f:osman-ii|II. Osman]]'a karşı ayaklandı ve yerine geçirecek birini aradı. Saraya giren askerler, dört yıldır kapalı tutulduğu odada Mustafa'yı buldu. Onu dışarı çıkarıp padişah ilan ettiler; II. Osman ertesi gün Yedikule'de öldürüldü.",
+      "consequence": "Mustafa'nın ikinci saltanatı 16 ay sürdü ve devlet bu sürede fiilen sahipsiz kaldı. Sadrazamlar birkaç ayda bir değişti, hazine askerlere dağıtılan bahşişlerle boşaldı, Erzurum valisi Abaza Mehmed Paşa II. Osman'ın öcünü almak için isyan etti. 10 Eylül 1623'te Mustafa yeniden tahttan indirildi; yerine 11 yaşındaki [[f:murad-iv|IV. Murad]] geçti, yönetimi de annesi [[f:kosem-sultan|Kösem Sultan]] üstlendi.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1591,
+      "to": 1595,
+      "event": "Babası Şehzade Mehmed'in (III. Mehmed) yönettiği Manisa'da doğdu."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1595,
+      "to": 1623,
+      "event": "Çocukluğundan başlayarak hayatının büyük bölümünü sarayda kapalı geçirdi; buradan iki kez tahta çıkarıldı, iki kez indirildi."
+    },
+    {
+      "place": {
+        "slug": "istanbul-ayasofya",
+        "nameTr": "Ayasofya, İstanbul",
+        "historicName": "Hagia Sophia",
+        "lat": 41.0086,
+        "lon": 28.9802
+      },
+      "precision": "building",
+      "from": 1639,
+      "to": 1639,
+      "event": "Tahttan indirildikten 16 yıl sonra İstanbul'da öldü; Ayasofya'nın avlusundaki türbeye gömüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-iii",
+      "type": "child_of",
+      "note": "III. Mehmed'in oğludur."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Mustafa I",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/mustafa-i"
+    },
+    {
+      "id": "wiki",
+      "title": "I. Mustafa",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/I._Mustafa",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}

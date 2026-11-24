@@ -1,0 +1,485 @@
+/* Game screen: the map is the stage; panels sit on top of it (FR-29). */
+
+.game {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: var(--panel-width) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    'top top'
+    'panel stage'
+    'bar bar';
+  background: var(--stone-950);
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Sized by width and height because the map library sets its own position on this element. */
+.stage__map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Painted-map finish: paper grain and a dark vignette over the map. */
+.stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    var(--grain),
+    radial-gradient(ellipse at center, transparent 45%, rgba(20, 12, 4, 0.55) 100%);
+  mix-blend-mode: multiply;
+}
+
+.stage__error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  max-width: min(80%, 420px);
+  margin: 0;
+  padding: 14px 18px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  grid-area: top;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 14px;
+}
+
+.topbar__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  font-size: 0.95rem;
+  color: var(--gold-bright);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #000;
+  white-space: nowrap;
+}
+
+.topbar__crest {
+  width: 30px;
+  height: 30px;
+  color: var(--gold);
+}
+
+.endpoints {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.endpoint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  max-width: 280px;
+  padding: 4px 14px 4px 4px;
+  text-align: left;
+  color: var(--parchment);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15));
+  border: 1px solid rgba(143, 116, 56, 0.6);
+  border-radius: 26px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: border-color 120ms;
+}
+
+.endpoint:hover {
+  border-color: var(--gold-bright);
+}
+
+.endpoint .medallion {
+  --size: 38px;
+}
+
+.endpoint__text {
+  display: grid;
+  min-width: 0;
+}
+
+.endpoint__label {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.endpoint__name {
+  overflow: hidden;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.15;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.topbar__actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Side panel (the scroll the player reads) ---------- */
+
+.panel {
+  grid-area: panel;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 10px 6px 10px 14px;
+}
+
+.panel__scroll {
+  flex: 1;
+  min-height: 0;
+  padding: 8px 12px 28px 4px;
+  scroll-behavior: smooth;
+}
+
+/* ---------- Route tabs ---------- */
+
+.routes {
+  display: flex;
+  gap: 6px;
+  margin: 0 0 4px 4px;
+  padding: 4px 12px 8px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.route-tab {
+  flex: none;
+  display: grid;
+  gap: 1px;
+  max-width: 250px;
+  padding: 7px 14px 12px;
+  text-align: left;
+  color: var(--parchment);
+  background: linear-gradient(180deg, var(--stone-600), var(--stone-800));
+  border: 1px solid var(--stone-950);
+  box-shadow:
+    inset 0 0 0 1px rgba(143, 116, 56, 0.6),
+    0 3px 8px rgba(0, 0, 0, 0.5);
+  /* Pennant: a notch cut from the bottom edge. */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 7px), 0 100%);
+  cursor: pointer;
+  transition: filter 120ms;
+}
+
+.route-tab:hover {
+  filter: brightness(1.2);
+}
+
+.route-tab[aria-selected='true'] {
+  color: #ffe9c9;
+  background: linear-gradient(180deg, var(--wax-bright), var(--wax-dark));
+  box-shadow: inset 0 0 0 1px rgba(255, 200, 150, 0.6);
+}
+
+.route-tab__label {
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.route-tab__meta {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* ---------- Command bar ---------- */
+
+.command-bar {
+  grid-area: bar;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 14px calc(8px + env(safe-area-inset-bottom));
+}
+
+.command-bar__group {
+  display: flex;
+  gap: 8px;
+}
+
+.timeline {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.timeline__year {
+  flex: none;
+  min-width: 176px;
+  padding: 5px 14px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--ink);
+  background:
+    var(--grain),
+    linear-gradient(180deg, var(--parchment-light), var(--parchment-deep));
+  border: 1px solid var(--stone-950);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 8px rgba(122, 84, 30, 0.6),
+    0 0 0 2px var(--brass-dark),
+    0 0 0 3px var(--brass);
+}
+
+.timeline__hijri {
+  font-size: 0.72em;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.timeline__rail {
+  flex: 1;
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.timeline__ends {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.timeline input[type='range'] {
+  width: 100%;
+  height: 26px;
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+}
+
+.timeline input[type='range']::-webkit-slider-runnable-track {
+  height: 8px;
+  background: linear-gradient(180deg, #0c0906, #33291a);
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+}
+
+.timeline input[type='range']::-webkit-slider-thumb {
+  width: 18px;
+  height: 26px;
+  margin-top: -10px;
+  appearance: none;
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold) 50%, #7d6226);
+  border: 1px solid var(--stone-950);
+  border-radius: 3px 3px 9px 9px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.timeline input[type='range']::-moz-range-track {
+  height: 8px;
+  background: linear-gradient(180deg, #0c0906, #33291a);
+  border: 1px solid var(--brass);
+  border-radius: 4px;
+}
+
+.timeline input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 24px;
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold) 50%, #7d6226);
+  border: 1px solid var(--stone-950);
+  border-radius: 3px 3px 9px 9px;
+}
+
+/* ---------- Minimap ---------- */
+
+.minimap {
+  position: absolute;
+  top: 72px;
+  right: 14px;
+  z-index: 2;
+  padding: 5px;
+  line-height: 0;
+}
+
+.minimap canvas {
+  display: block;
+  width: 190px;
+  height: 118px;
+  cursor: pointer;
+}
+
+/* ---------- Loading and error screens ---------- */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 18px;
+  padding: 24px;
+  text-align: center;
+  color: var(--parchment);
+  background:
+    var(--stone-grain),
+    radial-gradient(ellipse at center, var(--stone-700), var(--stone-950));
+}
+
+.splash__title {
+  font-size: clamp(1.6rem, 6vw, 2.8rem);
+  color: var(--gold-bright);
+  text-shadow: 0 2px 0 #000;
+}
+
+.splash__crest {
+  width: 84px;
+  height: 84px;
+  color: var(--gold);
+  animation: crest-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes crest-pulse {
+  50% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 899px) {
+  body {
+    font-size: 17px;
+  }
+
+  .game {
+    --stage-height: 34dvh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto var(--stage-height) minmax(0, 1fr) auto;
+    grid-template-areas:
+      'top'
+      'stage'
+      'panel'
+      'bar';
+  }
+
+  .stage {
+    position: relative;
+    inset: auto;
+    grid-area: stage;
+  }
+
+  .topbar {
+    gap: 8px;
+    padding: 6px 8px;
+  }
+
+  .topbar__title span,
+  .topbar__actions {
+    display: none;
+  }
+
+  .endpoints {
+    flex: 1;
+    gap: 4px;
+  }
+
+  .endpoint {
+    flex: 1;
+    padding-right: 8px;
+    gap: 6px;
+  }
+
+  .endpoint .medallion {
+    --size: 32px;
+  }
+
+  .endpoint__name {
+    font-size: 0.92rem;
+  }
+
+  .panel {
+    padding: 0;
+    background:
+      var(--stone-grain),
+      linear-gradient(180deg, var(--stone-800), var(--stone-950));
+    box-shadow: inset 0 6px 10px -6px #000;
+  }
+
+  .panel__scroll {
+    padding: 10px 10px 24px;
+  }
+
+  .routes {
+    margin: 0;
+    padding: 6px 10px 6px;
+  }
+
+  .minimap {
+    display: none;
+  }
+
+  .command-bar {
+    gap: 8px;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+  }
+
+  .command-bar .btn__label {
+    display: none;
+  }
+
+  .command-bar .btn {
+    width: 40px;
+    padding: 0;
+  }
+
+  .timeline {
+    gap: 8px;
+  }
+
+  .timeline__year {
+    min-width: 0;
+    padding: 4px 8px;
+    font-size: 0.85rem;
+  }
+
+  .timeline__hijri,
+  .timeline__ends {
+    display: none;
+  }
+}

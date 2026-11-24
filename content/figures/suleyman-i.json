@@ -1,0 +1,178 @@
+{
+  "slug": "suleyman-i",
+  "nameTr": "Kanuni Sultan Süleyman",
+  "nameEn": "Suleiman I (the Magnificent)",
+  "wikiTitleTr": "I. Süleyman",
+  "kind": "sultan",
+  "roles": [
+    "10. Osmanlı padişahı"
+  ],
+  "birth": {
+    "year": 1494,
+    "place": "Trabzon"
+  },
+  "death": {
+    "year": 1566,
+    "place": "Zigetvar"
+  },
+  "reign": {
+    "from": 1520,
+    "to": 1566
+  },
+  "summary": [
+    "Kanuni Sultan Süleyman, 1520'den 1566'ya kadar 46 yıl tahtta kalan 10. Osmanlı padişahıdır; hiçbir padişah ondan uzun hüküm sürmedi.",
+    "1526'da Mohaç'ta Macar ordusunu yaklaşık iki saatte yenerek Orta Avrupa'nın kapısını açtı.",
+    "71 yaşında, on üçüncü seferinde Zigetvar'da öldü; ondan sonraki padişahların çoğu ordunun başında sefere çıkmadı."
+  ],
+  "actions": [
+    {
+      "id": "mohac",
+      "year": 1526,
+      "text": "Mohaç Meydan Savaşı'nda Macar ordusunu yendi.",
+      "cause": "Süleyman 1521'de, dedesinin babası [[f:mehmed-ii|Fatih]]'in alamadığı Belgrad'ı fethederek Macaristan yolunu açmıştı. Macar kralı II. Lajos henüz 20 yaşındaydı ve soyluları birbirine düşmüştü. Fransa kralı I. François da rakibi İmparator Şarlken'e esir düşünce Süleyman'dan yardım istedi.",
+      "consequence": "29 Ağustos 1526'da Mohaç Ovası'nda Osmanlı topçusu ve tüfekli yeniçerileri, zırhlı Macar süvarisini kısa sürede dağıttı; kral Lajos kaçarken bir derede boğuldu. Süleyman kısa süre sonra Macar başkenti Budin'e girdi. Macaristan'ın çöküşü Osmanlıları Habsburglarla komşu yaptı ve 1529'da ilk Viyana kuşatmasına götürdü.",
+      "depth": "Mohaç'tan sonra Macaristan hemen Osmanlı toprağı olmadı. Süleyman önce Erdel beyi Yanoş Zapolya'yı kendisine bağlı kral yaptı; ülkenin orta kesimi ancak 1541'de Budin Beylerbeyliği adıyla doğrudan yönetime alındı. Viyana ise 1529'da kuşatıldı ama alınamadı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "hurrem-ile-nikah",
+      "year": 1534,
+      "text": "Hürrem Sultan'la nikâhlanarak saray geleneğini bozdu.",
+      "cause": "Osmanlı padişahları kuşaklardır resmen evlenmiyordu; saraydaki bir cariye padişaha bir oğul doğurunca, o oğulla birlikte bir sancağa gönderilirdi. Esir olarak saraya getirilen [[f:hurrem-sultan|Hürrem]] ise Süleyman'a beş oğul doğurdu ve sarayda kaldı. Süleyman 1534 dolaylarında onu azat edip nikâhladı.",
+      "consequence": "Hürrem, padişahın en yakın danışmanı oldu ve taht kavgasının bir tarafı sayıldı. Süleyman 1553'te, başka bir eşinden olan ve ordunun çok sevdiği büyük oğlu Şehzade Mustafa'yı Konya Ereğlisi'ndeki otağında boğdurdu. Hürrem 1558'de öldü; sağ kalan iki oğlu 1559'da Konya'da savaştı ve tahta 1566'da [[f:selim-ii|II. Selim]] çıktı.",
+      "depth": "Şehzade Mustafa'nın ölümünde Hürrem'in ve damadı Sadrazam Rüstem Paşa'nın kışkırtması olduğu, dönemin elçi raporlarında ve halk arasında yaygın bir kanıydı. Bazı tarihçilere göre ise belirleyici olan, yaşlanan padişahın ordunun Mustafa'yı tahta çıkarmasından duyduğu korkuydu; elde bunu kesin çözecek bir belge yoktur. Nikâhın tarihi de kesin değildir; 1533 ya da 1534 olarak verilir.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    },
+    {
+      "id": "suleymaniye",
+      "year": 1557,
+      "text": "Mimar Sinan'a Süleymaniye Külliyesi'ni yaptırdı.",
+      "cause": "1550'ye gelindiğinde Süleyman 30 yıldır tahttaydı ve imparatorluk Budin'den Bağdat'a, Kırım'dan Cezayir'e uzanıyordu. Padişah, İstanbul'un Haliç'e bakan tepesinde gücünü gösterecek bir yapı istedi. İşi, 1539'dan beri baş mimarı olan [[f:mimar-sinan|Mimar Sinan]]'a verdi.",
+      "consequence": "Yapımı 1550'de başlayan cami 1557'de açıldı. Çevresindeki medreseler, hastane, aşevi, hamam ve dükkânlarla birlikte bir mahalle büyüklüğünde bir külliye oluştu. Süleyman ve Hürrem'in türbeleri caminin avlusundadır; Sinan da kendi küçük türbesini külliyenin hemen köşesine yaptı.",
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "trabzon",
+        "nameTr": "Trabzon",
+        "historicName": "Trapezus",
+        "lat": 41.0027,
+        "lon": 39.7168
+      },
+      "precision": "city",
+      "from": 1494,
+      "to": 1509,
+      "event": "Babası Şehzade Selim'in yönettiği Trabzon'da doğdu ve büyüdü."
+    },
+    {
+      "place": {
+        "slug": "manisa",
+        "nameTr": "Manisa",
+        "historicName": "Mağnisa",
+        "lat": 38.614,
+        "lon": 27.426
+      },
+      "precision": "city",
+      "from": 1513,
+      "to": 1520,
+      "event": "Şehzade olarak Manisa'yı yönetti; babası ölünce buradan İstanbul'a gitti."
+    },
+    {
+      "place": {
+        "slug": "istanbul-topkapi",
+        "nameTr": "Topkapı Sarayı, İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0115,
+        "lon": 28.9834
+      },
+      "precision": "building",
+      "from": 1520,
+      "to": 1526,
+      "event": "25 yaşında, rakipsiz olarak tahta çıktı."
+    },
+    {
+      "place": {
+        "slug": "mohac",
+        "nameTr": "Mohaç",
+        "historicName": "Mohács",
+        "lat": 45.993,
+        "lon": 18.683
+      },
+      "precision": "city",
+      "from": 1526,
+      "to": 1526,
+      "event": "Macar ordusunu yaklaşık iki saat süren bir savaşta yendi."
+    },
+    {
+      "place": {
+        "slug": "viyana",
+        "nameTr": "Viyana",
+        "historicName": "Wien",
+        "lat": 48.2082,
+        "lon": 16.3738
+      },
+      "precision": "city",
+      "from": 1529,
+      "to": 1529,
+      "event": "Habsburgların başkentini üç haftaya yakın kuşattı; kış yaklaşınca geri çekildi."
+    },
+    {
+      "place": {
+        "slug": "zigetvar",
+        "nameTr": "Zigetvar",
+        "historicName": "Szigetvár",
+        "lat": 46.048,
+        "lon": 17.805
+      },
+      "precision": "city",
+      "from": 1566,
+      "to": 1566,
+      "event": "Kale düşmeden hemen önce otağında öldü; bedeni Süleymaniye'deki türbesine götürüldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "selim-i",
+      "type": "child_of",
+      "note": "Yavuz Sultan Selim'in oğludur."
+    },
+    {
+      "to": "hurrem-sultan",
+      "type": "spouse_of",
+      "note": "Hürrem Sultan'la nikâhlanarak padişahların evlenmeme geleneğini bozdu."
+    }
+  ],
+  "concepts": [],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Süleyman I",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/suleyman-i"
+    },
+    {
+      "id": "wiki",
+      "title": "I. Süleyman",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/I._S%C3%BCleyman",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
+}
