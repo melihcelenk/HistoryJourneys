@@ -46,5 +46,19 @@
     { "id": "tdv", "title": "Ahmed II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/ahmed-ii" },
     { "id": "wiki", "title": "II. Ahmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._Ahmed", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Ahmet II.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ahmet_II.jpg",
+    "title": "II. Ahmed'in portresi",
+    "author": "Konstantin Kapıdağlı",
+    "created": "18. yüzyıl",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.5,
+      "y": 0.31,
+      "size": 0.45
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

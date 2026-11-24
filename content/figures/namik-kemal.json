@@ -71,5 +71,19 @@
     { "id": "tdv", "title": "Nâmık Kemal", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/namik-kemal" },
     { "id": "wiki", "title": "Namık Kemal", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Nam%C4%B1k_Kemal", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Namık Kemal 1878-1.1R V01-1.2.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nam%C4%B1k_Kemal_1878-1.1R_V01-1.2.jpg",
+    "title": "Namık Kemal'in fotoğrafı, Midilli",
+    "author": "Abdullah Biraderler",
+    "created": "Ekim 1878",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.52,
+      "y": 0.33,
+      "size": 0.5
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

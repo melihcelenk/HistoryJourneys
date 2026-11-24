@@ -1,4 +1,5 @@
 import { emblemSvg } from '../ui/emblems';
+import { portraitSrc } from '../ui/portraits';
 import type { CityMarker, FigureMarker, StopMarker } from './MapView';
 
 /**
@@ -99,15 +100,32 @@ export function updateFigureElement(root: HTMLElement, figure: FigureMarker): vo
   root.style.setProperty('--stack-offset', `${figure.stackIndex * STACK_OFFSET_PX}px`);
 }
 
+/** The banner of a figure without a portrait: the emblem of its kind on a pennant. */
+function createBanner(figure: FigureMarker): HTMLElement {
+  const banner = element('span', 'map-figure__banner');
+  // emblemSvg returns fixed markup from a table in the code; no content text reaches innerHTML.
+  banner.innerHTML = emblemSvg(figure.kind);
+  return banner;
+}
+
+/** The head of a figure with a portrait: the picture in a gold ring. A picture that cannot be loaded gives way to the banner. */
+function createPortraitHead(figure: FigureMarker): HTMLElement {
+  const head = element('span', 'map-figure__portrait');
+  const image = document.createElement('img');
+  image.alt = '';
+  image.decoding = 'async';
+  image.addEventListener('error', () => head.replaceWith(createBanner(figure)), { once: true });
+  image.src = portraitSrc(figure.slug);
+  head.append(image);
+  return head;
+}
+
 export function createFigureElement(figure: FigureMarker, onClick: (slug: string) => void): HTMLElement {
   const root = element('button', 'map-figure');
   root.setAttribute('type', 'button');
   root.setAttribute('aria-label', `${figure.name} kartını aç`);
   root.dataset.slug = figure.slug;
-  const banner = element('span', 'map-figure__banner');
-  // emblemSvg returns fixed markup from a table in the code; no content text reaches innerHTML.
-  banner.innerHTML = emblemSvg(figure.kind);
-  root.append(banner, element('span', 'map-figure__pole'), element('span', 'map-figure__name', figure.name));
+  root.append(figure.portrait ? createPortraitHead(figure) : createBanner(figure), element('span', 'map-figure__pole'), element('span', 'map-figure__name', figure.name));
   root.addEventListener('click', (event) => {
     event.stopPropagation();
     onClick(figure.slug);

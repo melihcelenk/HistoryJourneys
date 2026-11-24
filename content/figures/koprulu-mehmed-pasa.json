@@ -153,6 +153,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Mehmedpasha.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mehmedpasha.jpg",
+    "title": "Köprülü Mehmed Paşa'nın gravürü",
+    "author": "Bilinmiyor",
+    "created": "Tarihi belgelenmemiş",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.47,
+      "y": 0.4,
+      "size": 0.6
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

@@ -1,6 +1,6 @@
 # Content Generation Rule Set
 
-**Version:** 0.1.0 (2026-11-24)
+**Version:** 0.3.0 (2026-11-24)
 
 This rule set governs every card generated for History Journeys (requirements
 CG-1 to CG-8). Each owner intervention becomes a new rule or example here, the
@@ -70,3 +70,31 @@ version is bumped, and affected cards are regenerated.
   historical name (*Selanik* / *Thessaloniki*, *Edirne* / *Adrianopolis*).
 - R19. A place that already exists in `content/places-registry.md` is reused
   with the same slug and coordinates.
+
+## 8. Portraits (DR-5)
+
+- R20. A portrait comes from Wikimedia Commons and is used only when Commons
+  marks it as public domain or CC0. No other licence is accepted, so that no
+  picture brings a condition of its own.
+- R21. The picture must also be old in fact, not only by its licence mark. It
+  is, when one of these holds: the file documents that the work was made
+  before 1900; it names an author who died more than 70 years ago; it is a
+  photograph dated more than 70 years ago whose author is not known; or the
+  figure died more than 70 years ago and the picture is plainly a work of an
+  earlier age (an engraving, a miniature, an oil portrait, a photograph from
+  life). A modern drawing, painting or photograph is not used, whatever its
+  licence mark. These are the pictures Wikipedia itself shows for the figure.
+- R22. The picture shows the figure alone. Photographs of statues, busts,
+  tombs and buildings are not portraits and are not used, whatever their
+  licence: the sculptor's rights may still stand.
+- R23. Every portrait has a record in the figure's file: the Commons file and
+  its page, what the work is, who made it, when, and the licence. The card
+  shows this record.
+- R24. A portrait that is not known to have been made in the lifetime of the
+  figure is marked `representative`, and the card says so: such a picture is a
+  later likeness, not a record of what the person looked like.
+- R25. A figure without an acceptable picture has no portrait and is shown
+  with the emblem of its kind. Faces are never invented or generated.
+- R26. What was accepted and what was not, with the reason, is listed in
+  `content/portraits/REVIEW.md`.
+

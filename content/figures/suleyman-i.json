@@ -169,6 +169,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "EmperorSuleiman.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:EmperorSuleiman.jpg",
+    "title": "Kanuni Sultan Süleyman'ın portresi",
+    "author": "Tiziano çevresi",
+    "created": "1530'lar",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.5,
+      "y": 0.33,
+      "size": 0.9
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

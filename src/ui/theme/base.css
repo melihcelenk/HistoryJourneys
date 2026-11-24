@@ -336,6 +336,33 @@ p {
   filter: drop-shadow(0 1px 0 rgba(255, 240, 190, 0.6));
 }
 
+/* A medallion with a portrait: the picture fills the coin, inside the same gold rim. */
+.medallion--portrait {
+  position: relative;
+  overflow: hidden;
+  background: var(--stone-800);
+}
+
+.medallion--portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  /* Old paintings and photographs differ in tone; a touch of sepia brings them to the parchment. */
+  filter: sepia(0.18) saturate(0.92) contrast(1.04);
+}
+
+.medallion--portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 2px var(--gold),
+    inset 0 0 0 3px rgba(74, 52, 12, 0.8),
+    inset 0 0 8px rgba(30, 18, 4, 0.55);
+}
+
 .medallion--empty {
   color: rgba(240, 213, 134, 0.6);
   background: radial-gradient(circle at 34% 28%, var(--stone-600), var(--stone-900));

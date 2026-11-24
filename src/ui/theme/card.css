@@ -643,6 +643,18 @@ button.card__title:hover {
   color: var(--ink-faint);
 }
 
+.portrait-credit {
+  margin: 0 0 10px;
+  padding: 8px 11px;
+  background: rgba(255, 250, 228, 0.5);
+  border-left: 3px solid var(--gold);
+}
+
+.portrait-credit__note {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
 .sources a {
   color: var(--wax);
 }

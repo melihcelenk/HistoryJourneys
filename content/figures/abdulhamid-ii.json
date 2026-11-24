@@ -72,5 +72,19 @@
     { "id": "tdv", "title": "Abdülhamid II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulhamid-ii" },
     { "id": "wiki", "title": "II. Abdülhamid", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._Abd%C3%BClhamid", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Sultan Abdul Hamid II in 1899.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Abdul_Hamid_II_in_1899.jpg",
+    "title": "II. Abdülhamid'in portresi",
+    "author": "Bilinmiyor",
+    "created": "1899",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.52,
+      "y": 0.25,
+      "size": 0.55
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

@@ -133,6 +133,7 @@ function buildFigures(present: Presence[], activeSlug: string | undefined): Figu
       position: positionOf(stop.place),
       name: card.nameTr,
       kind: card.kind,
+      portrait: Boolean(card.portrait),
       focused: card.slug === activeSlug,
       stackIndex,
     };
@@ -181,9 +182,9 @@ function openJourney(input: SceneInput, present: Presence[]): OpenJourney {
 
 /**
  * Builds what the map shows for a year (FR-13, FR-14): ambient cities, every
- * figure that has a record for the year at its place with the trail that led
- * it there, and, unless switched off, the journey of the figure in focus,
- * one group of stops at a time.
+ * figure that has a record for the year at its place and, unless switched
+ * off, the journey of the figure in focus, one group of stops at a time. When
+ * no journey is open, each figure has the trail that led it to where it stands.
  */
 export function buildScene(input: SceneInput): MapScene {
   const { activeCard, routeCards } = input;
@@ -207,7 +208,9 @@ export function buildScene(input: SceneInput): MapScene {
     ),
     stops,
     figures,
-    trails: showLines ? others.map(trailOf).filter((trail) => trail.length > 1) : [],
+    // While a journey is open its path is the only line on the map: the trails of the figures who happen to be
+    // around that year would cross it and read as part of it.
+    trails: showLines && journey.slug === null ? others.map(trailOf).filter((trail) => trail.length > 1) : [],
     journeyReached: journeyPath.slice(0, reachedCount),
     // The path ahead starts at the last reached stop so that the two lines join.
     journeyAhead: journeyPath.slice(Math.max(reachedCount - 1, 0)),

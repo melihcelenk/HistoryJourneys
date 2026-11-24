@@ -56,5 +56,19 @@
     { "id": "tdv", "title": "Abdülaziz", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulaziz" },
     { "id": "wiki", "title": "Abdülaziz", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Abd%C3%BClaziz", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Sultan Abdulaziz.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Abdulaziz.jpg",
+    "title": "Sultan Abdülaziz'in fotoğrafı",
+    "author": "Abdullah Biraderler",
+    "created": "1876 öncesi",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.47,
+      "y": 0.19,
+      "size": 0.5
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

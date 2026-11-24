@@ -1,10 +1,11 @@
 ---
 id: S1
-status: open
+status: resolved
 decider:
 priority: blocker
 asked: 2026-11-24
 related: [D1, D6, NFR-1, NFR-2, NFR-3, NFR-4, FR-13, FR-29, FR-30, FR-31, FR-32]
+resolved: 2026-11-24
 ---
 # S1 — Prototip hangi teknoloji yığınıyla yazılsın?
 

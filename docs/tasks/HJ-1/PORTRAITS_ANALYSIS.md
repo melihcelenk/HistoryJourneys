@@ -7,6 +7,8 @@ Figür kartlarında madalyon yerine kişinin portresinin gösterilmesi için gö
 
 ## Karar
 
+> **Güncelleme (T58, T59):** İlk ölçüt her eserin tarihinin ya da yazarının dosya sayfasında belgelenmesini istiyordu; 28 figür portre aldı ve Atatürk dışarıda kaldı. Bu sonuç kabul edilmedi. Ölçüt genişletildi: Commons'ta kamu malı ya da CC0 olarak işaretli, Vikipedi'nin de kullandığı, açıkça eski olan görseller alınır. Sonuç: 41 figür. Aşağıdaki tablo ilk hâlidir; geçerli kural `content/rules/RULESET.md` → R21'dir.
+
 **Kaynak Wikimedia Commons'tır; görsele Wikidata'daki "görsel" (P18) alanı üzerinden ulaşılır ve yalnız kamu malı
 (Public Domain) ya da CC0 olan, eserin kendisi de eski olduğu için kamu malı sayılan dosyalar alınır.**
 
@@ -46,7 +48,7 @@ Kararın ek koşulu uygulandığında tablo değişir, çünkü Commons'taki lis
 | CC BY-SA | Akşemseddin, Evliya Çelebi, İbrahim Müteferrika, Kösem Sultan | Alınmaz; madalyon gösterilir |
 | Görseli yok | Kâtip Çelebi | Madalyon gösterilir |
 
-Kesin sayı, dosyalar tek tek incelendiğinde (Faz 14 → 14.2) belli olur. Beklenen: 50 figürün yaklaşık 38–43'ünde portre, kalanında madalyon.
+Bu tablo dosyalar incelenmeden önce yazılmıştı ve 38–43 figür öngörüyordu. **İnceleme sonucu (Faz 14 → 14.2): 28 figür portre aldı, 22 figür madalyonla kaldı.** Fark, "1900 öncesi" diye varsayılan dokuz sultan portresinin dosyasında tarih ve yazar yazmamasından geliyor; ölçüt belge istediği için bunlar alınmadı. Dosya dosya sonuç ve gerekçeler: `content/portraits/REVIEW.md`.
 
 ## İncelenen kaynaklar
 

@@ -50,7 +50,7 @@ function OrderingGame({ figures }: { figures: FigureSummary[] }) {
           const result = checked ? (round.solution[index] === slug ? 'right' : 'wrong') : undefined;
           return (
             <li key={slug} className="order-item" data-result={result} data-slug={slug}>
-              <Medallion kind={figure.kind} />
+              <Medallion figure={figure} />
               <span className="order-item__name">{figure.nameTr}</span>
               {checked && <span className="order-item__year">{activeYear(figure)}</span>}
               <span className="order-item__moves">

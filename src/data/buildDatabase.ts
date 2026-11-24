@@ -1,5 +1,5 @@
 import type { Database, SqlJsStatic, SqlValue } from 'sql.js';
-import type { FigureSeed, LineSeed } from '../domain/contentSchema';
+import { type FigureSeed, type LineSeed, portraitInfoSchema } from '../domain/contentSchema';
 import type { ContentSeed } from './contentValidation';
 import { DB_SCHEMA, DB_SCHEMA_VERSION } from './dbSchema';
 
@@ -108,6 +108,8 @@ function insertFigure(db: Database, figure: FigureSeed): void {
     reign_from: figure.reign?.from,
     reign_to: figure.reign?.to,
     summary_json: JSON.stringify(figure.summary),
+    // Only what the reader is shown goes to the database: parsing with the narrower schema drops the file name and the crop.
+    portrait_json: figure.portrait ? JSON.stringify(portraitInfoSchema.parse(figure.portrait)) : undefined,
     gen_model: figure.generation.model,
     gen_ruleset: figure.generation.ruleset,
     gen_date: figure.generation.date,

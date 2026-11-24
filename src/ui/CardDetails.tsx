@@ -95,9 +95,31 @@ function RelationList({ slug }: { slug: string }) {
   );
 }
 
+/** Where the portrait comes from: the work, its maker, its date and its licence (DR-5). */
+function PortraitCredit({ card }: { card: FigureCard }) {
+  const portrait = card.portrait;
+  if (!portrait) return null;
+  return (
+    <p className="portrait-credit" data-testid="portrait-credit">
+      <strong>Portre:</strong>{' '}
+      <a href={portrait.sourceUrl} target="_blank" rel="noreferrer">
+        {portrait.title}
+      </a>
+      . {portrait.author}, {portrait.created}. <span className="journey__precision">{portrait.license} · Wikimedia Commons</span>
+      {portrait.representative && (
+        <span className="portrait-credit__note" data-testid="portrait-representative">
+          {' '}
+          Temsilî: kişinin yaşadığı dönemde yapıldığı bilinmiyor.
+        </span>
+      )}
+    </p>
+  );
+}
+
 function SourceList({ card }: { card: FigureCard }) {
   return (
     <div className="sources">
+      <PortraitCredit card={card} />
       <ul>
         {card.sources.map((source) => (
           <li key={source.id}>

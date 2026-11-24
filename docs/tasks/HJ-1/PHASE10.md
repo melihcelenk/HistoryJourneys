@@ -52,13 +52,13 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 
 | Senaryo | Dosya | Durum |
 |---------|-------|-------|
-| Yolculuk varsayılan olarak açıktır; kapatılınca bağlantıya `j=0` yazılır. | `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts` | 🟢 Tamamlandı |
-| 29 duraklı yolculukta sahnede yalnız yılın düştüğü sekizli grup vardır. | `tests/unit/phase10.test.ts` | 🟢 Tamamlandı |
-| Çizgiler kapalıyken sahnede yol ve iz yoktur, duraklar kalır. | `tests/unit/phase10.test.ts` | 🟢 Tamamlandı |
-| Durak numarasına tıklanınca yıl o durağın yılı olur ve olayı yazılır. | `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts` | 🟢 Tamamlandı |
-| Figür seçiliyken zaman çubuğunun uçları doğum ve ölüm yılıdır. | `tests/e2e/phase10.spec.ts` | 🟢 Tamamlandı |
-| Kart başlığına tıklanınca kart kapanır, zaman çubuğu bütün rotayı kapsar. | `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts` | 🟢 Tamamlandı |
-| Başlangıç ekranında "Etki" seçilip yolculuk başlatılınca etki rotası açılır; oyun ekranında sekme yoktur. | `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts` | 🟢 Tamamlandı |
+| Yolculuk varsayılan olarak açıktır; kapatılınca bağlantıya `j=0` yazılır. | `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts` | 🟢 Tamamlandı |
+| 29 duraklı yolculukta sahnede yalnız yılın düştüğü sekizli grup vardır. | `tests/unit/journeyMap.test.ts` | 🟢 Tamamlandı |
+| Çizgiler kapalıyken sahnede yol ve iz yoktur, duraklar kalır. | `tests/unit/journeyMap.test.ts` | 🟢 Tamamlandı |
+| Durak numarasına tıklanınca yıl o durağın yılı olur ve olayı yazılır. | `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts` | 🟢 Tamamlandı |
+| Figür seçiliyken zaman çubuğunun uçları doğum ve ölüm yılıdır. | `tests/e2e/journey-map.spec.ts` | 🟢 Tamamlandı |
+| Kart başlığına tıklanınca kart kapanır, zaman çubuğu bütün rotayı kapsar. | `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts` | 🟢 Tamamlandı |
+| Başlangıç ekranında "Etki" seçilip yolculuk başlatılınca etki rotası açılır; oyun ekranında sekme yoktur. | `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts` | 🟢 Tamamlandı |
 
 ## Nasıl kontrol edilir
 
@@ -86,7 +86,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
   ayarı (varsayılan açık, kapalıyken `l=0`) yolculuk çizgisini ve diğer figürlerin izlerini gizler. İki ayar kart
   başlığının sağ üstünde ikon düğme olur; alttaki düğme kalkar.
 - **Dosyalar:** `src/app/store.ts`, `src/app/urlState.ts`, `src/map/mapScene.ts`, `src/ui/FigureCard.tsx`, `src/ui/Icon.tsx`, `src/ui/theme/card.css`
-- **Testler:** `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts`
+- **Testler:** `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 10.2 — Duraklar sekizerli gruplar hâlinde gösterilir; numaraya tıklanır, üstüne gelince kartı açılır.
@@ -99,7 +99,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
   ("1–8", "9–16" …) grubun ilk durağına gider. Durak işareti düğmedir: tıklanınca `goToStop` zamanı o durağa götürür ve
   olayı öne çıkarır. Üstüne gelince ya da odaklanınca yer adı, yıllar ve olayı içeren küçük kart açılır.
 - **Dosyalar:** `src/domain/journey.ts`, `src/domain/chronicle.ts`, `src/map/mapScene.ts`, `src/map/MapView.ts`, `src/map/markerElements.ts`, `src/map/PixiMapView.ts`, `src/map/MapLibreMapView.ts`, `src/ui/MapStage.tsx`, `src/ui/JourneyGroups.tsx`, `src/ui/theme/map.css`
-- **Testler:** `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts`
+- **Testler:** `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 10.3 — Zaman çubuğu ve oynatma seçili figürün yaşamını kapsar.
@@ -109,7 +109,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 - **Çözüm:** Kartı açık bir figür varken çubuğun uçları onun doğum ve ölüm yılıdır ve oynatma yalnız onun duraklarını
   anlatır. Genel görünümde çubuk ve oynatma bütün rotayı kapsar.
 - **Dosyalar:** `src/ui/CommandBar.tsx`, `src/ui/usePlayback.ts`
-- **Testler:** `tests/e2e/phase10.spec.ts`
+- **Testler:** `tests/e2e/journey-map.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 10.4 — Kart kapatılarak genel görünüme geçilir.
@@ -120,7 +120,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
   kartı kapatır. Panelin üstünde, eski sekmelerin yerinde, "Genel görünüm" düğmesi ve rotanın türü ile kart sayısı
   durur. Genel görünüm bağlantıda `g=1` olarak taşınır. Genel görünümde harita o yıl kaydı olan figürleri izleriyle gösterir.
 - **Dosyalar:** `src/app/store.ts`, `src/app/urlState.ts`, `src/ui/FigureCard.tsx`, `src/ui/RoutePanel.tsx`, `src/ui/RouteHeader.tsx`, `src/ui/GameScreen.tsx`, `src/ui/theme/layout.css`
-- **Testler:** `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts`
+- **Testler:** `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 10.5 — Rota türü yolculuk seçilirken belirlenir; adlar "Doğrudan" ve "Etki" olur.
@@ -131,7 +131,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
   hesaplanınca tercih edilen türdeki rota açılır; o tür yoksa var olan rota açılır ve panel başlığı bunu söyler.
   `RouteTabs` kaldırılır. Adlar `src/ui/routeLabels.ts` içinde "Doğrudan" ve "Etki" olur.
 - **Dosyalar:** `src/app/store.ts`, `src/ui/routeLabels.ts`, `src/ui/RouteKindChooser.tsx`, `src/ui/RoutePanel.tsx`, `src/ui/dialogs/FigurePickerDialog.tsx`, `src/ui/RouteTabs.tsx` (silinir)
-- **Testler:** `tests/unit/phase10.test.ts`, `tests/e2e/phase10.spec.ts`
+- **Testler:** `tests/unit/journeyMap.test.ts`, `tests/e2e/journey-map.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### Uygulama sırasında eklenenler
@@ -141,7 +141,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 - **Kamera payları:** Durak grubu şeridi, olay notu ve durak kartı haritadaki işaretlerin üstüne gelmesin diye masaüstü
   kamera payları büyütüldü (`DESKTOP_INSETS`).
 - **Telefon:** Dar ekranda yalnız figürün bulunduğu durağın etiketi görünür; diğer duraklar yalnız numaradır.
-- **Test düzeltmesi:** `tests/e2e/phase10.spec.ts` içindeki "çizgiler kapalıyken duraklar kalır" denetimi ilk yazıldığında
+- **Test düzeltmesi:** `tests/e2e/journey-map.spec.ts` içindeki "çizgiler kapalıyken duraklar kalır" denetimi ilk yazıldığında
   gruptaki ilk durağa bakıyordu; o durak bulunulan durağa çok yakın olduğu için tasarım gereği gizli. Denetim bulunulan
   durağa çevrildi. Davranış değişmedi.
 - **Güncellenen eski testler:** Rota sekmelerini ve "yolculuk varsayılan kapalı" davranışını sınayan testler yeni

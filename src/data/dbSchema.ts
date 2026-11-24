@@ -1,5 +1,5 @@
 /** SQLite schema of the content database. Bump the version when the shape changes. */
-export const DB_SCHEMA_VERSION = '2';
+export const DB_SCHEMA_VERSION = '3';
 
 export const DB_SCHEMA = `
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
@@ -18,6 +18,8 @@ CREATE TABLE figure (
   reign_from INTEGER,
   reign_to INTEGER,
   summary_json TEXT NOT NULL,
+  -- The record of the portrait (source, author, date, licence); NULL for a figure without one.
+  portrait_json TEXT,
   -- How the card was generated (CG-4): model, version of the rule set, date, and review status.
   gen_model TEXT NOT NULL,
   gen_ruleset TEXT NOT NULL,
@@ -28,6 +30,7 @@ CREATE TABLE figure (
 CREATE TABLE action (
   figure_slug TEXT NOT NULL REFERENCES figure(slug),
   id TEXT NOT NULL,
+  -- Order of the row within its figure or line, starting at 0, as written in the content file.
   position INTEGER NOT NULL,
   year INTEGER NOT NULL,
   text TEXT NOT NULL,
@@ -70,6 +73,7 @@ CREATE TABLE source (
 CREATE TABLE relation_type (
   type TEXT PRIMARY KEY,
   name_tr TEXT NOT NULL,
+  -- Cost of travelling along a relation of this type when a route is computed: a smaller weight is a closer tie.
   weight REAL NOT NULL,
   mode TEXT NOT NULL -- how routes may use the relation: direct or influence
 );

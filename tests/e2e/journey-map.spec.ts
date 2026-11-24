@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { JOURNEY_GROUP_SIZE as GROUP_SIZE } from '../../src/domain/journey';
-import { figureContent, isDesktop, JOURNEY_STOP, MAIN_JOURNEY_HASH, openApp, snap, startMainJourney } from './helpers';
+import { figureContent, isDesktop, JOURNEY_STOP, MAIN_JOURNEY_HASH, openApp, snap, startMainJourney, waitUntilStill } from './helpers';
 
 const ATATURK = figureContent('ataturk');
 const FATIH = figureContent('mehmed-ii');
@@ -45,6 +45,8 @@ test.describe('the journey of the open card', () => {
     await page.getByTestId('year-slider').fill(String(ATATURK.birth.year));
     const stop = page.locator(JOURNEY_STOP).filter({ has: page.locator('.map-stop__pin', { hasText: /^4$/ }) });
     await expect(stop.locator('.map-stop__card')).toBeHidden();
+    // The camera flies to the group of stops first; a pin that still moves would slip from under the pointer.
+    await waitUntilStill(stop.locator('.map-stop__pin'));
     await stop.locator('.map-stop__pin').hover();
     await expect(stop.locator('.map-stop__card')).toBeVisible();
     await expect(stop.locator('.map-stop__card')).toContainText(ATATURK.journey[3]!.event);

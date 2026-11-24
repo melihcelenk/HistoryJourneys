@@ -136,3 +136,16 @@ Opening a figure moves time to the first stop of its journey (`startOf`). Cards 
 until the card arrives time waits at the birth year and the figure is remembered in `awaitingStart`; when the card
 arrives time moves on, unless the reader has chosen a year meanwhile or the figure is no longer open. A year in a
 link always wins. `activeYear` only orders figures in time for the games.
+
+## Portraits
+
+A figure may have a `portrait` record in its content file: the file on Wikimedia Commons, its page, the work, its
+maker, its date, its licence, whether it was made in the lifetime of the figure, and the square to cut out for the
+medallion. The schema accepts only the licences in `PORTRAIT_LICENSES` (public domain and CC0); which pictures qualify
+is decided by the rules in `content/rules/RULESET.md`, section 8, and recorded in `content/portraits/REVIEW.md`.
+
+`scripts/build-portraits.py` fetches the pictures, crops them and writes `public/portraits/<slug>.webp`. The images
+are committed and cached by the service worker: the application never asks another server for a picture. The record,
+without the crop, travels through the database (`figure.portrait_json`) to `FigureSummary.portrait`; `Medallion` shows
+the picture when there is a record and falls back to the emblem of the kind when there is none or the image fails.
+

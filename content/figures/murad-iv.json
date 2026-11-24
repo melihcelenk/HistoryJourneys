@@ -176,6 +176,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Murad IV minature.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Murad_IV_minature.jpg",
+    "title": "IV. Murad'ın minyatürü",
+    "author": "Levnî'ye atfedilir",
+    "created": "18. yüzyıl başı",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.5,
+      "y": 0.27,
+      "size": 0.5
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

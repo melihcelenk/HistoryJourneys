@@ -15,7 +15,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const reportPath = join(root, 'tmp', 'wikidata-report.md');
 
 const API_URL = 'https://www.wikidata.org/w/api.php';
-/** Wikidata allows up to 50 titles per request. */
+/** Titles asked for in one request. Wikidata allows up to 50; the margin keeps long titles within the length a request address may have. */
 const BATCH_SIZE = 40;
 const BIRTH_PROPERTY = 'P569';
 const DEATH_PROPERTY = 'P570';

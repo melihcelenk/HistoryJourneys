@@ -127,6 +127,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Murad III portrait. “Zubdat al Tawarikh” (Ms. 1973, fol. 59b) by Seyyd Lokman Ashuri, 1583, Istanbul, Turkish-Islamic Art Museum.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Murad_III_portrait._%E2%80%9CZubdat_al_Tawarikh%E2%80%9D_(Ms._1973,_fol._59b)_by_Seyyd_Lokman_Ashuri,_1583,_Istanbul,_Turkish-Islamic_Art_Museum.jpg",
+    "title": "III. Murad'ın minyatürü, Zübdetü't-Tevârîh",
+    "author": "Seyyid Lokman",
+    "created": "1583",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.5,
+      "y": 0.33,
+      "size": 0.45
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

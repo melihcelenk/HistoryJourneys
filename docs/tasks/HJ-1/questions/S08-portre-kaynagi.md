@@ -1,7 +1,7 @@
 ---
 id: S8
-status: open
-decider:
+status: answered
+decider: user
 priority: major
 asked: 2026-11-24
 related: [D8, DR-5, FR-1, FR-6, NFR-6]
@@ -58,4 +58,10 @@ A. Ölçüt "telif sorunu yaşanmaması" olduğu için en dar kapsam seçildi; f
 
 ## Cevap
 
+**A — Commons, yalnız kamu malı ve CC0, eser eski**
+
 ## Sonuç
+
+A uygulandı (Faz 14). 49 aday dosya tek tek incelendi; ölçütü karşılayan 28 figür portre aldı, 22 figür bugünkü simgeyle gösteriliyor. Kapsam, analizde öngörülen 38–43'ün altında kaldı: dokuz sultan portresinin dosyasında eserin tarihi ve yazarı belgeli değil, Atatürk, İnönü ve Enver Paşa'nın fotoğraflarının yazarı bilinmiyor. Kabul ve ret gerekçeleri `content/portraits/REVIEW.md`, kurallar `content/rules/RULESET.md` → 8. bölümdedir. Görseller depoya indirildi; uygulama başka bir sunucuya bağlanmıyor.
+
+**Güncelleme (T58, T59):** 28 figürlük sonuç, Atatürk'ün portresi bulunmadığı için kabul edilmedi ve Vikipedi'nin kullandığı görsellerin kullanılması istendi. Ölçütün "eserin tarihi ya da yazarı dosyada belgeli olmalı" koşulu genişletildi (`content/rules/RULESET.md` → R21): Commons'ta kamu malı ya da CC0 olarak işaretli, açıkça eski olan görseller alınıyor. 13 figür daha portre aldı; toplam 41. Lisans koşulu (yalnız kamu malı ve CC0) ve heykel fotoğraflarının alınmaması değişmedi.

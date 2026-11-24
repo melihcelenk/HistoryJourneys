@@ -175,15 +175,15 @@
       "bulgu": []
     },
     "scripts/verify-wikidata.ts::verify-wikidata::(sınıf düzeyi)": {
-      "fp": "cbdff6bd15b85c395382a12d046a2eef88b9f0c3b7f370ff27583f7b32e2526a",
+      "fp": "b53b88470c21de01aeeb5a44389fd954a0f2c44e7eefdfec5e092b3137238224",
       "matrix": [
-        "| verify-wikidata | (sınıf düzeyi) | 3. Kod Kalitesi | [suggestion] Döngüden çıkış iki kez ifade edilmiş: `failure === null` koşulu ve `break` |"
+        "| verify-wikidata | (sınıf düzeyi) | 1 Dokümantasyon | [minor] `BATCH_SIZE = 40` yorumu 50 sınırını anlatıyor, 40'ın nedenini değil |"
       ],
       "bulgu": [
         {
-          "madde": 3,
-          "heading": "Madde 3: Kod kalitesi",
-          "row": "| verify-wikidata | (sınıf düzeyi) | [suggestion] `scripts/verify-wikidata.ts` satır 99-107: döngü başlığındaki `&& failure === null` koşulu ile `catch` içindeki `break` aynı çıkışı iki kez söylüyor; koşul hiçbir zaman tek başına etkili olmuyor. | İkisinden birini bırak: ya `break`'i kaldırıp kalan gövdeyi `else`/erken çıkışla koru, ya da başlıktaki `failure === null` koşulunu sil. |"
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| verify-wikidata | (sınıf düzeyi) | [minor] Satır 18-19: yorum \"Wikidata allows up to 50 titles per request\" diyor, sabit ise 40; 40'ın neden seçildiği (pay? URL uzunluğu?) açıklanmıyor, yorum ile değer çelişkili görünüyor. | Yorumu 40'ın gerekçesini söyleyecek biçimde düzelt ya da değeri sınırla aynı yap. |"
         }
       ]
     },
@@ -256,21 +256,15 @@
       "bulgu": []
     },
     "src/app/store.ts::store::(sınıf düzeyi)": {
-      "fp": "3bf23b434d688a93a6bc32be3335d5a04638c37ef5a03acd41d1a3d2e14bbb75",
+      "fp": "0dfc8d1b44a1f6a1ead181b6df0fad07301c8298bf2257914e7c043a1ef8160f",
       "matrix": [
-        "| store | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [major] Linkten açılan detour'da `awaitingStart` temizlenmiyor; kart gelince linkin yılı eziliyor |",
-        "| store | (sınıf düzeyi) | 3. Kod Kalitesi | [suggestion] Aynı sıfırlama alanları (`playing: false, spotlight: null, ...`) birçok `set` çağrısında elle tekrarlanıyor |"
+        "| store | (sınıf düzeyi) | 1 Dokümantasyon | [minor] `AppState` içinde açık olmayan aksiyonların doc comment'i yok |"
       ],
       "bulgu": [
         {
-          "madde": 3,
-          "heading": "Madde 3: Kod kalitesi",
-          "row": "| store | (sınıf düzeyi) | [suggestion] Yolculuk/odak değişince sıfırlanan alanlar elle tekrarlanıyor: `routes: [], routeIndex: 0, focus: null, detour: [], playing: false, spotlight: null, awaitingStart: null` hem `recomputeRoutes` (satır 203) hem `clearJourney` (satır 299) içinde; `playing: false, spotlight: null` çifti altı ayrı `set` çağrısında. Bu task `spotlight` ve `awaitingStart` ekleyince her birine tek tek eklemek gerekti; bir sonraki alanda biri unutulabilir. | `NO_JOURNEY_STATE` ve `STOP_TELLING = { playing: false, spotlight: null }` gibi adlandırılmış sabitler tanımlayıp `set({ ...STOP_TELLING, ... })` ile kullan. |"
-        },
-        {
-          "madde": 13,
-          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
-          "row": "| store | (sınıf düzeyi) | [major] `openDetourFromLink` (satır 226-231) `get().openFigure(detour.slug)` çağırıyor; link açılırken kart henüz yüklenmediği için `startOf` `awaitingStart = detour.slug` yazıyor. Ardından gelen `set({ year })` yalnız yılı yazıyor, `awaitingStart` duruyor. Kart gelince `settleStart` figür hâlâ açık olduğu için yılı `card.journey[0].from` yapıyor: linkteki yıl sessizce kayboluyor (detour + yıl içeren paylaşılan link aynı durumu geri getirmiyor). `recomputeRoutes` link yılı için `awaitingStart: null` yazarken bu yol yazmıyor. Mevcut test (`keeps the year of a link`) yalnız detour'suz linki kapsıyor. | `if (year !== null) set({ year, awaitingStart: null });` yaz. Regresyon testi ekle: `applyUrlState({ from, to, detour, year })` → `settle()` → yıl linkin yılı. |"
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| store | (sınıf düzeyi) | [minor] Satır 66-96: `AppState` dışa açık arayüzünde davranışı açık olmayan aksiyonların (`openFigure`: başlangıç / rota / sapma dalları; `setEndpoint`: diğer uçtaki figürü taşıma; `startJourney`, `swapEndpoints`, `selectRoute`, `closeDetour`, `applyUrlState`) doc comment'i yok; komşu aksiyonlarda var. | Bu aksiyonlara, ne yaptığını ve yan etkisini (zamanın nereye gittiği, oynatmanın durması) söyleyen kısa doc comment ekle. |"
         }
       ]
     },
@@ -300,8 +294,10 @@
       ]
     },
     "src/app/urlState.ts::urlState::(sınıf düzeyi)": {
-      "fp": "203fabd5989f5af91b0c0b8e77fadcb3b67e346b42bd03b36863dae65994e26e",
-      "matrix": [],
+      "fp": "b7706103b5a8b059cd3fded3356fbcb79b96399279a31ea3ba7ff9c1485a340a",
+      "matrix": [
+        "| urlState | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/app/urlState.ts::urlState::intOrNull": {
@@ -332,8 +328,10 @@
       "bulgu": []
     },
     "src/data/SqliteContentRepository.ts::SqliteContentRepository::(sınıf düzeyi)": {
-      "fp": "a235f18d22242141f76eee08d4db467cfd6bfbb7cb2c8e1d5ed01b25db5471ad",
-      "matrix": [],
+      "fp": "fc14b776a44e234e050ca4853e380ebb189113a298fb4307faf6a73970cc514e",
+      "matrix": [
+        "| SqliteContentRepository | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/data/SqliteContentRepository.ts::SqliteContentRepository::optionalText": {
@@ -342,7 +340,7 @@
       "bulgu": []
     },
     "src/data/SqliteContentRepository.ts::SqliteContentRepository::toSummary": {
-      "fp": "d041d1977c530d2c284cb73ff5acbd4fcaa7d20bb3da8809d45fa2064a598e99",
+      "fp": "5e4cf5f38b587682df08eedf52a7ea1f512a8ec24001022a8144e44be3c19bdd",
       "matrix": [],
       "bulgu": []
     },
@@ -382,8 +380,10 @@
       "bulgu": []
     },
     "src/data/buildDatabase.ts::buildDatabase::(sınıf düzeyi)": {
-      "fp": "d0bbd01482f8e67521d6a718206eb8093a7d6888c746e9d6f548506a941e7852",
-      "matrix": [],
+      "fp": "b996b07b1720adeae59b05347730da2538c1d6a390184733d8ddc6259cc207b6",
+      "matrix": [
+        "| buildDatabase | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/data/buildDatabase.ts::buildDatabase::insert": {
@@ -392,9 +392,17 @@
       "bulgu": []
     },
     "src/data/buildDatabase.ts::buildDatabase::insertFigure": {
-      "fp": "006d364899c763f88ec2146467292e673ce3198a7f845c28dbea4cfc9a6b4adf",
-      "matrix": [],
-      "bulgu": []
+      "fp": "5b2c858ebb332670f37a21e44c49b817ccc5a56c1c3b98ddf968afe79376b271",
+      "matrix": [
+        "| buildDatabase | insertFigure | 1. Dokümantasyon | [suggestion] `portraitInfoSchema.parse` ile `file`/`crop` ayıklamasının nedeni yazılmamış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| buildDatabase | insertFigure | [suggestion] `JSON.stringify(portraitInfoSchema.parse(figure.portrait))` (satır 111) zaten doğrulanmış kaydı yeniden ayrıştırıyor; amacın `file` ve `crop` alanlarını veritabanına sokmamak olduğu (zod'un bilinmeyen anahtarları atması) koddan anlaşılmıyor. | Nedenini açıklayan kısa bir İngilizce yorum ekle ya da ayıklamayı adı amacı söyleyen küçük bir yardımcıya (`toPortraitInfo`) taşı. |"
+        }
+      ]
     },
     "src/data/buildDatabase.ts::buildDatabase::insertRelations": {
       "fp": "54e3db45f3952d9e390909f296483ed69796fe0a7482754d9ca7696dbd44e54b",
@@ -465,11 +473,17 @@
       "bulgu": []
     },
     "src/data/dbSchema.ts::dbSchema::(sınıf düzeyi)": {
-      "fp": "60b340d213f707e25651720fdf46276b1444f7699874a1c07d4513eda8b75f0c",
+      "fp": "08a6176fef70edaf8968d10625b43452b42dcf1640ca48409b1d299861df7b33",
       "matrix": [
-        "| dbSchema | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+        "| dbSchema | (sınıf düzeyi) | 1 Dokümantasyon | [minor] Anlamı açık olmayan kolonlar açıklamasız |"
       ],
-      "bulgu": []
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| dbSchema | (sınıf düzeyi) | [minor] Anlamı addan çıkmayan kolonlar açıklamasız: `relation_type.weight` (satır 75; büyük değer yakın mı uzak mı?), `line.position` / `line_member.position` / `action.position` (satır 33, 99, 106; sıralamanın neye göre olduğu), `concept.root_letters` / `root_language` (satır 91-92), `figure.wiki_title_tr` (satır 11). Aynı dosyada `precision`, `mode`, `depth`, `gen_*` açıklanmış. | Bu kolonlara aynı biçimde kısa SQL yorumu ekle. |"
+        }
+      ]
     },
     "src/domain/calendar.ts::calendar::(sınıf düzeyi)": {
       "fp": "089f23285f2c9bd01a95aa2639574386169a4e69306f50f3016ff8d426b2baad",
@@ -487,24 +501,24 @@
       "bulgu": []
     },
     "src/domain/contentSchema.ts::contentSchema::(sınıf düzeyi)": {
-      "fp": "f0eb6502b23789598895c1eacb16a6663c96d15be130eeec9fa0a17291370c8b",
+      "fp": "56ee8533cb268997fd2d3eb7781da1d7c032888e16b4e2f223d98664faa76e60",
       "matrix": [
-        "| contentSchema | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
-      ],
-      "bulgu": []
-    },
-    "src/domain/journey.ts::journey::(sınıf düzeyi)": {
-      "fp": "8cc9492061fba5d46abf9756e7826ef5c628fe9eac7a8ad57f3600e34d63eb04",
-      "matrix": [
-        "| journey | (sınıf düzeyi) | 3. Kod Kalitesi | [suggestion] `journeyPosition`, `currentStopIndex` mantığını birebir tekrarlıyor |"
+        "| contentSchema | (sınıf düzeyi) | 3 Kod Kalitesi | [suggestion] Commons dosya sayfası öneki iki ayrı regex'te tekrarlanıyor |"
       ],
       "bulgu": [
         {
           "madde": 3,
           "heading": "Madde 3: Kod kalitesi",
-          "row": "| journey | (sınıf düzeyi) | [suggestion] `journeyPosition` (diff) ilk iki adımında `currentStopIndex` ile aynı kodu tekrarlıyor (`toldIndex` kontrolü + `stopAtYear` + `indexOf`); yalnız son satırı farklı. | `const index = currentStopIndex(figure, journey, year, toldIndex); if (index >= 0) return index; return Math.max(journey.findLastIndex(...), 0);` |"
+          "row": "| contentSchema | (sınıf düzeyi) | [suggestion] Satır 91 `COMMONS_FILE_PAGE` ile satır 126'daki `/^.*\\/wiki\\/File:/` aynı adres önekini iki ayrı regex'te tanımlıyor; biri değişince diğeri sessizce ayrışır (ikincisi ayrıca alan adını denetlemeden her öneki siler). | Öneki tek sabite çıkar (ör. `COMMONS_FILE_PREFIX`) ve hem doğrulama regex'ini hem dosya adı çıkarımını ondan türet. |"
         }
       ]
+    },
+    "src/domain/journey.ts::journey::(sınıf düzeyi)": {
+      "fp": "8f46d22c5498819c08f6bd70aabad1d1620f9e1b0dcb82ec91230c15762bb8b0",
+      "matrix": [
+        "| journey | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
     },
     "src/domain/journey.ts::journey::stopAtYear": {
       "fp": "695d4bac30f87e5293f35e698a6a113d45a3987180555087fa678a9567495cee",
@@ -646,9 +660,17 @@
       "bulgu": []
     },
     "src/domain/types.ts::types::(sınıf düzeyi)": {
-      "fp": "ad627eeb25ef25e2524047d9ee7598e4915edad14b4c8892253b36495e935739",
-      "matrix": [],
-      "bulgu": []
+      "fp": "6dd8a4405442c840357ff827afaed6b96eb0211907b67fe0453d1fcb6f76c24a",
+      "matrix": [
+        "| types | (sınıf düzeyi) | 14 Best Practice'ler | [minor] `GenerationInfo.status` birleşimi elle tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| types | (sınıf düzeyi) | [minor] Satır 60: `status: 'generated' \\| 'reviewed'` birleşimi elle yazılmış; aynı küme `contentSchema.ts` içinde `generationStatusSchema` ile tanımlı ve `GenerationStatus` tipi dışa aktarılıyor (dosya `FigureKind`, `Precision`, `RelationMode` için zaten oradan türetiyor). Enum'a yeni durum eklenince bu tip sessizce eksik kalır. | `status: GenerationStatus` kullan ve tipi `contentSchema`'dan içe aktar. |"
+        }
+      ]
     },
     "src/main.tsx::main::(sınıf düzeyi)": {
       "fp": "378b9be0b6c669ad8baf2df0f577e8fa631570095d6eb197b20ca9829533996b",
@@ -658,8 +680,10 @@
       "bulgu": []
     },
     "src/map/MapLibreMapView.ts::MapLibreMapView::(sınıf düzeyi)": {
-      "fp": "7bd5236b1bb27b77ca9433b480ff4ffeea39d45bbf15621393ea6d8470b1969c",
-      "matrix": [],
+      "fp": "7dee7892b7a58a8afdeecbfaf8d248836fa35d7798dd673f9ff6d5e36bcb0402",
+      "matrix": [
+        "| MapLibreMapView | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/map/MapLibreMapView.ts::MapLibreMapView::createStyle": {
@@ -744,7 +768,7 @@
       "bulgu": []
     },
     "src/map/MapView.ts::MapView::(sınıf düzeyi)": {
-      "fp": "2ee01e8068a24e1ac2d249608323765b40431a63b8026a4ae15f03a248e66560",
+      "fp": "9e2c951870ba27bcb2cf8b5ac667fe8651b7d9d1878eaf7f114b846782f331bb",
       "matrix": [],
       "bulgu": []
     },
@@ -770,17 +794,9 @@
       "bulgu": []
     },
     "src/map/mapScene.ts::mapScene::(sınıf düzeyi)": {
-      "fp": "02c2cdfbcbbcea6073d61a20d6f7da9e68a56f81853fc4f1e77d8f75167cbfb6",
-      "matrix": [
-        "| mapScene | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [suggestion] Ortak yer etiketi yalnız ilk figürün `event`/`precision` değerini taşıyor |"
-      ],
-      "bulgu": [
-        {
-          "madde": 13,
-          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
-          "row": "| mapScene | (sınıf düzeyi) | [suggestion] `buildPlaceLabels` aynı yerde duran figürler için tek etiket üretiyor ve `stopMarker`'a ilk figürün durağını veriyor. `years` bu yüzden bilerek boşaltılmış (\"each with its own years\"), ama `event` ve `precision` yine yalnız ilk figürün durağından geliyor; etiket bunları gösteriyorsa diğer figürler için yanlış bilgi olur (görünüm kodu bu batch'te yok, doğrulanamadı). | Yer etiketinde `event`'i de boş bırak ya da yer etiketi için figüre bağlı alan taşımayan ayrı bir marker tipi kullan. |"
-        }
-      ]
+      "fp": "b99fa8e2d69e5a7e8cd7678ce3f2ef2e0c69298aa3b3869ec34f2953992c579d",
+      "matrix": [],
+      "bulgu": []
     },
     "src/map/mapScene.ts::mapScene::buildCities": {
       "fp": "242fde0bf0c5f14cf335280a0512cbbbcbe2b03c1ee24b224e339318e8703d60",
@@ -793,7 +809,7 @@
       "bulgu": []
     },
     "src/map/mapScene.ts::mapScene::buildFigures": {
-      "fp": "01f06fb9641ba77a60c06148f1466305cccfdb2d20699e3c3b4bffddb32ccca7",
+      "fp": "21332c1acb7b264c5ac72a0d20d2b64cb7cb5ae8276d0fc7bae5caf8880f8f89",
       "matrix": [],
       "bulgu": []
     },
@@ -803,7 +819,7 @@
       "bulgu": []
     },
     "src/map/mapScene.ts::mapScene::buildScene": {
-      "fp": "d09297e02c627fcfa2f03c609800ac62bcb89b67258007b13839e547d1b03605",
+      "fp": "35e3135872c58d8a6a96218ff68dae13f6d1185e51df6d42514ac7d70de95353",
       "matrix": [],
       "bulgu": []
     },
@@ -813,8 +829,10 @@
       "bulgu": []
     },
     "src/map/markerElements.ts::markerElements::(sınıf düzeyi)": {
-      "fp": "1e3b7ca6d09073e2ef43ab8f3f115f97b869bcb17cd1e866f83b74706469bf10",
-      "matrix": [],
+      "fp": "fb3aeba15ad7c42c81a6ba958282cb5e97ba32afac7374c2fdc296e4ba438942",
+      "matrix": [
+        "| markerElements | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/map/markerElements.ts::markerElements::element": {
@@ -843,17 +861,9 @@
       "bulgu": []
     },
     "src/map/markerElements.ts::markerElements::createFigureElement": {
-      "fp": "522cdc89f686745175f58a9191dccdb8c4f98f7fac343e9af0dfcac0203928f6",
-      "matrix": [
-        "| markerElements | createFigureElement | 5. Güvenlik | [minor] `innerHTML` ile SVG basılıyor, `emblemSvg` çıktısının güvenli olduğu bu birimden doğrulanamıyor |"
-      ],
-      "bulgu": [
-        {
-          "madde": 5,
-          "heading": "Madde 5: Güvenlik",
-          "row": "| markerElements | createFigureElement | [minor] `banner.innerHTML = emblemSvg(figure.kind)` ile ham HTML basılıyor. `emblemSvg` bu partide görünmüyor; `kind` içerik verisinden geliyor. Fonksiyon `kind` değerini çıktıya gömüyorsa XSS yolu açılır. Güvenli olduğu bu birimden doğrulanamadı. | `emblemSvg`'nin yalnızca sabit bir tablodan değer döndürdüğünü doğrula ve bunu yorumla belirt; ya da SVG'yi `DOMParser` / `createElementNS` ile düğüm olarak üret. |"
-        }
-      ]
+      "fp": "a30736155f122c3b104e50f9053d6e5d3dbcce07a7d39aafa7bac617ba397cbb",
+      "matrix": [],
+      "bulgu": []
     },
     "src/map/textures.ts::textures::(sınıf düzeyi)": {
       "fp": "f81648fc877d4d72136585a285d8c68feedf0c9f6ec4a5dc776f4cf1fd834962",
@@ -891,28 +901,20 @@
       "bulgu": []
     },
     "src/ui/ActionItem.tsx::ActionItem::(sınıf düzeyi)": {
-      "fp": "a2a64131d9e3e7e702316b6ca22f06c30ff598508dd065e279e29f6fd4547d71",
-      "matrix": [
-        "| ActionItem | (sınıf düzeyi) | 7. İsimlendirme ve Konvansiyonlar | [minor] Dosya projenin biçim düzeninden farklı biçimlendirilmiş (çift tırnak, 80 sütun) |"
-      ],
-      "bulgu": [
-        {
-          "madde": 7,
-          "heading": "Madde 7: Mimari",
-          "row": "| ActionItem | (sınıf düzeyi) | [minor] Dosya bu değişiklikle çift tırnak ve 80 sütun sarmayla yeniden biçimlendirilmiş; projenin geri kalanı (`store.ts`, yeni `CardDetails.tsx`, `RoutePanel.tsx`) tek tırnak ve uzun satır kullanıyor. Fark, davranış değişikliğini biçim gürültüsünün içinde gizliyor. | Dosyayı projenin biçimlendirici ayarıyla (tek tırnak, proje satır genişliği) yeniden biçimlendir. |"
-        }
-      ]
+      "fp": "1f35dff4f7de304e1deac0f1a03464d93fbd6f2865a7ba62ede139b311e6edb1",
+      "matrix": [],
+      "bulgu": []
     },
     "src/ui/ActionItem.tsx::ActionItem::ActionItem": {
-      "fp": "feae606ca2bda19ca239d1d827310dbfc916ab0701cdac0e7a456118d0ae9389",
-      "matrix": [
-        "| ActionItem | ActionItem | 1–14 | Bulgu Yok |"
-      ],
+      "fp": "0526d4d6553b80f5a69788ad743b8c85eeadf2dc288af3af39fc53727fe26f22",
+      "matrix": [],
       "bulgu": []
     },
     "src/ui/CommandBar.tsx::CommandBar::(sınıf düzeyi)": {
-      "fp": "fada48092832ec0ec5f9c2bcd331d03aeff08feda688701e4df24c7f67cfba35",
-      "matrix": [],
+      "fp": "a73644e58f05518d9340b128a9a69f951dafc8f898a6656a57ffc394ff0f5bc7",
+      "matrix": [
+        "| CommandBar | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/CommandBar.tsx::CommandBar::useYearRange": {
@@ -931,20 +933,12 @@
       "bulgu": []
     },
     "src/ui/FigureCard.tsx::FigureCard::(sınıf düzeyi)": {
-      "fp": "10f653337751acbd8c2bae0bcf9d263a16043abd58801cb283d1a3c6484deb2f",
-      "matrix": [
-        "| FigureCard | (sınıf düzeyi) | 7. İsimlendirme ve Konvansiyonlar | [minor] Dosya projenin biçim düzeninden farklı biçimlendirilmiş (çift tırnak, 80 sütun) |"
-      ],
-      "bulgu": [
-        {
-          "madde": 7,
-          "heading": "Madde 7: Mimari",
-          "row": "| FigureCard | (sınıf düzeyi) | [minor] Dosya bu değişiklikle çift tırnak ve 80 sütun sarmayla yeniden biçimlendirilmiş (`lifespan` yalnız biçim olarak değişmiş); proje tek tırnak ve uzun satır kullanıyor. | Dosyayı projenin biçimlendirici ayarıyla yeniden biçimlendir. |"
-        }
-      ]
+      "fp": "e40621dfe7d587886567baad58dd224b10828d7f891df7dfa20fcb51b1fab3ff",
+      "matrix": [],
+      "bulgu": []
     },
     "src/ui/FigureCard.tsx::FigureCard::lifespan": {
-      "fp": "1d28e68637ba060209ca06a585d823ba82c3f9f7b634e596bd32f8f2c2568577",
+      "fp": "41587b445162c4a4011302b0f12f111611d69d18e6b602c5a956bd00194015e8",
       "matrix": [],
       "bulgu": []
     },
@@ -980,7 +974,7 @@
       ]
     },
     "src/ui/FigureCard.tsx::FigureCard::FigureCard": {
-      "fp": "0f523c016b1def0f7e11eff5b224f9b46c9223ffd36d66ee4f2baa3527401d89",
+      "fp": "f5ea2e0588899b7572386ff61d97e445d68330aea251a4d34e17c2e756b20553",
       "matrix": [],
       "bulgu": []
     },
@@ -1004,7 +998,7 @@
       "bulgu": []
     },
     "src/ui/Icon.tsx::Icon::(sınıf düzeyi)": {
-      "fp": "c592e6daa6442637db52f36824b2d9d4c68a457123ce74610965b92342736e15",
+      "fp": "1f44948d0003e4e1432197b1cb090e33bd6a080e869e2d139cccd3268750c8ab",
       "matrix": [
         "| Icon | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
       ],
@@ -1016,32 +1010,62 @@
       "bulgu": []
     },
     "src/ui/MapStage.tsx::MapStage::(sınıf düzeyi)": {
-      "fp": "751044fe4c61c82374eaa7950fdb84418166cc5de9fbc4acb173791dc99106ac",
-      "matrix": [],
-      "bulgu": []
+      "fp": "a50994ad0424adeaaa4d60c8cdae7abe377a42b9665bc0a4e642fe5bae3d1d44",
+      "matrix": [
+        "| MapStage | (sınıf düzeyi) | 13. Potansiyel Hatalar (magic number) | [suggestion] Inset ve kırılım değerleri CSS yerleşimini elle yansıtıyor |",
+        "| MapStage | (sınıf düzeyi) | 14. Best Practice'ler (Single Source of Truth) | [minor] Harita türü adları InfoDialogs ile iki ayrı yerde tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| MapStage | (sınıf düzeyi) | [suggestion] `DESKTOP_MIN_WIDTH = 900` ve `DESKTOP_INSETS` / `PHONE_INSETS` (470, 170, 140, 120, 56) panel genişliği ve CSS kırılım noktasını elle yansıtıyor. Sabitler adlandırılmış ve açıklanmış, ancak CSS'te yerleşim değişirse kamera çerçevesi sessizce yanlış kalır. | Değerleri ilgili öğelerin ölçüsünden (`getBoundingClientRect`) veya ortak bir CSS değişkeninden türet; mümkün değilse CSS tarafına karşılıklı bir not düş. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| MapStage | (sınıf düzeyi) | [minor] `MAP_KIND_NAMES` (`pixi: 'Boyalı harita'`, `maplibre: 'Sade harita'`) ile `InfoDialogs.tsx` içindeki `MAP_KIND_LABELS[...].name` aynı adları iki ayrı yerde tanımlıyor. İkisi de `Record<MapKind, …>` olduğu için yeni tür eklenince derleme uyarır, ama bir ad yalnız bir yerde değiştirilirse uyarı notu ile ayar penceresi farklı ad gösterir. | Harita türü adlarını tek bir ortak sabitte tut (ör. harita türünün tanımlandığı modülde `MAP_KIND_NAMES`); `InfoDialogs` yalnız `note` alanını eklesin, adı oradan okusun. |"
+        }
+      ]
     },
     "src/ui/MapStage.tsx::MapStage::MapStage": {
-      "fp": "daa5426714ab26fe60dae3f229e63fda687913835a484e6f26cd2175fd5941d1",
+      "fp": "e0078e2f349d83e5912ad4dea3b379a274f9613e8f6bc429c12369edb853ba3e",
       "matrix": [
-        "| MapStage | MapStage | 3. Kod Kalitesi | [suggestion] Kamera takip mantığı (subject, sceneRef, framed, efekt) bileşenin içinde; ayrı hook'a çıkarılabilir |"
+        "| MapStage | MapStage | 3. Kod Kalitesi (Single Responsibility) | [suggestion] Bileşen hem kamera takibini hem görünümü taşıyor |"
       ],
       "bulgu": [
         {
           "madde": 3,
           "heading": "Madde 3: Kod kalitesi",
-          "row": "| MapStage | MapStage | [suggestion] Satır 111-134: bileşen artık sahne kurma, kamera konusu (`subject`), `sceneRef`, `framed` ref'i ve çerçeveleme/kaydırma efektini birlikte taşıyor (58 satır). Dosyada `useMapView` ve `useMapScene` zaten ayrılmışken kamera mantığı bileşenin içinde kalmış. | Kamera takibini `useCameraFollow(view, scene)` gibi bir hook'a çıkar; bileşen yalnız birleştirme ve JSX ile kalsın. |"
+          "row": "| MapStage | MapStage | [suggestion] Bileşen yaklaşık 65 satır; sahneyi renderer'a aktarma, kamera öznesini hesaplama (`subject`, `framed`, `sceneRef`), kadraj/pan etkisi ve üç ayrı bildirim görünümünü birlikte taşıyor. | Kamera takibini (`subject` hesabı ve kadraj `useEffect`'i) `useCameraFollow(view, scene)` gibi ayrı bir hook'a çıkar; bileşen yalnız görünümü birleştirsin. |"
         }
       ]
     },
     "src/ui/Medallion.tsx::Medallion::(sınıf düzeyi)": {
-      "fp": "9d7ba82335bb9547b9fff55054bba3561ee42e2564422c2bd590f90e2b161b58",
-      "matrix": [],
+      "fp": "235da5bd0cd2dea99c1e06cf6309aca3145baa7b6fb5fbf1051d5864acc772c6",
+      "matrix": [
+        "| Medallion | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/Medallion.tsx::Medallion::Medallion": {
-      "fp": "98a84462af27f7ecc38df99c1531c65f121e566a55fb1492a7fee959a9b5b972",
-      "matrix": [],
-      "bulgu": []
+      "fp": "50aa16dcc91af893377768bd9bae5fcbc187241113c3b8b33ee752f4c8b3a363",
+      "matrix": [
+        "| Medallion | Medallion | 13. Potansiyel Hatalar ve Sorunlar | [minor] `failed` durumu figür değişince sıfırlanmıyor |",
+        "| Medallion | Medallion | 2. Testler ve Test Coverage'ı | [minor] Görsel yüklenemeyince simgeye düşme yolu test edilmemiş |"
+      ],
+      "bulgu": [
+        {
+          "madde": 2,
+          "heading": "Madde 2: Testler ve test coverage",
+          "row": "| Medallion | Medallion | [minor] `onError` ile simgeye düşme yolu (satır 33-36) yeni davranış olduğu halde test edilmemiş; e2e testleri yalnız portrenin yüklendiği ve portre kaydı olmayan durumları kapsıyor. | Portre isteğini engelleyip (`page.route` ile 404) medalyonda `svg` simgesinin göründüğünü ve `img` kalmadığını doğrulayan bir test ekle; figür değişimi sonrası sıfırlanmayı da aynı testte kapsa. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| Medallion | Medallion | [minor] `failed` durumu (satır 25) bileşen örneğine bağlı ve `figure` değişince sıfırlanmıyor. Aynı örneğin farklı figür aldığı yerlerde (`EndpointSlotButton`, `TopBar.Endpoint`: slot aynı kalır, figür değişir) bir portre bir kez yüklenemezse sonradan seçilen ve portresi sağlam olan figürler de simgeyle gösterilir. | Başarısızlığı slug ile tut (`failedSlug === figure.slug`) ya da `img`/medalyonu `key={figure.slug}` ile yeniden kur. |"
+        }
+      ]
     },
     "src/ui/MiniMap.tsx::MiniMap::(sınıf düzeyi)": {
       "fp": "441a6c69381f34a018f31931450c7bc0ba0c173136ed6482f0bc705b8c673db3",
@@ -1121,8 +1145,10 @@
       ]
     },
     "src/ui/RoutePanel.tsx::RoutePanel::(sınıf düzeyi)": {
-      "fp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "matrix": [],
+      "fp": "da281b4ce11e8a254cca43537efb775d7622922ccd455668fa6e4c676494aa93",
+      "matrix": [
+        "| RoutePanel | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/RoutePanel.tsx::RoutePanel::Welcome": {
@@ -1146,7 +1172,7 @@
       "bulgu": []
     },
     "src/ui/RoutePanel.tsx::RoutePanel::RouteChain": {
-      "fp": "d22380cfe47e8d924ff4d99d45b7d415c6faf5f0d7b2f9c24a4223af4f4eab6f",
+      "fp": "5b239c2f48d4d4d5405f60bfd0657938908946cb9582164f44f4a3f691cb982d",
       "matrix": [],
       "bulgu": []
     },
@@ -1193,17 +1219,11 @@
       "bulgu": []
     },
     "src/ui/TopBar.tsx::TopBar::Endpoint": {
-      "fp": "1b48d5b1304d7b2d041ad138b5a1ebf683cf6ed654d37241390c8226fc67d366",
+      "fp": "1896ff8474d1623053afe7e98733254cf185d8e6f976bdf1d02af4ca898baa53",
       "matrix": [
-        "| TopBar | Endpoint | 3. Kod Kalitesi | [minor] `RoutePanel.EndpointSlotButton` ile neredeyse aynı bileşen; figür araması da `findFigure` yerine elle yazılmış |"
+        "| TopBar | Endpoint | 1–14 | Bulgu Yok |"
       ],
-      "bulgu": [
-        {
-          "madde": 3,
-          "heading": "Madde 3: Kod kalitesi",
-          "row": "| TopBar | Endpoint | [minor] Satır 6-23, `RoutePanel.EndpointSlotButton` (satır 17-27) ile neredeyse aynı: slot figürünü bul, `openDialog({ kind: 'picker', slot })`, `Medallion`, `SLOT_LABELS[slot]`, `figure?.nameTr ?? EMPTY_SLOT_LABEL`. Fark yalnız CSS sınıfları ve `data-testid` öneki. Ayrıca satır 7 figürü `findFigure` yerine elle `world?.figures.find(...)` ile arıyor. | Sınıf ve test kimliği önekini parametre alan tek bir bileşen (ya da ortak `useSlotFigure(slot)` hook'u) yaz; aramayı `findFigure` üzerinden yap. |"
-        }
-      ]
+      "bulgu": []
     },
     "src/ui/TopBar.tsx::TopBar::TopBar": {
       "fp": "c26dfdc1dbf149bf1bb40f354a418c2318de41ef1e51e723686cd9919fe89cd3",
@@ -1241,20 +1261,24 @@
       "bulgu": []
     },
     "src/ui/dialogs/FigurePickerDialog.tsx::FigurePickerDialog::FigurePickerDialog": {
-      "fp": "ff349ae286eb82c106187ed4a441b80963b7bb158adf728de9dc0cf0c319de29",
+      "fp": "365ccd1c88633b32ff1216cdb143f853af8d5494e4598d9af901682488ac7218",
       "matrix": [
         "| FigurePickerDialog | FigurePickerDialog | 1–14 | Bulgu Yok |"
       ],
       "bulgu": []
     },
     "src/ui/dialogs/InfoDialogs.tsx::InfoDialogs::(sınıf düzeyi)": {
-      "fp": "642293b3899ba6900b938d0284214d44009f4b23f06ba30a7c2f72b9de631bda",
-      "matrix": [],
+      "fp": "c65042ad5a0c872eca564ef2f21fc73288576ee7a7783a635a3ce86c1b085b0a",
+      "matrix": [
+        "| InfoDialogs | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/dialogs/InfoDialogs.tsx::InfoDialogs::AboutDialog": {
-      "fp": "155c6c77fab43a6b3826567917bc9965a7560b6db6ab65af1ebb4890eca40121",
-      "matrix": [],
+      "fp": "b3e29764dd350dd8456fe0a18094eb028fe42b9d9d9d5d60721bd0a0d5dc0332",
+      "matrix": [
+        "| InfoDialogs | AboutDialog | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/dialogs/InfoDialogs.tsx::InfoDialogs::SettingsDialog": {
@@ -1263,30 +1287,18 @@
       "bulgu": []
     },
     "src/ui/dialogs/QuizDialog.tsx::QuizDialog::(sınıf düzeyi)": {
-      "fp": "01fd51fadffab179945ca816b9851396df0c0f95a026bd60ff17307584ddc28d",
+      "fp": "43ab86c9e5a9d90445fff399a36b692a63364a3eec42cb92e472ff20e0a49071",
       "matrix": [
         "| QuizDialog | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
       ],
       "bulgu": []
     },
     "src/ui/dialogs/QuizDialog.tsx::QuizDialog::OrderingGame": {
-      "fp": "ba882f5a8113a2151b61538d90ff3a59cc987118064b5de7e5c287d9c658794e",
+      "fp": "aec2f24973af0cb04019a622809eec043607617d6143ae81a3c8c2e60348bc44",
       "matrix": [
-        "| QuizDialog | OrderingGame | 13. Potansiyel Hatalar ve Sorunlar | [minor] `figures` değişince tur state'i eski kalır, bulunamayan satırlar sessizce düşer |",
-        "| QuizDialog | OrderingGame | 3. Kod Kalitesi | [suggestion] Satır 48'de iç içe ternary |"
+        "| QuizDialog | OrderingGame | 1–14 | Bulgu Yok |"
       ],
-      "bulgu": [
-        {
-          "madde": 3,
-          "heading": "Madde 3: Kod kalitesi",
-          "row": "| QuizDialog | OrderingGame | [suggestion] Satır 48'de iç içe ternary (`checked ? (… ? 'right' : 'wrong') : undefined`) okunabilirliği düşürüyor; aynı dosyada `CauseGame.resultOf` bunu ayrı fonksiyonla çözüyor. | `CauseGame`'deki gibi küçük bir `resultOf(index, slug)` yardımcı fonksiyonuna çıkar. |"
-        },
-        {
-          "madde": 13,
-          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
-          "row": "| QuizDialog | OrderingGame | [minor] `round` ve `order` yalnız ilk render'da `figures`'tan üretiliyor (satır 22-23). Pencere açıkken rota değişirse (bağlantı değişimi `figures`'ı yeniden hesaplatır) state eski slug'ları tutar; `bySlug.get(slug)` bulamayınca satır 47 `null` döndürür ve satır sessizce kaybolur, skorun paydası (`round.solution.length`) ekrandaki satır sayısıyla uyuşmaz. | Bileşeni `figures` kimliğine bağlı bir `key` ile yeniden mount et (ör. `<OrderingGame key={routeSlugs} …/>`) ya da `figures` değişince turu yeniden kur. |"
-        }
-      ]
+      "bulgu": []
     },
     "src/ui/dialogs/QuizDialog.tsx::QuizDialog::CauseGame": {
       "fp": "0acc81d6d05a6470f6a213844c60775b99252cbc9843e504947d3f5fa19091f2",
@@ -1316,8 +1328,10 @@
       "bulgu": []
     },
     "tests/e2e/helpers.ts::helpers::(sınıf düzeyi)": {
-      "fp": "c60967c7422022698858dd31c84b74150a25797e33aa57444d21d9b28485e212",
-      "matrix": [],
+      "fp": "919c651293928ef863c56ba07fd39fbce5f969cd7a106487b461536b793fb14f",
+      "matrix": [
+        "| helpers | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "tests/e2e/helpers.ts::helpers::snap": {
@@ -1344,66 +1358,90 @@
       "bulgu": []
     },
     "tests/e2e/journey.spec.ts::journey.spec::(sınıf düzeyi)": {
-      "fp": "4fad6f8c1db6355ba5adbe8e156f02d2489e001025e38f43a33956595d8684b0",
+      "fp": "dfa429a67d6c51c4f101474f840fa641028e18d4f56f5d0f6cb0319ff0063a63",
       "matrix": [
-        "| journey.spec | (sınıf düzeyi) | 2 Testler ve Test Coverage'ı | [minor] Alternatif rotalar arasında geçiş e2e testi silinmiş; bu batch'te yerine geçen e2e testi görünmüyor |"
+        "| journey.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] İçerik metinleri ve figür slug'ları teste sabit yazılmış |",
+        "| journey.spec | (sınıf düzeyi) | 14. Best Practice'ler | [suggestion] `data-testid` yerine stil sınıfı seçicileri kullanılmış |"
       ],
       "bulgu": [
         {
-          "madde": 2,
-          "heading": "Madde 2: Testler ve test coverage",
-          "row": "| journey.spec | (sınıf düzeyi) | [minor] \"offers alternative routes and switches between them\" e2e testi silinmiş (`route-tab-*`, `r=1` URL'si, rotadaki figürlerin değişmesi). Rota türü seçimi `phase10.test.ts` içinde store düzeyinde test ediliyor, ancak `RouteTabs` yerine gelen `RouteHeader` üzerinden geçişi ve URL'ye yansımasını doğrulayan bir e2e testi bu batch'teki dosyalarda yok. | Yeni arayüz için eşdeğer e2e testi ekle (tür değiştir → açık rota ve URL değişir, rotadaki figürler farklı); başka bir spec'te zaten varsa bu bulgu kapanır. |"
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| journey.spec | (sınıf düzeyi) | [minor] Testler içerik metnine ve belirli figürlere sabit bağlı: `'13 yaşındayken tahta çıkan'`, `'19 kardeşini birden boğdurmuş'`, `'Şehzadeler artık sancağa gönderilmedi'`, `'tek bir kararla koymadı'`, `'k-b-r'`, `'tekbir'`, `'Kösem Sultan'`, `action-kardes-katli` (satır 71-94, 125). İçerik düzeltildiğinde davranış bozulmadan test kırılır. `phase10.spec.ts` ve `portraits.spec.ts` aynı ihtiyacı içerikten okuyarak çözüyor. | Beklenen metinleri içerik dosyasından oku (`figureContent('ahmed-i')` ile eylemin `cause`/`consequence`/`depth` alanları, ilişki adı, kavram kökü) ve doğrulamayı o değerlerle yap. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| journey.spec | (sınıf düzeyi) | [suggestion] Satır 54-55'te `.chain-link__tag` ve `.chain-link__note` stil sınıfları seçici olarak kullanılıyor; dosyanın geri kalanı `data-testid` kullanıyor. Stil sınıfı yeniden adlandırılınca test kırılır. | Bu öğelere `data-testid` ver ve `getByTestId` ile seç. |"
         }
       ]
     },
     "tests/e2e/map-and-games.spec.ts::map-and-games.spec::(sınıf düzeyi)": {
-      "fp": "5bb84ff090c5eac8dec1cec3516887332ce127dffc3ea6570a7ebc36a562ceaa",
+      "fp": "d7786bc898133e0f3e46a2b68ce3c9175c1e835b03d40edfd909ce8290b88bf1",
       "matrix": [
-        "| map-and-games.spec | (sınıf düzeyi) | 14. Best Practice'ler | [minor] Aynı beklenti bir testte `Math.min(..., JOURNEY_GROUP_SIZE)` ile, diğerinde onsuz yazılmış |",
-        "| map-and-games.spec | (sınıf düzeyi) | 14. Best Practice'ler | [minor] `LONGER_THAN_ONE_REST_MS = 3200` uygulamadaki bekleme süresinden türetilmiyor |",
-        "| map-and-games.spec | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] `journeyLength` ve `JOURNEY_STOP` diğer spec dosyalarıyla kopya |"
+        "| map-and-games.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] Görünüm boyutuna bağlı sihirli sayılar (700–1300, 1240×900, -100) |",
+        "| map-and-games.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] `LONGER_THAN_ONE_REST_MS` uygulamanın bekleme süresinden türetilmiyor; test boş yere geçebilir |",
+        "| map-and-games.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] `isVisible()` ile beklemesiz döngü koşulu: yarış durumu |",
+        "| map-and-games.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] İçeriğe bağlı sabit beklentiler (2, 3, `H. 1018`, 1700) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| map-and-games.spec | (sınıf düzeyi) | [minor] `LONGER_THAN_ONE_REST_MS = 3200` (satır 5) uygulamadaki oynatma bekleme süresinin elle kopyası. Uygulamadaki süre 3200 ms üstüne çıkarsa satır 56-57'deki \"durdu\" doğrulaması, oynatma durmasa bile geçer (sessiz kapsam kaybı). | Süreyi uygulamanın oynatma sabitinden türet (ör. dışa aktarılan bekleme süresi × katsayı), ya da durmayı zamana değil duruma bağla (`play` düğmesinin erişilebilir adı / bir `data-playing` özniteliği). |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| map-and-games.spec | (sınıf düzeyi) | [minor] Görünüm boyutuna bağlı adsız sayılar: tarama ızgarası `700..1300`, `300..700`, adım `60` (satır 106-107); `setViewportSize({ width: 1240, height: 900 })` ve beklenen `-100` (satır 129-131) masaüstü görünümünün 1440×900 olduğunu varsayıyor. Playwright yapılandırmasındaki boyut değişince test anlamsız biçimde kırılır. | `page.viewportSize()` değerini oku; yeni genişliği ve beklenen kaymayı ondan hesapla (`width - SHRINK_PX`, `-SHRINK_PX / 2`), ızgara sınırlarını adlandırılmış sabitlere çıkar. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| map-and-games.spec | (sınıf düzeyi) | [minor] Satır 170'teki `while (await page.getByTestId('cause-option-1').isVisible())` beklemeden anlık durum okur. `next-question` tıklamasından sonra yeni soru henüz çizilmediyse döngü erken biter ya da eski sorunun seçeneğine yeniden tıklar; test kararsız olur. | Her turda belirli bir durumu bekle: `cause-finished` ile sıradaki sorunun seçeneğini `expect(...).toBeVisible()` / `locator.or()` ile bekleyip hangisinin geldiğine göre devam et; ya da soru sayısını `.score` metninden okuyup sayılı döngü kur. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| map-and-games.spec | (sınıf düzeyi) | [minor] İçeriğe bağlı sabit beklentiler: 1609'da `toHaveCount(2)`, 1612'de `toHaveCount(3)` (satır 25, 29), `'H. 1018'` (satır 22), `'1700'` (satır 35). Aynı dosyada durak sayısı `shownStopCount('ahmed-i')` ile içerikten türetilirken bunlar elle yazılmış; içerik güncellenince yanlış nedenle kırılır. | Ulaşılan durak sayısını içerikteki `journey` kayıtlarından (`from <= yıl`), yaşam dışı yılı figürün `death.year` değerinden hesapla; hicrî yılı uygulamanın dönüşüm fonksiyonuyla üret. |"
+        }
+      ]
+    },
+    "tests/unit/app.test.ts::app.test::(sınıf düzeyi)": {
+      "fp": "7642f7b07bccc0d58c839c63714478fd0999fb388e00ca5c0ca54999b72d853f",
+      "matrix": [
+        "| app.test | (sınıf düzeyi) | 3. Kod Kalitesi | [suggestion] `stop` yardımcısında `slug === 'saray'` gizli özel durumu |"
       ],
       "bulgu": [
         {
           "madde": 3,
           "heading": "Madde 3: Kod kalitesi",
-          "row": "| map-and-games.spec | (sınıf düzeyi) | [minor] `journeyLength` içerik okuyucusu ve `JOURNEY_STOP` sabiti `phase10.spec` ile birebir kopya. | İkisini `tests/e2e/helpers.ts` içine taşı. |"
-        },
-        {
-          "madde": 14,
-          "heading": "Madde 14: Best practice'ler",
-          "row": "| map-and-games.spec | (sınıf düzeyi) | [minor] `shows the focused figure and its journey` testi `Math.min(journeyLength('ahmed-i'), JOURNEY_GROUP_SIZE)` bekliyor, `offers the basic map` testi aynı sayı için yalnız `journeyLength('ahmed-i')` bekliyor (satır 105). Harita her seferde bir grup gösterdiği için içerikte bu figüre 9. durak eklenince ikinci test kırılır. | İkisinde de aynı ifadeyi kullan; ifadeyi `shownStopCount(slug)` gibi tek bir yardımcıya çıkar. |"
-        },
-        {
-          "madde": 14,
-          "heading": "Madde 14: Best practice'ler",
-          "row": "| map-and-games.spec | (sınıf düzeyi) | [minor] `LONGER_THAN_ONE_REST_MS = 3200` oynatmanın bekleme süresini elle tekrar ediyor. Aynı dosya `JOURNEY_GROUP_SIZE`'ı kaynaktan içe aktarırken bu değer türetilmiyor: uygulamadaki süre uzatılırsa \"durdu mu\" kontrolü hiçbir şey kanıtlamadan geçer. | Bekleme süresini uygulamadaki sabitten içe aktarıp ondan türet (`REST_MS + pay`). |"
+          "row": "| app.test | (sınıf düzeyi) | [suggestion] `stop` yardımcısı (satır 58-64) yer adını `slug === 'saray' ? 'Topkapı Sarayı, İstanbul' : slug` ile üretir. Satır 86'daki `'Topkapı Sarayı'` beklentisi bu gizli özel duruma dayanır; okuyan kişi girdiyi testte göremez. | Yer adını yardımcıya parametre olarak ver ya da ilgili durağı testte açıkça kur. |"
         }
       ]
     },
-    "tests/unit/app.test.ts::app.test::(sınıf düzeyi)": {
-      "fp": "1cc8ebae7de8c074c71e3068478c20e7927a6646720d876d18beacef9e633207",
-      "matrix": [
-        "| app.test | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
-      ],
-      "bulgu": []
-    },
     "tests/unit/data.test.ts::data.test::(sınıf düzeyi)": {
-      "fp": "3853b8eb6f7e30dd64f06678d39a9dae76d7e27aeca4bb4d82f0c0a8401beb5e",
+      "fp": "b87ea9343e95d65767deccfef8ffc501c005ddfdf11d6aa3a85ba0c061f45882",
       "matrix": [
         "| data.test | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
       ],
       "bulgu": []
     },
     "tests/unit/domain.test.ts::domain.test::(sınıf düzeyi)": {
-      "fp": "496f90384b1e72b6366f62ad96da28d9c7a614719c778ccf1474c338d9f36f26",
+      "fp": "f9a6c22f69473a3f6ca83e2ad16aee3ab88ac14e50ba7e496c99d5d00a52354d",
       "matrix": [
-        "| domain.test | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+        "| domain.test | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] Yerel `card` yardımcısı, `fixtures.ts` içindeki `figureCard` ile aynı işi yeniden yazıyor |"
       ],
-      "bulgu": []
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| domain.test | (sınıf düzeyi) | [minor] Satır 122-132: yerel `card` yardımcısı tam bir `FigureCard` (summary, journey, sources, generation) kuruyor; `fixtures.ts` bunun için zaten `figureCard` sunuyor (\"tests add what they need\") ve `edgeCases.test.ts` de ayrı bir `card` kullanıyor. `FigureCard` tipine alan eklenince üç kurucu ayrı ayrı güncellenmek zorunda kalır. | `card` yardımcısını `figureCard(figure(slug, 1500, 1560, 1530), { actions: [...] })` üzerine kur; yalnız teste özgü `actions` alanını ver. |"
+        }
+      ]
     },
     "tests/unit/fixtures.ts::fixtures::(sınıf düzeyi)": {
-      "fp": "9764391ab54d8a584223e70b7ad51e11da56ffb854823a1cacf62af5c1a30169",
+      "fp": "e4c46f9baf0490cfe80e24a8d38bd4f304073aba254850946f24fa07f14c97f0",
       "matrix": [
         "| fixtures | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
       ],
@@ -1430,29 +1468,29 @@
       "bulgu": []
     },
     "tests/unit/routeEngine.test.ts::routeEngine.test::(sınıf düzeyi)": {
-      "fp": "64996f869c78d9a0924f0e4d63c6e3c153adebb4b21a4fc97664dad0e4a44ef5",
+      "fp": "0b09e247755cab603c413d84e9503cf7a3d8ea79e667f994c9d38b94e2d3f798",
       "matrix": [
         "| routeEngine.test | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
       ],
       "bulgu": []
     },
     "vite.config.ts::vite.config::(sınıf düzeyi)": {
-      "fp": "419066ee7ece870607c0a39162a9fb71f51582b09f293b4040c5b3d8a486f58d",
+      "fp": "1cff09f3883f5d6e64517cae7c201880fcb946b2b08bc670d705eb548add76df",
       "matrix": [
         "| vite.config | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
       ],
       "bulgu": []
     },
     "scripts/build-relief.py::build-relief::(sınıf düzeyi)": {
-      "fp": "6f15b029fe58feb265b6a1a36ec854c7b6137d9f3a1ae05b4b25ee85effb8dd1",
+      "fp": "d7f890fc771a6df871185710c652ec1c2769f3dc6a4f807597fc1f94e696966e",
       "matrix": [
-        "| build-relief | (sınıf düzeyi) | 14. Best Practice'ler (en az sürpriz) | [minor] `read_map_region()` modül yüklenirken çalışıyor; import sırasında dosya okuyor ve `sys.exit` çağırabiliyor |"
+        "| build-relief | (sınıf düzeyi) | 5 Güvenlik | [minor] `Image.MAX_IMAGE_PIXELS = None` gerekçesiz, koruma tamamen kapalı |"
       ],
       "bulgu": [
         {
-          "madde": 14,
-          "heading": "Madde 14: Best practice'ler",
-          "row": "| build-relief | (sınıf düzeyi) | [minor] Satır 46: `WEST, SOUTH, EAST, NORTH = read_map_region()` modül düzeyinde çalışıyor. Modül import edildiği anda `mapRegion.ts` okunuyor ve bulunamazsa `sys.exit` ile süreç kapanıyor; `main` de bu global'lere gizlice bağımlı. | Bölgeyi `main()` içinde oku ve `mercator_y` hesaplarına parametre olarak geçir; modül düzeyinde yalnız sabitler kalsın. |"
+          "madde": 5,
+          "heading": "Madde 5: Güvenlik",
+          "row": "| build-relief | (sınıf düzeyi) | [minor] Satır 30: `Image.MAX_IMAGE_PIXELS = None` Pillow'un decompression bomb korumasını süresiz kapatıyor; neden gerektiğini söyleyen yorum yok ve girdi komut satırından gelen bir dosya. | Kaynak görüntünün bilinen boyutuna göre adlandırılmış bir üst sınır sabiti ver (ör. `MAX_SOURCE_PIXELS`) ya da en azından nedenini açıklayan bir yorum ekle. |"
         }
       ]
     },
@@ -1537,9 +1575,17 @@
       "bulgu": []
     },
     "src/map/PixiMapView.ts::PixiMapView::(sınıf düzeyi)": {
-      "fp": "cec0e9dda7e4622119e73c9ad6aa3f824d0cee0b3d7fb1983d9e201522cb2a6d",
-      "matrix": [],
-      "bulgu": []
+      "fp": "0b1ad4a02b4c23d5372bca163cb2b4cbac32e6d82864d53f08e6eda234e943e4",
+      "matrix": [
+        "| PixiMapView | (sınıf düzeyi) | 3. Kod Kalitesi (DRY) | [suggestion] Sıfır inset değeri iki renderer'da ayrı ayrı yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| PixiMapView | (sınıf düzeyi) | [suggestion] Başlangıç inset değeri `{ top: 0, right: 0, bottom: 0, left: 0 }` hem `PixiMapView` (satır 101) hem `MapLibreMapView` (satır 178) içinde ayrı ayrı yazılmış; `EMPTY_SCENE` ise `MapView.ts` içinde ortak. | `MapView.ts` içine `EMPTY_SCENE` yanına `NO_INSETS` sabiti ekle, iki renderer onu kullansın. |"
+        }
+      ]
     },
     "src/map/PixiMapView.ts::PixiMapView::drawSegment": {
       "fp": "85c46f029603e3b617c6366ed1f4d276f4fd264fa97c8db151ad374f77a55db7",
@@ -1782,8 +1828,10 @@
       ]
     },
     "src/ui/MapStage.tsx::MapStage::useMapView": {
-      "fp": "301b4a6e7edcdcb6c77539925b23a50e37231c36a90f3ddd3a8a5d1d17260e78",
-      "matrix": [],
+      "fp": "c0cd350b9c6e122b1d5e31f440344fc29a95cdeb61b2dafbaa3f8da3d537c5d3",
+      "matrix": [
+        "| MapStage | useMapView | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/MapStage.tsx::MapStage::useMapScene": {
@@ -1792,7 +1840,7 @@
       "bulgu": []
     },
     "src/ui/RoutePanel.tsx::RoutePanel::EndpointSlotButton": {
-      "fp": "903aa66fcf8a30a0ea4bc012c1c58f0694548e7484d1987239c7c8c03ce29b92",
+      "fp": "e1be6cbb87a9c449bcb75c8e1d29fb75cdd7d671196a1b9b11fc18010cba64e6",
       "matrix": [],
       "bulgu": []
     },
@@ -1826,17 +1874,11 @@
       "bulgu": []
     },
     "tests/unit/edgeCases.test.ts::edgeCases.test::(sınıf düzeyi)": {
-      "fp": "1d702d35de4ba04553ec53dbbd9fd62d14870df9ab95dc606af7d9cecac7acc1",
+      "fp": "22b104945cb7fe514fde9262581103fa19f7dd4a884444a3675a2ab557a2fc47",
       "matrix": [
-        "| edgeCases.test | (sınıf düzeyi) | 2. Testler ve Test Coverage'ı | [minor] `keeps well-known later years` testi karşılığı görünmeden silinmiş |"
+        "| edgeCases.test | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
       ],
-      "bulgu": [
-        {
-          "madde": 2,
-          "heading": "Madde 2: Testler ve test coverage",
-          "row": "| edgeCases.test | (sınıf düzeyi) | [minor] `keeps well-known later years` testi (`toHijriYear(1453) = 857`, `toHijriYear(1923) = 1342`) silinmiş; `route cost` testinin aksine (o `routeEngine.test.ts` içine taşınmış) bu testin taşındığı yer bu farkta görünmüyor. Geriye `describe` kapanışından önce boş bir satır kalmış. Hicri dönüşümün bilinen yıllar için kapsamı düşmüş olabilir. | Test başka bir dosyaya taşınmadıysa geri ekle; taşındıysa yalnız artakalan boş satırı temizle. |"
-        }
-      ]
+      "bulgu": []
     },
     "tests/unit/edgeCases.test.ts::edgeCases.test::card": {
       "fp": "84a4f4b34f99016be99352f5987ca2cc3ca856f0eb4551c122b81d92636b097e",
@@ -1846,27 +1888,15 @@
       "bulgu": []
     },
     "tests/unit/store.test.ts::store.test::(sınıf düzeyi)": {
-      "fp": "34a2d8932e362905e119805eaeed022aee1efb2684b535bfd14833b1acb5e3e6",
+      "fp": "d0bebda53ca5f103827391a4ffa6b0e8bd3663d92cd33c832246f01a78d8ebe1",
       "matrix": [
-        "| store.test | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [suggestion] `'corrupt'` hata metni yeni testte tekrar ediyor, `DISK_ERROR` gibi sabite çıkarılmamış |",
-        "| store.test | (sınıf düzeyi) | 2. Testler ve Test Coverage'ı | [minor] `toHaveBeenCalledTimes(2)` neyin loglandığını doğrulamıyor, yalnız sayıya bağlı |",
-        "| store.test | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] Aynı spotlight nesne değişmezi iki yeni testte kopyalanmış |"
+        "| store.test | (sınıf düzeyi) | 3. Kod Kalitesi | [suggestion] Aynı `spotlight` nesnesi iki testte elle yeniden yazılmış |"
       ],
       "bulgu": [
         {
-          "madde": 2,
-          "heading": "Madde 2: Testler ve test coverage",
-          "row": "| store.test | (sınıf düzeyi) | [minor] Satır 163: `expect(logged).toHaveBeenCalledTimes(2)` yalnız çağrı sayısını doğruluyor. Testin amacı hem yükleme hatasının hem kapatma hatasının loglanması; sayı 2 olduğu sürece ikisinden biri yutulup başka bir şey iki kez loglansa da test geçer, store'a ilgisiz bir `console.error` eklenince de gereksiz yere kırılır. | Çağrı argümanlarını doğrula: iki hatanın (`'corrupt'` ve `'already closed'`) loglandığını `toHaveBeenCalledWith(..., expect.objectContaining({ message: ... }))` veya `logged.mock.calls` üzerinden kontrol et. |"
-        },
-        {
           "madde": 3,
           "heading": "Madde 3: Kod kalitesi",
-          "row": "| store.test | (sınıf düzeyi) | [minor] Satır 182 ve 207: `{ year, figure, figureName, stopIndex: 0, place: { slug: 'yer', nameTr: 'Yer', lat: 40, lon: 30 }, placeName: 'Yer', years, text: 'olay' }` biçimindeki spotlight nesnesi iki yeni testte yalnız yıl ve figür değiştirilerek kopyalanmış (DRY). Spotlight tipine alan eklenince iki yerin de elle güncellenmesi gerekir. | Dosyadaki `cardOf(slug)` yardımcısına benzer bir `spotlightOf(figure, year)` yardımcı fonksiyonu yaz, iki test de onu kullansın. |"
-        },
-        {
-          "madde": 13,
-          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
-          "row": "| store.test | (sınıf düzeyi) | [suggestion] Satır 155: `new Error('corrupt')` yeni testte, satır 145'teki mevcut kullanımla aynı metinle tekrar ediyor. Aynı değişiklikte `'disk error'` için `DISK_ERROR` sabiti çıkarılmış, `'corrupt'` için çıkarılmamış. | `const CORRUPT_CONTENT = 'corrupt';` gibi bir sabit tanımla ve iki testte onu kullan. |"
+          "row": "| store.test | (sınıf düzeyi) | [suggestion] Satır 182 ve 207: `spotlight` nesnesi (year, figure, figureName, stopIndex, place, placeName, years, text) iki testte elle, yalnız değerleri değiştirilerek yeniden yazılmış. | Dosyada `spotlightOf(figure, year)` gibi küçük bir kurucu tanımla ve iki testte onu kullan. |"
         }
       ]
     },
@@ -1939,8 +1969,10 @@
       "bulgu": []
     },
     "src/map/geoShapes.ts::geoShapes::(sınıf düzeyi)": {
-      "fp": "a192d6793dbdc9a5b3218e61cc1084587b7655b2343340c4eb8a846b7782ad84",
-      "matrix": [],
+      "fp": "93ddef4bab487320fa5df1ddb81991f526519c2922a65092872d5a054dd79f63",
+      "matrix": [
+        "| geoShapes | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/map/geoShapes.ts::geoShapes::fetchCoordinates": {
@@ -2134,13 +2166,15 @@
       "bulgu": []
     },
     "src/ui/FigureCard.tsx::FigureCard::MapSwitches": {
-      "fp": "f95b8526e215824e018a8c7279ec5e44fc96d9edd3f897832d6f4f967a086894",
+      "fp": "2b5a090a8986ed8165402e0475101d97d42023cb4d4988466e8a5c8391e7b1b9",
       "matrix": [],
       "bulgu": []
     },
     "src/ui/FigureCard.tsx::FigureCard::CardTitle": {
-      "fp": "fb6420618016ff78f86ed880590dddf000edb7e964682da1bf601b9a51de32cd",
-      "matrix": [],
+      "fp": "77b6595a3979f54139572e7feaec7b6a7d56d2763be94162201520c72eac7201",
+      "matrix": [
+        "| FigureCard | CardTitle | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/JourneyGroups.tsx::JourneyGroups::(sınıf düzeyi)": {
@@ -2202,34 +2236,29 @@
       ]
     },
     "tests/e2e/phase10.spec.ts::phase10.spec::(sınıf düzeyi)": {
-      "fp": "503070e288268c84d24ede430e259da60785132f9802a802d842f7adf6dbb72c",
+      "fp": "e2b66e6273e7d05e6a85b7ae95dc637c6f406afa238a18d4147c90c429c097cd",
       "matrix": [
-        "| phase10.spec | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] `contentOf` ve `JOURNEY_STOP` diğer spec dosyalarıyla kopya |",
-        "| phase10.spec | (sınıf düzeyi) | 7. İsimlendirme ve Konvansiyonlar | [minor] Dosya adı davranışı değil geliştirme fazını söylüyor |"
+        "| phase10.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] Sabit durak numarası (4 / `journey[3]`) ve yıl (`1461`); `GROUP_SIZE >= 4` varsayımı korunmuyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| phase10.spec | (sınıf düzeyi) | [minor] Durak numarası iki ayrı yerde elle eşleştiriliyor: `hasText: /^4$/` ile `ATATURK.journey[3]` (satır 34-39, 46-52). Ayrıca dördüncü durağın ilk grupta olduğu (`GROUP_SIZE >= 4`) varsayılıyor; `beforeAll` yalnız `journey.length > GROUP_SIZE` koşulunu koruyor. Satır 113'teki `'1461'` de `FATIH` verisi elde varken sabit yazılmış. | Tek bir `const STOP_INDEX = 3` tanımla, numarayı `STOP_INDEX + 1` ile üret ve `beforeAll` içinde `GROUP_SIZE > STOP_INDEX` koşulunu doğrula; genel bakış yılını `FATIH` verisinden (ör. saltanat/yaşam aralığı) türet. |"
+        }
+      ]
+    },
+    "tests/unit/phase10.test.ts::phase10.test::(sınıf düzeyi)": {
+      "fp": "4106c634ba102d4d4505ce025513f28b2364f80a28145a0dbb088cb4e6468dae",
+      "matrix": [
+        "| phase10.test | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] `repository`, `cardOf`, `settle` yardımcıları `store.test.ts` ile tekrar ediyor |",
+        "| phase10.test | (sınıf düzeyi) | 7. İsimlendirme ve Konvansiyonlar | [minor] Dosya adı test edilen konuyu değil task fazını söylüyor |"
       ],
       "bulgu": [
         {
           "madde": 3,
           "heading": "Madde 3: Kod kalitesi",
-          "row": "| phase10.spec | (sınıf düzeyi) | [minor] `contentOf` + `FigureContent` ve `JOURNEY_STOP`, `card-details.spec` ve `map-and-games.spec` içindekilerle kopya. | `tests/e2e/helpers.ts` içine taşı, oradan içe aktar. |"
-        },
-        {
-          "madde": 7,
-          "heading": "Madde 7: Mimari",
-          "row": "| phase10.spec | (sınıf düzeyi) | [minor] Diğer spec dosyaları davranışa göre adlandırılmış (`card-details`, `card-layout`, `map-and-games`, `journey`); `phase10.spec.ts` geliştirme fazını söylüyor, içeriği (yolculuk grupları, genel görünüm, rota türü) addan anlaşılmıyor. | Dosyayı içeriğine göre adlandır (ör. `journey-groups-and-overview.spec.ts`) ya da describe bloklarını ilgili mevcut spec dosyalarına dağıt. |"
-        }
-      ]
-    },
-    "tests/unit/phase10.test.ts::phase10.test::(sınıf düzeyi)": {
-      "fp": "36f62d55a23edae3d52f8a6b3b11541b6e8d4f09dfb30b40f15b76326f23dd5e",
-      "matrix": [
-        "| phase10.test | (sınıf düzeyi) | 7 İsimlendirme ve Konvansiyonlar | [minor] Test dosyası konusuyla değil task fazıyla adlandırılmış |"
-      ],
-      "bulgu": [
-        {
-          "madde": 7,
-          "heading": "Madde 7: Mimari",
-          "row": "| phase10.test | (sınıf düzeyi) | [minor] Dosya adı `phase10.test.ts` task fazını söylüyor, test edilen konuyu değil; içinde dört ayrı konu var (yolculuk grupları, harita sahnesi, bağlantı anahtarları, store). Diğer birim test dosyaları konuya göre adlandırılmış (`domain`, `routeEngine`, `store`, `app`, `data`); faz bittikten sonra bu ad bir şey ifade etmez. | Testleri konularına göre mevcut dosyalara dağıt (`domain.test.ts`, `store.test.ts`, `app.test.ts`) ya da dosyayı konusuyla adlandır (ör. `journeyGroups.test.ts`, `mapScene.test.ts`). |"
+          "row": "| phase10.test | (sınıf düzeyi) | [minor] Satır 192-200: `cardOf`, `repository` (sahte `ContentRepository`) ve `settle` yardımcıları `store.test.ts` içinde de aynı adlarla tanımlı; aynı kurulum iki dosyada tekrar ediyor. `ContentRepository` arayüzü değişince iki sahte ayrı ayrı güncellenmek zorunda kalır. | Ortak sahte depo, `cardOf` ve `settle` yardımcılarını `tests/unit/fixtures.ts` içine taşı; iki test dosyası oradan alsın. |"
         }
       ]
     },
@@ -2288,8 +2317,10 @@
       "bulgu": []
     },
     "src/domain/relationGraph.ts::relationGraph::(sınıf düzeyi)": {
-      "fp": "c25b02b0d86da2a7a6230357ceda117d8b6343091a3b89d9a5623c6952693125",
-      "matrix": [],
+      "fp": "f76dd4b1e55658aa7d33d3a48e22d2398f32d23fbd706a92f52809c48236b979",
+      "matrix": [
+        "| relationGraph | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/domain/relationGraph.ts::relationGraph::buildRelationGraph": {
@@ -2308,7 +2339,7 @@
       "bulgu": []
     },
     "src/ui/CardDetails.tsx::CardDetails::(sınıf düzeyi)": {
-      "fp": "aee0294e2d397073d20d6dd29b9dc2f940543f4089e386e8f828ce6419d35065",
+      "fp": "ab2c0d1d2dd79025a6b88d3c98dadaa47bba504bf2d3bedb03321e7b6164f010",
       "matrix": [],
       "bulgu": []
     },
@@ -2336,7 +2367,7 @@
       ]
     },
     "src/ui/CardDetails.tsx::CardDetails::SourceList": {
-      "fp": "7be47b69311c2e479155857d400b11a92f210ddd8627da251d51560e41011262",
+      "fp": "10a77ee4ef324e7a1a69324dc159e3d5cebe7ae4d98624baf7ebb30c216e1d07",
       "matrix": [],
       "bulgu": []
     },
@@ -2351,13 +2382,17 @@
       "bulgu": []
     },
     "src/ui/dialogs/RelationGraphDialog.tsx::RelationGraphDialog::(sınıf düzeyi)": {
-      "fp": "10da46cc8384998c854fdb942dc5bd0dbf1f7a2dd41a162ce738afa8fcdcb496",
-      "matrix": [],
+      "fp": "82b4ce68a7cb741445436632e07ec9c4e78b2d3a8e9499824a4e4f5cb522e13f",
+      "matrix": [
+        "| RelationGraphDialog | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/dialogs/RelationGraphDialog.tsx::RelationGraphDialog::FigureBadge": {
-      "fp": "b105a078ad2f2abf6794fd304d6e206042e1f18689dbe709ce11a7b11c2b5955",
-      "matrix": [],
+      "fp": "1693816df829669a588d4d44726165daa67faa38ab0b1ac1ff31ac4eacfe1234",
+      "matrix": [
+        "| RelationGraphDialog | FigureBadge | 1–14 | Bulgu Yok |"
+      ],
       "bulgu": []
     },
     "src/ui/dialogs/RelationGraphDialog.tsx::RelationGraphDialog::RelationGraphDialog": {
@@ -2366,21 +2401,15 @@
       "bulgu": []
     },
     "tests/e2e/card-details.spec.ts::card-details.spec::(sınıf düzeyi)": {
-      "fp": "54065303be79307aeb47e86ebf539ddbfd315d25c9cf87e6536da5567f51e04f",
+      "fp": "a77ce7e90190e62d2e3352020a97b93a7eb3112120b765fe06b793dc0369a806",
       "matrix": [
-        "| card-details.spec | (sınıf düzeyi) | 2. Testler ve Test Coverage'ı | [suggestion] `boundingBox()` sonucu `!` ile kullanılıyor; null olursa anlamsız TypeError |",
-        "| card-details.spec | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] İçerik okuma ve harita seçicisi diğer spec dosyalarıyla kopya |"
+        "| card-details.spec | (sınıf düzeyi) | 14. Best Practice'ler (test verisi kaynaktan türetilmeli) | [minor] İçerik metinleri ve kimlikleri teste elle yazılmış |"
       ],
       "bulgu": [
         {
-          "madde": 2,
-          "heading": "Madde 2: Testler ve test coverage",
-          "row": "| card-details.spec | (sınıf düzeyi) | [suggestion] `boundingBox()` null dönebilir; `button!.y`, `text!.y`, `tabs!.y`, `box!.height` doğrudan kullanılıyor. Öğe görünmezse test \"Cannot read properties of null\" ile düşer, neyin eksik olduğu anlaşılmaz. | Ölçmeden önce `await expect(locator).toBeVisible()` yaz ya da kutuyu null ise açıklayıcı hata atan bir `boxOf(locator)` yardımcıdan al. |"
-        },
-        {
-          "madde": 3,
-          "heading": "Madde 3: Kod kalitesi",
-          "row": "| card-details.spec | (sınıf düzeyi) | [minor] `JSON.parse(readFileSync('content/figures/ataturk.json'))` + `FigureContent` arayüzü `phase10.spec`'teki `contentOf` ile kopya; `'.map-stop[data-kind=\"journey\"][data-current=\"true\"] .map-stop__pin'` seçicisi de diğer spec'lerdeki `JOURNEY_STOP` sabitinin elle yazılmış hali. | `tests/e2e/helpers.ts` içine `figureContent(slug)` ve `JOURNEY_STOP` koy, buradan içe aktar. |"
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| card-details.spec | (sınıf düzeyi) | [minor] Testler içerik dosyalarındaki metinleri ve kimlikleri elle tekrarlıyor: `action-kardes-katli`, `'19 kardeşini birden boğdurmuş'`, `'I. Ahmed'`, `graph-node-kosem-sultan`, `'insan onayından geçmedi'`. `helpers.ts` içindeki `FigureContent` \"testler içeriği tekrarlamak yerine izlesin\" diye var ve yolculuk için kullanılıyor; eylem, ilişki ve ad için kullanılmıyor. İçerikte bir cümle düzeltilince test davranış bozulmadan kırılır. | `FigureContent` arayüzünü eylemler (id, neden metni), ad ve ilişkilerle genişlet; beklenen değerleri `figureContent('ahmed-i')` üzerinden oku. |"
         }
       ]
     },
@@ -2399,25 +2428,25 @@
       "bulgu": []
     },
     "src/ui/CardDetails.tsx::CardDetails::CardTabs": {
-      "fp": "bc01b48f2a89c40d0cf0527b11266bdfb4c50b22a82ce36cc5090bcba08d6cb6",
+      "fp": "86f3110429e3f1b0ef76ddfe72630f35b50daa909f9bb74a3128a2fffc325d8a",
       "matrix": [],
       "bulgu": []
     },
     "src/ui/FigureCard.tsx::FigureCard::Overview": {
-      "fp": "0b9703a7a737b7238dd9647319197342efbee2ba40ae5efcea7ce7ef307cdfcf",
+      "fp": "c2b9449d2a33692d01e71dffd79825a2fb8b0ff94b121297793b474d0aab7d1a",
       "matrix": [],
       "bulgu": []
     },
     "tests/e2e/card-layout.spec.ts::card-layout.spec::(sınıf düzeyi)": {
-      "fp": "abff21bafbe870aa0604c36e7b9235ac7e2062d068579effc31606e6f564260d",
+      "fp": "b392398d1e310a70b4c6f49b70da524de87b792b3d925b261f4cc543bab3a8de",
       "matrix": [
-        "| card-layout.spec | (sınıf düzeyi) | 2. Testler ve Test Coverage'ı | [suggestion] `boundingBox()` sonucu `!` ile kullanılıyor; null olursa anlamsız TypeError |"
+        "| card-layout.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar (null koruması) | [suggestion] `boundingBox()` sonucu `!` ile korumasız kullanılıyor |"
       ],
       "bulgu": [
         {
-          "madde": 2,
-          "heading": "Madde 2: Testler ve test coverage",
-          "row": "| card-layout.spec | (sınıf düzeyi) | [suggestion] Aynı örüntü: `next!`, `tabs!`, `roles!`, `tools!`, `head!`, `text!` — `boundingBox()` null ise anlamsız TypeError. | `helpers.ts` içine `boxOf(locator)` yardımcı ekle (null ise açıklayıcı hata), iki spec dosyasında onu kullan. |"
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| card-layout.spec | (sınıf düzeyi) | [suggestion] `boundingBox()` öğe görünür değilken `null` döner; sonuç `next!.x`, `tabs!.width`, `roles!.y` gibi `!` ile kullanılıyor. Öğe görünmezse test anlamlı bir beklenti hatası yerine `TypeError` ile düşer. Aynı kalıp `card-details.spec.ts` içinde de var (`button!.y`, `text!.height`, `box!.height`). | `helpers.ts` içine, öğenin görünür olmasını bekleyip kutuyu döndüren ve `null` ise açıklayıcı hata fırlatan bir `boxOf(locator)` yardımcı fonksiyonu ekle; iki spec de onu kullansın. |"
         }
       ]
     },
@@ -2435,15 +2464,15 @@
       ]
     },
     "tests/unit/cardStart.test.ts::cardStart.test::(sınıf düzeyi)": {
-      "fp": "87fb9424b9389354ca1048b4f625487a7712346e680fe7e39cb0102b2219f2f2",
+      "fp": "4a5ce204da8b799baadd5cb424bf684100a8942f7bd2791a8ca3f3c87913a905",
       "matrix": [
-        "| cardStart.test | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] Beklenen yıllar (1405, 1465, 1455, 1500...) sabitlerden türetilmeden elle yazılmış |"
+        "| cardStart.test | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] Tanımlı sabitler beklentilerde kullanılmıyor; yıllar düz sayı olarak yazılmış |"
       ],
       "bulgu": [
         {
           "madde": 13,
           "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
-          "row": "| cardStart.test | (sınıf düzeyi) | [minor] `FIRST_STOP_AFTER_BIRTH` sabiti tanımlı olduğu halde beklentiler elle hesaplanmış sayılar: `1400`, `1405`, `1465`, `1455`, `1500`. Hangi figürün doğum yılı + 5 olduğu okunmuyor; `sampleWorld` fixture'ındaki bir doğum yılı değişince testler nedeni belli olmadan kırılır. | Beklentiyi kaynaktan türet: `birthYearOf('a') + FIRST_STOP_AFTER_BIRTH` (fixture'dan okuyan küçük bir yardımcıyla). |"
+          "row": "| cardStart.test | (sınıf düzeyi) | [minor] `FIRST_STOP_AFTER_BIRTH = 5` ve `SECOND_STOP_AFTER_BIRTH = 25` tanımlı (satır 9-10), fakat beklentiler düz sayı: `1400`, `1405`, `1465`, `1455`, `1500` (satır 41-88). Sabit değişirse beklentiler ayrı ayrı elle güncellenmek zorunda; sayının hangi doğum yılından geldiği de görünmüyor. | Beklentileri veriden türet: `birthOf('a') + FIRST_STOP_AFTER_BIRTH` gibi; doğum yıllarını örnek dünyadan oku. |"
         }
       ]
     },
@@ -2452,6 +2481,180 @@
       "matrix": [
         "| cardStart.test | cardOf | 1–14 | Bulgu Yok |"
       ],
+      "bulgu": []
+    },
+    "scripts/build-portraits.py::build-portraits::(sınıf düzeyi)": {
+      "fp": "c8aaa705e66f535e6ef4dcd69eb537c704e253a28930df7ad302dc03dfdd3421",
+      "matrix": [],
+      "bulgu": []
+    },
+    "scripts/build-portraits.py::build-portraits::fetch": {
+      "fp": "0bc14717ad32acaa38d4dd621c9334cbe1de4d9a23a6be392b16fe0a9d6c9ac3",
+      "matrix": [
+        "| build-portraits | fetch | 13. Potansiyel Hatalar ve Sorunlar | [minor] `Retry-After` HTTP-date biçiminde gelirse `int()` `ValueError` fırlatır |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| build-portraits | fetch | [minor] `int(error.headers.get(\"Retry-After\") or RETRY_SECONDS)` (satır 62): `Retry-After` başlığı HTTP standardına göre saniye yerine tarih (`Wed, 21 Oct 2026 07:28:00 GMT`) de olabilir; bu durumda `int()` `ValueError` fırlatır ve betik, yeniden deneme yerine anlaşılmaz bir hatayla durur. | Başlığı sayıya çevirmeyi `try/except ValueError` ile sar; sayı değilse `RETRY_SECONDS` değerine düş. |"
+        }
+      ]
+    },
+    "scripts/build-portraits.py::build-portraits::retry_delay": {
+      "fp": "39a5bf8af8751c7300b167d723acac1d964e1e0288e8fca80b8bf2add54aada1",
+      "matrix": [],
+      "bulgu": []
+    },
+    "scripts/build-portraits.py::build-portraits::read_portraits": {
+      "fp": "8280ba6201f5df2d6a073caa521b43ee79d6d805d7b99364f18890ceb9558334",
+      "matrix": [],
+      "bulgu": []
+    },
+    "scripts/build-portraits.py::build-portraits::image_urls": {
+      "fp": "31554fe98d6e5ba9eb7650d53b44875e87fff4fca4a51d709a508ae0b9ae70a2",
+      "matrix": [
+        "| build-portraits | image_urls | 8. Hata Yönetimi ve Loglama | [minor] API hata yanıtında (`query` anahtarı yok) bağlamsız `KeyError` |"
+      ],
+      "bulgu": [
+        {
+          "madde": 8,
+          "heading": "Madde 8: Hata yönetimi ve loglama",
+          "row": "| build-portraits | image_urls | [minor] `data[\"query\"]` ve `data[\"query\"][\"pages\"]` (satır 94-95) korumasız okunuyor. Commons API hata döndürdüğünde (yanıtta `error` var, `query` yok) betik hangi isteğin neden reddedildiğini söylemeyen bir `KeyError` ile düşer. | `\"query\"` yoksa yanıttaki `error` bilgisini ve istenen dosya adlarını içeren açıklayıcı bir mesajla çık (`sys.exit(...)`). |"
+        }
+      ]
+    },
+    "scripts/build-portraits.py::build-portraits::crop_box": {
+      "fp": "2fa2b7631ddbfbe79f1ca55b8fdd36b20f47f941b7d4e05200850e48cfbb36e1",
+      "matrix": [],
+      "bulgu": []
+    },
+    "scripts/build-portraits.py::build-portraits::main": {
+      "fp": "b5e25710960f6ed6f71f8ade4631a409f258ed8cbe3ccb9c7b7da8c282e780e0",
+      "matrix": [
+        "| build-portraits | main | 13. Potansiyel Hatalar ve Sorunlar | [minor] Kaydı (`file`/`crop`) değişen portrenin eski görseli sessizce korunur |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| build-portraits | main | [minor] `wanted` yalnız çıktı dosyasının varlığına bakıyor (satır 127). Bir figürün `file` veya `crop` kaydı değiştirilip `--force` unutulursa eski görsel sessizce kalır; kartta yeni eserin künyesi (eser, yapan, lisans) eski resmin altında gösterilir. Mevcut testler (dosya var mı, kayıtsız dosya var mı) bu uyumsuzluğu yakalamaz. | Her çıktının hangi kayıttan (`file` + `crop`) üretildiğini bir manifest/özet dosyasında tut ve kayıt değiştiyse görseli yeniden üret; ya da aynı karşılaştırmayı yapan bir test ekle. |"
+        }
+      ]
+    },
+    "scripts/tests/test_build_portraits.py::test_build_portraits::(sınıf düzeyi)": {
+      "fp": "89a7612c457e5c987e699562f74c5b7bbfa2d12cabc9fa034fc0c11770770edf",
+      "matrix": [],
+      "bulgu": []
+    },
+    "scripts/tests/test_build_portraits.py::test_build_portraits::picture": {
+      "fp": "19988a3bda9f4dd69e145c27366ad3eae53f6b6a4927e99b7458acf2e12bcf7f",
+      "matrix": [],
+      "bulgu": []
+    },
+    "scripts/tests/test_build_portraits.py::CropSquareTest::test_output_shows_the_part_of_the_picture_the_record_names": {
+      "fp": "c478a07d78a6c6b5e48580844d293bcbd7a3f5da2dbb72f305cf41b3398bb629",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/domain/contentSchema.ts::contentSchema::commonsFileName": {
+      "fp": "73ec919092825b9784e92f1f765de6c2410baddb97e4456ddfa6ee68c9cc224b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/ui/CardDetails.tsx::CardDetails::PortraitCredit": {
+      "fp": "7fa9c8ff57ad4f074d4afc3591d4aabf51a0881245783fdf06207fb52307a945",
+      "matrix": [],
+      "bulgu": []
+    },
+    "tests/e2e/portraits.spec.ts::portraits.spec::(sınıf düzeyi)": {
+      "fp": "5f4de09eb7e08ae93ec346ec027265f21dedee4e273d29055e65e4e0b0821e7a",
+      "matrix": [
+        "| portraits.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] Portre kaynağının hep Wikimedia Commons olduğu sabit regex ile varsayılmış |",
+        "| portraits.spec | (sınıf düzeyi) | 2. Testler ve Test Coverage'ı | [suggestion] Örnek bulunamazsa testler sessizce atlanıyor |",
+        "| portraits.spec | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] Tekrarlanan bloklar: resim yüklenme denetimi üç kez, çevrimdışı akışı ve içerik okuma başka dosyalarla aynı |"
+      ],
+      "bulgu": [
+        {
+          "madde": 2,
+          "heading": "Madde 2: Testler ve test coverage",
+          "row": "| portraits.spec | (sınıf düzeyi) | [suggestion] İçerikte örnek yoksa testler `test.skip(..., NO_EXAMPLE)` ile atlanıyor (satır 29, 39, 48, 63, 76, 85, 95, 114). Portreler yanlışlıkla içerikten düşerse (ör. derleme hatası) tüm portre testleri kırmızıya dönmeden sessizce atlanır. | Portreli en az bir figürün varlığını ayrı bir testte zorunlu kıl (`expect(WITH_LIFETIME_PORTRAIT).toBeDefined()`); yalnız gerçekten isteğe bağlı türler (ör. temsilî portre) için atlamayı koru. |"
+        },
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| portraits.spec | (sınıf düzeyi) | [minor] Kod tekrarı: (a) `expect.poll(() => image.evaluate((node) => node.complete && node.naturalWidth > 0)).toBe(true)` satır 34, 52 ve 130'da üç kez; (b) satır 122-131'deki \"service worker hazır → yenile → çevrimdışı → yenile\" akışı `map-and-games.spec.ts` satır 227-236 ile aynı; (c) satır 5-13 figür içeriğini kendi `FigureFile` tipiyle yeniden okuyor, `phase10.spec.ts` aynı işi `figureContent` yardımcısıyla yapıyor. | `expectImageLoaded(locator)` ve `reloadOffline(page, context)` yardımcılarını ortak e2e yardımcı dosyasına çıkar; içerik okumayı da aynı yerdeki yardımcıya (tüm figürleri döndüren bir işlevle) taşı. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| portraits.spec | (sınıf düzeyi) | [minor] Satır 71: `toHaveAttribute('href', /^https:\\/\\/commons\\.wikimedia\\.org\\/wiki\\/File:/)` her portrenin Wikimedia Commons'tan geldiğini varsayıyor. Dosyanın kendi ilkesi örnekleri içerikten almak; başka kaynaklı bir portre eklenince test yanlış nedenle kırılır. | `FigureFile.portrait` tipine `sourceUrl` ekle ve bağlantıyı `figure.portrait.sourceUrl` ile karşılaştır; kaynak kısıtı gerekiyorsa onu içerik şemasında doğrula. |"
+        }
+      ]
+    },
+    "tests/e2e/portraits.spec.ts::portraits.spec::openFigure": {
+      "fp": "1bd567ba1170dfae6ce3d8b2c36bc2025ea67249ee07799a5a1774075a77d302",
+      "matrix": [
+        "| portraits.spec | openFigure | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "tests/unit/portraits.test.ts::portraits.test::(sınıf düzeyi)": {
+      "fp": "ca959279e83f34eea459f63b50bca3eafe6216e9e39297c47b8269d36e3461c9",
+      "matrix": [],
+      "bulgu": []
+    },
+    "tests/unit/portraits.test.ts::portraits.test::portrait": {
+      "fp": "cdc440c3290d5a4f101eb8e4fd8bbcf2cf2f687dc9232eb2e72de3aefbd189bc",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/map/markerElements.ts::markerElements::createBanner": {
+      "fp": "089fb9a4e6ea60b31e63e398750f5a0b61b9682385cc44ed43a96b29f66cc4d4",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/map/markerElements.ts::markerElements::createPortraitHead": {
+      "fp": "ea35d751d9f0f4b08b10f67c1ee2bb613d47ec843bc46a3feffdc7b77d6e7e2d",
+      "matrix": [
+        "| markerElements | createPortraitHead | 2. Testler ve Test Coverage'ı | [major] harita sancağındaki \"resim yüklenemedi → amblem\" yolu hiçbir testte doğrulanmıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 2,
+          "heading": "Madde 2: Testler ve test coverage",
+          "row": "| markerElements | createPortraitHead | [major] Yeni eklenen `error` dinleyicisi (`head.replaceWith(createBanner(figure))`) için test yok. `portraits.spec` içindeki \"falls back to the emblem when a portrait cannot be loaded\" testi yalnız üst çubuktaki madalyonu (`endpoint-from .medallion`, React yolu) doğruluyor; haritadaki `.map-figure` sancağının amblem sancağına döndüğü (DOM yolu, ayrı kod) hiçbir yerde assert edilmiyor. | Aynı testte, portresi 404 dönen figür açıkken `.map-figure[data-slug=\"…\"]` içinde `img` sayısının 0, `.map-figure__banner svg`'nin görünür olduğunu doğrulayan assertion ekle (ya da `createFigureElement` için bir birim testi yaz). |"
+        }
+      ]
+    },
+    "src/ui/portraits.ts::portraits::(sınıf düzeyi)": {
+      "fp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matrix": [
+        "| portraits | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "tests/e2e/map-kind.spec.ts::map-kind.spec::(sınıf düzeyi)": {
+      "fp": "7a6ac42ed4afd0efd1752f8c891aaf3f8962bfd16cd39c6445a3faf32989924a",
+      "matrix": [
+        "| map-kind.spec | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] Konsol hatası `'could not start'` metniyle süzülüyor; metin değişirse doğrulama boş geçer |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| map-kind.spec | (sınıf düzeyi) | [minor] Satır 71: konsol hataları `text.includes('could not start')` ile süzülüyor. Bu metin uygulamadaki log mesajının elle kopyası; mesaj değişirse süzgeç hiçbir şey yakalamaz ve doğrulama hata olsa bile geçer. | Süzmeden tüm konsol hatalarının boş olduğunu doğrula (`expect(errors).toEqual([])`), ya da mesajı uygulamanın dışa aktardığı sabitten al. |"
+        }
+      ]
+    },
+    "tests/e2e/map-kind.spec.ts::map-kind.spec::chooseMap": {
+      "fp": "316db35fe865885ae5a61542d09e4ada83c96b57794e5a2db6f2c17696bbc65d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "tests/e2e/map-kind.spec.ts::map-kind.spec::pickMap": {
+      "fp": "cb1dd07f8e7653c39a668612f09ba6aa01527deccadde242924c39eee259732c",
+      "matrix": [],
       "bulgu": []
     }
   }

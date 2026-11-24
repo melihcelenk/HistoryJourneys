@@ -47,9 +47,9 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 
 | Senaryo | Dosya | Durum |
 |---------|-------|-------|
-| İki durak arasındaki yılda figür haritada yer almaz. | `tests/unit/feedback.test.ts` | 🟢 Tamamlandı |
-| Seçili figürün yolculuğu yalnız düğme açıkken sahneye girer. | `tests/unit/feedback.test.ts`, `tests/e2e/feedback.spec.ts` | 🟢 Tamamlandı |
-| Oynatma olayda durur, olayı yazar ve hız düğmesi beklemeyi değiştirir. | `tests/unit/feedback.test.ts`, `tests/e2e/feedback.spec.ts` | 🟢 Tamamlandı |
+| İki durak arasındaki yılda figür haritada yer almaz. | `tests/unit/presenceAndPlayback.test.ts` | 🟢 Tamamlandı |
+| Seçili figürün yolculuğu yalnız düğme açıkken sahneye girer. | `tests/unit/presenceAndPlayback.test.ts`, `tests/e2e/map-and-games.spec.ts` | 🟢 Tamamlandı |
+| Oynatma olayda durur, olayı yazar ve hız düğmesi beklemeyi değiştirir. | `tests/unit/presenceAndPlayback.test.ts`, `tests/e2e/map-and-games.spec.ts` | 🟢 Tamamlandı |
 | "Elden ele" rotasında etki bağlantısı yoktur; "Fikirden fikre" rotasında en az bir tane vardır. | `tests/unit/routeEngine.test.ts` | 🟢 Tamamlandı |
 
 ## Nasıl kontrol edilir
@@ -73,7 +73,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 - **Problem:** Eklenmemiş bir kayıt yüzünden figür o yıl başka bir yerdeyken yanlış yerde gösteriliyor (T26).
 - **Çözüm:** `stopAtYear` yalnız `from ≤ yıl ≤ to` olan durağı döndürür; yoksa figür haritada yer almaz.
 - **Dosyalar:** `src/domain/journey.ts`, `src/map/mapScene.ts`
-- **Testler:** `tests/unit/feedback.test.ts`
+- **Testler:** `tests/unit/presenceAndPlayback.test.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 9.2 — Harita o yıldaki figürleri izleriyle gösterir, seçili figürün yolculuğu düğmeyle açılır.
@@ -83,7 +83,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 - **Çözüm:** Sahne, o yıl kaydı olan her figür için bulunduğu yeri ve o yıla kadarki izini üretir. Seçili figürün tam
   yolculuğu store'daki `showJourney` açıkken eklenir; düğme kartta durur, varsayılan kapalıdır ve bağlantıda `j=1` olarak taşınır.
 - **Dosyalar:** `src/map/mapScene.ts`, `src/map/MapView.ts`, `src/map/MapLibreMapView.ts`, `src/map/PixiMapView.ts`, `src/app/store.ts`, `src/app/urlState.ts`, `src/ui/FigureCard.tsx`
-- **Testler:** `tests/unit/feedback.test.ts`, `tests/e2e/feedback.spec.ts`
+- **Testler:** `tests/unit/presenceAndPlayback.test.ts`, `tests/e2e/map-and-games.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 9.3 — Atatürk'ün yolculuğu bütün ana duraklarıyla yazılır.
@@ -93,7 +93,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 - **Çözüm:** Yolculuk 1881'den 1938'e ana duraklarıyla yeniden yazılır. Yolculuk 29 durağa çıktı. Şemadaki durak üst sınırı 8'den 30'a çıkar; kural
   setinde R17 buna göre güncellenir.
 - **Dosyalar:** `content/figures/ataturk.json`, `src/domain/contentSchema.ts`, `content/rules/RULESET.md`
-- **Testler:** `npm run db:build` denetimi, `tests/e2e/feedback.spec.ts`
+- **Testler:** `npm run db:build` denetimi, `tests/e2e/map-and-games.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 9.4 — Oynatma olaydan olaya duraklayarak ilerler ve hızı seçilir.
@@ -103,7 +103,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
 - **Çözüm:** Rotadaki figürlerin durakları yıl sırasına dizilir ("vakayiname"). Oynatma sıradaki olaya atlar, kamerayı
   oraya götürür, olayı haritanın üstünde yazar ve hız ayarına göre bekler. Hız düğmesi 0,5×, 1×, 2× arasında döner.
 - **Dosyalar:** `src/domain/chronicle.ts`, `src/app/store.ts`, `src/ui/CommandBar.tsx`, `src/ui/MapStage.tsx`, `src/ui/theme/layout.css`
-- **Testler:** `tests/unit/feedback.test.ts`, `tests/e2e/feedback.spec.ts`
+- **Testler:** `tests/unit/presenceAndPlayback.test.ts`, `tests/e2e/map-and-games.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### 9.5 — Rotalar "Elden ele" ve "Fikirden fikre" olarak iki türe iner.
@@ -114,7 +114,7 @@ Bu projede Lima kullanılmıyor (T7); gereksinimler `docs/requirements/history-j
   ilişkilerle ilerler. "Fikirden fikre" rotası etki bağlantılarını tercih eder, zamanda uzun atlayabilir ve en az bir etki
   bağlantısı içermiyorsa sunulmaz. Etiket metinleri arayüz katmanına taşınır. Yüzyılları aşan birkaç etki ilişkisi içeriğe eklenir.
 - **Dosyalar:** `content/relation-types.json`, `content/figures/*.json`, `src/domain/routeEngine.ts`, `src/domain/contentSchema.ts`, `src/data/dbSchema.ts`, `src/ui/RouteTabs.tsx`, `docs/requirements/history-journeys.md`
-- **Testler:** `tests/unit/routeEngine.test.ts`, `tests/e2e/feedback.spec.ts`
+- **Testler:** `tests/unit/routeEngine.test.ts`, `tests/e2e/map-and-games.spec.ts`
 - **Durum:** 🟢 Tamamlandı.
 
 ### Doğrulanmayan / dikkat edilmesi gereken

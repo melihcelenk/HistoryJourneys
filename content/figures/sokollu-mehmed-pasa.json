@@ -171,6 +171,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Sokollu Mehmed Pasha (detail) exploring the surroundings of Szigetvár; Nüzhet, fol. 22a.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sokollu_Mehmed_Pasha_(detail)_exploring_the_surroundings_of_Szigetv%C3%A1r;_N%C3%BCzhet,_fol._22a.jpg",
+    "title": "Sokollu Mehmed Paşa'nın minyatürü, Nüzhet",
+    "author": "Osmanlı sanatçısı",
+    "created": "1568–1569",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.5,
+      "y": 0.26,
+      "size": 0.3
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

@@ -198,6 +198,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Sultan Mehmed II The Conqueror.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Mehmed_II_The_Conqueror.jpg",
+    "title": "Fatih Sultan Mehmed'in portresi",
+    "author": "Gentile Bellini'nin bir takipçisi",
+    "created": "16. yüzyıl başı",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.4,
+      "y": 0.36,
+      "size": 0.8
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

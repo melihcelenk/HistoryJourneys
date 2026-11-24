@@ -168,7 +168,7 @@ from sources such as TMDB.
 ### 6.2 Our own layer
 
 - **DR-4** Cards, actions with causes and consequences, curated lines and relation types beyond those in Wikidata are produced by this project (§7) and stored in the project's own data store.
-- **DR-5** Every generated statement keeps a reference to the source passage it was derived from. These references form the bibliography stored in the data store and shown on the card (FR-6).
+- **DR-5** Every generated statement keeps a reference to the source passage it was derived from. These references form the bibliography stored in the data store and shown on the card (FR-6). A portrait is content too: it is used only when it is in the public domain or CC0, and its work, maker, date, licence and source are recorded and shown with the sources of the card. A figure without such a picture is shown with the emblem of its kind.
 
 ## 7. Content Generation
 

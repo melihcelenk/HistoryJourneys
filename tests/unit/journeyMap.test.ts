@@ -132,15 +132,28 @@ describe('the journey of the figure in focus on the map', () => {
     expect(framingPoints(hidden)).toHaveLength(STOP_COUNT);
   });
 
+  it('draws no trail of another figure while a journey is open: only the open journey has lines', () => {
+    // The neighbour is on the map in 1830, with a trail of its own in the overview.
+    const open = scene(1830);
+    expect(open.figures.map((item) => item.slug)).toContain('komsu');
+    expect(open.trails).toEqual([]);
+    expect(open.journeyReached.length).toBeGreaterThan(0);
+    const overview = buildScene({ places: [], routeCards: [traveller, neighbour], activeCard: null, year: 1830, showJourney: true });
+    expect(overview.trails).toHaveLength(2);
+  });
+
   it('hides every line when lines are switched off, and keeps the stops and the figures', () => {
     const withLines = scene(1830);
     const without = scene(1830, { showLines: false });
-    expect(withLines.trails.length).toBeGreaterThan(0);
+    expect(withLines.journeyReached.length).toBeGreaterThan(0);
     expect(without.trails).toEqual([]);
     expect(without.journeyReached).toEqual([]);
     expect(without.journeyAhead).toEqual([]);
     expect(without.stops).toEqual(withLines.stops);
     expect(without.figures).toEqual(withLines.figures);
+    const overview = { places: [], routeCards: [traveller, neighbour], activeCard: null, year: 1830, showJourney: true };
+    expect(buildScene(overview).trails.length).toBeGreaterThan(0);
+    expect(buildScene({ ...overview, showLines: false }).trails).toEqual([]);
   });
 });
 

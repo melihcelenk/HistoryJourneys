@@ -5,7 +5,7 @@ import type { ContentRepository } from '../data/ContentRepository';
 import { type ChronicleEvent, eventOfStop } from '../domain/chronicle';
 import { findRoutes, type Route, type RouteKind } from '../domain/routeEngine';
 import type { Concept, FigureCard, FigureSummary, World } from '../domain/types';
-import { DEFAULT_MAP_KIND, type MapKind, type UrlState } from './urlState';
+import { DEFAULT_MAP_KIND, FALLBACK_MAP_KIND, type MapKind, type UrlState } from './urlState';
 
 export type EndpointSlot = 'from' | 'to';
 
@@ -60,6 +60,8 @@ export interface AppState {
   showLines: boolean;
   dialog: Dialog | null;
   mapKind: MapKind;
+  /** The map the reader chose but that could not start on this device, and why; the plain map is shown in its place. */
+  mapFailure: { kind: MapKind; reason: string } | null;
 
   init: (repository: ContentRepository, initial: UrlState) => Promise<void>;
   /** Marks the application as unable to start. */
@@ -87,6 +89,8 @@ export interface AppState {
   toggleLines: () => void;
   setCardTab: (tab: CardTab) => void;
   setMapKind: (kind: MapKind) => void;
+  /** Records that a map could not start and shows the plain map instead. */
+  reportMapFailure: (kind: MapKind, reason: string) => void;
   openDialog: (dialog: Dialog) => void;
   closeDialog: () => void;
   applyUrlState: (state: UrlState) => void;
@@ -253,6 +257,7 @@ export const useAppStore = create<AppState>((set, get) => {
     showLines: true,
     dialog: null,
     mapKind: DEFAULT_MAP_KIND,
+    mapFailure: null,
 
     init: async (contentRepository, initial) => {
       try {
@@ -327,8 +332,11 @@ export const useAppStore = create<AppState>((set, get) => {
       const onRoute = routeFigures(currentRoute(state)).includes(slug);
       if (!state.from) {
         // No start yet: the figure becomes the starting point, and the route to a chosen destination is computed.
+        // Setting the endpoints loads the card of the figure too.
         setEndpoints(slug, state.to);
-      } else if (onRoute) {
+        return;
+      }
+      if (onRoute) {
         set({ focus: slug, detour: [], ...startOf(slug), playing: false, spotlight: null, dialog: null });
       } else {
         const detour = state.detour.at(-1) === slug ? state.detour : [...state.detour, slug];
@@ -345,6 +353,8 @@ export const useAppStore = create<AppState>((set, get) => {
 
     closeDetour: () => {
       const state = get();
+      // Nothing to leave: the card that is open stays as it is.
+      if (state.detour.length === 0) return;
       const detour = state.detour.slice(0, -1);
       const back = detour.at(-1) ?? state.focus;
       // Back in the overview nobody is open: time stays where it is.
@@ -384,14 +394,17 @@ export const useAppStore = create<AppState>((set, get) => {
     toggleJourney: () => set((state) => ({ showJourney: !state.showJourney })),
     toggleLines: () => set((state) => ({ showLines: !state.showLines })),
     setCardTab: (cardTab) => set({ cardTab }),
-    setMapKind: (mapKind) => set({ mapKind }),
+    // Choosing a map is a fresh start: what failed before is forgotten.
+    setMapKind: (mapKind) => set({ mapKind, mapFailure: null }),
+    reportMapFailure: (kind, reason) => set({ mapKind: FALLBACK_MAP_KIND, mapFailure: { kind, reason } }),
     openDialog: (dialog) => set({ dialog }),
     closeDialog: () => set({ dialog: null }),
 
     applyUrlState: (url) => {
       const { world } = get();
       if (!world) return;
-      if (url.map) set({ mapKind: url.map });
+      // A link that names no map means the map the game opens with.
+      set({ mapKind: url.map ?? DEFAULT_MAP_KIND });
       set({ showJourney: url.showJourney, showLines: url.showLines });
       const from = figureOf(world, url.from)?.slug ?? null;
       if (!from) {

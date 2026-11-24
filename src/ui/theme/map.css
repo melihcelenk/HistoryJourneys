@@ -298,6 +298,38 @@ button.map-stop__pin:focus-visible {
   height: 20px;
 }
 
+/* A figure with a portrait: the picture in a gold ring stands on the pole instead of the pennant. */
+.map-figure__portrait {
+  display: block;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: var(--stone-800);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px var(--stone-950),
+    inset 0 0 6px rgba(30, 18, 4, 0.6);
+}
+
+.map-figure__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.18) saturate(0.92) contrast(1.04);
+}
+
+.map-figure[data-focused='true'] .map-figure__portrait {
+  width: 52px;
+  height: 52px;
+  border-color: var(--wax-bright);
+  box-shadow:
+    0 0 0 1px var(--stone-950),
+    0 0 0 3px rgba(240, 213, 134, 0.75),
+    0 0 12px 4px rgba(240, 213, 134, 0.45);
+}
+
 .map-figure__pole {
   width: 3px;
   height: 14px;

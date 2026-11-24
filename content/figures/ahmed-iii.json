@@ -69,5 +69,19 @@
     { "id": "tdv", "title": "Ahmed III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/ahmed-iii" },
     { "id": "wiki", "title": "III. Ahmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Ahmed", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "III. Ahmet.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:III._Ahmet.jpg",
+    "title": "III. Ahmed'in portresi",
+    "author": "Bilinmiyor",
+    "created": "Tarihi belgelenmemiş",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.52,
+      "y": 0.28,
+      "size": 0.42
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

@@ -15,11 +15,19 @@ describe('urlState', () => {
     showJourney: false,
     showLines: false,
     overview: false,
-    map: 'maplibre',
+    map: 'pixi',
   };
 
   it('round-trips a full state', () => {
     expect(parseHash(formatHash(full))).toEqual(full);
+  });
+
+  it('leaves the plain map, the one the game opens with, out of links', () => {
+    expect(formatHash({ ...full, map: null })).not.toContain('map=');
+    expect(parseHash('#/yol/a/b').map).toBeNull();
+    expect(parseHash('#/yol/a/b?map=pixi').map).toBe('pixi');
+    // Links made while the painted map was the default still say which map they want.
+    expect(parseHash('#/yol/a/b?map=maplibre').map).toBe('maplibre');
   });
 
   it('round-trips the empty state and a single figure', () => {
@@ -109,6 +117,16 @@ describe('buildScene', () => {
     const scene = buildScene({ places, routeCards: [ahmed], activeCard: mustafa, year: 1620, showJourney: false });
     expect(scene.figures.map((item) => item.slug)).toEqual(['mustafa']);
     expect(scene.stops.map((item) => item.order)).toEqual([null]);
+  });
+
+  it('tells the map which figures have a portrait', () => {
+    const portrait = { title: 'Portre', author: 'Bilinmiyor', created: '1600', license: 'Public domain' as const, sourceUrl: 'https://commons.wikimedia.org/wiki/File:P.jpg', representative: false };
+    const withPortrait = { ...mustafa, portrait };
+    const scene = open(1609, [withPortrait, ahmed]);
+    expect(scene.figures.map((item) => [item.slug, item.portrait])).toEqual([
+      ['ahmed', false],
+      ['mustafa', true],
+    ]);
   });
 
   it('has nothing to frame when nothing is on the map', () => {

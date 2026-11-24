@@ -1,11 +1,6 @@
 import type { Database, SqlValue } from 'sql.js';
 import { z } from 'zod';
-import {
-  figureKindSchema,
-  generationStatusSchema,
-  precisionSchema,
-  relationModeSchema,
-} from '../domain/contentSchema';
+import { figureKindSchema, generationStatusSchema, portraitInfoSchema, precisionSchema, relationModeSchema } from '../domain/contentSchema';
 import type {
   Action,
   Concept,
@@ -40,7 +35,7 @@ function optionalText(row: Row, column: string): string | undefined {
 function oneOf<T>(row: Row, column: string, schema: z.ZodType<T>): T {
   const parsed = schema.safeParse(row[column]);
   if (parsed.success) return parsed.data;
-  throw new Error(`Unexpected value "${String(row[column])}" in column ${column} (row ${String(row.slug ?? row.type ?? '?')})`);
+  throw new Error(`Unexpected value "${String(row[column])}" in column ${column} (row ${String(row.slug ?? row.type ?? row.place_slug ?? '?')})`);
 }
 
 const stringListSchema = z.array(z.string());
@@ -66,6 +61,7 @@ function toSummary(row: Row): FigureSummary {
     deathPlace: text(row, 'death_place'),
     reign:
       typeof reignFrom === 'number' && typeof reignTo === 'number' ? { from: reignFrom, to: reignTo } : undefined,
+    portrait: row.portrait_json === null ? undefined : parseJson(row, 'portrait_json', portraitInfoSchema),
   };
 }
 
@@ -109,7 +105,7 @@ function toSource(row: Row): Source {
 
 /** Columns of the figure table that a figure summary is built from. */
 const SUMMARY_COLUMNS =
-  'slug, name_tr, name_en, kind, roles_json, birth_year, birth_place, death_year, death_place, reign_from, reign_to';
+  'slug, name_tr, name_en, kind, roles_json, birth_year, birth_place, death_year, death_place, reign_from, reign_to, portrait_json';
 
 /**
  * Content repository backed by a SQLite database opened with sql.js. Values

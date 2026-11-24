@@ -52,7 +52,7 @@ function MapSwitches() {
 function CardTitle({ card }: { card: FigureCardModel }) {
   return (
     <>
-      <Medallion kind={card.kind} />
+      <Medallion figure={card} />
       <span className="display card__name">{card.nameTr}</span>
     </>
   );

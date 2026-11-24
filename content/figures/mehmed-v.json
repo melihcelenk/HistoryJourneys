@@ -49,5 +49,19 @@
     { "id": "tdv", "title": "Mehmed V", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mehmed-v" },
     { "id": "wiki", "title": "V. Mehmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/V._Mehmed", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Sultan Mehmed V of the Ottoman Empire.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Mehmed_V_of_the_Ottoman_Empire.jpg",
+    "title": "V. Mehmed'in fotoğrafı",
+    "author": "Bain News Service",
+    "created": "22 Temmuz 1913",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.48,
+      "y": 0.33,
+      "size": 0.5
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

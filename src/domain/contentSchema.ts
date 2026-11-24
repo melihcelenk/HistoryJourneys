@@ -81,6 +81,53 @@ export const figureKindSchema = z.enum([
 
 export const generationStatusSchema = z.enum(['generated', 'reviewed']);
 
+/**
+ * Licences a portrait may have. Only pictures that anyone may use, change and
+ * distribute without conditions are accepted, so that no picture brings an
+ * obligation of its own (docs/tasks/HJ-1/PORTRAITS_ANALYSIS.md).
+ */
+export const PORTRAIT_LICENSES = ['Public domain', 'CC0'] as const;
+/** Portraits come from Wikimedia Commons; the record points at the page of the file, where its licence is stated. */
+const COMMONS_FILE_PREFIX = 'https://commons.wikimedia.org/wiki/File:';
+const unitInterval = z.number().min(0).max(1);
+
+/** What is recorded of a portrait: where it comes from, who made it and when, and under which licence it is used. */
+export const portraitInfoSchema = z.object({
+  sourceUrl: z.string().refine((url) => url.startsWith(COMMONS_FILE_PREFIX) && url.length > COMMONS_FILE_PREFIX.length, 'is not a file page of Wikimedia Commons'),
+  /** What the work is, as shown to the reader. */
+  title: text,
+  /** Who made it; "Bilinmiyor" when the maker is not known. */
+  author: text,
+  /** When it was made, as shown to the reader, for example "1579" or "19. yüzyıl ortası". */
+  created: text,
+  license: z.enum(PORTRAIT_LICENSES),
+  /** True unless the work is known to have been made in the lifetime of the figure; such a portrait is shown as a likeness, not as a record. */
+  representative: z.boolean(),
+});
+
+/** Name of a Commons file as its page address writes it, brought back to the form the file name has: spaces, not underscores or escapes. */
+function commonsFileName(value: string): string {
+  try {
+    return decodeURIComponent(value).replaceAll('_', ' ');
+  } catch {
+    // Not a valid escape sequence: compared as it is, and so found different.
+    return value.replaceAll('_', ' ');
+  }
+}
+
+export const portraitSchema = portraitInfoSchema
+  .extend({
+    /** Name of the file on Wikimedia Commons. */
+    file: text,
+    /** The square cut out for the medallion: its centre and its side, as fractions of the width and the height of the picture. */
+    crop: z.object({ x: unitInterval, y: unitInterval, size: z.number().gt(0).max(1) }),
+  })
+  // The picture that is fetched and the page that is credited must be one and the same file.
+  .refine((portrait) => commonsFileName(portrait.sourceUrl.slice(COMMONS_FILE_PREFIX.length)) === commonsFileName(portrait.file), {
+    path: ['sourceUrl'],
+    message: 'is not the Commons page of the file',
+  });
+
 export const figureSchema = z.object({
   slug,
   nameTr: text,
@@ -97,6 +144,7 @@ export const figureSchema = z.object({
   relations: z.array(relationSchema).default([]),
   concepts: z.array(conceptSchema).default([]),
   sources: z.array(sourceSchema).min(MIN_SOURCES),
+  portrait: portraitSchema.optional(),
   generation: z.object({
     model: text,
     ruleset: text,
@@ -135,3 +183,4 @@ export type RelationMode = z.infer<typeof relationModeSchema>;
 export type Precision = z.infer<typeof precisionSchema>;
 export type FigureKind = z.infer<typeof figureKindSchema>;
 export type GenerationStatus = z.infer<typeof generationStatusSchema>;
+export type PortraitInfo = z.infer<typeof portraitInfoSchema>;

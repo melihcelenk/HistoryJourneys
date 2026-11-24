@@ -24,8 +24,7 @@ if (!existsSync(databasePath)) {
 }
 const SQL = await initSqlJs();
 const repository = new SqliteContentRepository(new SQL.Database(readFileSync(databasePath)));
-const world = await repository.loadWorld();
-repository.close();
+const world = await repository.loadWorld().finally(() => repository.close());
 
 const unknown = [from, to].filter((slug) => !world.figures.some((figure) => figure.slug === slug));
 if (unknown.length > 0) {

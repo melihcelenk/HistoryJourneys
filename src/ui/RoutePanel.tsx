@@ -20,7 +20,7 @@ function EndpointSlotButton({ slot, world }: { slot: EndpointSlot; world: World 
   const openDialog = useAppStore((state) => state.openDialog);
   return (
     <button type="button" className="slot" data-testid={`slot-${slot}`} onClick={() => openDialog({ kind: 'picker', slot })}>
-      <Medallion kind={figure?.kind} />
+      <Medallion figure={figure} />
       <span className="slot__label">{SLOT_LABELS[slot]}</span>
       <span className="slot__name">{figure?.nameTr ?? EMPTY_SLOT_LABEL}</span>
     </button>
@@ -189,7 +189,7 @@ function RouteChain({ route, world }: { route: Route; world: World }) {
                 data-testid={`strip-${figure.slug}`}
                 onClick={() => openFigure(figure.slug)}
               >
-                <Medallion kind={figure.kind} />
+                <Medallion figure={figure} />
                 <span className="display strip__name">{figure.nameTr}</span>
                 <span className="strip__years">{formatYearRange(figure.birthYear, figure.deathYear)}</span>
               </button>

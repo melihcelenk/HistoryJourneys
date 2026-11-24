@@ -113,6 +113,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Ottoman portrait of Sultan Mustafa I (r. 1617–18; 1622–23), late 17th–early 18th century. Metropolitan Museum of Art.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ottoman_portrait_of_Sultan_Mustafa_I_(r._1617%E2%80%9318;_1622%E2%80%9323),_late_17th%E2%80%93early_18th_century._Metropolitan_Museum_of_Art.jpg",
+    "title": "I. Mustafa'nın minyatürü",
+    "author": "Osmanlı sanatçısı",
+    "created": "17. yüzyıl sonu – 18. yüzyıl başı",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.6,
+      "y": 0.42,
+      "size": 0.5
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

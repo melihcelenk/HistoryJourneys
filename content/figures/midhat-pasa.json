@@ -181,6 +181,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Midhat pasha.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Midhat_pasha.jpg",
+    "title": "Midhat Paşa'nın fotoğrafı",
+    "author": "Bilinmiyor; Ali Haydar Midhat'ın 1903 tarihli kitabında yayımlandı",
+    "created": "1884 öncesi",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.38,
+      "y": 0.36,
+      "size": 0.75
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

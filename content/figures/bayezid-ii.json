@@ -172,6 +172,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Sultan Gazi Bayezid Han II - السلطان الغازي بايزيد خان الثاني.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Gazi_Bayezid_Han_II_-_%D8%A7%D9%84%D8%B3%D9%84%D8%B7%D8%A7%D9%86_%D8%A7%D9%84%D8%BA%D8%A7%D8%B2%D9%8A_%D8%A8%D8%A7%D9%8A%D8%B2%D9%8A%D8%AF_%D8%AE%D8%A7%D9%86_%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A.jpg",
+    "title": "II. Bayezid'in portresi",
+    "author": "Bilinmiyor",
+    "created": "Tarihi belgelenmemiş",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.52,
+      "y": 0.27,
+      "size": 0.6
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

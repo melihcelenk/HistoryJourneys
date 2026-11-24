@@ -11,8 +11,8 @@ import { SLUG_PATTERN } from '../domain/contentSchema';
 /** Map renderers, in the order they are offered. */
 export const MAP_KINDS = ['maplibre', 'pixi'] as const;
 export type MapKind = (typeof MAP_KINDS)[number];
-/** The renderer used when a link does not name one; it is left out of links. */
-export const DEFAULT_MAP_KIND: MapKind = 'pixi';
+/** The renderer the game opens with and a link without a renderer means: the plain map, which works on every device. It is left out of links. */
+export const DEFAULT_MAP_KIND: MapKind = 'maplibre';
 /** The renderer that works everywhere; it takes over when another one cannot start. */
 export const FALLBACK_MAP_KIND: MapKind = 'maplibre';
 

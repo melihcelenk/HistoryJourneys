@@ -167,6 +167,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Genç Osman.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gen%C3%A7_Osman.JPG",
+    "title": "II. Osman'ın portresi",
+    "author": "Konstantin Kapıdağlı",
+    "created": "1789–1806",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.45,
+      "y": 0.22,
+      "size": 0.42
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

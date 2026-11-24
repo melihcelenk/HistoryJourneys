@@ -13,7 +13,7 @@ function Endpoint({ slot }: { slot: EndpointSlot }) {
       data-testid={`endpoint-${slot}`}
       onClick={() => openDialog({ kind: 'picker', slot })}
     >
-      <Medallion kind={figure?.kind} />
+      <Medallion figure={figure} />
       <span className="endpoint__text">
         <span className="endpoint__label">{SLOT_LABELS[slot]}</span>
         <span className="endpoint__name">{figure?.nameTr ?? EMPTY_SLOT_LABEL}</span>

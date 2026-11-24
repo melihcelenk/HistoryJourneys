@@ -28,6 +28,8 @@ const repository: ContentRepository = {
 };
 const settle = () => new Promise((resolve) => setTimeout(resolve, 0));
 const state = () => useAppStore.getState();
+const birthOf = (slug: string): number => sampleWorld().figures.find((item) => item.slug === slug)!.birthYear;
+const firstStopOf = (slug: string): number => birthOf(slug) + FIRST_STOP_AFTER_BIRTH;
 
 beforeEach(async () => {
   useAppStore.setState(useAppStore.getInitialState(), true);
@@ -38,16 +40,16 @@ describe('opening a figure starts its journey at the first stop', () => {
   it('goes to the year of the first stop once the card has arrived', async () => {
     state().startJourney('a', 'd');
     // The card is still loading: time waits at the birth of the figure.
-    expect(state().year).toBe(1400);
+    expect(state().year).toBe(birthOf('a'));
     await settle();
-    expect(state().year).toBe(1405);
+    expect(state().year).toBe(firstStopOf('a'));
   });
 
   it('goes there at once when the card is already loaded', async () => {
     state().startJourney('a', 'd');
     await settle();
     state().openFigure('c');
-    expect(state().year).toBe(1465);
+    expect(state().year).toBe(firstStopOf('c'));
   });
 
   it('does the same for a detour and on the way back from it', async () => {
@@ -55,9 +57,9 @@ describe('opening a figure starts its journey at the first stop', () => {
     await settle();
     state().openFigure('w');
     await settle();
-    expect(state().year).toBe(1455);
+    expect(state().year).toBe(firstStopOf('w'));
     state().closeDetour();
-    expect(state().year).toBe(1405);
+    expect(state().year).toBe(firstStopOf('a'));
   });
 
   it('keeps the year the reader chose while the card was loading', async () => {
@@ -85,7 +87,7 @@ describe('opening a figure starts its journey at the first stop', () => {
     await settle();
     state().openFigure('lonely');
     await settle();
-    expect(state().year).toBe(1500);
+    expect(state().year).toBe(birthOf('lonely'));
   });
 
   it('does not move time when a card arrives for a figure that is no longer open', async () => {

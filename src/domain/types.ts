@@ -1,4 +1,4 @@
-import type { FigureKind, Precision, RelationMode } from './contentSchema';
+import type { FigureKind, GenerationStatus, PortraitInfo, Precision, RelationMode } from './contentSchema';
 
 export type { FigureKind, Precision, RelationMode };
 
@@ -49,13 +49,15 @@ export interface FigureSummary {
   deathYear: number;
   deathPlace: string;
   reign?: { from: number; to: number };
+  /** The portrait of the figure, when the content has one; the picture itself is found by the slug of the figure. */
+  portrait?: PortraitInfo;
 }
 
 export interface GenerationInfo {
   model: string;
   ruleset: string;
   date: string;
-  status: 'generated' | 'reviewed';
+  status: GenerationStatus;
 }
 
 /** A figure with everything shown on its card. */

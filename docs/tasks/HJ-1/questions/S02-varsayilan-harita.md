@@ -52,6 +52,10 @@ geçmek tek satırlık değişiklik (`src/app/urlState.ts` → `DEFAULT_MAP_KIND
 
 ## Cevap
 
+**B — Sade harita varsayılan**
+
+Uygulamanın sade haritayla açılması, boyalı haritanın ise istendiğinde ayarlardan seçilmesi istendi. (Cevap sohbet üzerinden verildi, T61.)
+
 ## Sonuç
 
-**Geçici karar (T4 gereği soru açık):** A uygulandı. `DEFAULT_MAP_KIND = 'pixi'`, yedek `FALLBACK_MAP_KIND = 'maplibre'`.
+B uygulandı (Faz 15 → 15.1). `DEFAULT_MAP_KIND = 'maplibre'`; boyalı harita bağlantıda `map=pixi` olarak taşınır, eski bağlantılardaki `map=maplibre` çalışmaya devam eder. Boyalı harita seçilip başlayamazsa bir kez daha denenir; yine başlayamazsa sade haritaya dönülür ve haritanın üstünde nedeni yazar (Faz 15 → 15.2). İlk geçici karar A idi ve Faz 8'den Faz 14'e kadar uygulanmıştı.

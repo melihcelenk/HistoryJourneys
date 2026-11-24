@@ -60,5 +60,19 @@
     { "id": "tdv", "title": "Süleyman II", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/suleyman-ii" },
     { "id": "wiki", "title": "II. Süleyman", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/II._S%C3%BCleyman", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Süleyman II.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:S%C3%BCleyman_II.jpg",
+    "title": "II. Süleyman'ın portresi",
+    "author": "Bilinmiyor",
+    "created": "Tarihi belgelenmemiş",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.48,
+      "y": 0.27,
+      "size": 0.42
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

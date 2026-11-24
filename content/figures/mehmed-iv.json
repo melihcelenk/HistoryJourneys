@@ -158,6 +158,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Sultan Mehmed IV (2).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Mehmed_IV_(2).jpg",
+    "title": "IV. Mehmed'in portresi",
+    "author": "Bilinmiyor",
+    "created": "yaklaşık 1682",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.5,
+      "y": 0.17,
+      "size": 0.42
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

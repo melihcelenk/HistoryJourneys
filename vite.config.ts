@@ -20,7 +20,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         // Everything the application needs offline, including the map data and the content database.
-        globPatterns: ['**/*.{js,css,html,woff2,wasm,json,sqlite,png,svg}'],
+        globPatterns: ['**/*.{js,css,html,woff2,wasm,json,sqlite,png,svg,webp}'],
         maximumFileSizeToCacheInBytes: PRECACHE_MAX_FILE_BYTES,
       },
       manifest: {

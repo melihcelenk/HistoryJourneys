@@ -62,5 +62,19 @@
     { "id": "tdv", "title": "Ahmed I", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/ahmed-i" },
     { "id": "wiki", "title": "I. Ahmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/I._Ahmed", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Portrait of Sultan Ahmet I (r. 1603–17) (cropped).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Sultan_Ahmet_I_(r._1603%E2%80%9317)_(cropped).jpg",
+    "title": "I. Ahmed'in minyatürü",
+    "author": "17. yüzyıl Osmanlı sanatçısı",
+    "created": "17. yüzyıl başı",
+    "license": "CC0",
+    "representative": false,
+    "crop": {
+      "x": 0.55,
+      "y": 0.29,
+      "size": 0.5
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

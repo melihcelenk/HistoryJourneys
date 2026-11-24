@@ -1,7 +1,7 @@
 import { useAppStore } from '../../app/store';
-import type { MapKind } from '../../app/urlState';
 import { AVAILABLE_MAP_KINDS } from '../../map/createMapView';
 import { DialogShell } from './DialogShell';
+import { MAP_KIND_LABELS } from '../mapKindLabels';
 
 /** What the project is, how its content is made and under which licenses it is shared. */
 export function AboutDialog() {
@@ -15,7 +15,7 @@ export function AboutDialog() {
       </p>
       <p>
         <strong>İçerik:</strong> {figureCount} figürün kartı, yazılı bir kural setine göre yapay zekâ ile üretildi ve
-        henüz insan onayından geçmedi. Her kartın dayandığı kaynaklar kartın “Ayrıntılar” bölümünde listelenir. Kartlar
+        henüz insan onayından geçmedi. Her kartın dayandığı kaynaklar kartın “Kaynaklar” sekmesinde listelenir. Kartlar
         bilgiyi önce en sade haliyle verir; “Derinlik” düğmesi sadeleştirmenin dışarıda bıraktığını gösterir.
       </p>
       <p>
@@ -23,16 +23,16 @@ export function AboutDialog() {
         olan Natural Earth’ten gelir. Yazı tipleri Cinzel ve EB Garamond (SIL Open Font License).
       </p>
       <p>
+        <strong>Portreler:</strong> Figür portreleri Wikimedia Commons’tan alınır; yalnız kamu malı ya da CC0 olan, eseri de eski
+        olan görseller kullanılır. Her portrenin eseri, yapanı, tarihi ve kaynağı kartın “Kaynaklar” sekmesinde yazar. Kişinin
+        yaşadığı dönemde yapıldığı bilinmeyen portreler “temsilî” olarak belirtilir; portresi olmayan figür simgeyle gösterilir.
+      </p>
+      <p>
         <strong>Gizlilik:</strong> Uygulama hesap istemez ve senin hakkında hiçbir veri saklamaz.
       </p>
     </DialogShell>
   );
 }
-
-const MAP_KIND_LABELS: Record<MapKind, { name: string; note: string }> = {
-  pixi: { name: 'Boyalı harita', note: 'Kabartmalı arazi ve bulut gölgeleri; oyun haritası görünümü.' },
-  maplibre: { name: 'Sade harita', note: 'Hızlı ve hafif; her cihazda çalışır.' },
-};
 
 /** Map style and information. */
 export function SettingsDialog() {

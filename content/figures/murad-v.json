@@ -49,5 +49,19 @@
     { "id": "tdv", "title": "Murad V", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/murad-v" },
     { "id": "wiki", "title": "V. Murad", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/V._Murad", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Portrait of Murad V.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Murad_V.jpg",
+    "title": "V. Murad'ın gençlik portresi",
+    "author": "Bilinmiyor",
+    "created": "19. yüzyılın ikinci yarısı",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.52,
+      "y": 0.3,
+      "size": 0.5
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

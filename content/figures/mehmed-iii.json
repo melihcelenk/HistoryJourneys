@@ -181,6 +181,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Portrait of Sultan Mehmed III. Kitâb-î zubdet-ettewârîkh, Karbala, 1595 (Badische Landesbibliothek, Cod. Rastatt 201).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Sultan_Mehmed_III._Kit%C3%A2b-%C3%AE_zubdet-ettew%C3%A2r%C3%AEkh,_Karbala,_1595_(Badische_Landesbibliothek,_Cod._Rastatt_201).jpg",
+    "title": "III. Mehmed'in minyatürü, Zübdetü't-Tevârîh",
+    "author": "Osmanlı sanatçısı",
+    "created": "1595",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.45,
+      "y": 0.27,
+      "size": 0.5
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

@@ -79,25 +79,25 @@ test.describe('map and timeline', () => {
     await expect(page.getByTestId(`card-${slug}`)).toBeVisible();
   });
 
-  test('offers the basic map as an alternative to the painted map', async ({ page }, testInfo) => {
+  test('offers the painted map as an alternative to the plain map', async ({ page }, testInfo) => {
     await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
-    await expect(page.getByTestId('map-stage')).toHaveAttribute('data-map-kind', 'pixi');
-    await snap(page, testInfo, '13-painted-map');
+    await expect(page.getByTestId('map-stage')).toHaveAttribute('data-map-kind', 'maplibre');
+    await snap(page, testInfo, '14-basic-map');
 
     await page.getByTestId('open-settings').click();
-    await page.getByTestId('map-kind-maplibre').click();
+    await page.getByTestId('map-kind-pixi').click();
     await page.getByTestId('close-dialog').click();
-    await expect(page.getByTestId('map-stage')).toHaveAttribute('data-map-kind', 'maplibre');
+    await expect(page.getByTestId('map-stage')).toHaveAttribute('data-map-kind', 'pixi');
     await expect(page.getByTestId('map-stage')).toHaveAttribute('data-ready', 'true');
-    await expect(page).toHaveURL(/map=maplibre/);
+    await expect(page).toHaveURL(/map=pixi/);
     await expect(page.locator('.map-figure[data-slug="ahmed-i"]')).toHaveAttribute('data-focused', 'true');
     await expect(page.locator(JOURNEY_STOP)).toHaveCount(shownStopCount('ahmed-i'));
-    await snap(page, testInfo, '14-basic-map');
+    await snap(page, testInfo, '13-painted-map');
   });
 
   test('pans and zooms the painted map', async ({ page }, testInfo) => {
     test.skip(!isDesktop(testInfo), 'mouse wheel and drag are desktop gestures');
-    await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
+    await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i&map=pixi`);
     const marker = page.locator('.map-stop').first();
     // The camera flies to the journey first; measure only once it has come to rest.
     const before = await waitUntilStill(marker);
@@ -122,7 +122,7 @@ test.describe('map and timeline', () => {
 
   test('keeps markers on their places when the window is resized', async ({ page }, testInfo) => {
     test.skip(!isDesktop(testInfo), 'the window is resized on the desktop viewport');
-    await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
+    await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i&map=pixi`);
     const marker = page.locator('.map-stop').first();
     const before = await waitUntilStill(marker);
     // The view keeps its centre: a window 200 pixels narrower moves everything 100 pixels left.

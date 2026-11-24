@@ -39,7 +39,8 @@
 | 11 | Üçüncü geri bildirim: olay notu ve olaylar arasında adım düğmeleri | 🟢 Tamamlandı | 100% | `PHASE11.md` |
 | 12 | Dördüncü geri bildirim: kart sekmeleri, haritayla bağlı yolculuk listesi ve ilişki grafı | 🟢 Tamamlandı | 100% | `PHASE12.md` |
 | 13 | Beşinci geri bildirim: kartın düzeni, kart sekmeleri ve ilk duraktan başlama | 🟢 Tamamlandı | 100% | `PHASE13.md` |
-| 14 | Figür portreleri | ⏳ Bekliyor | 10% | `PHASE14.md` |
+| 14 | Figür portreleri | 🟢 Tamamlandı | 100% | `PHASE14.md` |
+| 15 | Altıncı geri bildirim: harita seçimi, portre kırpmaları ve haritada portreler | 🟢 Tamamlandı | 100% | `PHASE15.md` |
 
 <!-- Durum ikonları: 🟢 Tamamlandı | 🟡 Kısmi | ⏳ Bekliyor | 🔴 Bloke -->
 
@@ -283,9 +284,16 @@ Bir figürün ilişkileri graf penceresinde görülür.
 Bir kişi açıldığında yolculuğu ilk durağından başlar. Kartın bölümleri başlığın altında sekmelerdir; sonraki karta
 geçiş geniş bir sancaktır. Başlık ve "Yaptıkları" satırları alanı daha verimli kullanır.
 
-### ⏳ Faz 14 — Figür portreleri
+### 🟢 Faz 14 — Figür portreleri
 
-**Durum:** ⏳ Bekliyor · **Tamamlanma:** 10% · **Ayrıntı:** [`PHASE14.md`](PHASE14.md)
+**Durum:** 🟢 Tamamlandı · **Tamamlanma:** 100% · **Ayrıntı:** [`PHASE14.md`](PHASE14.md)
 
-Kaynak analizi yapıldı (`PORTRAITS_ANALYSIS.md`): Wikimedia Commons'taki kamu malı ve CC0 portreler kullanılacak; portresi
-olmayan figür madalyonla gösterilecek. Uygulama onay bekliyor (S8).
+41 figür, Wikimedia Commons'taki kamu malı ya da CC0 portresiyle gösterilir; 9 figür simgeyle kalır. Her portrenin eseri,
+yapanı, tarihi ve lisansı içerikte kayıtlıdır ve kartın "Kaynaklar" sekmesinde yazar. Görseller depodadır.
+
+### 🟢 Faz 15 — Altıncı geri bildirim: harita seçimi, portre kırpmaları ve haritada portreler
+
+**Durum:** 🟢 Tamamlandı · **Tamamlanma:** 100% · **Ayrıntı:** [`PHASE15.md`](PHASE15.md)
+
+Uygulama sade haritayla açılır; boyalı harita açılamazsa bu söylenir. Portreler yüzü ortalayacak biçimde kırpılır ve
+haritadaki bayraklarda da görünür.

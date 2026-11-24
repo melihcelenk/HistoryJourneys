@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useAppStore } from '../../src/app/store';
-import { EMPTY_URL_STATE } from '../../src/app/urlState';
+import { DEFAULT_MAP_KIND, EMPTY_URL_STATE } from '../../src/app/urlState';
 import type { ContentRepository } from '../../src/data/ContentRepository';
 import type { Concept, FigureCard } from '../../src/domain/types';
 import { figureCard, sampleWorld } from './fixtures';
@@ -194,6 +194,40 @@ describe('opening the figure whose card is already open', () => {
     useAppStore.getState().openFigure('c');
     // The cards of this file have no journey: time goes to the birth of the figure.
     expect(useAppStore.getState().year).toBe(1460);
+  });
+});
+
+describe('small guarantees of the store', () => {
+  it('asks for a card once when the first figure is opened', async () => {
+    const asked: string[] = [];
+    const counting = repository({
+      getFigureCard: async (slug) => {
+        asked.push(slug);
+        return cardOf(slug);
+      },
+    });
+    await useAppStore.getState().init(counting, EMPTY_URL_STATE);
+    useAppStore.getState().openFigure('a');
+    await settle();
+    expect(asked).toEqual(['a']);
+  });
+
+  it('does nothing when there is no detour to leave', async () => {
+    await useAppStore.getState().init(repository(), EMPTY_URL_STATE);
+    useAppStore.getState().startJourney('a', 'd');
+    useAppStore.setState({ year: 1444, playing: true });
+    useAppStore.getState().closeDetour();
+
+    expect(useAppStore.getState().year).toBe(1444);
+    expect(useAppStore.getState().playing).toBe(true);
+  });
+
+  it('goes back to the plain map for a link that names no map', async () => {
+    await useAppStore.getState().init(repository(), EMPTY_URL_STATE);
+    useAppStore.getState().applyUrlState({ ...EMPTY_URL_STATE, from: 'a', to: 'd', map: 'pixi' });
+    expect(useAppStore.getState().mapKind).toBe('pixi');
+    useAppStore.getState().applyUrlState({ ...EMPTY_URL_STATE, from: 'a', to: 'd' });
+    expect(useAppStore.getState().mapKind).toBe(DEFAULT_MAP_KIND);
   });
 });
 

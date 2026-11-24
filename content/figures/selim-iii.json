@@ -70,5 +70,19 @@
     { "id": "tdv", "title": "Selim III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/selim-iii" },
     { "id": "wiki", "title": "III. Selim", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Selim", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Konstantin Kapidagli 002.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Konstantin_Kapidagli_002.jpg",
+    "title": "III. Selim'in portresi",
+    "author": "Konstantin Kapıdağlı",
+    "created": "1803",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.58,
+      "y": 0.27,
+      "size": 0.35
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

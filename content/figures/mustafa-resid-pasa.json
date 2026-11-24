@@ -62,5 +62,19 @@
     { "id": "tdv", "title": "Mustafa Reşid Paşa", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-resid-pasa" },
     { "id": "wiki", "title": "Mustafa Reşid Paşa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Mustafa_Re%C5%9Fid_Pa%C5%9Fa", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Resid pasha (cropped).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Resid_pasha_(cropped).jpg",
+    "title": "Mustafa Reşid Paşa'nın portresi",
+    "author": "Bilinmiyor",
+    "created": "1850'ler",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.5,
+      "y": 0.32,
+      "size": 0.55
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

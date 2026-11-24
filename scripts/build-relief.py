@@ -27,6 +27,8 @@ OUTPUT_WIDTH = 2048
 JPEG_QUALITY = 72
 NEUTRAL_GREY = 128
 
+# The source is one trusted file of the whole world (10800 x 5400 pixels), larger than the size at which Pillow
+# refuses an image as a possible decompression bomb. The script reads nothing else.
 Image.MAX_IMAGE_PIXELS = None
 
 

@@ -501,6 +501,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Ataturk1930s.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ataturk1930s.jpg",
+    "title": "Atatürk'ün portre fotoğrafı",
+    "author": "Bilinmiyor",
+    "created": "29 Mart 1932",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.52,
+      "y": 0.15,
+      "size": 0.45
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

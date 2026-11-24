@@ -21,7 +21,7 @@ function percent(value: number, scale = 1): string {
 function FigureBadge({ figure }: { figure: GraphFigure }) {
   return (
     <>
-      <Medallion kind={figure.kind} />
+      <Medallion figure={figure} />
       <span className="graph__name">{figure.name}</span>
       <span className="graph__years">{formatYearRange(figure.birthYear, figure.deathYear)}</span>
     </>

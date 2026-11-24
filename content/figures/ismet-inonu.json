@@ -57,5 +57,19 @@
     { "id": "tdv", "title": "İnönü, Mustafa İsmet", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/inonu-mustafa-ismet" },
     { "id": "wiki", "title": "İsmet İnönü", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/%C4%B0smet_%C4%B0n%C3%B6n%C3%BC", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Inonu Ismet (cropped).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inonu_Ismet_(cropped).jpg",
+    "title": "İsmet İnönü'nün resmî cumhurbaşkanlığı fotoğrafı",
+    "author": "Bilinmiyor",
+    "created": "1938",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.45,
+      "y": 0.4,
+      "size": 0.85
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

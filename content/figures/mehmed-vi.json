@@ -70,5 +70,19 @@
     { "id": "tdv", "title": "Mehmed VI", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mehmed-vi" },
     { "id": "wiki", "title": "VI. Mehmed", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/VI._Mehmed", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Sultan Mehmed VI of the Ottoman Empire.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Mehmed_VI_of_the_Ottoman_Empire.jpg",
+    "title": "VI. Mehmed'in fotoğrafı",
+    "author": "George Grantham Bain",
+    "created": "1918",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.52,
+      "y": 0.15,
+      "size": 0.4
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

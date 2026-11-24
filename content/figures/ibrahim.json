@@ -130,6 +130,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Ibrahim I.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibrahim_I.jpg",
+    "title": "Sultan İbrahim'in portresi",
+    "author": "Bilinmiyor",
+    "created": "Tarihi belgelenmemiş",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.5,
+      "y": 0.24,
+      "size": 0.42
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

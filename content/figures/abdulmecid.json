@@ -70,5 +70,19 @@
     { "id": "tdv", "title": "Abdülmecid", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulmecid" },
     { "id": "wiki", "title": "Abdülmecid", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Abd%C3%BClmecid", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Sultan Abdülmecid - Google Art Project.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sultan_Abd%C3%BClmecid_-_Google_Art_Project.jpg",
+    "title": "Abdülmecid'in portresi",
+    "author": "Bilinmiyor",
+    "created": "19. yüzyıl ortası",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.45,
+      "y": 0.33,
+      "size": 0.5
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

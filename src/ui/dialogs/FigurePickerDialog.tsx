@@ -87,7 +87,7 @@ export function FigurePickerDialog({ slot }: { slot: EndpointSlot }) {
                   aria-current={figure.slug === current}
                   onClick={() => setEndpoint(slot, figure.slug)}
                 >
-                  <Medallion kind={figure.kind} />
+                  <Medallion figure={figure} />
                   <span>
                     <span className="picker__name">{figure.nameTr}</span>
                     <span className="picker__years">{formatYearRange(figure.birthYear, figure.deathYear)}</span>

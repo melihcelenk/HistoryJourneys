@@ -67,5 +67,19 @@
     { "id": "tdv", "title": "Mahmud I", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mahmud-i" },
     { "id": "wiki", "title": "I. Mahmud", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/I._Mahmud", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Mahmud1.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mahmud1.jpg",
+    "title": "I. Mahmud'un portresi",
+    "author": "Bilinmiyor",
+    "created": "Tarihi belgelenmemiş",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.5,
+      "y": 0.31,
+      "size": 0.42
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

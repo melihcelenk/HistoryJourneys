@@ -55,5 +55,19 @@
     { "id": "tdv", "title": "Abdülhamid I", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/abdulhamid-i" },
     { "id": "wiki", "title": "I. Abdülhamid", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/I._Abd%C3%BClhamid", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Portrait of Abdülhamid I of the Ottoman Empire.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Abd%C3%BClhamid_I_of_the_Ottoman_Empire.jpg",
+    "title": "I. Abdülhamid'in portresi",
+    "author": "Ferdinando Tonioli'ye atfedilir",
+    "created": "1788",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.48,
+      "y": 0.38,
+      "size": 0.7
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

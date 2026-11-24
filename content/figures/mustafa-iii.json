@@ -48,5 +48,19 @@
     { "id": "tdv", "title": "Mustafa III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-iii" },
     { "id": "wiki", "title": "III. Mustafa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Mustafa", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Mustafa3.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mustafa3.jpg",
+    "title": "III. Mustafa'nın portresi",
+    "author": "Bilinmiyor",
+    "created": "Tarihi belgelenmemiş",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.5,
+      "y": 0.36,
+      "size": 0.38
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

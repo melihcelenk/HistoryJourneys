@@ -1,10 +1,11 @@
-import type { FigureKind, Relation, RelationMode, World } from './types';
+import type { FigureKind, FigureSummary, Relation, RelationMode, World } from './types';
 
 /** A figure in a relation graph, placed on a plane whose unit is the radius of the circle of related figures. */
 export interface GraphFigure {
   slug: string;
   name: string;
   kind: FigureKind;
+  portrait?: FigureSummary['portrait'];
   birthYear: number;
   deathYear: number;
   x: number;
@@ -88,5 +89,5 @@ export function otherEnd(relation: Relation, slug: string): string | null {
 }
 
 function placed(figure: World['figures'][number], x: number, y: number): GraphFigure {
-  return { slug: figure.slug, name: figure.nameTr, kind: figure.kind, birthYear: figure.birthYear, deathYear: figure.deathYear, x, y };
+  return { slug: figure.slug, name: figure.nameTr, kind: figure.kind, portrait: figure.portrait, birthYear: figure.birthYear, deathYear: figure.deathYear, x, y };
 }

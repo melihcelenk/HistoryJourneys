@@ -47,5 +47,19 @@
     { "id": "tdv", "title": "Osman III", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/osman-iii" },
     { "id": "wiki", "title": "III. Osman", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/III._Osman", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Osman-iii.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osman-iii.jpg",
+    "title": "III. Osman'ın minyatürü",
+    "author": "Levnî'ye atfedilir",
+    "created": "18. yüzyıl",
+    "license": "CC0",
+    "representative": true,
+    "crop": {
+      "x": 0.5,
+      "y": 0.38,
+      "size": 0.35
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

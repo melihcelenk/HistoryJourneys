@@ -5,6 +5,7 @@ import { createMapView } from '../map/createMapView';
 import { buildScene, framingPoints } from '../map/mapScene';
 import type { Insets, MapScene, MapView, Viewport } from '../map/MapView';
 import { JourneyGroups, useShownJourney } from './JourneyGroups';
+import { MAP_KIND_LABELS } from './mapKindLabels';
 import { MiniMap } from './MiniMap';
 
 /** Below this width the panel sits under the map instead of over it. */
@@ -27,10 +28,21 @@ interface MapViewState {
   failed: boolean;
 }
 
+/** How many times a renderer is started before giving up; a start can fail for a passing reason, such as a download that broke off. */
+const START_ATTEMPTS = 2;
+
+/** What went wrong, in a few words, for the note shown to the reader. */
+function reasonOf(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
+
 /**
  * Creates the map renderer for the chosen kind and destroys it when the kind
- * changes. When the painted map cannot start (it needs more of WebGL than some
- * devices offer) the basic map takes over; when that fails too, `failed` is set.
+ * changes. A renderer that cannot start is tried once more. When the painted
+ * map still cannot start (it needs more of WebGL than some devices offer) the
+ * plain map takes over and the failure is recorded, so that the reader is told
+ * instead of being left on a map they did not choose; when the plain map
+ * fails too, `failed` is set.
  */
 function useMapView(mapKind: MapKind): MapViewState {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,7 +51,7 @@ function useMapView(mapKind: MapKind): MapViewState {
   const [failed, setFailed] = useState(false);
   const openFigure = useAppStore((state) => state.openFigure);
   const goToStop = useAppStore((state) => state.goToStop);
-  const setMapKind = useAppStore((state) => state.setMapKind);
+  const reportMapFailure = useAppStore((state) => state.reportMapFailure);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -47,29 +59,38 @@ function useMapView(mapKind: MapKind): MapViewState {
     let cancelled = false;
     let created: MapView | null = null;
     setFailed(false);
-    createMapView(mapKind, container, { onFigureClick: openFigure, onStopClick: goToStop, onViewportChange: setViewport })
-      .then((mapView) => {
-        created = mapView;
-        if (cancelled) mapView.destroy();
-        return mapView.ready;
-      })
-      .then(() => {
-        if (!cancelled) setView(created);
-      })
-      .catch((error: unknown) => {
-        if (cancelled) return;
-        console.error(`Map renderer "${mapKind}" could not start`, error);
-        created?.destroy();
-        created = null;
-        if (mapKind === FALLBACK_MAP_KIND) setFailed(true);
-        else setMapKind(FALLBACK_MAP_KIND);
-      });
+    const start = (attempt: number): void => {
+      createMapView(mapKind, container, { onFigureClick: openFigure, onStopClick: goToStop, onViewportChange: setViewport })
+        .then((mapView) => {
+          created = mapView;
+          if (cancelled) mapView.destroy();
+          return mapView.ready;
+        })
+        .then(() => {
+          if (!cancelled) setView(created);
+        })
+        .catch((error: unknown) => {
+          if (cancelled) return;
+          created?.destroy();
+          created = null;
+          if (attempt < START_ATTEMPTS) {
+            // It is tried again at once, so this is not yet a failure.
+            console.warn(`Map renderer "${mapKind}" did not start; trying again`, error);
+            start(attempt + 1);
+            return;
+          }
+          console.error(`Map renderer "${mapKind}" could not start`, error);
+          if (mapKind === FALLBACK_MAP_KIND) setFailed(true);
+          else reportMapFailure(mapKind, reasonOf(error));
+        });
+    };
+    start(1);
     return () => {
       cancelled = true;
       setView(null);
       created?.destroy();
     };
-  }, [mapKind, openFigure, goToStop, setMapKind]);
+  }, [mapKind, openFigure, goToStop, reportMapFailure]);
 
   return { containerRef, view, viewport, failed };
 }
@@ -103,6 +124,7 @@ export function MapStage() {
   const mapKind = useAppStore((state) => state.mapKind);
   const { containerRef, view, viewport, failed } = useMapView(mapKind);
   const scene = useMapScene();
+  const mapFailure = useAppStore((state) => state.mapFailure);
 
   useEffect(() => {
     view?.setScene(scene);
@@ -141,6 +163,12 @@ export function MapStage() {
       {failed && (
         <p className="stage__error stone" role="alert" data-testid="map-error">
           Harita bu cihazda açılamadı. Kartları ve rotayı kullanmaya devam edebilirsin.
+        </p>
+      )}
+      {mapFailure && (
+        <p className="stage__notice stone" role="status" data-testid="map-notice">
+          <strong>{MAP_KIND_LABELS[mapFailure.kind].name} açılamadı;</strong> {MAP_KIND_LABELS[FALLBACK_MAP_KIND].name.toLocaleLowerCase('tr')} gösteriliyor.
+          <span className="stage__notice-reason"> ({mapFailure.reason})</span>
         </p>
       )}
       {spotlight && (

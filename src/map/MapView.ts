@@ -39,6 +39,8 @@ export interface FigureMarker {
   position: LonLat;
   name: string;
   kind: FigureKind;
+  /** Whether the content has a portrait of the figure; the banner shows it instead of the emblem of the kind. */
+  portrait: boolean;
   focused: boolean;
   /** Index among the figures standing at the same place, used to fan them out. */
   stackIndex: number;

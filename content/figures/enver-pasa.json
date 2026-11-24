@@ -71,5 +71,19 @@
     { "id": "tdv", "title": "Enver Paşa", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/enver-pasa" },
     { "id": "wiki", "title": "Enver Paşa", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Enver_Pa%C5%9Fa", "license": "CC BY-SA 4.0" }
   ],
+  "portrait": {
+    "file": "Ismail Enver.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ismail_Enver.jpg",
+    "title": "Enver Paşa'nın fotoğrafı",
+    "author": "Bilinmiyor",
+    "created": "1922 öncesi",
+    "license": "Public domain",
+    "representative": false,
+    "crop": {
+      "x": 0.42,
+      "y": 0.28,
+      "size": 0.5
+    }
+  },
   "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
 }

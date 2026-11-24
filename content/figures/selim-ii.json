@@ -158,6 +158,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Portrait of Selim II by Nakkaş Osman, Şemâ'ilnâme, 1579, Istanbul, Topkapı Sarayı Müzesi, Н. 1563.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Selim_II_by_Nakka%C5%9F_Osman,_%C5%9Eem%C3%A2%27iln%C3%A2me,_1579,_Istanbul,_Topkap%C4%B1_Saray%C4%B1_M%C3%BCzesi,_%D0%9D._1563.jpg",
+    "title": "II. Selim'in minyatürü, Şemâilnâme",
+    "author": "Nakkaş Osman",
+    "created": "1579",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.45,
+      "y": 0.25,
+      "size": 0.6
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",

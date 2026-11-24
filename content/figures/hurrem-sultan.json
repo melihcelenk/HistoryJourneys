@@ -155,6 +155,20 @@
       "license": "CC BY-SA 4.0"
     }
   ],
+  "portrait": {
+    "file": "Titian - Portrait of a Woman (La Sultana Rossa).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Titian_-_Portrait_of_a_Woman_(La_Sultana_Rossa).jpg",
+    "title": "Hürrem Sultan'ı gösterdiği düşünülen portre",
+    "author": "Tiziano atölyesi",
+    "created": "16. yüzyıl",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.5,
+      "y": 0.23,
+      "size": 0.5
+    }
+  },
   "generation": {
     "model": "claude-fable-5-2",
     "ruleset": "0.1.0",
