@@ -28,10 +28,16 @@ export function loadContent(contentDir: string): LoadedContent {
     }
     return undefined;
   };
-  const figures = readdirSync(join(contentDir, 'figures'))
-    .filter((file) => file.endsWith('.json'))
-    .sort()
-    .flatMap((file) => parseFile(join(contentDir, 'figures', file), file, figureSchema) ?? []);
+  const figuresDir = join(contentDir, 'figures');
+  let figureFiles: string[] = [];
+  try {
+    figureFiles = readdirSync(figuresDir)
+      .filter((file) => file.endsWith('.json'))
+      .sort();
+  } catch (error) {
+    errors.push(`figures: ${error instanceof Error ? error.message : String(error)}`);
+  }
+  const figures = figureFiles.flatMap((file) => parseFile(join(figuresDir, file), file, figureSchema) ?? []);
   const relationTypes = parseFile(join(contentDir, 'relation-types.json'), 'relation-types.json', z.array(relationTypeSchema)) ?? [];
   const lines = parseFile(join(contentDir, 'lines.json'), 'lines.json', z.array(lineSchema)) ?? [];
   return { seed: { figures, relationTypes, lines }, errors };

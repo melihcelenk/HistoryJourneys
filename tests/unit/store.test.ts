@@ -10,6 +10,7 @@ function cardOf(slug: string): FigureCard {
 }
 
 const CONCEPT: Concept = { slug: 'kavram', term: 'Kavram', meaning: 'Anlam', related: [] };
+const DISK_ERROR = 'disk error';
 
 function repository(overrides: Partial<ContentRepository> = {}): ContentRepository {
   return {
@@ -37,7 +38,7 @@ describe('loading cards', () => {
     const logged = vi.spyOn(console, 'error').mockImplementation(() => undefined);
     const failing = repository({
       getFigureCard: async (slug) => {
-        if (slug === 'b') throw new Error('disk error');
+        if (slug === 'b') throw new Error(DISK_ERROR);
         return cardOf(slug);
       },
     });
@@ -56,7 +57,7 @@ describe('loading cards', () => {
     let broken = true;
     const flaky = repository({
       getFigureCard: async (slug) => {
-        if (slug === 'b' && broken) throw new Error('disk error');
+        if (slug === 'b' && broken) throw new Error(DISK_ERROR);
         return cardOf(slug);
       },
     });
@@ -99,7 +100,7 @@ describe('opening a concept', () => {
     const slow = repository({ getConcept: () => new Promise<Concept>((resolve) => (release = resolve)) });
     await useAppStore.getState().init(slow, EMPTY_URL_STATE);
 
-    const pending = useAppStore.getState().openConcept('kavram');
+    const pending = useAppStore.getState().openConcept(CONCEPT.slug);
     useAppStore.getState().openDialog({ kind: 'about' });
     release(CONCEPT);
     await pending;
@@ -109,7 +110,7 @@ describe('opening a concept', () => {
 
   it('opens the concept when nothing else happened meanwhile', async () => {
     await useAppStore.getState().init(repository(), EMPTY_URL_STATE);
-    await useAppStore.getState().openConcept('kavram');
+    await useAppStore.getState().openConcept(CONCEPT.slug);
     expect(useAppStore.getState().dialog).toEqual({ kind: 'concept', concept: CONCEPT });
   });
 });
@@ -148,13 +149,68 @@ describe('failures of the repository', () => {
     expect(close).toHaveBeenCalledTimes(1);
   });
 
+  it('still shows the error screen when the repository cannot even be closed', async () => {
+    const logged = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    const broken = repository({
+      loadWorld: async () => Promise.reject(new Error('corrupt')),
+      close: () => {
+        throw new Error('already closed');
+      },
+    });
+
+    await expect(useAppStore.getState().init(broken, EMPTY_URL_STATE)).resolves.toBeUndefined();
+    expect(useAppStore.getState().status).toBe('error');
+    expect(logged).toHaveBeenCalledTimes(2);
+  });
+
   it('logs a concept that cannot be loaded instead of rejecting', async () => {
     const logged = vi.spyOn(console, 'error').mockImplementation(() => undefined);
-    const failing = repository({ getConcept: async () => Promise.reject(new Error('disk error')) });
+    const failing = repository({ getConcept: async () => Promise.reject(new Error(DISK_ERROR)) });
     await useAppStore.getState().init(failing, EMPTY_URL_STATE);
 
-    await expect(useAppStore.getState().openConcept('kavram')).resolves.toBeUndefined();
+    await expect(useAppStore.getState().openConcept(CONCEPT.slug)).resolves.toBeUndefined();
     expect(logged).toHaveBeenCalled();
     expect(useAppStore.getState().dialog).toBeNull();
+  });
+});
+
+describe('opening the figure whose card is already open', () => {
+  it('keeps the year and the event that is being told', async () => {
+    await useAppStore.getState().init(repository(), EMPTY_URL_STATE);
+    useAppStore.getState().startJourney('a', 'd');
+    await settle();
+    const told = { year: 1444, figure: 'a', figureName: 'A', stopIndex: 0, place: { slug: 'yer', nameTr: 'Yer', lat: 40, lon: 30 }, placeName: 'Yer', years: '1444', text: 'olay' };
+    useAppStore.setState({ year: 1444, spotlight: told });
+    useAppStore.getState().openFigure('a');
+
+    expect(useAppStore.getState().year).toBe(1444);
+    expect(useAppStore.getState().spotlight).toEqual(told);
+  });
+
+  it('still moves time when another figure is opened', async () => {
+    await useAppStore.getState().init(repository(), EMPTY_URL_STATE);
+    useAppStore.getState().startJourney('a', 'd');
+    useAppStore.setState({ year: 1444 });
+    useAppStore.getState().openFigure('c');
+    // The cards of this file have no journey: time goes to the birth of the figure.
+    expect(useAppStore.getState().year).toBe(1460);
+  });
+});
+
+describe('leaving a detour', () => {
+  it('stops playback and the telling of an event, like every other change of card', async () => {
+    await useAppStore.getState().init(repository(), EMPTY_URL_STATE);
+    useAppStore.getState().startJourney('a', 'd');
+    useAppStore.getState().openFigure('lonely');
+    await settle();
+    // Something is being told and time is playing, so that the test fails if leaving the detour clears nothing.
+    useAppStore.setState({ spotlight: { year: 1500, figure: 'lonely', figureName: 'LONELY', stopIndex: 0, place: { slug: 'yer', nameTr: 'Yer', lat: 40, lon: 30 }, placeName: 'Yer', years: '1500', text: 'olay' } });
+    useAppStore.getState().setPlaying(true);
+    expect(useAppStore.getState().spotlight).not.toBeNull();
+    expect(useAppStore.getState().playing).toBe(true);
+    useAppStore.getState().closeDetour();
+
+    expect(useAppStore.getState().playing).toBe(false);
+    expect(useAppStore.getState().spotlight).toBeNull();
   });
 });

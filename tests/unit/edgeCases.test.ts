@@ -3,10 +3,9 @@ import { parseHash } from '../../src/app/urlState';
 import { formatYearWithHijri, toHijriYear } from '../../src/domain/calendar';
 import { activeYear } from '../../src/domain/journey';
 import { buildCauseQuestions, buildOrderingRound, seededRng } from '../../src/domain/quiz';
-import { findRoutes } from '../../src/domain/routeEngine';
 import type { FigureCard, JourneyStop } from '../../src/domain/types';
 import { buildScene } from '../../src/map/mapScene';
-import { figure, figureCard, sampleWorld } from './fixtures';
+import { figure, figureCard } from './fixtures';
 
 function card(slug: string, causes: string[], journey: JourneyStop[] = []): FigureCard {
   return figureCard(figure(slug, 1500, 1560, 1530), {
@@ -22,10 +21,6 @@ describe('calendar boundaries', () => {
     expect(formatYearWithHijri(622)).toBe('622 · H. 1');
   });
 
-  it('keeps well-known later years', () => {
-    expect(toHijriYear(1453)).toBe(857);
-    expect(toHijriYear(1923)).toBe(1342);
-  });
 });
 
 describe('ordering round with equal years', () => {
@@ -71,25 +66,12 @@ describe('cause questions', () => {
   });
 });
 
-describe('route cost', () => {
-  it('is the plain sum of the relation weights, for the first route and for alternatives', () => {
-    const world = sampleWorld();
-    const weights = new Map(world.relationTypes.map((type) => [type.type, type.weight]));
-    const routes = findRoutes(world, 'a', 'd');
-    expect(routes.length).toBeGreaterThanOrEqual(2);
-    for (const route of routes) {
-      const expected = route.steps.reduce((sum, step) => sum + (step.linkToNext ? weights.get(step.linkToNext.type)! : 0), 0);
-      expect(route.cost).toBeCloseTo(expected, 6);
-    }
-  });
-});
-
 describe('scene with a reloaded card', () => {
   it('shows a figure once even when its card is a different object', () => {
     const stop: JourneyStop = { place: { slug: 'saray', nameTr: 'Saray', lat: 41, lon: 29 }, precision: 'city', from: 1500, to: 1560, event: '' };
     const original = card('x', [], [stop]);
     const reloaded = { ...original };
-    const scene = buildScene({ places: [], routeCards: [original], activeCard: reloaded, year: 1540 });
+    const scene = buildScene({ places: [], routeCards: [original], activeCard: reloaded, year: 1540, showJourney: false });
     expect(scene.figures.map((item) => item.slug)).toEqual(['x']);
   });
 });

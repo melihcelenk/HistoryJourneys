@@ -1,5 +1,5 @@
 import initSqlJs, { type SqlJsStatic } from 'sql.js';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { afterEach, beforeAll, describe, expect, it } from 'vitest';
 import { figureSchema } from '../../src/domain/contentSchema';
 import { buildDatabase } from '../../src/data/buildDatabase';
 import { validateContent } from '../../src/data/contentValidation';
@@ -83,7 +83,17 @@ describe('validateContent', () => {
 });
 
 describe('SqliteContentRepository', () => {
-  const open = () => new SqliteContentRepository(buildDatabase(SQL, sampleSeed(), BUILT_AT));
+  const opened: SqliteContentRepository[] = [];
+  const open = () => {
+    const repository = new SqliteContentRepository(buildDatabase(SQL, sampleSeed(), BUILT_AT));
+    opened.push(repository);
+    return repository;
+  };
+
+  afterEach(() => {
+    // sql.js keeps its memory until a database is closed.
+    opened.splice(0).forEach((repository) => repository.close());
+  });
 
   it('loads figures ordered by birth year with their reign', async () => {
     const world = await open().loadWorld();

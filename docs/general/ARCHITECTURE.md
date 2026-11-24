@@ -60,13 +60,34 @@ modern borders or labels, and the application works offline.
 ### Routes are computed from typed relations
 
 `findRoutes` (`src/domain/routeEngine.ts`) builds a graph from the relations
-and runs a shortest-path search once per profile. Each profile weights the
-relation groups differently (succession, family, service and ideas), which
-produces different routes between the same two figures. A second pass per
-profile penalizes the links already used to find an alternative. A step may not
-move against the direction of time by more than a generation, which removes
-meaningless shortcuts (requirement FR-12). Relation types and their base
-weights are data: `content/relation-types.json`.
+and searches it once per kind of route (requirement FR-8):
+
+- **Direct** ("Doğrudan"): only relations between people who had to do with
+  each other (succession, family, service, teaching, conflict).
+- **Influence** ("Etki"): influences are cheap and direct relations
+  dear, so the route follows influences and may jump over centuries; it is
+  offered only when it contains at least one influence.
+
+Which relation type belongs to which kind is data (`mode` in
+`content/relation-types.json`), as are the base weights. A step may not move
+against the direction of time by more than a generation, which removes
+meaningless shortcuts (requirement FR-12). The engine returns data only; the
+names of the kinds are in `src/ui/routeLabels.ts`.
+
+### The map shows only what is recorded
+
+A figure is on the map only in the years of one of its journey stops
+(`stopAtYear` in `src/domain/journey.ts`). In a year between two stops nothing
+is known, so nothing is shown rather than a guess. The scene of a year
+(`src/map/mapScene.ts`) holds the figures present that year with the trail
+that led each of them there; the whole journey of the figure in focus is added
+only when the reader switches it on.
+
+Playback does not count years. `buildChronicle` (`src/domain/chronicle.ts`)
+lists the journey stops of the route in order of time, and `usePlayback`
+(`src/ui/usePlayback.ts`) steps through them: it moves time to the event, puts
+it in the spotlight (the camera goes there and a caption tells what happened)
+and rests for a time that depends on the chosen speed.
 
 ### State and links
 
@@ -94,3 +115,24 @@ EB Garamond (SIL Open Font License), bundled with the application.
 | `npm run db:build` | Rebuild `public/data/hj.sqlite` from `content/`. |
 | `npm run geo:build -- <dir>` | Rebuild `public/geo/` from Natural Earth GeoJSON files. |
 | `npm run content:verify` | Compare birth and death years with Wikidata. |
+
+## Focus and overview
+
+The store has one notion of "the figure in front of the reader" (`activeFigureSlug`): the detour card, else the
+open route card. On a route with no card open there is none; this is the overview.
+
+| | A card is open | Overview |
+|---|---|---|
+| Timeline and playback | the life and the stops of that figure | all figures on the route |
+| Map | the journey of the figure, one group of eight stops (`JOURNEY_GROUP_SIZE`) | figures of the year with their trails |
+| Link | `k=<figure>` | `g=1` |
+
+The group that is shown follows the reader (`journeyPosition`): the stop being told about, else the stop of the
+year, else the last one reached. Trails are cut to the same groups. The switches for the journey and the lines are
+on by default and are written to the link only when off (`j=0`, `l=0`). The kind of route the reader chose
+(`routeKind`) is kept apart from the route that is open, because the chosen kind may not exist between two figures.
+
+Opening a figure moves time to the first stop of its journey (`startOf`). Cards load after the route is known, so
+until the card arrives time waits at the birth year and the figure is remembered in `awaitingStart`; when the card
+arrives time moves on, unless the reader has chosen a year meanwhile or the figure is no longer open. A year in a
+link always wins. `activeYear` only orders figures in time for the games.

@@ -12,7 +12,10 @@ interface GeoFeature<T> {
 export async function fetchCoordinates<T>(url: string): Promise<T> {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Map data ${url} could not be loaded (HTTP ${response.status})`);
-  return ((await response.json()) as GeoFeature<T>).geometry.coordinates;
+  const feature = (await response.json().catch(() => null)) as Partial<GeoFeature<T>> | null;
+  const coordinates = feature?.geometry?.coordinates;
+  if (coordinates === undefined) throw new Error(`Map data ${url} is not a GeoJSON feature with a geometry`);
+  return coordinates;
 }
 
 function tracePoints(context: CanvasRenderingContext2D, project: Projector, points: number[][]): void {

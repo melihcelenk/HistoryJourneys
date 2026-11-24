@@ -1,13 +1,17 @@
 import { expect, test } from '@playwright/test';
-import { isDesktop, MAIN_JOURNEY_HASH, openApp, snap, startMainJourney, waitUntilStill } from './helpers';
+import { isDesktop, JOURNEY_STOP, MAIN_JOURNEY_HASH, openApp, shownStopCount, snap, startMainJourney, waitUntilStill } from './helpers';
+
+/** Longer than one rest of playback at normal speed: if time were still playing, the caption would have changed. */
+const LONGER_THAN_ONE_REST_MS = 3200;
 
 test.describe('map and timeline', () => {
   test('shows the focused figure and its journey on the map', async ({ page }) => {
     await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
     const figure = page.locator('.map-figure[data-slug="ahmed-i"]');
     await expect(figure).toHaveAttribute('data-focused', 'true');
-    await expect(page.locator('.map-stop')).toHaveCount(4);
-    await expect(page.locator('.map-stop[data-current="true"]')).toHaveCount(1);
+    // The map shows one group of stops at a time.
+    await expect(page.locator(JOURNEY_STOP)).toHaveCount(shownStopCount('ahmed-i'));
+    await expect(page.locator(`${JOURNEY_STOP}[data-current="true"]`)).toHaveCount(1);
   });
 
   test('moves time with the slider and shows both calendars', async ({ page }, testInfo) => {
@@ -18,34 +22,56 @@ test.describe('map and timeline', () => {
       await expect(page.getByTestId('year')).toContainText('H. 1018');
     }
     await expect(page).toHaveURL(/y=1609/);
-    await expect(page.locator('.map-stop[data-reached="true"]')).toHaveCount(2);
+    await expect(page.locator(`${JOURNEY_STOP}[data-reached="true"]`)).toHaveCount(2);
     await snap(page, testInfo, '09-timeline-1609');
 
     await page.getByTestId('year-slider').fill('1612');
-    await expect(page.locator('.map-stop[data-reached="true"]')).toHaveCount(3);
+    await expect(page.locator(`${JOURNEY_STOP}[data-reached="true"]`)).toHaveCount(3);
   });
 
   test('hides figures outside their lifetime', async ({ page }) => {
-    await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
+    // The overview: with a card open the timeline covers only the life of that figure.
+    await openApp(page, `${MAIN_JOURNEY_HASH}?g=1`);
     await page.getByTestId('year-slider').fill('1700');
     await expect(page.locator('.map-figure[data-slug="ahmed-i"]')).toHaveCount(0);
   });
 
-  test('plays time forward and stops on demand', async ({ page }) => {
+  test('plays from event to event, tells what happens and stops on demand', async ({ page }, testInfo) => {
     await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
     await page.getByTestId('year-slider').fill('1600');
+    await expect(page.getByTestId('chronicle')).toBeHidden();
     await page.getByTestId('play').click();
     await expect(page.getByTestId('play')).toHaveAccessibleName('Zamanı durdur');
+
+    // Playback goes straight to the first recorded event after 1600 and rests there.
+    const chronicle = page.getByTestId('chronicle');
+    await expect(chronicle).toBeVisible();
+    const firstEvent = await chronicle.textContent();
     await expect(page.getByTestId('year')).not.toContainText('1600');
+    await snap(page, testInfo, '15-playback');
+    await expect(chronicle).not.toHaveText(firstEvent ?? '', { timeout: 10_000 });
+
     await page.getByTestId('play').click();
-    const stoppedAt = await page.getByTestId('year').textContent();
-    await page.waitForTimeout(500);
-    await expect(page.getByTestId('year')).toHaveText(stoppedAt ?? '');
+    const stoppedAt = await chronicle.textContent();
+    await page.waitForTimeout(LONGER_THAN_ONE_REST_MS);
+    await expect(chronicle).toHaveText(stoppedAt ?? '');
+  });
+
+  test('lets the reader choose the playback speed', async ({ page }) => {
+    await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
+    const speed = page.getByTestId('speed');
+    await expect(speed).toHaveText('1×');
+    await speed.click();
+    await expect(speed).toHaveText('2×');
+    await speed.click();
+    await expect(speed).toHaveText('0,5×');
+    await speed.click();
+    await expect(speed).toHaveText('1×');
   });
 
   test('opens a card from its banner on the map', async ({ page }) => {
     await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
-    await page.getByTestId('year-slider').fill('1616');
+    await page.getByTestId('year-slider').fill('1600');
     const other = page.locator('.map-figure[data-focused="false"]').first();
     const slug = await other.getAttribute('data-slug');
     expect(slug).not.toBeNull();
@@ -65,7 +91,7 @@ test.describe('map and timeline', () => {
     await expect(page.getByTestId('map-stage')).toHaveAttribute('data-ready', 'true');
     await expect(page).toHaveURL(/map=maplibre/);
     await expect(page.locator('.map-figure[data-slug="ahmed-i"]')).toHaveAttribute('data-focused', 'true');
-    await expect(page.locator('.map-stop')).toHaveCount(4);
+    await expect(page.locator(JOURNEY_STOP)).toHaveCount(shownStopCount('ahmed-i'));
     await snap(page, testInfo, '14-basic-map');
   });
 
@@ -75,9 +101,19 @@ test.describe('map and timeline', () => {
     const marker = page.locator('.map-stop').first();
     // The camera flies to the journey first; measure only once it has come to rest.
     const before = await waitUntilStill(marker);
-    await page.mouse.move(900, 450);
+    // The drag must begin on the map itself: a marker under the pointer would take the press as a click.
+    const start = await page.evaluate(() => {
+      for (let x = 700; x <= 1300; x += 60) {
+        for (let y = 300; y <= 700; y += 60) {
+          if (document.elementFromPoint(x, y)?.classList.contains('map-canvas')) return { x, y };
+        }
+      }
+      return null;
+    });
+    expect(start).not.toBeNull();
+    await page.mouse.move(start!.x, start!.y);
     await page.mouse.down();
-    await page.mouse.move(1000, 520, { steps: 5 });
+    await page.mouse.move(start!.x + 100, start!.y + 70, { steps: 5 });
     await page.mouse.up();
     const after = await waitUntilStill(marker);
     expect(Math.round(after.x - before.x)).toBe(100);
@@ -158,7 +194,7 @@ test.describe('links and installation', () => {
     await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
     await page.getByTestId('year-slider').fill('1609');
     const card = page.getByTestId('card-ahmed-i');
-    await card.getByRole('button', { name: 'Ayrıntılar' }).click();
+    await card.getByTestId('tab-relations').click();
     await card.getByRole('button', { name: 'Kösem Sultan' }).click();
     await expect(page.getByTestId('card-kosem-sultan')).toBeVisible();
     const link = page.url();

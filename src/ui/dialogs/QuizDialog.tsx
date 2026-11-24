@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useAppStore, useRouteFigureSlugs } from '../../app/store';
+import { useAppStore, useRouteCards, useRouteFigureSlugs } from '../../app/store';
 import { activeYear } from '../../domain/journey';
 import {
   buildCauseQuestions,
@@ -184,8 +184,8 @@ function CauseGame({ cards }: { cards: FigureCard[] }) {
 /** Learning games built from the same data as the cards (FR-21). Scores are not stored (D6). */
 export function QuizDialog() {
   const world = useAppStore((state) => state.world);
-  const cards = useAppStore((state) => state.cards);
   const routeSlugs = useRouteFigureSlugs();
+  const routeCards = useRouteCards();
   const [game, setGame] = useState<GameKind>('ordering');
 
   const figures = useMemo(() => {
@@ -194,10 +194,6 @@ export function QuizDialog() {
     const onRoute = all.filter((figure) => slugs.has(figure.slug));
     return onRoute.length >= MIN_ROUTE_FIGURES_FOR_ROUND ? onRoute : all;
   }, [world, routeSlugs]);
-  const routeCards = useMemo(
-    () => routeSlugs.flatMap((slug) => (cards[slug] ? [cards[slug]] : [])),
-    [cards, routeSlugs],
-  );
 
   return (
     <DialogShell title="Oyun" testId="quiz-dialog">

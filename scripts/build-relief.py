@@ -40,10 +40,10 @@ def read_map_region() -> tuple[float, float, float, float]:
     missing = [side for side in ("west", "south", "east", "north") if side not in values]
     if missing:
         sys.exit(f"MAP_REGION in {MAP_REGION_PATH} lacks: {', '.join(missing)}")
-    return float(values["west"]), float(values["south"]), float(values["east"]), float(values["north"])
-
-
-WEST, SOUTH, EAST, NORTH = read_map_region()
+    west, south, east, north = (float(values[side]) for side in ("west", "south", "east", "north"))
+    if not (west < east and south < north):
+        sys.exit(f"MAP_REGION is not a valid region: west {west}, south {south}, east {east}, north {north}")
+    return west, south, east, north
 
 
 def mercator_y(latitude: float) -> float:
@@ -53,15 +53,16 @@ def mercator_y(latitude: float) -> float:
 def main() -> None:
     if len(sys.argv) != 2:
         sys.exit("Usage: python scripts/build-relief.py <path to SR_50M.tif>")
+    west, south, east, north = read_map_region()
     with Image.open(sys.argv[1]) as image:
         source = np.asarray(image.convert("L"), dtype=np.float32)
     source_height, source_width = source.shape
 
-    top, bottom = mercator_y(NORTH), mercator_y(SOUTH)
-    output_height = round(OUTPUT_WIDTH * (top - bottom) / math.radians(EAST - WEST))
+    top, bottom = mercator_y(north), mercator_y(south)
+    output_height = round(OUTPUT_WIDTH * (top - bottom) / math.radians(east - west))
 
     # For every output pixel, find the source pixel at the same longitude and latitude.
-    longitudes = WEST + (np.arange(OUTPUT_WIDTH) + 0.5) / OUTPUT_WIDTH * (EAST - WEST)
+    longitudes = west + (np.arange(OUTPUT_WIDTH) + 0.5) / OUTPUT_WIDTH * (east - west)
     mercator_rows = top - (np.arange(output_height) + 0.5) / output_height * (top - bottom)
     latitudes = np.degrees(2 * np.arctan(np.exp(mercator_rows)) - math.pi / 2)
     columns = np.clip(((longitudes + 180) / 360 * source_width).astype(int), 0, source_width - 1)

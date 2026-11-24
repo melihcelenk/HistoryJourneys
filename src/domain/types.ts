@@ -1,6 +1,6 @@
-import type { FigureKind, Precision, RelationGroup } from './contentSchema';
+import type { FigureKind, Precision, RelationMode } from './contentSchema';
 
-export type { FigureKind, Precision, RelationGroup };
+export type { FigureKind, Precision, RelationMode };
 
 export interface Place {
   slug: string;
@@ -79,7 +79,7 @@ export interface RelationType {
   type: string;
   nameTr: string;
   weight: number;
-  group: RelationGroup;
+  mode: RelationMode;
 }
 
 export interface Concept {

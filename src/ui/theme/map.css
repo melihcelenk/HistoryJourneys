@@ -94,6 +94,12 @@
 
 /* ---------- Journey stops ---------- */
 
+/* A stop under the pointer or the keyboard focus comes above every other marker, so that its card is not covered. */
+.map-anchor:has(.map-stop:hover),
+.map-anchor:has(.map-stop:focus-within) {
+  z-index: 10 !important;
+}
+
 .map-stop {
   display: flex;
   flex-direction: column;
@@ -116,6 +122,65 @@
   border: 2px solid var(--parchment-light);
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* The numbered pin of a journey stop is a button: it goes to the stop. */
+button.map-stop__pin {
+  padding: 0;
+  cursor: pointer;
+  transition: transform 120ms var(--ease-out);
+}
+
+button.map-stop__pin:hover,
+button.map-stop__pin:focus-visible {
+  transform: scale(1.2);
+}
+
+/* The card of a stop: opens above the pin while the pointer or the focus is on it. */
+.map-stop__card {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  display: none;
+  gap: 2px;
+  width: max-content;
+  max-width: 260px;
+  padding: 9px 13px 10px;
+  line-height: 1.25;
+  color: var(--ink);
+  background:
+    var(--grain),
+    linear-gradient(180deg, var(--parchment-light), var(--parchment-deep));
+  border: 1px solid var(--ink-soft);
+  border-radius: 3px;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 250, 230, 0.45),
+    0 6px 18px rgba(0, 0, 0, 0.65);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.map-stop:hover .map-stop__card,
+.map-stop:focus-within .map-stop__card {
+  display: grid;
+}
+
+.map-stop__card-title {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.map-stop__card-years {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--wax-dark);
+}
+
+.map-stop__card-text {
+  font-size: 0.95rem;
 }
 
 .map-stop__label {
@@ -142,18 +207,42 @@
   text-transform: uppercase;
 }
 
+.map-stop__years:empty {
+  display: none;
+}
+
 .map-stop__years {
   font-size: 0.74rem;
   font-style: italic;
   color: var(--ink-soft);
 }
 
-.map-stop[data-reached='false'] {
-  opacity: 0.55;
+/* A stop that is not reached yet is faint; its card is not, so that it can be read. */
+.map-stop[data-reached='false'] .map-stop__pin,
+.map-stop[data-reached='false'] .map-stop__label {
+  opacity: 0.6;
+}
+
+.map-stop[data-reached='false']:hover .map-stop__pin,
+.map-stop[data-reached='false']:focus-within .map-stop__pin {
+  opacity: 1;
 }
 
 .map-stop[data-reached='false'] .map-stop__pin {
   background: radial-gradient(circle at 36% 30%, #8a8172, #5c5446 55%, #3a342a);
+}
+
+/* The place where a figure stands this year, when its journey is not open: a small mark instead of a numbered pin. */
+.map-stop[data-kind='place'] {
+  transform: translateY(calc(100% - 8px));
+}
+
+.map-stop[data-kind='place'] .map-stop__pin {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 36% 30%, var(--gold-bright), var(--gold) 60%, #7d6226);
+  border-width: 2px;
+  border-color: var(--stone-900);
 }
 
 /* A stop right next to the current one would sit on top of it; it stays hidden until the figure gets there. */
@@ -256,5 +345,14 @@
 @keyframes banner-wave {
   50% {
     transform: skewX(-4deg) translateX(1px);
+  }
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 899px) {
+  /* The map is small: only the stop the figure is at keeps its label; the others are numbers to tap. */
+  .map-stop[data-kind='journey'][data-current='false'] .map-stop__label {
+    display: none;
   }
 }

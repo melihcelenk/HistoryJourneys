@@ -133,6 +133,11 @@
       "to": "suleyman-i",
       "type": "served_under",
       "note": "Kanuni döneminde Mısır kaptanlığı yaptı; Kitâb-ı Bahriye'yi ona sundu."
+    },
+    {
+      "to": "katip-celebi",
+      "type": "influenced",
+      "note": "Kâtip Çelebi, denizcilik ve coğrafya kitaplarında Pîrî Reis'in Kitâb-ı Bahriye'sinden yararlandı."
     }
   ],
   "concepts": [

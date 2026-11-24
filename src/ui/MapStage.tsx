@@ -1,16 +1,18 @@
 import { type RefObject, useEffect, useMemo, useRef, useState } from 'react';
-import { activeFigureSlug, currentRoute, useAppStore, useRouteFigureSlugs } from '../app/store';
+import { activeFigureSlug, currentRoute, useAppStore, useRouteCards } from '../app/store';
 import { FALLBACK_MAP_KIND, type MapKind } from '../app/urlState';
-import type { FigureCard } from '../domain/types';
 import { createMapView } from '../map/createMapView';
 import { buildScene, framingPoints } from '../map/mapScene';
 import type { Insets, MapScene, MapView, Viewport } from '../map/MapView';
+import { JourneyGroups, useShownJourney } from './JourneyGroups';
 import { MiniMap } from './MiniMap';
 
 /** Below this width the panel sits under the map instead of over it. */
 const DESKTOP_MIN_WIDTH = 900;
-const DESKTOP_INSETS: Insets = { top: 70, right: 20, bottom: 80, left: 470 };
-const PHONE_INSETS: Insets = { top: 0, right: 0, bottom: 0, left: 0 };
+/** Room for the panel on the left, the stop groups above, the caption of an event below and stop cards at the right edge. */
+const DESKTOP_INSETS: Insets = { top: 120, right: 140, bottom: 170, left: 470 };
+/** On a phone only the strip of stop groups lies on the map, along its top edge. */
+const PHONE_INSETS: Insets = { top: 56, right: 0, bottom: 0, left: 0 };
 
 function currentInsets(): Insets {
   return window.innerWidth >= DESKTOP_MIN_WIDTH ? DESKTOP_INSETS : PHONE_INSETS;
@@ -36,6 +38,7 @@ function useMapView(mapKind: MapKind): MapViewState {
   const [viewport, setViewport] = useState<Viewport | null>(null);
   const [failed, setFailed] = useState(false);
   const openFigure = useAppStore((state) => state.openFigure);
+  const goToStop = useAppStore((state) => state.goToStop);
   const setMapKind = useAppStore((state) => state.setMapKind);
 
   useEffect(() => {
@@ -44,7 +47,7 @@ function useMapView(mapKind: MapKind): MapViewState {
     let cancelled = false;
     let created: MapView | null = null;
     setFailed(false);
-    createMapView(mapKind, container, { onFigureClick: openFigure, onViewportChange: setViewport })
+    createMapView(mapKind, container, { onFigureClick: openFigure, onStopClick: goToStop, onViewportChange: setViewport })
       .then((mapView) => {
         created = mapView;
         if (cancelled) mapView.destroy();
@@ -66,7 +69,7 @@ function useMapView(mapKind: MapKind): MapViewState {
       setView(null);
       created?.destroy();
     };
-  }, [mapKind, openFigure, setMapKind]);
+  }, [mapKind, openFigure, goToStop, setMapKind]);
 
   return { containerRef, view, viewport, failed };
 }
@@ -76,20 +79,23 @@ function useMapScene(): MapScene {
   const places = useAppStore((state) => state.world?.places);
   const cards = useAppStore((state) => state.cards);
   const year = useAppStore((state) => state.year);
+  const showJourney = useAppStore((state) => state.showJourney);
+  const showLines = useAppStore((state) => state.showLines);
+  const spotlight = useAppStore((state) => state.spotlight);
   const activeSlug = useAppStore(activeFigureSlug);
-  const routeSlugs = useRouteFigureSlugs();
+  const routeCards = useRouteCards();
 
   return useMemo(() => {
-    const routeCards = routeSlugs
-      .map((slug) => cards[slug])
-      .filter((card): card is FigureCard => card !== undefined);
     return buildScene({
       places: places ?? [],
       routeCards,
       activeCard: activeSlug ? (cards[activeSlug] ?? null) : null,
       year,
+      showJourney,
+      showLines,
+      spotlight: spotlight ? { figure: spotlight.figure, stopIndex: spotlight.stopIndex } : undefined,
     });
-  }, [places, cards, routeSlugs, activeSlug, year]);
+  }, [places, cards, routeCards, activeSlug, year, showJourney, showLines, spotlight]);
 }
 
 /** The map as the stage of the game: figures, journeys and the route for the selected year. */
@@ -102,19 +108,30 @@ export function MapStage() {
     view?.setScene(scene);
   }, [scene, view]);
 
-  // The camera follows the figure in focus, not the year: scrubbing time must not move the map.
+  // The camera follows the figure in focus and the group of its stops that is shown, not the year: scrubbing
+  // time within a group must not move the map.
   const activeSlug = useAppStore(activeFigureSlug);
   const routeKey = useAppStore((state) => currentRoute(state)?.id ?? '');
   const activeLoaded = useAppStore((state) => activeSlug !== null && activeSlug in state.cards);
+  const shownGroup = useShownJourney()?.active ?? -1;
+  const subject = `${activeSlug}|${routeKey}|${activeLoaded}|${shownGroup}`;
+  const spotlight = useAppStore((state) => state.spotlight);
   const sceneRef = useRef(scene);
   useEffect(() => {
     sceneRef.current = scene;
   }, [scene]);
+  const framed = useRef<{ view: MapView; subject: string } | null>(null);
   useEffect(() => {
     if (!view) return;
-    view.setInsets(currentInsets());
-    view.frame(framingPoints(sceneRef.current));
-  }, [view, activeSlug, routeKey, activeLoaded]);
+    if (framed.current?.view !== view || framed.current.subject !== subject) {
+      framed.current = { view, subject };
+      view.setInsets(currentInsets());
+      view.frame(framingPoints(sceneRef.current));
+    } else if (spotlight) {
+      // The subject is already in the frame: while an event is told, the camera goes to where it happens.
+      view.panTo([spotlight.place.lon, spotlight.place.lat]);
+    }
+  }, [view, subject, spotlight]);
 
   const figurePoints = useMemo(() => scene.figures.map((figure) => figure.position), [scene.figures]);
 
@@ -126,6 +143,16 @@ export function MapStage() {
           Harita bu cihazda açılamadı. Kartları ve rotayı kullanmaya devam edebilirsin.
         </p>
       )}
+      {spotlight && (
+        <p className="chronicle parchment" data-testid="chronicle" aria-live="polite">
+          <span className="display chronicle__year">{spotlight.year}</span>
+          <span className="chronicle__who">
+            <strong>{spotlight.figureName}</strong> · {spotlight.placeName} ({spotlight.years})
+          </span>
+          <span className="chronicle__text">{spotlight.text}</span>
+        </p>
+      )}
+      <JourneyGroups />
       <MiniMap viewport={viewport} points={figurePoints} onJump={(point) => view?.panTo(point)} />
     </div>
   );

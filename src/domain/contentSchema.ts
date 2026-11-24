@@ -8,7 +8,7 @@ const SUMMARY_SENTENCES = 3; // FR-1: a three-sentence summary
 const MIN_ACTIONS = 2; // rule R6
 const MAX_ACTIONS = 4;
 const MIN_JOURNEY_STOPS = 3; // rule R17
-const MAX_JOURNEY_STOPS = 8;
+const MAX_JOURNEY_STOPS = 30; // a figure with a detailed journey package (AJ-1) has many more stops than most
 const MIN_SOURCES = 2; // rule R14, CG-8: at least two independent sources
 const MIN_LINE_MEMBERS = 2;
 
@@ -105,13 +105,17 @@ export const figureSchema = z.object({
   }),
 });
 
-export const relationGroupSchema = z.enum(['succession', 'family', 'service', 'ideas', 'conflict']);
+/**
+ * How a relation lets a route travel: `direct` links people who had to do with each other,
+ * `influence` links a figure to one it shaped, possibly centuries later (FR-8).
+ */
+export const relationModeSchema = z.enum(['direct', 'influence']);
 
 export const relationTypeSchema = z.object({
   type: text,
   nameTr: text,
   weight: z.number().positive(),
-  group: relationGroupSchema,
+  mode: relationModeSchema,
 });
 
 export const lineSchema = z.object({
@@ -127,7 +131,7 @@ export type FigureSeed = z.infer<typeof figureSchema>;
 export type ConceptSeed = z.infer<typeof conceptSchema>;
 export type RelationTypeSeed = z.infer<typeof relationTypeSchema>;
 export type LineSeed = z.infer<typeof lineSchema>;
-export type RelationGroup = z.infer<typeof relationGroupSchema>;
+export type RelationMode = z.infer<typeof relationModeSchema>;
 export type Precision = z.infer<typeof precisionSchema>;
 export type FigureKind = z.infer<typeof figureKindSchema>;
 export type GenerationStatus = z.infer<typeof generationStatusSchema>;

@@ -1,5 +1,5 @@
 /** SQLite schema of the content database. Bump the version when the shape changes. */
-export const DB_SCHEMA_VERSION = '1';
+export const DB_SCHEMA_VERSION = '2';
 
 export const DB_SCHEMA = `
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
@@ -71,7 +71,7 @@ CREATE TABLE relation_type (
   type TEXT PRIMARY KEY,
   name_tr TEXT NOT NULL,
   weight REAL NOT NULL,
-  grp TEXT NOT NULL -- relation group used by the route engine: succession, family, service, ideas, conflict
+  mode TEXT NOT NULL -- how routes may use the relation: direct or influence
 );
 
 CREATE TABLE relation (

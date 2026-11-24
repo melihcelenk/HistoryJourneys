@@ -49,24 +49,6 @@ test.describe('choosing two figures', () => {
     await expect(page).toHaveURL(/#\/yol\/ataturk\/mehmed-ii/);
   });
 
-  test('offers alternative routes and switches between them', async ({ page }, testInfo) => {
-    await startMainJourney(page);
-    await expect(page.getByTestId('route-tab-0')).toHaveAttribute('aria-selected', 'true');
-    await expect(page.getByTestId('route-tab-1')).toBeVisible();
-    // Two routes differ in the figures they pass through, not necessarily in their length.
-    const figuresOnRoute = () =>
-      page
-        .getByTestId('route-chain')
-        .locator('[data-testid^="strip-"], [data-testid^="card-"]')
-        .evaluateAll((items) => items.map((item) => item.getAttribute('data-testid')?.replace(/^(strip|card)-/, '')));
-    const firstRoute = await figuresOnRoute();
-    await page.getByTestId('route-tab-1').click();
-    await expect(page.getByTestId('route-tab-1')).toHaveAttribute('aria-selected', 'true');
-    await expect(page).toHaveURL(/r=1/);
-    expect(await figuresOnRoute()).not.toEqual(firstRoute);
-    await snap(page, testInfo, '04-alternative-route');
-  });
-
   test('names the relation between consecutive cards', async ({ page }) => {
     await startMainJourney(page);
     await expect(page.locator('.chain-link__tag').first()).not.toBeEmpty();
@@ -118,9 +100,9 @@ test.describe('reading a card', () => {
   test('shows journey, relations and sources in the details', async ({ page }) => {
     await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
     const card = page.getByTestId('card-ahmed-i');
-    await card.getByRole('button', { name: 'Ayrıntılar' }).click();
-    await expect(card.getByRole('heading', { name: 'Yolculuğu' })).toBeVisible();
+    await card.getByTestId('tab-journey').click();
     await expect(card.getByText('yapı kesin').first()).toBeVisible();
+    await card.getByTestId('tab-sources').click();
     await expect(card.getByRole('link', { name: /TDV İslâm Ansiklopedisi/ })).toBeVisible();
     await expect(card.getByText('insan onayından geçmedi')).toBeVisible();
   });
@@ -139,7 +121,7 @@ test.describe('reading a card', () => {
   test('leaves the route for another figure and returns to the same card', async ({ page }, testInfo) => {
     await openApp(page, `${MAIN_JOURNEY_HASH}?k=ahmed-i`);
     const card = page.getByTestId('card-ahmed-i');
-    await card.getByRole('button', { name: 'Ayrıntılar' }).click();
+    await card.getByTestId('tab-relations').click();
     await card.getByRole('button', { name: 'Kösem Sultan' }).click();
     await expect(page.getByTestId('detour')).toBeVisible();
     await expect(page.getByTestId('card-kosem-sultan')).toBeVisible();

@@ -70,6 +70,144 @@
   margin-top: 14px;
 }
 
+/* ---------- Relation graph: the figure in the centre, the related figures around it ---------- */
+
+.graph {
+  position: relative;
+  width: 100%;
+  height: min(62dvh, 540px);
+  min-height: 360px;
+}
+
+.graph__links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.graph__links line {
+  stroke: var(--wax-dark);
+  stroke-width: 2;
+  opacity: 0.75;
+}
+
+.graph__links line[data-mode='influence'] {
+  stroke: var(--brass);
+  stroke-dasharray: 7 6;
+}
+
+.graph__label {
+  position: absolute;
+  max-width: 130px;
+  padding: 1px 7px 2px;
+  font-family: var(--font-display);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--parchment-light);
+  background: var(--wax-dark);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.graph__label[data-mode='influence'] {
+  color: var(--ink);
+  background: var(--gold-bright);
+}
+
+.graph__figure {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  width: 124px;
+  padding: 4px 4px 5px;
+  font: inherit;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+}
+
+button.graph__figure {
+  cursor: pointer;
+  transition:
+    background 140ms,
+    transform 140ms var(--ease-out);
+}
+
+button.graph__figure:hover,
+button.graph__figure:focus-visible {
+  background: rgba(255, 250, 228, 0.9);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.graph__figure .medallion {
+  --size: 44px;
+}
+
+.graph__figure--centre .medallion {
+  --size: 66px;
+}
+
+.graph__name {
+  font-size: 0.86rem;
+  font-weight: 600;
+  /* The name sits on the links: a parchment halo keeps it readable. */
+  text-shadow:
+    0 0 4px var(--parchment-light),
+    0 0 4px var(--parchment-light),
+    0 0 8px var(--parchment-light);
+}
+
+.graph__figure--centre .graph__name {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--wax-dark);
+}
+
+.graph__years {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.graph__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 18px;
+  margin-top: 8px;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.graph__legend-item::before {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-top: 2px solid var(--wax-dark);
+}
+
+.graph__legend-item[data-mode='influence']::before {
+  border-top: 2px dashed var(--brass);
+}
+
 /* ---------- Figure picker ---------- */
 
 .picker__search {
@@ -334,6 +472,27 @@
 }
 
 @media (max-width: 899px) {
+  .graph__figure {
+    width: 84px;
+  }
+
+  .graph__figure .medallion {
+    --size: 32px;
+  }
+
+  .graph__figure--centre .medallion {
+    --size: 46px;
+  }
+
+  .graph__name {
+    font-size: 0.72rem;
+  }
+
+  .graph__years,
+  .graph__label {
+    display: none;
+  }
+
   .dialog-backdrop {
     padding: 8px;
   }

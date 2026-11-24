@@ -3,6 +3,7 @@ import { type EndpointSlot, useAppStore } from '../../app/store';
 import { formatYearRange } from '../../domain/calendar';
 import type { FigureSummary, World } from '../../domain/types';
 import { Medallion } from '../Medallion';
+import { RouteKindChooser } from '../RouteKindChooser';
 import { DialogShell } from './DialogShell';
 
 const TITLES: Record<EndpointSlot, string> = {
@@ -61,6 +62,7 @@ export function FigurePickerDialog({ slot }: { slot: EndpointSlot }) {
 
   return (
     <DialogShell title={TITLES[slot]} wide testId="figure-picker">
+      <RouteKindChooser />
       <input
         type="search"
         className="picker__search"

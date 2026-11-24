@@ -63,7 +63,7 @@ interface, an interactive map, diagrams and learning games.
 
 - **FR-1** Each figure has a card with a three-sentence summary written for recall, not completeness.
 - **FR-2** A card lists the figure's notable actions. Each action has two buttons, **Cause** and **Consequence**, that reveal a short explanation.
-- **FR-3** A card can be expanded to show more detail (key dates, roles, places, relations, sources).
+- **FR-3** A card can be expanded to show more detail (key dates, roles, places, relations, sources). The parts of a card are tabs right under its heading: the overview (summary and actions), the journey, the relations and the sources. One is always open, and the choice is kept from one card to the next.
 - **FR-4** Every person, place, event and concept mentioned on a card is a link to that entity's card.
 - **FR-5** Words and terms can be explored as concepts. Example: on Ahmed I's card, the term *ekber* ("the eldest") opens its Arabic root *k-b-r* and related words such as *kibir* (arrogance) and *tekbir* (glorifying God).
 - **FR-6** Every card shows the sources its facts were derived from.
@@ -72,10 +72,10 @@ interface, an interactive map, diagrams and learning games.
 ### 5.2 Routes between two figures
 
 - **FR-7** The reader selects any two figures; the site computes routes between them through related figures.
-- **FR-8** When several routes exist, they are offered as alternatives (similar to choosing a route in a navigation app), each with a short description (for example "through the Ottoman succession", "through contemporaries").
-- **FR-9** The chosen route is shown as a vertical chain of cards, ordered from one figure to the other.
+- **FR-8** Two kinds of route are offered. The kind is chosen together with the two figures, where the journey is chosen, and is not asked again on the game screen. A route of **direct relations** ("Doğrudan") goes only through people who had to do with each other: succession, family, service, teaching, conflict. A route of **influences** ("Etki") goes through influences, so that centuries may lie between two consecutive cards (a thinker and a figure shaped by that thinker a thousand years later).
+- **FR-9** The chosen route is shown as a vertical chain of cards, ordered from one figure to the other. A card is opened from the chain and closed from its heading; with no card open the reader is in the overview of the whole route, which can also be reached with a button above the chain.
 - **FR-10** While reading a route the reader always sees the previous and the next cards around the current one.
-- **FR-11** From any card on a route the reader can branch out (FR-4) and return to the route at the same position.
+- **FR-11** From any card on a route the reader can branch out (FR-4) and return to the route at the same position. The relations of a figure can also be seen as a graph, with the figure in the centre; choosing a figure in the graph opens its card.
 - **FR-12** Routes use only meaningful relation types and respect chronology; a route made of incidental links (two people who merely visited the same city) is not offered.
 - **FR-28** Relation types and the weights used to compute routes are defined as versioned data in this repository. Every link between two consecutive cards on a route names its relation (for example Atatürk *served under* Mehmed VI, Ahmed I *succeeded* Mehmed III), so that no step is an unexplained jump.
 
@@ -108,8 +108,8 @@ To the left, the term *ekber* is followed to its root *k-b-r* and related words
 
 ### 5.3 Map
 
-- **FR-13** Each figure's journey is shown on an interactive map as dated places, in order.
-- **FR-14** The map has a timeline; moving it shows where figures were at that time.
+- **FR-13** Each figure's journey is shown on an interactive map as dated places, in order. Opening a figure starts its journey at the first stop. While a card is open, the journey of that figure is on the map as numbered stops; a long journey is shown in groups of eight stops, one group at a time. Choosing a number goes to that stop, and pointing at it opens a small card with the place, the years and the event. Two switches at the top of the card hide the journey and the lines between stops. The journey is also listed in a tab of the card: the stop the figure is at is marked there, and choosing an entry takes the map to that stop. In the overview the map shows the figures of the selected year with the trail that led each of them there.
+- **FR-14** The map has a timeline; moving it shows where figures were at that time. While a card is open the timeline covers the life of that figure, from birth to death; in the overview it covers the lives of all figures on the route. A figure is shown only in years for which a stop is recorded: where nothing is recorded, nothing is shown, rather than a guess. Playback moves from one recorded event to the next, rests on each long enough to be taken in, and its speed can be chosen. Beside the play button, two buttons step to the previous and the next event by hand.
 - **FR-15** Historical borders for the selected period are shown where data exists.
 - **FR-16** A route between two figures can also be viewed on the map.
 - **FR-17** The precision of each location is recorded and shown (exact building, city, or approximate region).

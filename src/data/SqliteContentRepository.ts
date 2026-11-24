@@ -4,7 +4,7 @@ import {
   figureKindSchema,
   generationStatusSchema,
   precisionSchema,
-  relationGroupSchema,
+  relationModeSchema,
 } from '../domain/contentSchema';
 import type {
   Action,
@@ -36,6 +36,13 @@ function optionalText(row: Row, column: string): string | undefined {
   return value === null || value === undefined ? undefined : String(value);
 }
 
+/** Reads a column that holds one of a fixed set of values; a value outside the set names its column and row. */
+function oneOf<T>(row: Row, column: string, schema: z.ZodType<T>): T {
+  const parsed = schema.safeParse(row[column]);
+  if (parsed.success) return parsed.data;
+  throw new Error(`Unexpected value "${String(row[column])}" in column ${column} (row ${String(row.slug ?? row.type ?? '?')})`);
+}
+
 const stringListSchema = z.array(z.string());
 const relatedWordsSchema = z.array(z.object({ term: z.string(), meaning: z.string() }));
 
@@ -51,7 +58,7 @@ function toSummary(row: Row): FigureSummary {
     slug: text(row, 'slug'),
     nameTr: text(row, 'name_tr'),
     nameEn: text(row, 'name_en'),
-    kind: figureKindSchema.parse(row.kind),
+    kind: oneOf(row, 'kind', figureKindSchema),
     roles: parseJson(row, 'roles_json', stringListSchema),
     birthYear: numberOf(row, 'birth_year'),
     birthPlace: text(row, 'birth_place'),
@@ -83,7 +90,7 @@ function toStop(row: Row): JourneyStop {
       lat: numberOf(row, 'lat'),
       lon: numberOf(row, 'lon'),
     },
-    precision: precisionSchema.parse(row.precision),
+    precision: oneOf(row, 'precision', precisionSchema),
     from: numberOf(row, 'year_from'),
     to: numberOf(row, 'year_to'),
     event: text(row, 'event'),
@@ -136,7 +143,7 @@ export class SqliteContentRepository implements ContentRepository {
       type: text(row, 'type'),
       nameTr: text(row, 'name_tr'),
       weight: numberOf(row, 'weight'),
-      group: relationGroupSchema.parse(row.grp),
+      mode: oneOf(row, 'mode', relationModeSchema),
     }));
     const membersByLine = new Map<string, string[]>();
     for (const member of this.query('SELECT line_slug, figure_slug FROM line_member ORDER BY line_slug, position')) {
@@ -185,7 +192,7 @@ export class SqliteContentRepository implements ContentRepository {
         model: text(row, 'gen_model'),
         ruleset: text(row, 'gen_ruleset'),
         date: text(row, 'gen_date'),
-        status: generationStatusSchema.parse(row.gen_status),
+        status: oneOf(row, 'gen_status', generationStatusSchema),
       },
     };
   }

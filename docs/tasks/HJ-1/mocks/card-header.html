@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HJ-1 · Kart başlığı için mock tasarımlar (S7)</title>
+    <!--
+      Design mocks for the heading of a figure card (question card S7). Static page: it borrows the colours of
+      src/ui/theme/base.css but is not part of the application. Open it in a browser.
+    -->
+    <style>
+      :root {
+        --ink: #2a1c0d;
+        --ink-soft: #5b4630;
+        --ink-faint: #8a7350;
+        --parchment: #ead9ad;
+        --parchment-light: #f3e6c2;
+        --parchment-deep: #d6c08a;
+        --gold: #c9a44c;
+        --gold-bright: #f0d586;
+        --wax: #8a1f17;
+        --wax-dark: #55110c;
+        --stone-950: #0d0a07;
+        --stone-800: #201a14;
+        --font-display: 'Cinzel', 'Times New Roman', serif;
+        --font-body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 28px;
+        font-family: var(--font-body);
+        font-size: 18px;
+        line-height: 1.4;
+        color: var(--parchment);
+        background: var(--stone-950);
+      }
+      h1 {
+        margin: 0 0 4px;
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        letter-spacing: 0.08em;
+        color: var(--gold-bright);
+      }
+      .lead {
+        max-width: 900px;
+        margin: 0 0 26px;
+        opacity: 0.85;
+      }
+      .mocks {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 432px);
+        gap: 30px 34px;
+      }
+      .mock h2 {
+        margin: 0 0 2px;
+        font-family: var(--font-display);
+        font-size: 0.86rem;
+        letter-spacing: 0.08em;
+        color: var(--gold-bright);
+      }
+      .mock > p {
+        margin: 0 0 10px;
+        font-size: 0.92rem;
+        opacity: 0.85;
+      }
+      .mock ul {
+        margin: 10px 0 0;
+        padding-left: 18px;
+        font-size: 0.9rem;
+        opacity: 0.85;
+      }
+      /* The card: the width of the panel in the game. */
+      .card {
+        width: 432px;
+        padding: 22px 24px 18px;
+        color: var(--ink);
+        background: linear-gradient(160deg, var(--parchment-light), var(--parchment) 45%, var(--parchment-deep));
+        border: 1px solid var(--ink-faint);
+        box-shadow:
+          inset 0 0 0 5px rgba(243, 230, 194, 0.6),
+          inset 0 0 0 6px rgba(138, 115, 80, 0.5),
+          0 6px 18px rgba(0, 0, 0, 0.6);
+      }
+      .medallion {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 62px;
+        height: 62px;
+        font-size: 26px;
+        border-radius: 50%;
+        color: #3a2a0c;
+        background: radial-gradient(circle at 34% 28%, #fff3bf 0%, var(--gold-bright) 22%, var(--gold) 55%, #7d6226 100%);
+        box-shadow:
+          inset 0 0 0 2px rgba(74, 52, 12, 0.75),
+          inset 0 0 0 4px rgba(255, 236, 170, 0.45),
+          0 2px 5px rgba(0, 0, 0, 0.55);
+      }
+      .name {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: 1.32rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        line-height: 1.15;
+        text-transform: uppercase;
+      }
+      .roles {
+        margin: 0;
+        font-size: 0.98rem;
+        font-style: italic;
+        line-height: 1.3;
+        color: var(--ink-soft);
+      }
+      .years {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--ink-soft);
+      }
+      .tool {
+        flex: none;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+        color: #ffe9c9;
+        background: radial-gradient(circle at 36% 30%, #d2493c, var(--wax) 55%, var(--wax-dark));
+        border: 1px solid var(--wax-dark);
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(60, 40, 10, 0.5);
+      }
+      .tool--small {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+      }
+      .tabs {
+        display: flex;
+        gap: 2px;
+        margin-top: 12px;
+        border-bottom: 2px solid var(--ink-soft);
+      }
+      .tab {
+        flex: 1 1 auto;
+        padding: 8px 4px 7px;
+        font-family: var(--font-display);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        background: linear-gradient(180deg, rgba(255, 248, 220, 0.55), rgba(214, 192, 138, 0.45));
+        border: 1px solid var(--ink-faint);
+        border-bottom: 0;
+        border-radius: 4px 4px 0 0;
+      }
+      .tab--open {
+        color: var(--parchment-light);
+        background: linear-gradient(180deg, #4a3520, var(--ink));
+        border-color: var(--ink);
+      }
+      .body {
+        margin: 12px 0 0;
+        font-size: 1.02rem;
+        color: var(--ink);
+        opacity: 0.55;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+      }
+      .grow {
+        flex: 1;
+        min-width: 0;
+      }
+      .stack {
+        display: grid;
+        gap: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kart başlığı: dört seçenek</h1>
+    <p class="lead">
+      Aynı kart, aynı genişlikte (oyundaki panel genişliği). Fark yalnız iki harita düğmesinin (yolculuk ve çizgiler)
+      nerede durduğunda. Kırmızı yuvarlaklar o iki düğmedir. Seçimi S7 kartında yapabilirsin.
+    </p>
+
+    <div class="mocks">
+      <section class="mock">
+        <h2>A — Düğmeler adın yanında, roller tam genişlikte</h2>
+        <p>Şu an uygulanan hâl.</p>
+        <div class="card">
+          <div class="row" style="align-items: flex-start">
+            <div class="row grow" style="align-items: center; gap: 14px">
+              <div class="medallion">☾</div>
+              <p class="name">Mustafa Kemal Atatürk</p>
+            </div>
+            <div class="row" style="gap: 4px">
+              <div class="tool">⚲</div>
+              <div class="tool">⇄</div>
+            </div>
+          </div>
+          <div class="stack" style="margin-top: 8px">
+            <p class="roles">Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı · Kurtuluş Savaşı'nın başkomutanı</p>
+            <p class="years">1881–1938 · GÖREVDE 1923–1938</p>
+          </div>
+          <div class="tabs">
+            <div class="tab tab--open">Özet</div>
+            <div class="tab">Yolculuğu</div>
+            <div class="tab">İlişkileri</div>
+            <div class="tab">Kaynaklar</div>
+          </div>
+          <p class="body">Mustafa Kemal Atatürk, 1881'de Selanik'te doğan ve 1923'te Türkiye Cumhuriyeti'ni kuran asker ve devlet adamıdır…</p>
+        </div>
+        <ul>
+          <li>Roller iki satıra iner; düğmelerin altı boş kalmaz.</li>
+          <li>Uzun ad yine düğmeler yüzünden üç satıra bölünebilir.</li>
+        </ul>
+      </section>
+
+      <section class="mock">
+        <h2>B — Düğmeler madalyonun altında</h2>
+        <p>Sol sütun: madalyon ve altında iki küçük düğme. Sağ sütun bütünüyle yazıya kalır.</p>
+        <div class="card">
+          <div class="row" style="align-items: flex-start; gap: 14px">
+            <div class="stack" style="justify-items: center; gap: 7px">
+              <div class="medallion">☾</div>
+              <div class="row" style="gap: 4px">
+                <div class="tool tool--small">⚲</div>
+                <div class="tool tool--small">⇄</div>
+              </div>
+            </div>
+            <div class="stack grow">
+              <p class="name">Mustafa Kemal Atatürk</p>
+              <p class="roles">Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı · Kurtuluş Savaşı'nın başkomutanı</p>
+              <p class="years">1881–1938 · GÖREVDE 1923–1938</p>
+            </div>
+          </div>
+          <div class="tabs">
+            <div class="tab tab--open">Özet</div>
+            <div class="tab">Yolculuğu</div>
+            <div class="tab">İlişkileri</div>
+            <div class="tab">Kaynaklar</div>
+          </div>
+          <p class="body">Mustafa Kemal Atatürk, 1881'de Selanik'te doğan ve 1923'te Türkiye Cumhuriyeti'ni kuran asker ve devlet adamıdır…</p>
+        </div>
+        <ul>
+          <li>Ad en geniş yeri alır; çoğu ad iki satıra sığar.</li>
+          <li>Roller madalyon sütunu kadar dar kalır; sol sütunun altı yine biraz boş.</li>
+          <li>Düğmeler küçülür (28 piksel); dokunmatik ekranda hedef daralır.</li>
+        </ul>
+      </section>
+
+      <section class="mock">
+        <h2>C — Düğmeler sekme satırının ucunda</h2>
+        <p>Başlık yalnız kişiyi anlatır. Harita düğmeleri sekmelerle aynı satırda, sağda.</p>
+        <div class="card">
+          <div class="row" style="align-items: center; gap: 14px">
+            <div class="medallion">☾</div>
+            <p class="name grow">Mustafa Kemal Atatürk</p>
+          </div>
+          <div class="stack" style="margin-top: 8px">
+            <p class="roles">Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı · Kurtuluş Savaşı'nın başkomutanı</p>
+            <p class="years">1881–1938 · GÖREVDE 1923–1938</p>
+          </div>
+          <div class="row" style="align-items: flex-end; gap: 8px">
+            <div class="tabs grow">
+              <div class="tab tab--open">Özet</div>
+              <div class="tab">Yolculuğu</div>
+              <div class="tab">İlişkileri</div>
+              <div class="tab">Kaynak</div>
+            </div>
+            <div class="row" style="gap: 4px; padding-bottom: 3px">
+              <div class="tool tool--small">⚲</div>
+              <div class="tool tool--small">⇄</div>
+            </div>
+          </div>
+          <p class="body">Mustafa Kemal Atatürk, 1881'de Selanik'te doğan ve 1923'te Türkiye Cumhuriyeti'ni kuran asker ve devlet adamıdır…</p>
+        </div>
+        <ul>
+          <li>Başlıkta hiç boşluk kalmaz; ad ve roller bütün genişliği kullanır.</li>
+          <li>Düğmeler "Yolculuğu" sekmesinin yanında durur: ilgili oldukları şeyin yakınında.</li>
+          <li>Sekmeler daralır; "Kaynaklar" yerine "Kaynak" gibi kısa adlar gerekebilir.</li>
+        </ul>
+      </section>
+
+      <section class="mock">
+        <h2>D — Düğmeler sağda alt alta</h2>
+        <p>Düğmeler dar bir sütunda alt alta; ad ve roller solda.</p>
+        <div class="card">
+          <div class="row" style="align-items: flex-start; gap: 12px">
+            <div class="medallion">☾</div>
+            <div class="stack grow">
+              <p class="name">Mustafa Kemal Atatürk</p>
+              <p class="roles">Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı · Kurtuluş Savaşı'nın başkomutanı</p>
+              <p class="years">1881–1938 · GÖREVDE 1923–1938</p>
+            </div>
+            <div class="stack" style="gap: 5px">
+              <div class="tool">⚲</div>
+              <div class="tool">⇄</div>
+            </div>
+          </div>
+          <div class="tabs">
+            <div class="tab tab--open">Özet</div>
+            <div class="tab">Yolculuğu</div>
+            <div class="tab">İlişkileri</div>
+            <div class="tab">Kaynaklar</div>
+          </div>
+          <p class="body">Mustafa Kemal Atatürk, 1881'de Selanik'te doğan ve 1923'te Türkiye Cumhuriyeti'ni kuran asker ve devlet adamıdır…</p>
+        </div>
+        <ul>
+          <li>Düğme sütunu yarı yarıya daralır (34 piksel); ad biraz daha geniş yer bulur.</li>
+          <li>Yazı iki yandan sıkışır; roller üç satıra çıkar. Dört seçeneğin en yükseği olur.</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,19 +1,22 @@
-import { useEffect } from 'react';
-import { useAppStore, useRouteFigureSlugs } from '../app/store';
+import { activeFigureSlug, useAppStore, useRouteFigureSlugs } from '../app/store';
 import { toHijriYear } from '../domain/calendar';
+import { type ChronicleEvent, neighbourEvent, type StepDirection } from '../domain/chronicle';
 import type { World } from '../domain/types';
 import { Icon } from './Icon';
+import { useChronicle, usePlayback } from './usePlayback';
 
-/** How long one year lasts while the timeline is playing. */
-const PLAY_INTERVAL_MS = 140;
 /** Shown only while the content has no figures at all. */
 const EMPTY_YEAR_RANGE = { min: 1400, max: 1950 };
 
-/** The span of years the timeline covers: the lives of the route figures, or of everyone. */
+/**
+ * The span of years the timeline covers: the life of the figure whose card is
+ * open, so that its years can be told apart; in the overview the lives of all
+ * the figures on the route; before any figure is chosen, of everyone.
+ */
 function useYearRange(world: World | null): { min: number; max: number } {
   const routeFigures = useRouteFigureSlugs();
-  const active = useAppStore((state) => state.detour.at(-1) ?? state.from);
-  const slugs = new Set([...routeFigures, ...(active ? [active] : [])]);
+  const active = useAppStore(activeFigureSlug);
+  const slugs = new Set(active ? [active] : routeFigures);
   const figures = world?.figures.filter((figure) => slugs.size === 0 || slugs.has(figure.slug)) ?? [];
   if (figures.length === 0) return EMPTY_YEAR_RANGE;
   return {
@@ -22,42 +25,63 @@ function useYearRange(world: World | null): { min: number; max: number } {
   };
 }
 
-/** Timeline that drives the map: scrub or play through the years (FR-14, FR-26). */
+const STEP_LABELS: Record<StepDirection, string> = { previous: 'Önceki olay', next: 'Sonraki olay' };
+
+/** Goes to the event before or after the current one by hand; playback stops (FR-14). */
+function StepButton({ events, direction }: { events: ChronicleEvent[]; direction: StepDirection }) {
+  const target = useAppStore((state) => neighbourEvent(events, state.spotlight, state.year, direction));
+  const tell = useAppStore((state) => state.tell);
+  const setPlaying = useAppStore((state) => state.setPlaying);
+  return (
+    <button
+      type="button"
+      className="btn btn--icon timeline__step"
+      data-testid={`${direction}-event`}
+      aria-label={STEP_LABELS[direction]}
+      title={STEP_LABELS[direction]}
+      disabled={target === null}
+      onClick={() => {
+        if (!target) return;
+        setPlaying(false);
+        tell(target);
+      }}
+    >
+      <Icon name={direction} />
+    </button>
+  );
+}
+
+/** Timeline that drives the map: scrub through the years, or play the recorded events one by one (FR-14, FR-26). */
 function Timeline() {
   const world = useAppStore((state) => state.world);
   const year = useAppStore((state) => state.year);
   const playing = useAppStore((state) => state.playing);
   const setYear = useAppStore((state) => state.setYear);
   const setPlaying = useAppStore((state) => state.setPlaying);
+  const speed = useAppStore((state) => state.speed);
+  const cycleSpeed = useAppStore((state) => state.cycleSpeed);
   const { min, max } = useYearRange(world);
   const shown = Math.min(Math.max(year, min), max);
   const hijri = toHijriYear(shown);
-
-  useEffect(() => {
-    if (!playing) return undefined;
-    const timer = window.setInterval(() => {
-      const state = useAppStore.getState();
-      if (state.year >= max) state.setPlaying(false);
-      else state.setYear(Math.max(state.year, min) + 1);
-    }, PLAY_INTERVAL_MS);
-    return () => window.clearInterval(timer);
-  }, [playing, min, max]);
-
-  const togglePlay = (): void => {
-    if (!playing && year >= max) setYear(min);
-    setPlaying(!playing);
-  };
+  const speedLabel = `${speed.toLocaleString('tr-TR')}×`;
+  const events = useChronicle();
+  usePlayback(events);
 
   return (
     <div className="timeline">
+      <StepButton events={events} direction="previous" />
       <button
         type="button"
         className="btn btn--icon btn--wax"
         data-testid="play"
         aria-label={playing ? 'Zamanı durdur' : 'Zamanı oynat'}
-        onClick={togglePlay}
+        onClick={() => setPlaying(!playing)}
       >
         <Icon name={playing ? 'pause' : 'play'} />
+      </button>
+      <StepButton events={events} direction="next" />
+      <button type="button" className="btn timeline__speed" data-testid="speed" aria-label={`Oynatma hızı: ${speedLabel}`} onClick={cycleSpeed}>
+        {speedLabel}
       </button>
       <output className="timeline__year" data-testid="year" aria-live="off">
         {shown}

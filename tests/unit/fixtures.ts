@@ -6,10 +6,11 @@ import type { FigureCard, FigureSummary, RelationType, World } from '../../src/d
 export const BUILT_AT = '2026-01-01T00:00:00Z';
 
 export const RELATION_TYPES: RelationType[] = [
-  { type: 'succeeded', nameTr: 'Taht sırası', weight: 1, group: 'succession' },
-  { type: 'child_of', nameTr: 'Ebeveyn ve çocuk', weight: 1.2, group: 'family' },
-  { type: 'served_under', nameTr: 'Hizmet', weight: 1.4, group: 'service' },
-  { type: 'taught', nameTr: 'Hoca ve öğrenci', weight: 1.4, group: 'ideas' },
+  { type: 'succeeded', nameTr: 'Taht sırası', weight: 1, mode: 'direct' },
+  { type: 'child_of', nameTr: 'Ebeveyn ve çocuk', weight: 1.2, mode: 'direct' },
+  { type: 'served_under', nameTr: 'Hizmet', weight: 1.4, mode: 'direct' },
+  { type: 'taught', nameTr: 'Hoca ve öğrenci', weight: 1.4, mode: 'direct' },
+  { type: 'influenced', nameTr: 'Etki', weight: 1.8, mode: 'influence' },
 ];
 
 export function figure(slug: string, birthYear: number, deathYear: number, reignFrom?: number): FigureSummary {
@@ -42,8 +43,8 @@ export function figureCard(summary: FigureSummary, overrides: Partial<FigureCard
 
 /**
  * Four rulers in a row (a, b, c, d) and two officials: v served under a and c,
- * w served under b and d. This gives a succession route a-b-c-d and routes
- * through the officials.
+ * w served under b and d; a also influenced d, three generations later. This
+ * gives a route of direct relations (a-b-c-d) and a route of influences (a-d).
  */
 export function sampleWorld(): World {
   return {
@@ -64,6 +65,7 @@ export function sampleWorld(): World {
       { from: 'v', to: 'c', type: 'served_under', note: 'v served c' },
       { from: 'w', to: 'b', type: 'served_under', note: 'w served b' },
       { from: 'w', to: 'd', type: 'served_under', note: 'w served d' },
+      { from: 'a', to: 'd', type: 'influenced', note: 'a influenced d' },
     ],
     places: [],
     relationTypes: RELATION_TYPES.map((type) => ({ ...type })),

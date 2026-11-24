@@ -34,6 +34,12 @@
 | 6 | Öğrenme oyunu | 🟢 Tamamlandı | 100% | `PHASE6.md` |
 | 7 | Kalıcı bağlantılar, PWA ve Microsoft Store hazırlığı | 🟢 Tamamlandı | 100% | `PHASE7.md` |
 | 8 | PixiJS ile boyalı oyun haritası | 🟢 Tamamlandı | 100% | `PHASE8.md` |
+| 9 | İlk kullanım geri bildirimi: harita, oynatma ve rota türleri | 🟢 Tamamlandı | 100% | `PHASE9.md` |
+| 10 | İkinci geri bildirim: numaralı yolculuk, genel görünüm ve rota türü seçimi | 🟢 Tamamlandı | 100% | `PHASE10.md` |
+| 11 | Üçüncü geri bildirim: olay notu ve olaylar arasında adım düğmeleri | 🟢 Tamamlandı | 100% | `PHASE11.md` |
+| 12 | Dördüncü geri bildirim: kart sekmeleri, haritayla bağlı yolculuk listesi ve ilişki grafı | 🟢 Tamamlandı | 100% | `PHASE12.md` |
+| 13 | Beşinci geri bildirim: kartın düzeni, kart sekmeleri ve ilk duraktan başlama | 🟢 Tamamlandı | 100% | `PHASE13.md` |
+| 14 | Figür portreleri | ⏳ Bekliyor | 10% | `PHASE14.md` |
 
 <!-- Durum ikonları: 🟢 Tamamlandı | 🟡 Kısmi | ⏳ Bekliyor | 🔴 Bloke -->
 
@@ -242,3 +248,44 @@ paketi için gerekenler ve yayın adımları yazılır.
 
 Aynı `MapView` arayüzü PixiJS ile ikinci kez uygulandı: gerçek kabartmalı boyalı arazi, kıyı sığlıkları, bulut
 gölgeleri. Uygulama bu haritayla açılır; desteklemeyen cihazda sade haritaya düşer (S2).
+
+### 🟢 Faz 9 — İlk kullanım geri bildirimi: harita, oynatma ve rota türleri
+
+**Durum:** 🟢 Tamamlandı · **Tamamlanma:** 100% · **Ayrıntı:** [`PHASE9.md`](PHASE9.md)
+
+Harita yalnız o yılda kaydı olan figürleri gösterir; seçili figürün tam yolculuğu karttaki düğmeyle açılır. Oynatma
+olaydan olaya duraklayarak ilerler ve hızı seçilir. Rotalar iki türe iner: "Elden ele" ve "Fikirden fikre".
+
+### 🟢 Faz 10 — İkinci geri bildirim: numaralı yolculuk, genel görünüm ve rota türü seçimi
+
+**Durum:** 🟢 Tamamlandı · **Tamamlanma:** 100% · **Ayrıntı:** [`PHASE10.md`](PHASE10.md)
+
+Seçili figürün numaralı yolculuğu varsayılan olarak haritadadır ve sekizerli gruplar hâlinde gezilir. Kart kapatılarak
+genel görünüme geçilir; zaman çubuğu seçili figürün yaşamını kapsar. Rota türü ("Doğrudan", "Etki") yolculuk seçilirken belirlenir.
+
+### 🟢 Faz 11 — Üçüncü geri bildirim: olay notu ve olaylar arasında adım düğmeleri
+
+**Durum:** 🟢 Tamamlandı · **Tamamlanma:** 100% · **Ayrıntı:** [`PHASE11.md`](PHASE11.md)
+
+Olay notu harita işaretlerinin üstünde kalır. Oynat düğmesinin iki yanındaki düğmelerle önceki ve sonraki olaya geçilir.
+
+### 🟢 Faz 12 — Dördüncü geri bildirim: kart sekmeleri, haritayla bağlı yolculuk listesi ve ilişki grafı
+
+**Durum:** 🟢 Tamamlandı · **Tamamlanma:** 100% · **Ayrıntı:** [`PHASE12.md`](PHASE12.md)
+
+Kartta neden, sonuç ve derinlik ikon düğmelerdir; ayrıntılar üç sekmedir. Yolculuk listesi haritayla birlikte gezilir.
+Bir figürün ilişkileri graf penceresinde görülür.
+
+### 🟢 Faz 13 — Beşinci geri bildirim: kartın düzeni, kart sekmeleri ve ilk duraktan başlama
+
+**Durum:** 🟢 Tamamlandı · **Tamamlanma:** 100% · **Ayrıntı:** [`PHASE13.md`](PHASE13.md)
+
+Bir kişi açıldığında yolculuğu ilk durağından başlar. Kartın bölümleri başlığın altında sekmelerdir; sonraki karta
+geçiş geniş bir sancaktır. Başlık ve "Yaptıkları" satırları alanı daha verimli kullanır.
+
+### ⏳ Faz 14 — Figür portreleri
+
+**Durum:** ⏳ Bekliyor · **Tamamlanma:** 10% · **Ayrıntı:** [`PHASE14.md`](PHASE14.md)
+
+Kaynak analizi yapıldı (`PORTRAITS_ANALYSIS.md`): Wikimedia Commons'taki kamu malı ve CC0 portreler kullanılacak; portresi
+olmayan figür madalyonla gösterilecek. Uygulama onay bekliyor (S8).

@@ -1,5 +1,5 @@
 import { formatYearRange } from '../domain/calendar';
-import { activeYear, stopAtYear } from '../domain/journey';
+import { currentStopIndex, groupIndexOf, type JourneyGroup, journeyGroups, shownGroup, spotName } from '../domain/journey';
 import type { FigureCard, JourneyStop, VisitedPlace } from '../domain/types';
 import type { CityMarker, FigureMarker, LonLat, MapScene, StopMarker } from './MapView';
 
@@ -10,6 +10,12 @@ export interface SceneInput {
   /** Card of the figure in front of the reader, on the route or on a detour. */
   activeCard: FigureCard | null;
   year: number;
+  /** Whether the journey of the figure in focus is shown, one group of stops at a time. */
+  showJourney: boolean;
+  /** Whether the lines between stops are drawn: the journey path and the trails of the other figures. On unless switched off. */
+  showLines?: boolean;
+  /** The stop playback is telling about: that figure stands there even if a later stop shares the year. */
+  spotlight?: { figure: string; stopIndex: number };
 }
 
 /** How many of the most visited places get an ambient city label. */
@@ -25,11 +31,6 @@ function isNear(a: LonLat, b: LonLat): boolean {
   return Math.abs(a[0] - b[0]) < CITY_MERGE_DEGREES && Math.abs(a[1] - b[1]) < CITY_MERGE_DEGREES;
 }
 
-/** Name of the spot itself for a place such as "Topkapı Sarayı, İstanbul". */
-function spotName(name: string): string {
-  return name.split(',')[0]?.trim() ?? name;
-}
-
 /** Short city name of a place such as "Topkapı Sarayı, İstanbul". */
 function cityName(place: VisitedPlace): string {
   return place.nameTr.split(',').at(-1)?.trim() ?? place.nameTr;
@@ -37,99 +38,191 @@ function cityName(place: VisitedPlace): string {
 
 function buildCities(places: VisitedPlace[], taken: LonLat[]): CityMarker[] {
   const cities: CityMarker[] = [];
+  const occupied = [...taken];
   for (const place of places) {
     if (cities.length >= MAX_CITY_LABELS) break;
     const position = positionOf(place);
-    const crowded = [...taken, ...cities.map((city) => city.position)].some((other) => isNear(other, position));
-    if (!crowded) cities.push({ id: place.slug, position, name: cityName(place), rank: cities.length + 1 });
+    if (occupied.some((other) => isNear(other, position))) continue;
+    cities.push({ id: place.slug, position, name: cityName(place), rank: cities.length + 1 });
+    occupied.push(position);
   }
   return cities;
 }
 
-function buildStops(card: FigureCard, year: number): StopMarker[] {
-  const current = stopAtYear(card, card.journey, year);
-  return card.journey.map((stop, index) => ({
-    id: `${card.slug}:${index}`,
+/** A figure that has a record for the year, and the stop it is at. */
+interface Presence {
+  card: FigureCard;
+  stop: JourneyStop;
+  stopIndex: number;
+}
+
+/** Finds where each figure is in the year; figures without a record for the year are left out. */
+function findPresent(cards: FigureCard[], input: SceneInput): Presence[] {
+  return cards.flatMap((card) => {
+    const told = input.spotlight?.figure === card.slug ? input.spotlight.stopIndex : undefined;
+    const stopIndex = currentStopIndex(card, card.journey, input.year, told);
+    const stop = card.journey[stopIndex];
+    return stop ? [{ card, stop, stopIndex }] : [];
+  });
+}
+
+function stopMarker(
+  id: string,
+  stop: JourneyStop,
+  flags: Pick<StopMarker, 'order' | 'target' | 'reached' | 'current' | 'crowded'>,
+): StopMarker {
+  return {
+    id,
     position: positionOf(stop.place),
     name: spotName(stop.place.nameTr),
     historicName: stop.place.historicName,
-    years: formatYearRange(stop.from, stop.to),
+    // Several figures may stand at one place, each with its own years; only a journey stop has years of its own.
+    years: flags.order === null ? '' : formatYearRange(stop.from, stop.to),
     event: stop.event,
     precision: stop.precision,
-    order: index + 1,
-    reached: stop.from <= year,
-    current: stop === current,
-    crowded: current !== null && stop !== current && isNear(positionOf(stop.place), positionOf(current.place)),
-  }));
+    ...flags,
+  };
 }
 
-function buildFigures(cards: FigureCard[], activeSlug: string | undefined, year: number): FigureMarker[] {
+/**
+ * The stops of the open journey that are shown: the group the reader is at,
+ * each with its number in the whole journey. A long journey drawn at once
+ * covers the map, so it is shown one group at a time.
+ */
+function buildJourneyStops(
+  card: FigureCard,
+  group: JourneyGroup,
+  year: number,
+  current: JourneyStop | undefined,
+  toldIndex: number | undefined,
+): StopMarker[] {
+  return card.journey.slice(group.first, group.last + 1).map((stop, offset) => {
+    const stopIndex = group.first + offset;
+    return stopMarker(`${card.slug}:${stopIndex}`, stop, {
+      order: stopIndex + 1,
+      target: { figure: card.slug, stopIndex },
+      // While a stop is told the figure stands there: a later stop is not reached yet, even one of the same year.
+      reached: toldIndex === undefined ? stop.from <= year : stopIndex <= toldIndex,
+      current: stop === current,
+      crowded: current !== undefined && stop !== current && isNear(positionOf(stop.place), positionOf(current.place)),
+    });
+  });
+}
+
+/** One label per place where a figure stands this year; places labelled by the shown stops of an open journey are skipped. */
+function buildPlaceLabels(present: Presence[], alreadyLabelled: Iterable<string>): StopMarker[] {
+  const labelled = new Set(alreadyLabelled);
+  const labels: StopMarker[] = [];
+  for (const { stop } of present) {
+    if (labelled.has(stop.place.slug)) continue;
+    labelled.add(stop.place.slug);
+    labels.push(stopMarker(`place:${stop.place.slug}`, stop, { order: null, target: null, reached: true, current: true, crowded: false }));
+  }
+  return labels;
+}
+
+function buildFigures(present: Presence[], activeSlug: string | undefined): FigureMarker[] {
   const stacks = new Map<string, number>();
-  const markers: FigureMarker[] = [];
   // The focused figure is placed first so that it stands on the spot itself.
-  const ordered = [...cards].sort((a, b) => Number(b.slug === activeSlug) - Number(a.slug === activeSlug));
-  for (const card of ordered) {
-    const stop = stopAtYear(card, card.journey, year);
-    if (!stop) continue;
+  const ordered = [...present].sort((a, b) => Number(b.card.slug === activeSlug) - Number(a.card.slug === activeSlug));
+  return ordered.map(({ card, stop }) => {
     const stackIndex = stacks.get(stop.place.slug) ?? 0;
     stacks.set(stop.place.slug, stackIndex + 1);
-    markers.push({
+    return {
       slug: card.slug,
       position: positionOf(stop.place),
       name: card.nameTr,
       kind: card.kind,
       focused: card.slug === activeSlug,
       stackIndex,
-    });
-  }
-  return markers;
-}
-
-/** The place a figure is most associated with: where it was in its active year. */
-function seatOf(card: FigureCard): JourneyStop | null {
-  return stopAtYear(card, card.journey, activeYear(card)) ?? card.journey[0] ?? null;
-}
-
-function buildRoutePath(cards: FigureCard[]): LonLat[] {
-  const path: LonLat[] = [];
-  for (const card of cards) {
-    const seat = seatOf(card);
-    if (!seat) continue;
-    const position = positionOf(seat.place);
-    const previous = path.at(-1);
-    if (!previous || previous[0] !== position[0] || previous[1] !== position[1]) path.push(position);
-  }
-  return path.length > 1 ? path : [];
+    };
+  });
 }
 
 /**
- * Builds what the map shows: ambient cities, the journey of the figure in
- * focus, and every route figure that was alive in the selected year, standing
- * where it was that year (FR-13, FR-14, FR-16).
+ * The way a figure came to where it is: the stops of its current group up to the current one. Like an open
+ * journey, a trail is kept to one group of stops; the whole way of a long journey would cover the map.
+ */
+function trailOf({ card, stopIndex }: Presence): LonLat[] {
+  const trail: LonLat[] = [];
+  const groupStart = journeyGroups(card.journey.length)[groupIndexOf(stopIndex)]?.first ?? 0;
+  for (const stop of card.journey.slice(groupStart, stopIndex + 1)) {
+    const position = positionOf(stop.place);
+    const previous = trail.at(-1);
+    if (!previous || previous[0] !== position[0] || previous[1] !== position[1]) trail.push(position);
+  }
+  return trail;
+}
+
+/** The journey that is open on the map: whose it is, its stops that are shown and the places they label. */
+interface OpenJourney {
+  slug: string | null;
+  stops: StopMarker[];
+  places: string[];
+}
+
+const NO_JOURNEY: OpenJourney = { slug: null, stops: [], places: [] };
+
+/** The shown group of the journey of the figure in focus, unless the journey is switched off. */
+function openJourney(input: SceneInput, present: Presence[]): OpenJourney {
+  const card = input.showJourney ? input.activeCard : null;
+  if (!card) return NO_JOURNEY;
+  const told = input.spotlight?.figure === card.slug ? input.spotlight.stopIndex : undefined;
+  const group = shownGroup(card, card.journey, input.year, told);
+  if (!group) return { ...NO_JOURNEY, slug: card.slug };
+  const current = present.find((presence) => presence.card.slug === card.slug)?.stop;
+  return {
+    slug: card.slug,
+    stops: buildJourneyStops(card, group, input.year, current, told),
+    // Only the stops that are shown carry a label; a place of the journey outside the shown group still needs one.
+    places: card.journey.slice(group.first, group.last + 1).map((stop) => stop.place.slug),
+  };
+}
+
+/**
+ * Builds what the map shows for a year (FR-13, FR-14): ambient cities, every
+ * figure that has a record for the year at its place with the trail that led
+ * it there, and, unless switched off, the journey of the figure in focus,
+ * one group of stops at a time.
  */
 export function buildScene(input: SceneInput): MapScene {
-  const { activeCard, routeCards, year } = input;
-  const stops = activeCard ? buildStops(activeCard, year) : [];
+  const { activeCard, routeCards } = input;
   const onRoute = activeCard !== null && routeCards.some((card) => card.slug === activeCard.slug);
-  const figureCards = activeCard && !onRoute ? [...routeCards, activeCard] : routeCards;
+  const present = findPresent(activeCard && !onRoute ? [...routeCards, activeCard] : routeCards, input);
+
+  const journey = openJourney(input, present);
+  const journeyStops = journey.stops;
+  const others = present.filter((presence) => presence.card.slug !== journey.slug);
+  const stops = [...journeyStops, ...buildPlaceLabels(others, journey.places)];
   // Journeys are in chronological order (content validation), so the reached stops are the first ones.
-  const reachedCount = stops.filter((stop) => stop.reached).length;
+  const reachedCount = journeyStops.filter((stop) => stop.reached).length;
+  const figures = buildFigures(present, activeCard?.slug);
+  const showLines = input.showLines ?? true;
+  const journeyPath = showLines ? journeyStops.map((stop) => stop.position) : [];
+
   return {
     cities: buildCities(
       input.places,
       stops.map((stop) => stop.position),
     ),
     stops,
-    figures: buildFigures(figureCards, activeCard?.slug, year),
-    journeyReached: stops.slice(0, reachedCount).map((stop) => stop.position),
+    figures,
+    trails: showLines ? others.map(trailOf).filter((trail) => trail.length > 1) : [],
+    journeyReached: journeyPath.slice(0, reachedCount),
     // The path ahead starts at the last reached stop so that the two lines join.
-    journeyAhead: stops.slice(Math.max(reachedCount - 1, 0)).map((stop) => stop.position),
-    routePath: buildRoutePath(routeCards),
+    journeyAhead: journeyPath.slice(Math.max(reachedCount - 1, 0)),
+    focusPoints: focusPointsOf(activeCard, journeyStops, figures),
   };
 }
 
-/** The points the camera should frame for a scene: the focused journey, or the whole route. */
+/** What the camera frames: the stops that are shown, the whole journey while it is hidden, or the figures of the overview. */
+function focusPointsOf(activeCard: FigureCard | null, journeyStops: StopMarker[], figures: FigureMarker[]): LonLat[] {
+  if (journeyStops.length > 0) return journeyStops.map((stop) => stop.position);
+  if (activeCard) return activeCard.journey.map((stop) => positionOf(stop.place));
+  return figures.map((figure) => figure.position);
+}
+
+/** The points the camera should frame for a scene. */
 export function framingPoints(scene: MapScene): LonLat[] {
-  if (scene.stops.length > 0) return scene.stops.map((stop) => stop.position);
-  return scene.routePath;
+  return scene.focusPoints;
 }

@@ -11,6 +11,7 @@ import {
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MAP_HOME, MAP_REGION } from './mapRegion';
+import { CAMERA_DURATION_MS, FIGURE_MOVE_DURATION_MS } from './mapTimings';
 import {
   createAnchor,
   createCityElement,
@@ -32,12 +33,14 @@ const MIN_ZOOM = 3;
 const MAX_ZOOM = 8;
 /** The camera does not zoom in further than this when framing a journey. */
 const MAX_FRAME_ZOOM = 6.2;
-const CAMERA_DURATION_MS = 1200;
-const FIGURE_MOVE_DURATION_MS = 700;
 const FRAME_MARGIN_PX = 70;
 
-const PATH_SOURCES = ['route', 'journey-ahead', 'journey-reached'] as const;
+const PATH_SOURCES = ['trails', 'journey-ahead', 'journey-reached'] as const;
 type PathSource = (typeof PATH_SOURCES)[number];
+
+function linesFeature(lines: LonLat[][]): GeoJSON.Feature<GeoJSON.MultiLineString> {
+  return { type: 'Feature', properties: {}, geometry: { type: 'MultiLineString', coordinates: lines } };
+}
 
 function lineFeature(coordinates: LonLat[]): GeoJSON.Feature<GeoJSON.LineString> {
   return { type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates } };
@@ -80,7 +83,7 @@ function addTerrainLayers(map: MapLibreMap): void {
 
 function addPathLayers(map: MapLibreMap): void {
   const round = { 'line-cap': 'round', 'line-join': 'round' } as const;
-  map.addLayer({ id: 'route', type: 'line', source: 'route', layout: round, paint: { 'line-color': '#3b2a14', 'line-width': 2, 'line-opacity': 0.45, 'line-dasharray': [0.5, 2.5] } });
+  map.addLayer({ id: 'trails', type: 'line', source: 'trails', layout: round, paint: { 'line-color': '#5a1a14', 'line-width': 2, 'line-opacity': 0.6 } });
   map.addLayer({ id: 'journey-ahead', type: 'line', source: 'journey-ahead', layout: round, paint: { 'line-color': '#5a1a14', 'line-width': 2.5, 'line-opacity': 0.4, 'line-dasharray': [1, 2] } });
   map.addLayer({ id: 'journey-reached-glow', type: 'line', source: 'journey-reached', layout: round, paint: { 'line-color': '#f4e2a8', 'line-width': 8, 'line-blur': 6, 'line-opacity': 0.55 } });
   map.addLayer({ id: 'journey-reached', type: 'line', source: 'journey-reached', layout: round, paint: { 'line-color': '#8a1f17', 'line-width': 3.5 } });
@@ -208,7 +211,7 @@ export class MapLibreMapView implements MapView {
     this.stops = new MarkerSet(this.map, {
       key: (stop) => stop.id,
       position: (stop) => stop.position,
-      create: createStopElement,
+      create: (stop) => createStopElement(stop, events.onStopClick),
       layer: MARKER_LAYERS.stop,
       update: updateStopElement,
     });
@@ -298,7 +301,7 @@ export class MapLibreMapView implements MapView {
   }
 
   private render(): void {
-    this.setPath('route', this.scene.routePath);
+    this.map.getSource<GeoJSONSource>('trails')?.setData(linesFeature(this.scene.trails));
     this.setPath('journey-ahead', this.scene.journeyAhead);
     this.setPath('journey-reached', this.scene.journeyReached);
     this.cities.sync(this.scene.cities);
@@ -306,7 +309,7 @@ export class MapLibreMapView implements MapView {
     this.figures.sync(this.scene.figures);
   }
 
-  private setPath(source: PathSource, coordinates: LonLat[]): void {
+  private setPath(source: Exclude<PathSource, 'trails'>, coordinates: LonLat[]): void {
     this.map.getSource<GeoJSONSource>(source)?.setData(lineFeature(coordinates.length > 1 ? coordinates : []));
   }
 }

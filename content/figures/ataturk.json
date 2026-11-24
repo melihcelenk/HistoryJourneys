@@ -4,10 +4,22 @@
   "nameEn": "Mustafa Kemal Atatürk",
   "wikiTitleTr": "Mustafa Kemal Atatürk",
   "kind": "leader",
-  "roles": ["Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı", "Kurtuluş Savaşı'nın başkomutanı"],
-  "birth": { "year": 1881, "place": "Selanik" },
-  "death": { "year": 1938, "place": "İstanbul" },
-  "reign": { "from": 1923, "to": 1938 },
+  "roles": [
+    "Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanı",
+    "Kurtuluş Savaşı'nın başkomutanı"
+  ],
+  "birth": {
+    "year": 1881,
+    "place": "Selanik"
+  },
+  "death": {
+    "year": 1938,
+    "place": "İstanbul"
+  },
+  "reign": {
+    "from": 1923,
+    "to": 1938
+  },
   "summary": [
     "Mustafa Kemal Atatürk, 1881'de Selanik'te doğan ve 1923'te Türkiye Cumhuriyeti'ni kuran asker ve devlet adamıdır.",
     "19 Mayıs 1919'da Samsun'a çıkarak işgal altındaki ülkede Kurtuluş Savaşı'nı başlattı.",
@@ -21,7 +33,10 @@
       "cause": "Osmanlı Devleti 1914'te [[f:enver-pasa|Enver Paşa]]'nın öncülüğünde Almanya'nın yanında savaşa girmişti. Sofya'da askerî ataşe olan Yarbay Mustafa Kemal cephede görev istedi ve Tekirdağ'da kurulan 19. Tümen'in başına geçti. 25 Nisan 1915'te İngiliz ve müttefik birlikleri Gelibolu Yarımadası'na çıkarma yaptı.",
       "consequence": "Mustafa Kemal emir beklemeden 57. Alay'ı Conkbayırı'na sürdü ve çıkarmayı kıyıda durdurdu; askerlerine \"Ben size taarruzu değil, ölmeyi emrediyorum\" dediği aktarılır. Ağustos 1915'te Anafartalar Grubu komutanı olarak ikinci büyük çıkarmayı da durdurdu. Düşman Ocak 1916'da yarımadayı boşalttı; \"Anafartalar Kahramanı\" olarak tanınması, 1919'da Anadolu'daki komutanların ona güvenmesini kolaylaştırdı.",
       "depth": "Çanakkale tek bir komutanın zaferi değildi: 5. Ordu'nun başında Alman general Liman von Sanders vardı ve cephede yüz binlerce asker savaştı. Mustafa Kemal'in adı savaş sırasında halk arasında pek bilinmiyordu; ünü asıl 1919'dan sonra yayıldı.",
-      "sources": ["tdv", "wiki"]
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
     },
     {
       "id": "samsuna-cikis",
@@ -30,7 +45,10 @@
       "cause": "30 Ekim 1918'de imzalanan Mondros Mütarekesi'yle ordu dağıtıldı, İstanbul işgal edildi; 15 Mayıs 1919'da Yunan ordusu İzmir'e çıktı. [[f:mehmed-vi|Vahdeddin]]'in hükümeti, Karadeniz bölgesindeki karışıklıkları yatıştırması için Mustafa Kemal Paşa'yı 9. Ordu Müfettişi atadı. O ise bu görevi Anadolu'ya geçmek için bir fırsat olarak gördü.",
       "consequence": "19 Mayıs 1919'da Samsun'a çıktı. Haziranda Amasya'dan \"Milletin bağımsızlığını yine milletin azim ve kararı kurtaracaktır\" diyen genelgeyi yayımladı; İstanbul geri çağırınca temmuzda askerlikten istifa etti. Erzurum ve Sivas kongrelerinden sonra 23 Nisan 1920'de Ankara'da Büyük Millet Meclisi açıldı ve onu başkan seçti.",
       "depth": "Direniş Samsun'dan önce başlamıştı: birçok şehirde müdafaa-i hukuk cemiyetleri kurulmuş, Ege'de Kuvayımilliye birlikleri savaşa girmiş, Kâzım Karabekir Erzurum'daki kolordusunu dağıtmamıştı. Mustafa Kemal'in yaptığı, bu dağınık hareketleri tek bir meclis ve tek bir ordu altında birleştirmekti.",
-      "sources": ["tdv", "wiki"]
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
     },
     {
       "id": "cumhuriyetin-ilani",
@@ -39,40 +57,454 @@
       "cause": "30 Ağustos 1922'de Başkomutanlık Meydan Muharebesi kazanıldı ve savaş bitti. İtilaf devletleri barış görüşmelerine Ankara ile birlikte padişahın hükümetini de çağırınca Meclis 1 Kasım 1922'de saltanatı kaldırdı. [[f:ismet-inonu|İsmet Paşa]] 24 Temmuz 1923'te Lozan'da barışı imzaladı; ancak yeni devletin adı ve başkanı hâlâ belli değildi.",
       "consequence": "29 Ekim 1923'te Meclis anayasayı değiştirerek devletin yönetim biçiminin [[c:cumhuriyet|cumhuriyet]] olduğunu kabul etti ve Mustafa Kemal'i oybirliğiyle ilk cumhurbaşkanı seçti. Başkent Ankara oldu, ilk hükümeti İsmet Paşa kurdu. 3 Mart 1924'te halifelik de kaldırıldı ve Osmanlı hanedanı ülke dışına çıkarıldı.",
       "depth": "Karar herkesin onayıyla alınmadı. Kurtuluş Savaşı'nın önde gelen isimlerinden Rauf Orbay, Kâzım Karabekir ve Ali Fuat Cebesoy, kendilerine danışılmadığını ve işin aceleye getirildiğini söyledi. 1924'te kurdukları Terakkiperver Cumhuriyet Fırkası ertesi yıl kapatıldı.",
-      "sources": ["tdv", "wiki"]
+      "sources": [
+        "tdv",
+        "wiki"
+      ]
     }
   ],
   "journey": [
-    { "place": { "slug": "selanik", "nameTr": "Selanik", "historicName": "Thessaloniki", "lat": 40.6401, "lon": 22.9444 }, "precision": "city", "from": 1881, "to": 1896, "event": "Ali Rıza Efendi ile Zübeyde Hanım'ın oğlu olarak doğdu; Askerî Rüştiye'de matematik öğretmeni ona \"Kemal\" adını verdi." },
-    { "place": { "slug": "manastir", "nameTr": "Manastır", "historicName": "Bitola", "lat": 41.0297, "lon": 21.3292 }, "precision": "city", "from": 1896, "to": 1899, "event": "Askerî İdadi'de okudu; Namık Kemal'in şiirleriyle ve Fransızcayla burada tanıştı." },
-    { "place": { "slug": "canakkale", "nameTr": "Çanakkale", "historicName": "Kale-i Sultaniye", "lat": 40.1553, "lon": 26.4142 }, "precision": "region", "from": 1915, "to": 1915, "event": "Gelibolu Yarımadası'nda Arıburnu ve Anafartalar'da düşman çıkarmasını durdurdu." },
-    { "place": { "slug": "samsun", "nameTr": "Samsun", "historicName": "Amisos", "lat": 41.2867, "lon": 36.33 }, "precision": "city", "from": 1919, "to": 1919, "event": "19 Mayıs 1919'da Bandırma vapuruyla karaya çıktı; Millî Mücadele başladı." },
-    { "place": { "slug": "ankara", "nameTr": "Ankara", "historicName": "Angora", "lat": 39.9334, "lon": 32.8597 }, "precision": "city", "from": 1919, "to": 1938, "event": "27 Aralık 1919'da geldi; Meclis'i burada açtı, savaşı buradan yönetti ve şehri başkent yaptı." },
-    { "place": { "slug": "istanbul-dolmabahce", "nameTr": "Dolmabahçe Sarayı, İstanbul", "lat": 41.0392, "lon": 29.0005 }, "precision": "building", "from": 1938, "to": 1938, "event": "10 Kasım 1938'de saat dokuzu beş geçe burada öldü." }
+    {
+      "place": {
+        "slug": "selanik",
+        "nameTr": "Selanik",
+        "historicName": "Thessaloniki",
+        "lat": 40.6401,
+        "lon": 22.9444
+      },
+      "precision": "city",
+      "from": 1881,
+      "to": 1896,
+      "event": "Ali Rıza Efendi ile Zübeyde Hanım'ın oğlu olarak doğdu; Askerî Rüştiye'de okudu."
+    },
+    {
+      "place": {
+        "slug": "manastir",
+        "nameTr": "Manastır",
+        "historicName": "Bitola",
+        "lat": 41.0297,
+        "lon": 21.3292
+      },
+      "precision": "city",
+      "from": 1896,
+      "to": 1899,
+      "event": "Askerî İdadi'de okudu; Namık Kemal'in şiirleriyle ve Fransızcayla burada tanıştı."
+    },
+    {
+      "place": {
+        "slug": "istanbul-harbiye",
+        "nameTr": "Harbiye, İstanbul",
+        "lat": 41.0466,
+        "lon": 28.9877
+      },
+      "precision": "building",
+      "from": 1899,
+      "to": 1905,
+      "event": "Harp Okulu'nu ve Harp Akademisi'ni bitirip kurmay yüzbaşı oldu."
+    },
+    {
+      "place": {
+        "slug": "sam",
+        "nameTr": "Şam",
+        "historicName": "Dımaşk",
+        "lat": 33.5138,
+        "lon": 36.2765
+      },
+      "precision": "city",
+      "from": 1905,
+      "to": 1907,
+      "event": "5. Ordu'da ilk görevine başladı; arkadaşlarıyla gizli Vatan ve Hürriyet Cemiyeti'ni kurdu."
+    },
+    {
+      "place": {
+        "slug": "selanik",
+        "nameTr": "Selanik",
+        "historicName": "Thessaloniki",
+        "lat": 40.6401,
+        "lon": 22.9444
+      },
+      "precision": "city",
+      "from": 1907,
+      "to": 1911,
+      "event": "3. Ordu'da görev yaptı; 1909'da 31 Mart Ayaklanması'nı bastıran Hareket Ordusu'nun kurmayıydı."
+    },
+    {
+      "place": {
+        "slug": "derne",
+        "nameTr": "Derne",
+        "lat": 32.7648,
+        "lon": 22.6391
+      },
+      "precision": "region",
+      "from": 1911,
+      "to": 1912,
+      "event": "Trablusgarp Savaşı'nda Tobruk ve Derne'de yerli kuvvetleri İtalyanlara karşı örgütledi; gözünden yaralandı."
+    },
+    {
+      "place": {
+        "slug": "gelibolu",
+        "nameTr": "Gelibolu",
+        "historicName": "Kallipolis",
+        "lat": 40.41,
+        "lon": 26.67
+      },
+      "precision": "district",
+      "from": 1912,
+      "to": 1913,
+      "event": "Balkan Savaşı'nda Bolayır'daki kolorduda görev aldı; Edirne'nin geri alınışına katıldı."
+    },
+    {
+      "place": {
+        "slug": "sofya",
+        "nameTr": "Sofya",
+        "historicName": "Sofia",
+        "lat": 42.6977,
+        "lon": 23.3219
+      },
+      "precision": "city",
+      "from": 1913,
+      "to": 1915,
+      "event": "Ataşemiliter olarak Bulgaristan'da görev yaptı; Avrupa'da bir meclisin nasıl çalıştığını yakından izledi."
+    },
+    {
+      "place": {
+        "slug": "canakkale",
+        "nameTr": "Çanakkale",
+        "historicName": "Kale-i Sultaniye",
+        "lat": 40.1553,
+        "lon": 26.4142
+      },
+      "precision": "region",
+      "from": 1915,
+      "to": 1915,
+      "event": "Gelibolu Yarımadası'nda Arıburnu ve Anafartalar'da düşman çıkarmasını durdurdu."
+    },
+    {
+      "place": {
+        "slug": "bitlis",
+        "nameTr": "Bitlis",
+        "lat": 38.4006,
+        "lon": 42.1095
+      },
+      "precision": "region",
+      "from": 1916,
+      "to": 1916,
+      "event": "16. Kolordu'nun başında, Rus işgalindeki Muş ve Bitlis'i geri aldı; general oldu."
+    },
+    {
+      "place": {
+        "slug": "diyarbakir",
+        "nameTr": "Diyarbakır",
+        "historicName": "Diyarbekir",
+        "lat": 37.9144,
+        "lon": 40.2306
+      },
+      "precision": "city",
+      "from": 1916,
+      "to": 1917,
+      "event": "Doğu Cephesi'nde 2. Ordu'ya komuta etti."
+    },
+    {
+      "place": {
+        "slug": "halep",
+        "nameTr": "Halep",
+        "historicName": "Haleb",
+        "lat": 36.2021,
+        "lon": 37.1343
+      },
+      "precision": "city",
+      "from": 1917,
+      "to": 1917,
+      "event": "7. Ordu komutanı olarak Suriye'ye geldi; cephenin durumunu anlatan sert bir rapor yazıp görevden ayrıldı."
+    },
+    {
+      "place": {
+        "slug": "berlin",
+        "nameTr": "Berlin",
+        "lat": 52.52,
+        "lon": 13.405
+      },
+      "precision": "city",
+      "from": 1917,
+      "to": 1918,
+      "event": "Veliaht Vahdeddin'e Almanya gezisinde eşlik etti; Alman cephesini yerinde gördü."
+    },
+    {
+      "place": {
+        "slug": "karlovy-vary",
+        "nameTr": "Karlovy Vary",
+        "historicName": "Karlsbad",
+        "lat": 50.2319,
+        "lon": 12.872
+      },
+      "precision": "city",
+      "from": 1918,
+      "to": 1918,
+      "event": "Böbrek rahatsızlığı için kaplıca tedavisi gördü; günlüğüne ülkenin geleceğiyle ilgili düşüncelerini yazdı."
+    },
+    {
+      "place": {
+        "slug": "nablus",
+        "nameTr": "Nablus",
+        "lat": 32.2211,
+        "lon": 35.2544
+      },
+      "precision": "region",
+      "from": 1918,
+      "to": 1918,
+      "event": "Filistin cephesinde yeniden 7. Ordu'nun başına geçti; Eylül'deki İngiliz saldırısında ordusunu çekmeyi başardı."
+    },
+    {
+      "place": {
+        "slug": "halep",
+        "nameTr": "Halep",
+        "historicName": "Haleb",
+        "lat": 36.2021,
+        "lon": 37.1343
+      },
+      "precision": "city",
+      "from": 1918,
+      "to": 1918,
+      "event": "Halep'in kuzeyinde son savunma hattını kurdu; savaşın son çatışmaları burada oldu."
+    },
+    {
+      "place": {
+        "slug": "adana",
+        "nameTr": "Adana",
+        "lat": 36.9914,
+        "lon": 35.3308
+      },
+      "precision": "city",
+      "from": 1918,
+      "to": 1918,
+      "event": "Mondros Mütarekesi'nin ertesi günü Yıldırım Orduları'nın komutasını devraldı; mütarekenin uygulanışına itiraz etti."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 1918,
+      "to": 1919,
+      "event": "İşgal donanması Boğaz'a girerken şehre geldi: \"Geldikleri gibi giderler.\" Altı ay bir çıkış yolu aradı."
+    },
+    {
+      "place": {
+        "slug": "samsun",
+        "nameTr": "Samsun",
+        "historicName": "Amisos",
+        "lat": 41.2867,
+        "lon": 36.33
+      },
+      "precision": "city",
+      "from": 1919,
+      "to": 1919,
+      "event": "19 Mayıs 1919'da Bandırma vapuruyla karaya çıktı; Millî Mücadele'nin ilk adımı sayılır."
+    },
+    {
+      "place": {
+        "slug": "amasya",
+        "nameTr": "Amasya",
+        "historicName": "Amaseia",
+        "lat": 40.6499,
+        "lon": 35.8353
+      },
+      "precision": "city",
+      "from": 1919,
+      "to": 1919,
+      "event": "Amasya Genelgesi'ni yayımladı: \"Milletin bağımsızlığını yine milletin azim ve kararı kurtaracaktır.\""
+    },
+    {
+      "place": {
+        "slug": "erzurum",
+        "nameTr": "Erzurum",
+        "historicName": "Theodosiopolis",
+        "lat": 39.9043,
+        "lon": 41.2679
+      },
+      "precision": "city",
+      "from": 1919,
+      "to": 1919,
+      "event": "Askerlikten ayrıldı ve Erzurum Kongresi'ne başkanlık etti."
+    },
+    {
+      "place": {
+        "slug": "sivas",
+        "nameTr": "Sivas",
+        "historicName": "Sebasteia",
+        "lat": 39.7477,
+        "lon": 37.0179
+      },
+      "precision": "city",
+      "from": 1919,
+      "to": 1919,
+      "event": "Sivas Kongresi'nde bütün direniş derneklerini tek çatı altında topladı."
+    },
+    {
+      "place": {
+        "slug": "ankara",
+        "nameTr": "Ankara",
+        "historicName": "Angora",
+        "lat": 39.9334,
+        "lon": 32.8597
+      },
+      "precision": "city",
+      "from": 1919,
+      "to": 1921,
+      "event": "27 Aralık 1919'da geldi; 23 Nisan 1920'de Büyük Millet Meclisi'ni burada açtı."
+    },
+    {
+      "place": {
+        "slug": "polatli",
+        "nameTr": "Polatlı",
+        "lat": 39.5842,
+        "lon": 32.1472
+      },
+      "precision": "region",
+      "from": 1921,
+      "to": 1921,
+      "event": "Başkomutan olarak Sakarya Meydan Muharebesi'ni 22 gün yönetti ve Yunan ordusunu durdurdu."
+    },
+    {
+      "place": {
+        "slug": "ankara",
+        "nameTr": "Ankara",
+        "historicName": "Angora",
+        "lat": 39.9334,
+        "lon": 32.8597
+      },
+      "precision": "city",
+      "from": 1921,
+      "to": 1922,
+      "event": "Mareşal ve Gazi unvanını aldı; bir yıl boyunca Büyük Taarruz'u hazırladı."
+    },
+    {
+      "place": {
+        "slug": "kocatepe",
+        "nameTr": "Kocatepe, Afyonkarahisar",
+        "lat": 38.6906,
+        "lon": 30.4411
+      },
+      "precision": "region",
+      "from": 1922,
+      "to": 1922,
+      "event": "26 Ağustos sabahı Büyük Taarruz'u Kocatepe'den başlattı; 30 Ağustos'ta Dumlupınar'da savaşı kazandı."
+    },
+    {
+      "place": {
+        "slug": "izmir",
+        "nameTr": "İzmir",
+        "historicName": "Smyrna",
+        "lat": 38.4237,
+        "lon": 27.1428
+      },
+      "precision": "city",
+      "from": 1922,
+      "to": 1922,
+      "event": "9 Eylül'de kurtarılan şehre ertesi gün girdi."
+    },
+    {
+      "place": {
+        "slug": "ankara",
+        "nameTr": "Ankara",
+        "historicName": "Angora",
+        "lat": 39.9334,
+        "lon": 32.8597
+      },
+      "precision": "city",
+      "from": 1922,
+      "to": 1938,
+      "event": "Saltanatı kaldırdı, Cumhuriyet'i ilan etti ve devrimleri buradan yönetti."
+    },
+    {
+      "place": {
+        "slug": "istanbul-dolmabahce",
+        "nameTr": "Dolmabahçe Sarayı, İstanbul",
+        "lat": 41.0392,
+        "lon": 29.0005
+      },
+      "precision": "building",
+      "from": 1938,
+      "to": 1938,
+      "event": "10 Kasım 1938'de saat dokuzu beş geçe burada öldü."
+    }
   ],
   "relations": [
-    { "to": "mehmed-v", "type": "served_under", "note": "Mehmed Reşad döneminde subay olarak Trablusgarp, Balkan ve Çanakkale cephelerinde görev yaptı." },
-    { "to": "mehmed-vi", "type": "served_under", "note": "1917-1918 Almanya gezisinde veliaht Vahdeddin'in yaveriydi; 1919'da onun hükümetince ordu müfettişi olarak Samsun'a gönderildi." },
-    { "to": "mehmed-vi", "type": "opposed", "note": "İstanbul hükümetine karşı Millî Mücadele'yi yürüttü; önderliğindeki Meclis 1922'de saltanatı kaldırdı." },
-    { "to": "abdulhamid-ii", "type": "opposed", "note": "Genç bir subayken II. Abdülhamid yönetimine karşı gizli cemiyetlere katıldı; 1909'da Hareket Ordusu'nda görev aldı." },
-    { "to": "enver-pasa", "type": "served_under", "note": "1911-1912'de Trablusgarp Savaşı'nda Enver Bey'in komuta ettiği Bingazi bölgesinde Derne cephesinde savaştı; Birinci Dünya Savaşı'nda Enver Paşa başkomutan vekiliydi." }
+    {
+      "to": "mehmed-v",
+      "type": "served_under",
+      "note": "Mehmed Reşad döneminde subay olarak Trablusgarp, Balkan ve Çanakkale cephelerinde görev yaptı."
+    },
+    {
+      "to": "mehmed-vi",
+      "type": "served_under",
+      "note": "1917-1918 Almanya gezisinde veliaht Vahdeddin'in yaveriydi; 1919'da onun hükümetince ordu müfettişi olarak Samsun'a gönderildi."
+    },
+    {
+      "to": "mehmed-vi",
+      "type": "opposed",
+      "note": "İstanbul hükümetine karşı Millî Mücadele'yi yürüttü; önderliğindeki Meclis 1922'de saltanatı kaldırdı."
+    },
+    {
+      "to": "abdulhamid-ii",
+      "type": "opposed",
+      "note": "Genç bir subayken II. Abdülhamid yönetimine karşı gizli cemiyetlere katıldı; 1909'da Hareket Ordusu'nda görev aldı."
+    },
+    {
+      "to": "enver-pasa",
+      "type": "served_under",
+      "note": "1911-1912'de Trablusgarp Savaşı'nda Enver Bey'in komuta ettiği Bingazi bölgesinde Derne cephesinde savaştı; Birinci Dünya Savaşı'nda Enver Paşa başkomutan vekiliydi."
+    }
   ],
   "concepts": [
     {
       "slug": "cumhuriyet",
       "term": "Cumhuriyet",
       "meaning": "Devlet başkanının babadan oğula geçmediği, halkın ya da halkın seçtiği meclisin belirlediği yönetim biçimi.",
-      "root": { "letters": "c-m-h-r", "language": "Arapça", "meaning": "topluluk, halk kalabalığı" },
+      "root": {
+        "letters": "c-m-h-r",
+        "language": "Arapça",
+        "meaning": "topluluk, halk kalabalığı"
+      },
       "related": [
-        { "term": "cumhur", "meaning": "halk, topluluk" },
-        { "term": "cumhurbaşkanı", "meaning": "cumhuriyetle yönetilen devletin başkanı" },
-        { "term": "cumhuriyetçi", "meaning": "cumhuriyet yönetimini savunan kişi" }
+        {
+          "term": "cumhur",
+          "meaning": "halk, topluluk"
+        },
+        {
+          "term": "cumhurbaşkanı",
+          "meaning": "cumhuriyetle yönetilen devletin başkanı"
+        },
+        {
+          "term": "cumhuriyetçi",
+          "meaning": "cumhuriyet yönetimini savunan kişi"
+        }
       ]
     }
   ],
   "sources": [
-    { "id": "tdv", "title": "Mustafa Kemal Atatürk", "publisher": "TDV İslâm Ansiklopedisi", "url": "https://islamansiklopedisi.org.tr/mustafa-kemal-ataturk" },
-    { "id": "wiki", "title": "Mustafa Kemal Atatürk", "publisher": "Vikipedi", "url": "https://tr.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk", "license": "CC BY-SA 4.0" }
+    {
+      "id": "tdv",
+      "title": "Mustafa Kemal Atatürk",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/mustafa-kemal-ataturk"
+    },
+    {
+      "id": "wiki",
+      "title": "Mustafa Kemal Atatürk",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk",
+      "license": "CC BY-SA 4.0"
+    }
   ],
-  "generation": { "model": "claude-fable-5-2", "ruleset": "0.1.0", "date": "2026-11-24", "status": "generated" }
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.1.0",
+    "date": "2026-11-24",
+    "status": "generated"
+  }
 }

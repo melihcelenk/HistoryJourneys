@@ -8,6 +8,7 @@ import { EMPTY_SLOT_LABEL, SLOT_LABELS } from './endpointLabels';
 import { FigureCard } from './FigureCard';
 import { Icon } from './Icon';
 import { Medallion } from './Medallion';
+import { RouteKindChooser } from './RouteKindChooser';
 
 function findFigure(world: World, slug: string | null | undefined): FigureSummary | undefined {
   return world.figures.find((figure) => figure.slug === slug);
@@ -41,10 +42,10 @@ function CardLoadError({ slug }: { slug: string }) {
 }
 
 /** The card of a figure once it has loaded, or the reason it is not there. */
-function LoadedCard({ slug, footer }: { slug: string; footer?: ReactNode }) {
+function LoadedCard({ slug, footer, onClose }: { slug: string; footer?: ReactNode; onClose?: () => void }) {
   const card = useAppStore((state) => state.cards[slug]);
   const failed = useAppStore((state) => state.failedCards.includes(slug));
-  if (card) return <FigureCard card={card} footer={footer} />;
+  if (card) return <FigureCard card={card} footer={footer} onClose={onClose} />;
   return failed ? <CardLoadError slug={slug} /> : null;
 }
 
@@ -68,6 +69,8 @@ function Welcome({ world }: { world: World }) {
         <Icon name="forward" className="welcome__arrow" />
         <EndpointSlotButton slot="to" world={world} />
       </div>
+      <h3 className="display card__section-title">Rota türü</h3>
+      <RouteKindChooser />
       <hr className="rule" />
       <h3 className="display card__section-title">Hazır yolculuklar</h3>
       <ul className="suggestions">
@@ -128,30 +131,33 @@ function CardNavigation({ route, index }: { route: Route; index: number }) {
   const name = (slug: string): string => (world ? findFigure(world, slug)?.nameTr : undefined) ?? slug;
   return (
     <nav className="card__nav" aria-label="Rotada gezin">
-      {previous ? (
-        <button type="button" className="ink-btn" onClick={() => openFigure(previous)}>
+      {previous && (
+        <button type="button" className="card__back" data-testid="previous-card" onClick={() => openFigure(previous)}>
           <Icon name="up" />
-          {name(previous)}
+          Önceki: {name(previous)}
         </button>
-      ) : (
-        <span />
       )}
       {next && (
-        <button type="button" className="ink-btn" data-testid="next-card" onClick={() => openFigure(next)}>
-          {name(next)}
-          <Icon name="down" />
+        <button type="button" className="next-card" data-testid="next-card" onClick={() => openFigure(next)}>
+          <span className="next-card__label">Sıradaki</span>
+          <span className="display next-card__name">{name(next)}</span>
+          <Icon name="next" className="next-card__arrow" />
         </button>
       )}
     </nav>
   );
 }
 
-/** The chosen route as a vertical chain; the card in focus is open, the others are strips (FR-9, FR-10). */
+/**
+ * The chosen route as a vertical chain; the card in focus is open, the others are strips (FR-9, FR-10).
+ * In the overview no card is open and the chain is all strips.
+ */
 function RouteChain({ route, world }: { route: Route; world: World }) {
   const focus = useAppStore((state) => state.focus);
   const cards = useAppStore((state) => state.cards);
   const failedCards = useAppStore((state) => state.failedCards);
   const openFigure = useAppStore((state) => state.openFigure);
+  const closeFigure = useAppStore((state) => state.closeFigure);
   const focusRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
@@ -175,7 +181,7 @@ function RouteChain({ route, world }: { route: Route; world: World }) {
         return (
           <li key={step.figure} className="chain__item" ref={step.figure === focus ? focusRef : undefined}>
             {open ? (
-              <LoadedCard slug={step.figure} footer={<CardNavigation route={route} index={index} />} />
+              <LoadedCard slug={step.figure} footer={<CardNavigation route={route} index={index} />} onClose={closeFigure} />
             ) : (
               <button
                 type="button"

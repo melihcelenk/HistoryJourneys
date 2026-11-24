@@ -26,6 +26,12 @@ export interface UrlState {
   /** Figure opened as a detour from the route. */
   detour: string | null;
   year: number | null;
+  /** Whether no card is open on the route: the reader looks at the whole route. */
+  overview: boolean;
+  /** Whether the journey of the figure in focus is drawn on the map. */
+  showJourney: boolean;
+  /** Whether the lines between stops are drawn on the map. */
+  showLines: boolean;
   map: MapKind | null;
 }
 
@@ -36,6 +42,9 @@ export const EMPTY_URL_STATE: UrlState = {
   focus: null,
   detour: null,
   year: null,
+  overview: false,
+  showJourney: true,
+  showLines: true,
   map: null,
 };
 
@@ -45,7 +54,11 @@ const MAX_ROUTE_INDEX = 9;
 const MIN_YEAR = -3000;
 const MAX_YEAR = 2100;
 /** Names of the query parameters, shared by parsing and formatting. */
-const PARAM = { route: 'r', focus: 'k', detour: 'd', year: 'y', map: 'map' } as const;
+const PARAM = { route: 'r', focus: 'k', detour: 'd', year: 'y', overview: 'g', journey: 'j', lines: 'l', map: 'map' } as const;
+/** A switch is written to the link only when it differs from its default: "1" turns on one that is off by default. */
+const ON = '1';
+/** "0" turns off a switch that is on by default. */
+const OFF = '0';
 
 function slugOrNull(value: string | null | undefined): string | null {
   return value && SLUG_PATTERN.test(value) ? value : null;
@@ -73,9 +86,11 @@ export function parseHash(hash: string): UrlState {
   const [prefix, rawFrom, rawTo] = path.split('/');
   const params = new URLSearchParams(query);
   const map = MAP_KINDS.find((kind) => kind === params.get(PARAM.map)) ?? null;
+  // The map and its switches belong to the reader, not to a journey: they hold with one figure or none, too.
+  const settings = { map, showJourney: params.get(PARAM.journey) !== OFF, showLines: params.get(PARAM.lines) !== OFF };
   const from = prefix === ROUTE_PREFIX ? slugOrNull(rawFrom) : null;
   const to = prefix === ROUTE_PREFIX ? slugOrNull(rawTo) : null;
-  if (!from || !to) return { ...EMPTY_URL_STATE, from, map };
+  if (!from || !to) return { ...EMPTY_URL_STATE, from, ...settings };
   return {
     from,
     to,
@@ -83,7 +98,8 @@ export function parseHash(hash: string): UrlState {
     focus: slugOrNull(params.get(PARAM.focus)),
     detour: slugOrNull(params.get(PARAM.detour)),
     year: yearOrNull(params.get(PARAM.year)),
-    map,
+    overview: params.get(PARAM.overview) === ON,
+    ...settings,
   };
 }
 
@@ -91,13 +107,21 @@ export function parseHash(hash: string): UrlState {
 export function formatHash(state: UrlState): string {
   const params = new URLSearchParams();
   if (state.map) params.set(PARAM.map, state.map);
-  if (!state.from) return withQuery('#/', params);
-  if (!state.to) return withQuery(`#/${ROUTE_PREFIX}/${state.from}`, params);
+  if (!state.from) return withQuery('#/', withSwitches(params, state));
+  if (!state.to) return withQuery(`#/${ROUTE_PREFIX}/${state.from}`, withSwitches(params, state));
   if (state.routeIndex > 0) params.set(PARAM.route, String(state.routeIndex));
   if (state.focus) params.set(PARAM.focus, state.focus);
   if (state.detour) params.set(PARAM.detour, state.detour);
   if (state.year !== null) params.set(PARAM.year, String(state.year));
-  return withQuery(`#/${ROUTE_PREFIX}/${state.from}/${state.to}`, params);
+  if (state.overview) params.set(PARAM.overview, ON);
+  return withQuery(`#/${ROUTE_PREFIX}/${state.from}/${state.to}`, withSwitches(params, state));
+}
+
+/** Adds the map switches that are off; they are written last, whatever else the link carries. */
+function withSwitches(params: URLSearchParams, state: UrlState): URLSearchParams {
+  if (!state.showJourney) params.set(PARAM.journey, OFF);
+  if (!state.showLines) params.set(PARAM.lines, OFF);
+  return params;
 }
 
 function withQuery(path: string, params: URLSearchParams): string {

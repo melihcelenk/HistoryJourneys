@@ -49,17 +49,44 @@ export function updateCityElement(root: HTMLElement, city: CityMarker): void {
 }
 
 export function updateStopElement(root: HTMLElement, stop: StopMarker): void {
+  root.dataset.kind = stop.order === null ? 'place' : 'journey';
   root.dataset.reached = String(stop.reached);
   root.dataset.current = String(stop.current);
   root.dataset.crowded = String(stop.crowded);
 }
 
-export function createStopElement(stop: StopMarker): HTMLElement {
+/** The numbered pin of a journey stop: a button that goes to the stop. */
+function createStopPin(stop: StopMarker, target: NonNullable<StopMarker['target']>, onClick: StopClickHandler): HTMLElement {
+  const pin = element('button', 'map-stop__pin', String(stop.order));
+  pin.setAttribute('type', 'button');
+  pin.setAttribute('aria-label', `${stop.order}. durak: ${stop.name}, ${stop.years}. ${stop.event}`);
+  pin.addEventListener('click', (event) => {
+    event.stopPropagation();
+    onClick(target.figure, target.stopIndex);
+  });
+  return pin;
+}
+
+/** The small card of a journey stop, shown while the pointer or the keyboard focus is on its pin. */
+function createStopCard(stop: StopMarker): HTMLElement {
+  const card = element('span', 'map-stop__card');
+  const place = stop.historicName && stop.historicName !== stop.name ? `${stop.name} (${stop.historicName})` : stop.name;
+  card.append(
+    element('span', 'map-stop__card-title', `${stop.order}. ${place}`),
+    element('span', 'map-stop__card-years', stop.years),
+    element('span', 'map-stop__card-text', stop.event),
+  );
+  return card;
+}
+
+export type StopClickHandler = (figure: string, stopIndex: number) => void;
+
+export function createStopElement(stop: StopMarker, onClick: StopClickHandler): HTMLElement {
   const root = element('div', 'map-stop');
-  root.title = `${stop.name} (${stop.years}): ${stop.event}`;
   const label = element('span', 'map-stop__label');
   label.append(element('span', 'map-stop__name', stop.name), element('span', 'map-stop__years', stop.years));
-  root.append(element('span', 'map-stop__pin', String(stop.order)), label);
+  if (stop.target) root.append(createStopCard(stop), createStopPin(stop, stop.target, onClick), label);
+  else root.append(element('span', 'map-stop__pin'), label);
   updateStopElement(root, stop);
   return root;
 }

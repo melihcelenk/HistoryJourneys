@@ -1,4 +1,28 @@
+import { readFileSync } from 'node:fs';
 import { expect, type Locator, type Page, type TestInfo } from '@playwright/test';
+import { JOURNEY_GROUP_SIZE } from '../../src/domain/journey';
+
+/** What the tests read of a figure in the content, so that they follow the content instead of repeating it. */
+export interface FigureContent {
+  birth: { year: number };
+  death: { year: number };
+  journey: { from: number; event: string }[];
+}
+
+/** A figure as it is in the content. */
+export function figureContent(slug: string): FigureContent {
+  return JSON.parse(readFileSync(`content/figures/${slug}.json`, 'utf8')) as FigureContent;
+}
+
+/** A numbered stop of a journey that is on the map (as opposed to the place of a figure). */
+export const JOURNEY_STOP = '.map-stop[data-kind="journey"]';
+/** The pin of the journey stop the figure is at. */
+export const CURRENT_JOURNEY_PIN = `${JOURNEY_STOP}[data-current="true"] .map-stop__pin`;
+
+/** How many stops of a journey are on the map: one group at a time. */
+export function shownStopCount(slug: string): number {
+  return Math.min(figureContent(slug).journey.length, JOURNEY_GROUP_SIZE);
+}
 
 /** How often waitUntilStill samples the position of an element. */
 const STILLNESS_SAMPLE_MS = 250;

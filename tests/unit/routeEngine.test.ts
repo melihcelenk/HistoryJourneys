@@ -1,22 +1,45 @@
 import { describe, expect, it } from 'vitest';
-import { findRoutes, ROUTE_LABELS } from '../../src/domain/routeEngine';
+import { findRoutes } from '../../src/domain/routeEngine';
 import { sampleWorld } from './fixtures';
 
 const figuresOf = (route: { steps: { figure: string }[] }) => route.steps.map((step) => step.figure);
+const linkTypesOf = (route: { steps: { linkToNext?: { type: string } }[] }) =>
+  route.steps.flatMap((step) => (step.linkToNext ? [step.linkToNext.type] : []));
 
 describe('findRoutes', () => {
-  it('offers the succession route first', () => {
-    const routes = findRoutes(sampleWorld(), 'a', 'd');
-    expect(figuresOf(routes[0]!)).toEqual(['a', 'b', 'c', 'd']);
-    expect(routes[0]!.label).toBe(ROUTE_LABELS.succession);
+  it('offers a route through direct relations first', () => {
+    const [direct] = findRoutes(sampleWorld(), 'a', 'd');
+    expect(direct!.kind).toBe('direct');
+    expect(figuresOf(direct!)).toEqual(['a', 'b', 'c', 'd']);
   });
 
-  it('offers at least one different alternative route', () => {
+  it('never uses an influence in the route through direct relations', () => {
+    const direct = findRoutes(sampleWorld(), 'a', 'd').find((route) => route.kind === 'direct');
+    expect(linkTypesOf(direct!)).not.toContain('influenced');
+  });
+
+  it('offers a second route through influences, which may jump over generations', () => {
+    const influence = findRoutes(sampleWorld(), 'a', 'd').find((route) => route.kind === 'influence');
+    expect(figuresOf(influence!)).toEqual(['a', 'd']);
+    expect(linkTypesOf(influence!)).toEqual(['influenced']);
+  });
+
+  it('offers at most the two kinds of route', () => {
     const routes = findRoutes(sampleWorld(), 'a', 'd');
-    expect(routes.length).toBeGreaterThanOrEqual(2);
-    const ids = new Set(routes.map((route) => route.id));
-    expect(ids.size).toBe(routes.length);
-    expect(routes.some((route) => figuresOf(route).includes('v') || figuresOf(route).includes('w'))).toBe(true);
+    expect(routes.map((route) => route.kind)).toEqual(['direct', 'influence']);
+  });
+
+  it('does not offer a route of influences that contains no influence', () => {
+    const routes = findRoutes(sampleWorld(), 'a', 'c');
+    expect(routes.map((route) => route.kind)).toEqual(['direct']);
+  });
+
+  it('lets influences bridge figures that no direct relation connects', () => {
+    const world = sampleWorld();
+    world.relations.push({ from: 'd', to: 'lonely', type: 'influenced', note: 'd, lonely üzerinde etkili oldu' });
+    const routes = findRoutes(world, 'a', 'lonely');
+    expect(routes.map((route) => route.kind)).toEqual(['influence']);
+    expect(figuresOf(routes[0]!).at(-1)).toBe('lonely');
   });
 
   it('names the relation between consecutive cards', () => {
@@ -54,9 +77,14 @@ describe('findRoutes', () => {
     expect(findRoutes(sampleWorld(), 'nobody', 'a')).toEqual([]);
   });
 
-  it('gives routes with the same label a distinguishing name', () => {
-    const routes = findRoutes(sampleWorld(), 'a', 'd');
-    expect(routes.length).toBeGreaterThanOrEqual(2);
-    expect(new Set(routes.map((route) => route.label)).size).toBe(routes.length);
+  it('reports the plain sum of the relation weights as the cost of every route', () => {
+    const world = sampleWorld();
+    const weights = new Map(world.relationTypes.map((type) => [type.type, type.weight]));
+    const routes = findRoutes(world, 'a', 'd');
+    expect(routes).toHaveLength(2);
+    for (const route of routes) {
+      const expected = linkTypesOf(route).reduce((sum, type) => sum + weights.get(type)!, 0);
+      expect(route.cost).toBeCloseTo(expected, 6);
+    }
   });
 });

@@ -148,7 +148,7 @@ function fill(db: Database, seed: ContentSeed, builtAt: string): void {
   insert(db, 'meta', { key: 'schema_version', value: DB_SCHEMA_VERSION });
   insert(db, 'meta', { key: 'built_at', value: builtAt });
   seed.relationTypes.forEach((type) =>
-    insert(db, 'relation_type', { type: type.type, name_tr: type.nameTr, weight: type.weight, grp: type.group }),
+    insert(db, 'relation_type', { type: type.type, name_tr: type.nameTr, weight: type.weight, mode: type.mode }),
   );
   seed.figures.forEach((figure) => insertFigure(db, figure));
   insertRelations(db, seed.figures);

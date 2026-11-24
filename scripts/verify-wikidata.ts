@@ -93,9 +93,18 @@ if (errors.length > 0) {
 }
 const findings: Finding[] = [];
 
-for (let start = 0; start < seed.figures.length; start += BATCH_SIZE) {
+/** Set when Wikidata could not be reached for some figures; the report then says it is incomplete. */
+let failure: string | null = null;
+
+for (let start = 0; start < seed.figures.length && failure === null; start += BATCH_SIZE) {
   const batch = seed.figures.slice(start, start + BATCH_SIZE);
-  const entities = await fetchEntities(batch.map((figure) => figure.wikiTitleTr));
+  let entities: Map<string, WikidataEntity>;
+  try {
+    entities = await fetchEntities(batch.map((figure) => figure.wikiTitleTr));
+  } catch (error) {
+    failure = error instanceof Error ? error.message : String(error);
+    break;
+  }
   for (const figure of batch) {
     const entity = entities.get(normalizeTitle(figure.wikiTitleTr));
     if (!entity) {
@@ -121,6 +130,7 @@ const lines = [
   '# Wikidata check',
   '',
   `Retrieved: ${new Date().toISOString()} · source: Wikidata (CC0)`,
+  ...(failure ? ['', `**Incomplete:** Wikidata could not be queried for every figure (${failure}).`] : []),
   '',
   `- Figures whose years match: ${count('match')}`,
   `- Differences: ${count('mismatch')}`,
@@ -133,3 +143,4 @@ const lines = [
 mkdirSync(dirname(reportPath), { recursive: true });
 writeFileSync(reportPath, lines.join('\n'));
 console.log(lines.join('\n'));
+if (failure) process.exit(1);

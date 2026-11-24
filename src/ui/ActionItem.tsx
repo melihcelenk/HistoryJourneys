@@ -6,8 +6,12 @@ import { RichText } from './RichText';
 type RevealKind = 'cause' | 'consequence' | 'depth';
 
 const REVEALS: Record<RevealKind, { label: string; icon: IconName; title: string }> = {
-  cause: { label: 'Neden', icon: 'cause', title: 'Neden oldu?' },
-  consequence: { label: 'Sonuç', icon: 'consequence', title: 'Sonra ne değişti?' },
+  cause: { label: 'Neden', icon: 'question', title: 'Neden oldu?' },
+  consequence: {
+    label: 'Sonuç',
+    icon: 'consequence',
+    title: 'Sonra ne değişti?',
+  },
   depth: { label: 'Derinlik', icon: 'depth', title: 'Daha derine in' },
 };
 
@@ -21,7 +25,8 @@ interface ActionItemProps {
 /**
  * One thing a figure did, with buttons that reveal its cause and consequence
  * (FR-2) and, where the short statement simplifies, the fuller account behind
- * the depth marker (FR-27).
+ * the depth marker (FR-27). The buttons are icons on the line of the action,
+ * floated to the right end of its last line, so that the text keeps the whole width of the card.
  */
 export function ActionItem({ action }: ActionItemProps) {
   const [open, setOpen] = useState<RevealKind | null>(null);
@@ -38,21 +43,23 @@ export function ActionItem({ action }: ActionItemProps) {
         <span className="action__year">{action.year}</span>
         <p className="action__text">
           <RichText text={action.text} />
+          <span className="action__buttons">
+            {available.map((kind) => (
+              <button
+                key={kind}
+                type="button"
+                className="reveal-btn"
+                data-tone={kind}
+                aria-label={REVEALS[kind].label}
+                title={REVEALS[kind].title}
+                aria-expanded={open === kind}
+                onClick={() => setOpen(open === kind ? null : kind)}
+              >
+                <Icon name={REVEALS[kind].icon} />
+              </button>
+            ))}
+          </span>
         </p>
-      </div>
-      <div className="action__buttons">
-        {available.map((kind) => (
-          <button
-            key={kind}
-            type="button"
-            className="ink-btn"
-            aria-expanded={open === kind}
-            onClick={() => setOpen(open === kind ? null : kind)}
-          >
-            <Icon name={REVEALS[kind].icon} />
-            {REVEALS[kind].label}
-          </button>
-        ))}
       </div>
       {available.map((kind) => (
         <div key={kind} className="reveal" data-open={open === kind} aria-hidden={open !== kind}>

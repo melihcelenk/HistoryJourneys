@@ -1,5 +1,6 @@
 import { Application, Graphics, Sprite, Texture, TilingSprite } from 'pixi.js';
 import { MAP_HOME } from './mapRegion';
+import { CAMERA_DURATION_MS, FIGURE_MOVE_DURATION_MS } from './mapTimings';
 import {
   createAnchor,
   createCityElement,
@@ -26,8 +27,6 @@ import { createCloudShadowTexture, loadTerrainData, paintTerrain, type TerrainDa
 /** Width of the painted map in pixels: detailed enough for dense phone screens, about 30 MB as a texture. */
 const WORLD_WIDTH = 3072;
 const HOME_SCALE = 1.1;
-const CAMERA_DURATION_MS = 1200;
-const FIGURE_MOVE_DURATION_MS = 700;
 const WHEEL_ZOOM_STEP = 1.0015;
 /** Cloud shadows drift this many pixels per second. */
 const CLOUD_SPEED = { x: 5, y: 2 };
@@ -47,7 +46,7 @@ interface PathStyle {
   dash?: [number, number];
 }
 
-const ROUTE_STYLE: PathStyle = { color: 0x3b2a14, alpha: 0.5, width: 2, dash: [3, 9] };
+const TRAIL_STYLE: PathStyle = { color: 0x5a1a14, alpha: 0.6, width: 2 };
 const AHEAD_STYLE: PathStyle = { color: 0x5a1a14, alpha: 0.45, width: 2.5, dash: [8, 8] };
 const REACHED_GLOW_STYLE: PathStyle = { color: 0xf4e2a8, alpha: 0.5, width: 9 };
 const REACHED_STYLE: PathStyle = { color: 0x8a1f17, alpha: 1, width: 3.5 };
@@ -229,7 +228,7 @@ export class PixiMapView implements MapView {
     const toScreen = (points: LonLat[]): WorldPoint[] =>
       points.map((point) => this.camera.toScreen(this.projection.project(point)));
     this.paths.clear();
-    drawPath(this.paths, toScreen(this.scene.routePath), ROUTE_STYLE);
+    for (const trail of this.scene.trails) drawPath(this.paths, toScreen(trail), TRAIL_STYLE);
     drawPath(this.paths, toScreen(this.scene.journeyAhead), AHEAD_STYLE);
     const reached = toScreen(this.scene.journeyReached);
     drawPath(this.paths, reached, REACHED_GLOW_STYLE);
@@ -281,7 +280,7 @@ export class PixiMapView implements MapView {
         `stop:${stop.id}`,
         stop.position,
         MARKER_LAYERS.stop,
-        () => createStopElement(stop),
+        () => createStopElement(stop, this.events.onStopClick),
         (element) => updateStopElement(element, stop),
       );
     }

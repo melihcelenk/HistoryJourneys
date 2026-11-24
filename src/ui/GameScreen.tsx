@@ -4,9 +4,10 @@ import { ConceptDialog } from './dialogs/ConceptDialog';
 import { FigurePickerDialog } from './dialogs/FigurePickerDialog';
 import { AboutDialog, SettingsDialog } from './dialogs/InfoDialogs';
 import { QuizDialog } from './dialogs/QuizDialog';
+import { RelationGraphDialog } from './dialogs/RelationGraphDialog';
 import { MapStage } from './MapStage';
 import { RoutePanel } from './RoutePanel';
-import { RouteTabs } from './RouteTabs';
+import { RouteHeader } from './RouteHeader';
 import { TopBar } from './TopBar';
 
 function ActiveDialog({ dialog }: { dialog: Dialog }) {
@@ -15,6 +16,8 @@ function ActiveDialog({ dialog }: { dialog: Dialog }) {
       return <FigurePickerDialog key={dialog.slot} slot={dialog.slot} />;
     case 'concept':
       return <ConceptDialog concept={dialog.concept} />;
+    case 'relations':
+      return <RelationGraphDialog key={dialog.figure} figure={dialog.figure} />;
     case 'quiz':
       return <QuizDialog />;
     case 'about':
@@ -37,7 +40,7 @@ export function GameScreen() {
       <MapStage />
       <TopBar />
       <main className="panel">
-        <RouteTabs />
+        <RouteHeader />
         <div className="panel__scroll scroll">
           <RoutePanel />
         </div>

@@ -72,8 +72,8 @@ describe('journey', () => {
     expect(stopAtYear(ahmed, journey, 1612)?.place.slug).toBe('edirne');
   });
 
-  it('keeps the figure at the last stop between two stops', () => {
-    expect(stopAtYear(ahmed, journey, 1615)?.place.slug).toBe('edirne');
+  it('has no place for the figure in a year between two stops', () => {
+    expect(stopAtYear(ahmed, journey, 1615)).toBeNull();
   });
 
   it('returns nothing outside the lifetime', () => {

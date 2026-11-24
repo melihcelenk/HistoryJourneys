@@ -61,7 +61,10 @@ version is bumped, and affected cards are regenerated.
 ## 7. Journey
 
 - R17. A journey is the figure's life as dated stops, in chronological order,
-  three to eight stops. Each stop has a place with coordinates, a year range,
+  three to eight stops; a figure with a detailed journey package (Atatürk) may
+  have up to thirty. A figure is shown on the map only in the years of a stop,
+  so the year ranges must be the years the figure really was there: never
+  stretch a stop to fill a gap. Each stop has a place with coordinates, a year range,
   one sentence on what happened there, and a location precision.
 - R18. Places carry the present-day Turkish name and, where different, the
   historical name (*Selanik* / *Thessaloniki*, *Edirne* / *Adrianopolis*).
