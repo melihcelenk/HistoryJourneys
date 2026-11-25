@@ -48,3 +48,9 @@ slug and fails when the same slug has different coordinates.
 | berlin | Berlin | | 52.5200 | 13.4050 |
 | taif | Taif | | 21.2703 | 40.4158 |
 | sanremo | San Remo | | 43.8159 | 7.7761 |
+| roma | Roma | | 41.9028 | 12.4964 |
+| izmit | İzmit | Nikomedia | 40.7654 | 29.9408 |
+| iznik | İznik | Nikaia | 40.4292 | 29.7211 |
+| nis | Niş | Naissus | 43.3209 | 21.8958 |
+| trier | Trier | Augusta Treverorum | 49.7596 | 6.6442 |
+| york | York | Eboracum | 53.96 | -1.0873 |

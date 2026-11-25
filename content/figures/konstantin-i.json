@@ -1,0 +1,242 @@
+{
+  "slug": "konstantin-i",
+  "nameTr": "I. Konstantin",
+  "nameEn": "Constantine I (the Great)",
+  "wikiTitleTr": "I. Konstantin",
+  "kind": "leader",
+  "roles": [
+    "Roma imparatoru"
+  ],
+  "birth": {
+    "year": 272,
+    "place": "Niş"
+  },
+  "death": {
+    "year": 337,
+    "place": "İzmit"
+  },
+  "reign": {
+    "from": 306,
+    "to": 337
+  },
+  "summary": [
+    "I. Konstantin, 306'da Britanya'daki York'ta ordusu tarafından imparator ilan edilen ve 337'ye kadar hüküm süren Roma imparatorudur.",
+    "313'te Hristiyanlara ibadet serbestliği tanıdı ve Hristiyanlığı benimseyen ilk Roma imparatoru oldu.",
+    "330'da başkenti Roma'dan Boğaz kıyısındaki Byzantion'a taşıdı; Konstantinopolis adını alan şehir, 1453'te Osmanlılar fethedene kadar 1100 yıldan uzun süre imparatorluk başkenti kaldı."
+  ],
+  "actions": [
+    {
+      "id": "ibadet-serbestligi",
+      "year": 313,
+      "text": "Hristiyanlara ibadet serbestliği tanıdı.",
+      "cause": "303'te imparator Diocletianus, Hristiyanlara karşı Roma tarihinin en büyük kovuşturmasını başlatmış; kiliseler yıkılmış, kutsal kitaplar yakılmıştı. Konstantin 312'de Roma'nın kapısındaki Milvius Köprüsü'nde rakibi Maxentius'u yendi ve imparatorluğun batısının tek hâkimi oldu. Dönemin Hristiyan yazarlarına göre savaştan önce askerlerinin kalkanlarına İsa'nın adının ilk harflerini çizdirmişti.",
+      "consequence": "Şubat 313'te doğunun hâkimi Licinius ile Milano'da buluştu; iki imparator herkesin dilediği dine inanabileceğini duyurdu ve Hristiyanlardan alınan mallar geri verildi. Konstantin kiliselere toprak ve para bağışladı, Roma'da ilk büyük kiliseleri yaptırdı. Üç yüzyıl boyunca yer yer yasaklanan Hristiyanlık böylece imparatorun koruduğu bir din oldu.",
+      "depth": "Hristiyanlığı devletin dini yapan Konstantin değildir; bunu 380'de imparator I. Theodosius yaptı. Hristiyanlara ilk hoşgörü fermanını da 311'de imparator Galerius çıkarmıştı. \"Milano Fermanı\" diye bilinen metin ise aslında bir ferman değil, Licinius'un doğudaki valilere gönderdiği mektuplardır. Konstantin'in kendisi ancak 337'de, ölüm döşeğinde vaftiz edildi.",
+      "sources": [
+        "britannica",
+        "wiki"
+      ]
+    },
+    {
+      "id": "iznik-konsili",
+      "year": 325,
+      "text": "İznik'te ilk büyük kilise konsilini topladı.",
+      "cause": "Konstantin 324'te Licinius'u önce Edirne'de, sonra Üsküdar'da (Chrysopolis) yenerek imparatorluğun tek hâkimi oldu. Ama Hristiyanlar kendi içinde bölünmüştü: İskenderiyeli papaz Arius, İsa'nın Tanrı ile aynı özden olmadığını, Tanrı tarafından yaratıldığını savunuyordu. İmparator, tek bir imparatorluğun tek bir inanç etrafında birleşmesini istiyordu.",
+      "consequence": "325 yazında İznik'te (Nikaia) toplanan konsile geleneğe göre 318 piskopos katıldı; toplantıyı Konstantin açtı. Konsil Arius'un görüşünü reddetti ve Hristiyanların bugün de okuduğu İznik inanç bildirgesini kabul etti. Bir imparatorun din tartışmasına hakemlik etmesi, sonraki Bizans imparatorları için örnek oldu.",
+      "depth": "318 sayısı gelenekseldir; tarihçiler katılanların 250 ile 300 arasında olduğunu düşünür. Konsil tartışmayı da bitirmedi: Arius'un görüşü onlarca yıl daha yaşadı ve Konstantin'i ölüm döşeğinde vaftiz eden piskopos Nikomedialı Eusebios da bu görüşe yakındı.",
+      "sources": [
+        "britannica",
+        "wiki"
+      ]
+    },
+    {
+      "id": "baskentin-tasinmasi",
+      "year": 330,
+      "text": "Başkenti Roma'dan Boğaz kıyısına taşıdı.",
+      "cause": "Roma şehri, imparatorluğun tehdit altındaki sınırlarına, yani Tuna boyuna ve Perslerle savaşılan doğuya uzaktı; imparatorlar zaten yıllardır Trier, Milano ve İzmit gibi şehirlerden yönetiyordu. Konstantin 324'te tek hâkim olunca, Avrupa ile Asya'nın ve Karadeniz ile Akdeniz'in kesiştiği eski Yunan şehri Byzantion'u seçti. Şehir üç yanından denizle çevriliydi ve savunması kolaydı.",
+      "consequence": "Şehir altı yılda surlar, bir saray, bir hipodrom ve meydanlarla büyütüldü ve 11 Mayıs 330'da törenle açıldı; adı [[c:konstantinopolis|Konstantinopolis]], yani \"Konstantin'in şehri\" oldu. Batıdaki Roma 476'da çöktükten sonra da imparatorluk burada yaklaşık bin yıl daha yaşadı. Şehri 1453'te fetheden [[f:mehmed-ii|Fatih Sultan Mehmed]] de onu kendi başkenti yaptı; Osmanlılar şehre resmî yazılarda Kostantiniyye demeyi sürdürdü.",
+      "depth": "Konstantin şehri sıfırdan kurmadı: Byzantion yaklaşık bin yıldır vardı ve hipodromun yapımına imparator Septimius Severus başlamıştı. Şehre \"Yeni Roma\" adını Konstantin'in kendisinin verdiği sık söylenir, ama bu ad resmî olarak ancak 381'deki konsil kararında geçer. Şehrin bugün ayakta duran kara surları da onun değil, 5. yüzyılda II. Theodosius döneminin eseridir.",
+      "sources": [
+        "britannica",
+        "wiki"
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "place": {
+        "slug": "nis",
+        "nameTr": "Niş",
+        "historicName": "Naissus",
+        "lat": 43.3209,
+        "lon": 21.8958
+      },
+      "precision": "city",
+      "from": 272,
+      "to": 272,
+      "event": "Romalı subay Constantius ile Helena'nın oğlu olarak Naissus'ta doğdu."
+    },
+    {
+      "place": {
+        "slug": "izmit",
+        "nameTr": "İzmit",
+        "historicName": "Nikomedia",
+        "lat": 40.7654,
+        "lon": 29.9408
+      },
+      "precision": "city",
+      "from": 293,
+      "to": 305,
+      "event": "Babası 293'te sezar olunca imparator Diocletianus'un İzmit'teki sarayına gönderildi; orada yetişti ve subay oldu."
+    },
+    {
+      "place": {
+        "slug": "york",
+        "nameTr": "York",
+        "historicName": "Eboracum",
+        "lat": 53.96,
+        "lon": -1.0873
+      },
+      "precision": "city",
+      "from": 306,
+      "to": 306,
+      "event": "Babası burada ölünce 25 Temmuz'da ordu tarafından imparator ilan edildi."
+    },
+    {
+      "place": {
+        "slug": "trier",
+        "nameTr": "Trier",
+        "historicName": "Augusta Treverorum",
+        "lat": 49.7596,
+        "lon": 6.6442
+      },
+      "precision": "city",
+      "from": 307,
+      "to": 312,
+      "event": "Galya, Britanya ve İspanya'yı Trier'den yönetti; şehre büyük bir saray ve hamam yaptırdı."
+    },
+    {
+      "place": {
+        "slug": "roma",
+        "nameTr": "Roma",
+        "lat": 41.9028,
+        "lon": 12.4964
+      },
+      "precision": "city",
+      "from": 312,
+      "to": 312,
+      "event": "28 Ekim'de Milvius Köprüsü'nde Maxentius'u yenerek şehre girdi."
+    },
+    {
+      "place": {
+        "slug": "iznik",
+        "nameTr": "İznik",
+        "historicName": "Nikaia",
+        "lat": 40.4292,
+        "lon": 29.7211
+      },
+      "precision": "city",
+      "from": 325,
+      "to": 325,
+      "event": "İlk büyük kilise konsilini topladı ve açılışını kendisi yaptı."
+    },
+    {
+      "place": {
+        "slug": "istanbul",
+        "nameTr": "İstanbul",
+        "historicName": "Kostantiniyye",
+        "lat": 41.0082,
+        "lon": 28.9784
+      },
+      "precision": "city",
+      "from": 330,
+      "to": 337,
+      "event": "Byzantion'u 11 Mayıs 330'da yeni başkent olarak açtı; şehir Konstantinopolis adını aldı."
+    },
+    {
+      "place": {
+        "slug": "izmit",
+        "nameTr": "İzmit",
+        "historicName": "Nikomedia",
+        "lat": 40.7654,
+        "lon": 29.9408
+      },
+      "precision": "city",
+      "from": 337,
+      "to": 337,
+      "event": "Pers seferine çıkarken hastalandı; İzmit yakınlarında vaftiz edildi ve 22 Mayıs'ta öldü."
+    }
+  ],
+  "relations": [
+    {
+      "to": "mehmed-ii",
+      "type": "influenced",
+      "note": "Fatih Sultan Mehmed, Konstantin'in başkent yaptığı şehri fethetti ve onu kendi başkenti yaptı."
+    }
+  ],
+  "concepts": [
+    {
+      "slug": "konstantinopolis",
+      "term": "Konstantinopolis",
+      "meaning": "\"Konstantin'in şehri\" demektir; İstanbul'un 330'dan sonraki adıdır. Osmanlıların kullandığı Kostantiniyye, bu adın Arapça üzerinden gelen biçimidir.",
+      "root": {
+        "letters": "polis",
+        "language": "Yunanca",
+        "meaning": "şehir"
+      },
+      "related": [
+        {
+          "term": "metropol",
+          "meaning": "ana şehir; büyük şehir"
+        },
+        {
+          "term": "politika",
+          "meaning": "şehrin, yani devletin işleri"
+        },
+        {
+          "term": "Gelibolu",
+          "meaning": "Kallipolis: güzel şehir"
+        },
+        {
+          "term": "Trablus",
+          "meaning": "Tripolis: üç şehir"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "britannica",
+      "title": "Constantine I",
+      "publisher": "Encyclopaedia Britannica",
+      "url": "https://www.britannica.com/biography/Constantine-I-Roman-emperor"
+    },
+    {
+      "id": "wiki",
+      "title": "I. Konstantin",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/I._Konstantin",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "portrait": {
+    "file": "Byzantinischer Mosaizist um 1000 002.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Byzantinischer_Mosaizist_um_1000_002.jpg",
+    "title": "Ayasofya'nın güneybatı girişindeki mozaikten ayrıntı: I. Konstantin şehri sunuyor",
+    "author": "Bilinmeyen Bizanslı mozaik ustası",
+    "created": "1000 dolayları",
+    "license": "Public domain",
+    "representative": true,
+    "crop": {
+      "x": 0.48,
+      "y": 0.38,
+      "size": 0.62
+    }
+  },
+  "generation": {
+    "model": "claude-fable-5-2",
+    "ruleset": "0.3.0",
+    "date": "2026-11-25",
+    "status": "generated"
+  }
+}

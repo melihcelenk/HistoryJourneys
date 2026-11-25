@@ -65,7 +65,7 @@ abdulhamid-ii, mehmed-v, mehmed-vi, ataturk, ismet-inonu, enver-pasa,
 namik-kemal, midhat-pasa, mustafa-resid-pasa, alemdar-mustafa-pasa,
 aksemseddin, ali-kuscu, cem-sultan, piri-reis, barbaros-hayreddin,
 hurrem-sultan, mimar-sinan, sokollu-mehmed-pasa, kosem-sultan, evliya-celebi,
-katip-celebi, koprulu-mehmed-pasa, ibrahim-muteferrika
+katip-celebi, koprulu-mehmed-pasa, ibrahim-muteferrika, konstantin-i
 
 ## Finish
 

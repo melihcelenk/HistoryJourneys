@@ -8,7 +8,9 @@ Which pictures of the figures are used, which are not, and why. The rule is in
 - **Method:** For each figure the image named by Wikidata (property P18) was looked up on Wikimedia Commons. Its
   licence, author, date, source and licence categories were read from the metadata of the file, and the picture
   itself was looked at. File pages were not read in full.
-- **Result:** 41 of 50 figures have a portrait; the other 9 are shown with the emblem of their kind.
+- **Result:** 42 of 51 figures have a portrait; the other 9 are shown with the emblem of their kind.
+- **Added 2026-11-25:** Constantine I. Of the four pictures Wikidata names, three are photographs of statues and
+  are not used; the fourth, a detail of a mosaic of about 1000 in Hagia Sophia, was accepted. The picture was looked at.
 - **Second look:** The first review asked that the date or the author of every work be documented on its file page,
   and accepted 28. That left out Atatürk and nine sultans whose pictures are plainly old works. The rule was widened
   (R21) and 13 more pictures were accepted; for Mehmed II the picture was replaced by the one the owner pointed at.
@@ -75,6 +77,7 @@ None of these names both a date and an author on its file page; each was looked 
 | suleyman-ii | Oval portrait of the same album | As above; figure died in 1691 | Public domain | yes |
 | alemdar-mustafa-pasa | Engraving | Engraving of an earlier age; figure died in 1808 | Public domain | yes |
 | koprulu-mehmed-pasa | Engraving with a caption in Italian | Engraving of an earlier age; figure died in 1661 | Public domain | yes |
+| konstantin-i | Detail of a mosaic in Hagia Sophia, about 1000 (Yorck Project reproduction) | Mosaic of an earlier age, a flat work and not a statue; figure died in 337 | Public domain | yes |
 
 ## Not accepted
 

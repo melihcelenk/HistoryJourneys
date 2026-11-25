@@ -41,6 +41,7 @@
 | 13 | Beşinci geri bildirim: kartın düzeni, kart sekmeleri ve ilk duraktan başlama | 🟢 Tamamlandı | 100% | `PHASE13.md` |
 | 14 | Figür portreleri | 🟢 Tamamlandı | 100% | `PHASE14.md` |
 | 15 | Altıncı geri bildirim: harita seçimi, portre kırpmaları ve haritada portreler | 🟢 Tamamlandı | 100% | `PHASE15.md` |
+| 16 | Yeni figür: I. Konstantin | 🟡 Kısmi | 90% | `PHASE16.md` |
 
 <!-- Durum ikonları: 🟢 Tamamlandı | 🟡 Kısmi | ⏳ Bekliyor | 🔴 Bloke -->
 
@@ -297,3 +298,9 @@ yapanı, tarihi ve lisansı içerikte kayıtlıdır ve kartın "Kaynaklar" sekme
 
 Uygulama sade haritayla açılır; boyalı harita açılamazsa bu söylenir. Portreler yüzü ortalayacak biçimde kırpılır ve
 haritadaki bayraklarda da görünür.
+
+### 🟡 Faz 16 — Yeni figür: I. Konstantin
+
+**Durum:** 🟡 Kısmi · **Ayrıntı:** [`PHASE16.md`](PHASE16.md)
+
+İstanbul'u başkent yapan Roma imparatoru I. Konstantin kartı, yolculuğu ve Fatih Sultan Mehmed'e giden bağıyla eklenir.
