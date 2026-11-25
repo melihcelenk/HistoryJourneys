@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { measureUiSound } from '../audio/uiSounds';
 import { measureAmbience } from './audio/ambience';
 import { createSoundStage, type SoundStage } from './audio/soundStage';
 import { createBriefingSession, type BriefingSession } from './briefing/briefingSession';
@@ -7,6 +8,7 @@ import { tableBox } from './briefing/tableLayout';
 import { buildCharacter, type Character } from './character';
 import { createWalkControls, type WalkControls } from './controls';
 import { RESOLUTION_LIMITS, createFrameMeter, nextPixelRatio } from './dynamicResolution';
+import { PLAYER_START, isAtDoor } from './exit';
 import { createHud, type Hud } from './hud';
 import { createPicture } from './post';
 import { ROOM_SIZE, buildRoom, type Room } from './room';
@@ -41,8 +43,6 @@ export interface SceneInfo {
 const FRAMES_BEFORE_READY = 3;
 /** Height of the player's eyes and half the width of the player, in metres. */
 const PLAYER = { eyeHeight: 1.62, radius: 0.3 } as const;
-/** Where the player enters: just inside the door, looking into the room. */
-const START = { x: -0.9, z: 3.6, yaw: -0.2 } as const;
 /** Room the figure takes on the floor and how near the player must come to meet him. */
 const FIGURE_HALF_SIZE = 0.42;
 const MEETING_DISTANCE = 2.3;
@@ -206,8 +206,13 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
       },
       // The figure says the step that is being told and falls silent when the telling stops.
       onLine: (line) => {
-        if (line) sound?.narrator.say(line);
-        else sound?.narrator.hush();
+        if (!line) {
+          sound?.narrator.hush();
+          return;
+        }
+        // A new step is a new sheet laid on the table.
+        sound?.effects.play('parchment');
+        sound?.narrator.say(line);
       },
     });
     briefing = session;
@@ -215,7 +220,7 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
     cleanups.push(() => session.dispose());
     if (!still) {
       const game = {
-        controls: createWalkControls(renderer.domElement, camera, { space: walkSpace(room), start: START, eyeHeight: PLAYER.eyeHeight, yaw: START.yaw }),
+        controls: createWalkControls(renderer.domElement, camera, { space: walkSpace(room), start: PLAYER_START, eyeHeight: PLAYER.eyeHeight, yaw: PLAYER_START.yaw }),
         hud: createHud(root, { title: content.name, backHref: content.cardHref, invitation: content.briefing.invitation, onInvite: () => session.start() }),
       };
       controls = game.controls;
@@ -255,8 +260,15 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
     const pointedAt = briefing?.update(seconds) ?? null;
     gaze.lerp(pointedAt ?? camera.position, still ? 1 : 1 - Math.exp(-seconds * GAZE_SPEED));
     character?.update(time, gaze, seconds, sound?.narrator.isSpeaking() ?? false);
-    hud?.setNear(Math.hypot(camera.position.x - FIGURE_SPOT.x, camera.position.z - FIGURE_SPOT.z) < MEETING_DISTANCE);
-    sound?.update({ distanceToHearth: Math.hypot(camera.position.x - HEARTH.x, camera.position.z - HEARTH.z) });
+    place();
+  }
+
+  /** Tells what depends on where the player stands: the invitations on the screen and the sound of the room. */
+  function place(): void {
+    const { x, z } = camera.position;
+    hud?.setNear(Math.hypot(x - FIGURE_SPOT.x, z - FIGURE_SPOT.z) < MEETING_DISTANCE);
+    hud?.setAtDoor(isAtDoor({ x, z }));
+    sound?.update({ distanceToHearth: Math.hypot(x - HEARTH.x, z - HEARTH.z) });
   }
 
   /** Draws the picture a step coarser when the last frames were too slow for this graphics card. */
@@ -301,7 +313,7 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
  */
 export async function startScene(root: HTMLElement, options: SceneOptions): Promise<RunningScene> {
   // The tests ask how loud the generated sound of the room is; they cannot listen.
-  Object.assign(window, { measureSceneAmbience: measureAmbience });
+  Object.assign(window, { measureSceneAmbience: measureAmbience, measureUiSound });
   const veil = showLoading(root);
   const cleanups: (() => void)[] = [];
   const stop = (): void => {

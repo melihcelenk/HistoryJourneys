@@ -1,11 +1,11 @@
 /**
  * What the player has chosen about sound, and where the choice is kept between visits: a switch for all of it and
- * a level for everything together, for voices and for the room. Pure functions; the place the choice is kept in
+ * a level for everything together, for voices, for the room and for the interface. The map and the 3D scene share them. Pure functions; the place the choice is kept in
  * is handed in, so that it can be the browser's storage, a test's memory or nothing at all.
  */
 
-/** What has a level of its own: everything together, the voices of the figures, the sound of the room. */
-export const SOUND_CHANNELS = ['master', 'voice', 'ambience'] as const;
+/** What has a level of its own: everything together, the voices of the figures, the sound of the room, the sounds of the interface. */
+export const SOUND_CHANNELS = ['master', 'voice', 'ambience', 'effects'] as const;
 export type SoundChannel = (typeof SOUND_CHANNELS)[number];
 
 export type SoundSettings = { muted: boolean } & Record<SoundChannel, number>;
@@ -19,7 +19,7 @@ export interface SettingsStore {
 export const SOUND_SETTINGS_KEY = 'hj.scene.sound';
 
 /** The room is a background to the voices and opens well below them. */
-export const DEFAULT_SOUND_SETTINGS: SoundSettings = { muted: false, master: 0.8, voice: 1, ambience: 0.5 };
+export const DEFAULT_SOUND_SETTINGS: SoundSettings = { muted: false, master: 0.8, voice: 1, ambience: 0.5, effects: 0.6 };
 
 const clamp = (value: number): number => Math.min(1, Math.max(0, value));
 
@@ -40,6 +40,7 @@ export function loadSoundSettings(store: SettingsStore | null): SoundSettings {
       master: levelFrom(saved.master, 'master'),
       voice: levelFrom(saved.voice, 'voice'),
       ambience: levelFrom(saved.ambience, 'ambience'),
+      effects: levelFrom(saved.effects, 'effects'),
     };
   } catch {
     return { ...DEFAULT_SOUND_SETTINGS };

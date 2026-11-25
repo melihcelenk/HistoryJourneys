@@ -185,5 +185,12 @@ measuring it (HJ-2, phase 6: 12–24 frames a second before, 56–60 after, on I
 - **The words are always on the screen too.** Sound is never the only carrier of information.
 - **The sound of the room is generated** (`audio/ambience.ts`), not recorded; its level follows the distance to
   the hearth and drops while the figure speaks (`audio/ambienceLevel.ts`).
+- **The map and the scene share the sound choices.** They are two pages; `src/audio/soundSettings.ts` and
+  `src/audio/soundBoard.ts` keep one set of choices (the switch and a level for everything, voices, the room and
+  the interface) in the browser's storage, so a choice made on one page holds on the other. The map has its
+  switch in the top bar (`ui/TopBar.tsx`).
+- **The sounds of the interface are generated too** (`src/audio/uiSounds.ts`): a tap for every press on a button
+  or link, and a rustle of parchment when a card, a dialog or a step of the briefing opens. They are built on any
+  audio context, so the tests render them offline and measure level and length.
 - **A test cannot listen.** The tests check what is handed to the device (text, voice, rate, pitch) and the level
   of the generated sound. Whether it sounds right has to be judged by ear.

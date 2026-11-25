@@ -11,7 +11,8 @@ import {
   setLevel,
   toggleMuted,
   type SettingsStore,
-} from '../../src/scene3d/audio/soundSettings';
+} from '../../src/audio/soundSettings';
+import { createSoundBoard } from '../../src/audio/soundBoard';
 import { pickVoice, splitSentences, type VoiceInfo } from '../../src/scene3d/audio/voiceChoice';
 import { parseBriefing } from '../../src/scene3d/briefing/briefingSchema';
 
@@ -62,8 +63,8 @@ describe('the sound setting', () => {
 });
 
 describe('the levels of the sound', () => {
-  it('has a level for everything together, one for voices and one for the room', () => {
-    expect(SOUND_CHANNELS).toEqual(['master', 'voice', 'ambience']);
+  it('has a level for everything together, one for voices, one for the room and one for the interface', () => {
+    expect(SOUND_CHANNELS).toEqual(['master', 'voice', 'ambience', 'effects']);
     for (const channel of SOUND_CHANNELS) {
       expect(DEFAULT_SOUND_SETTINGS[channel], channel).toBeGreaterThan(0);
       expect(DEFAULT_SOUND_SETTINGS[channel], channel).toBeLessThanOrEqual(1);
@@ -83,14 +84,15 @@ describe('the levels of the sound', () => {
   });
 
   it('plays a channel at its own level times the level of everything', () => {
-    const settings = { muted: false, master: 0.5, voice: 0.8, ambience: 0.4 };
+    const settings = { muted: false, master: 0.5, voice: 0.8, ambience: 0.4, effects: 0.6 };
+    expect(heardLevel(settings, 'effects')).toBeCloseTo(0.3, 6);
     expect(heardLevel(settings, 'voice')).toBeCloseTo(0.4, 6);
     expect(heardLevel(settings, 'ambience')).toBeCloseTo(0.2, 6);
     expect(heardLevel(settings, 'master')).toBeCloseTo(0.5, 6);
   });
 
   it('plays nothing while the sound is off, and keeps the levels for when it is on again', () => {
-    const muted = { muted: true, master: 0.5, voice: 0.8, ambience: 0.4 };
+    const muted = { muted: true, master: 0.5, voice: 0.8, ambience: 0.4, effects: 0.6 };
     for (const channel of SOUND_CHANNELS) expect(heardLevel(muted, channel)).toBe(0);
     expect(toggleMuted(muted)).toEqual({ ...muted, muted: false });
   });
@@ -193,5 +195,32 @@ describe('recorded lines in a briefing', () => {
       const broken = { ...rawBriefing, steps: rawBriefing.steps.map((step, index) => (index === 0 ? { ...step, audio } : step)) };
       expect(() => parseBriefing(broken), audio).toThrow();
     }
+  });
+});
+
+describe('the sound choices shared by the map and the scene', () => {
+  it('reads what was saved before the interface had a level of its own', () => {
+    const store = memoryStore({ [SOUND_SETTINGS_KEY]: '{"muted":false,"master":0.6,"voice":1,"ambience":0.2}' });
+    expect(loadSoundSettings(store)).toEqual({ ...DEFAULT_SOUND_SETTINGS, master: 0.6, ambience: 0.2 });
+  });
+
+  it('tells everyone who listens when a choice changes, and keeps it', () => {
+    const store = memoryStore();
+    const board = createSoundBoard(store);
+    const seen: boolean[] = [];
+    const stop = board.subscribe(() => seen.push(board.settings().muted));
+    board.change((settings) => toggleMuted(settings));
+    board.change((settings) => setLevel(settings, 'effects', 0.3));
+    expect(seen).toEqual([true, true]);
+    expect(loadSoundSettings(store)).toEqual({ ...DEFAULT_SOUND_SETTINGS, muted: true, effects: 0.3 });
+    stop();
+    board.change((settings) => toggleMuted(settings));
+    expect(seen).toHaveLength(2);
+  });
+
+  it('starts from what the other page left', () => {
+    const store = memoryStore();
+    createSoundBoard(store).change((settings) => toggleMuted(settings));
+    expect(createSoundBoard(store).settings().muted).toBe(true);
   });
 });

@@ -2,6 +2,7 @@ import { type EndpointSlot, useAppStore } from '../app/store';
 import { EMPTY_SLOT_LABEL, SLOT_LABELS } from './endpointLabels';
 import { Icon } from './Icon';
 import { Medallion } from './Medallion';
+import { useSoundSettings } from './useUiSounds';
 
 function Endpoint({ slot }: { slot: EndpointSlot }) {
   const figure = useAppStore((state) => state.world?.figures.find((item) => item.slug === state[slot]));
@@ -18,6 +19,19 @@ function Endpoint({ slot }: { slot: EndpointSlot }) {
         <span className="endpoint__label">{SLOT_LABELS[slot]}</span>
         <span className="endpoint__name">{figure?.nameTr ?? EMPTY_SLOT_LABEL}</span>
       </span>
+    </button>
+  );
+}
+
+const SOUND_LABELS = { on: 'Sesi kapat', off: 'Sesi aç' } as const;
+
+/** Turns all sound of the game off and on; the 3D scene follows the same choice. */
+function SoundSwitch() {
+  const { settings, toggleMuted } = useSoundSettings();
+  const label = settings.muted ? SOUND_LABELS.off : SOUND_LABELS.on;
+  return (
+    <button type="button" className="btn btn--icon" data-testid="sound-toggle" data-muted={settings.muted} aria-pressed={!settings.muted} aria-label={label} title={label} onClick={toggleMuted}>
+      <Icon name={settings.muted ? 'soundOff' : 'soundOn'} />
     </button>
   );
 }
@@ -48,7 +62,8 @@ export function TopBar() {
         <Endpoint slot="to" />
       </div>
       <div className="topbar__actions">
-        <button type="button" className="btn" onClick={() => openDialog({ kind: 'about' })}>
+        <SoundSwitch />
+        <button type="button" className="btn topbar__about" onClick={() => openDialog({ kind: 'about' })}>
           <Icon name="info" />
           Hakkında
         </button>

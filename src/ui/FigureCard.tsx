@@ -1,18 +1,13 @@
 import type { ReactNode } from 'react';
 import { useAppStore } from '../app/store';
-import { formatYearRange } from '../domain/calendar';
-import type { FigureCard as FigureCardModel, FigureSummary } from '../domain/types';
+import type { FigureCard as FigureCardModel } from '../domain/types';
 import { ActionItem } from './ActionItem';
 import { CardTabs } from './CardDetails';
 import { Icon } from './Icon';
 import { Medallion } from './Medallion';
 import { RichText } from './RichText';
+import { lifespan, rolesLine } from './figureLabels';
 import { scenePageOf } from './scenes';
-
-export function lifespan(figure: FigureSummary): string {
-  const life = formatYearRange(figure.birthYear, figure.deathYear);
-  return figure.reign ? `${life} · görevde ${formatYearRange(figure.reign.from, figure.reign.to)}` : life;
-}
 
 interface FigureCardProps {
   card: FigureCardModel;
@@ -118,7 +113,7 @@ export function FigureCard({ card, footer, onClose }: FigureCardProps) {
           </h3>
           <MapSwitches slug={card.slug} />
         </div>
-        <p className="card__roles">{card.roles.join(' · ')}</p>
+        <p className="card__roles">{rolesLine(card)}</p>
         <p className="card__years">{lifespan(card)}</p>
       </header>
       <CardTabs card={card} overview={<Overview card={card} />} />

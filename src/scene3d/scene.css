@@ -107,6 +107,15 @@ body {
   cursor: pointer;
 }
 
+.scene-hud__prompt--leave {
+  text-decoration: none;
+  background: linear-gradient(#3a2a12, #241a0b);
+}
+
+.scene-hud__prompt[hidden] {
+  display: none;
+}
+
 .scene-hud__prompt:hover,
 .scene-hud__prompt:focus-visible {
   background: linear-gradient(#73161f, #4b0d14);

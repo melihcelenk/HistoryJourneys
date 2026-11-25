@@ -34,6 +34,7 @@ Başlamadan önceki durum `release/test` dalına kaydedildi (commit `6910be8`).
 | 5 | İlk kullanım geri bildirimi: karakter düzeltmeleri ve haritada fetih planı | 🟡 Kısmi | 90% | `PHASE5.md` |
 | 6 | İkinci geri bildirim: dönem masası, dönemin haritası, Osmanlıca yazılar ve başarım | 🟡 Kısmi | 90% | `PHASE6.md` |
 | 7 | Ses: anlatıcının sesi, ortam sesi ve ses denetimi | 🟡 Kısmi | 80% | `PHASE7.md` |
+| 8 | Harita ile sahne arasında geçiş ve arayüz sesleri | 🟡 Kısmi | 90% | `PHASE8.md` |
 
 <!-- Durum ikonları: 🟢 Tamamlandı | 🟡 Kısmi | ⏳ Bekliyor | 🔴 Bloke -->
 
@@ -78,6 +79,8 @@ Başlamadan önceki durum `release/test` dalına kaydedildi (commit `6910be8`).
 | K8 | Anlatımın parçaları (adımlar arasında gezinme, harita panosu, panel) başka figürler için yeniden kullanılabilir (T92). | Anlatım yalnız veriyle tanımlanır; birim testleri veriyi doğrular |
 | K9 | Haritanın yazıları Osmanlıca harflerledir ve bir düğmeyle Latin harflerine çevrilir (T102). | Uçtan uca test: çeviri düğmesi |
 | K10 | Anlatım sesli verilir; ses Fatih'e uygundur; oyuncu sesi kapatabilir (T115). | Uçtan uca test: konuşma ve ses düğmesi; uygunluk dinlenerek |
+| K11 | Haritadan sahneye figürün işaretinden girilir; sahneden haritaya kapıdan dönülür (T122). | Uçtan uca test |
+| K12 | Arayüz iki tarafta da ses verir ve ses iki tarafta da kapatılabilir (T122). | Uçtan uca test; seslerin uygunluğu dinlenerek |
 
 ### Test Senaryoları
 
@@ -223,3 +226,10 @@ kakmalı bir kürsü olur.
 
 Fatih planı cihazın Türkçe sesiyle anlatır; ocak sesi kodla üretilir; ses tek düğmeyle kapanır. Kalıcı ses kaynağı
 S1'de karar bekliyor.
+
+### 🟡 Faz 8 — Harita ile sahne arasında geçiş ve arayüz sesleri
+
+**Durum:** 🟡 Kısmi · **Ayrıntı:** [`PHASE8.md`](PHASE8.md)
+
+Figürün haritadaki işaretinde unvanı, yılları ve "Ziyaret et" düğmesi; sahnede kapıdan haritaya dönüş; iki tarafta
+tıklama ve parşömen sesi, harita tarafında ses düğmesi.

@@ -5,7 +5,9 @@
 export interface Hud {
   /** Tells the HUD whether the player stands close enough to the figure to be invited. */
   setNear(near: boolean): void;
-  /** Hides what belongs to walking (the hint and the invitation) while something else has the screen. */
+  /** Tells the HUD whether the player stands at the door, where the way back to the map is offered. */
+  setAtDoor(atDoor: boolean): void;
+  /** Hides what belongs to walking (the hint and the invitations) while something else has the screen. */
   setWalking(walking: boolean): void;
   dispose(): void;
 }
@@ -23,6 +25,7 @@ const PLACE = 'Saray-ı Cedîd, İstanbul · 1470’ler';
 const HINT_MOUSE = 'W A S D ile yürü · bakmak için sahneye tıkla, sonra fareyi hareket ettir · Esc fareyi bırakır';
 const HINT_TOUCH = 'Sol tarafı sürükleyerek yürü · sağ tarafı sürükleyerek etrafa bak';
 const INVITE_KEY = 'KeyE';
+const LEAVE_LABEL = 'Haritaya dön';
 
 /** The models that were not made for this project, with their makers and licences. */
 const CREDITS: readonly { what: string; who: string; licence: string; url: string }[] = [
@@ -69,17 +72,26 @@ export function createHud(root: HTMLElement, options: HudOptions): Hud {
   const prompt = element('button', 'scene-hud__prompt', 'scene-prompt', touch ? options.invitation : `${options.invitation}  ·  E`);
   prompt.type = 'button';
   prompt.hidden = true;
-  layer.append(header, hint, prompt, createCredits());
+  // The way out is a link, so that it also works by keyboard focus and opens the map like any other link.
+  const leave = element('a', 'scene-hud__prompt scene-hud__prompt--leave', 'scene-leave', touch ? LEAVE_LABEL : `${LEAVE_LABEL}  ·  E`);
+  leave.href = options.backHref;
+  leave.hidden = true;
+  layer.append(header, hint, prompt, leave, createCredits());
   root.append(layer);
 
   let near = false;
+  let atDoor = false;
   let walking = true;
   const refresh = (): void => {
     hint.hidden = !walking;
     prompt.hidden = !(walking && near);
+    // The figure and the door are far apart; should both ever hold, the figure is what the player came for.
+    leave.hidden = !(walking && atDoor && !near);
   };
   const onKey = (event: KeyboardEvent): void => {
-    if (event.code === INVITE_KEY && !prompt.hidden) options.onInvite();
+    if (event.code !== INVITE_KEY) return;
+    if (!prompt.hidden) options.onInvite();
+    else if (!leave.hidden) leave.click();
   };
   prompt.addEventListener('click', options.onInvite);
   window.addEventListener('keydown', onKey);
@@ -88,6 +100,11 @@ export function createHud(root: HTMLElement, options: HudOptions): Hud {
     setNear(next) {
       if (near === next) return;
       near = next;
+      refresh();
+    },
+    setAtDoor(next) {
+      if (atDoor === next) return;
+      atDoor = next;
       refresh();
     },
     setWalking(next) {

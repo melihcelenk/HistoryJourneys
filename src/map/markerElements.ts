@@ -120,12 +120,37 @@ function createPortraitHead(figure: FigureMarker): HTMLElement {
   return head;
 }
 
+const VISIT_LABEL = 'Ziyaret et';
+
+/**
+ * The plate above a figure: its name and, while the figure is the chosen one, what its card says under the name
+ * (what the figure was, and when) and, for a figure with a 3D scene, the way into it.
+ */
+function createPlate(figure: FigureMarker): HTMLElement {
+  const plate = element('span', 'map-figure__plate');
+  plate.append(element('span', 'map-figure__name', figure.name), element('span', 'map-figure__detail', figure.roles), element('span', 'map-figure__detail', figure.years));
+  if (figure.scenePage) {
+    const visit = document.createElement('a');
+    visit.className = 'map-figure__visit';
+    visit.href = figure.scenePage;
+    visit.textContent = VISIT_LABEL;
+    visit.dataset.testid = 'visit-scene';
+    // The link is its own action: following it must not also open the card.
+    visit.addEventListener('click', (event) => event.stopPropagation());
+    plate.append(visit);
+  }
+  return plate;
+}
+
 export function createFigureElement(figure: FigureMarker, onClick: (slug: string) => void): HTMLElement {
-  const root = element('button', 'map-figure');
-  root.setAttribute('type', 'button');
-  root.setAttribute('aria-label', `${figure.name} kartını aç`);
+  // A container and not a button, because the plate may hold a link; what opens the card is the button inside.
+  const root = element('div', 'map-figure');
   root.dataset.slug = figure.slug;
-  root.append(figure.portrait ? createPortraitHead(figure) : createBanner(figure), element('span', 'map-figure__pole'), element('span', 'map-figure__name', figure.name));
+  const open = element('button', 'map-figure__open');
+  open.setAttribute('type', 'button');
+  open.setAttribute('aria-label', `${figure.name} kartını aç`);
+  open.append(figure.portrait ? createPortraitHead(figure) : createBanner(figure), element('span', 'map-figure__pole'));
+  root.append(createPlate(figure), open);
   root.addEventListener('click', (event) => {
     event.stopPropagation();
     onClick(figure.slug);

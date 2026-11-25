@@ -9,6 +9,7 @@ import { MapStage } from './MapStage';
 import { RoutePanel } from './RoutePanel';
 import { RouteHeader } from './RouteHeader';
 import { TopBar } from './TopBar';
+import { useUiSounds } from './useUiSounds';
 
 function ActiveDialog({ dialog }: { dialog: Dialog }) {
   switch (dialog.kind) {
@@ -34,6 +35,7 @@ function ActiveDialog({ dialog }: { dialog: Dialog }) {
 
 /** The single screen of the game: the map as the stage, with panels over it (FR-29). */
 export function GameScreen() {
+  useUiSounds();
   const dialog = useAppStore((state) => state.dialog);
   return (
     <div className="game">

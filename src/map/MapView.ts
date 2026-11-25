@@ -42,6 +42,11 @@ export interface FigureMarker {
   /** Whether the content has a portrait of the figure; the banner shows it instead of the emblem of the kind. */
   portrait: boolean;
   focused: boolean;
+  /** The two lines under the name on the plate of the marker: what the figure was, and when. */
+  roles: string;
+  years: string;
+  /** The page of the 3D scene of the figure, when it has one; the plate then offers a visit. */
+  scenePage: string | null;
   /** Index among the figures standing at the same place, used to fan them out. */
   stackIndex: number;
 }

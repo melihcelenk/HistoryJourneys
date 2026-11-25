@@ -1,16 +1,20 @@
 import { createAmbience, type Ambience } from './ambience';
 import { ambienceLevel, type Listening } from './ambienceLevel';
 import { createNarrator, type Narrator } from './narrator';
-import { SOUND_CHANNELS, heardLevel, loadSoundSettings, saveSoundSettings, setLevel, toggleMuted, type SettingsStore, type SoundChannel } from './soundSettings';
+import { browserSettingsStore, createSoundBoard } from '../../audio/soundBoard';
+import { SOUND_CHANNELS, heardLevel, setLevel, toggleMuted, type SoundChannel, type SoundSettings } from '../../audio/soundSettings';
+import { createUiSounds, tapOnEveryPress, type UiSounds } from '../../audio/uiSounds';
 
 /**
  * Everything the scene sounds like, behind one set of controls: the voice of the figure, the sound of the room,
- * the switch that turns both off and a level for everything together, for voices and for the room. Sound starts
+ * the sounds of the interface, the switch that turns them all off and a level for each. Sound starts
  * with the first thing the player presses, as browsers require, stops while the page is in the background, and
  * the player's choices are remembered.
  */
 export interface SoundStage {
   narrator: Narrator;
+  /** The sounds of the interface: the tap of a press, the rustle of a parchment. */
+  effects: UiSounds;
   /** Sets how loud the room is for where the player stands; call it every frame. */
   update(listening: Omit<Listening, 'speaking'>): void;
   dispose(): void;
@@ -18,7 +22,7 @@ export interface SoundStage {
 
 const LABELS = { on: 'Ses: açık  ·  M', off: 'Ses: kapalı  ·  M', levels: 'Ses ayarları', levelsTitle: 'Ses düzeyleri' } as const;
 /** How each level is named to the player; a new channel does not compile until it is named here. */
-const CHANNEL_LABELS: Readonly<Record<SoundChannel, string>> = { master: 'Ana ses', voice: 'Konuşma', ambience: 'Ortam' };
+const CHANNEL_LABELS: Readonly<Record<SoundChannel, string>> = { master: 'Ana ses', voice: 'Konuşma', ambience: 'Ortam', effects: 'Arayüz' };
 const NO_VOICE_NOTE = 'Bu cihazda Türkçe ses bulunamadı; anlatım yazıyla sürüyor.';
 const MUTE_KEY = 'KeyM';
 /** How quickly the level of the room follows the player and the sliders, as a time constant in seconds. */
@@ -27,15 +31,6 @@ const LEVEL_GLIDE = 0.4;
 const CRACKLE_EVERY_MS = 250;
 /** The sliders move in steps of one hundredth and show whole per cent. */
 const SLIDER_STEPS = 100;
-
-/** The browser's storage, or nothing where it may not be used (a private window, a blocked site). */
-function settingsStore(): SettingsStore | null {
-  try {
-    return window.localStorage;
-  } catch {
-    return null;
-  }
-}
 
 function element<K extends keyof HTMLElementTagNameMap>(tag: K, className: string, testId: string, text = ''): HTMLElementTagNameMap[K] {
   const node = document.createElement(tag);
@@ -72,8 +67,9 @@ function createSlider(channel: SoundChannel, onChange: (level: number) => void):
 }
 
 export function createSoundStage(root: HTMLElement): SoundStage {
-  const store = settingsStore();
-  let settings = loadSoundSettings(store);
+  // The choices are shared with the map, which is another page: both keep them in the same place.
+  const board = createSoundBoard(browserSettingsStore());
+  let settings = board.settings();
   let context: AudioContext | null = null;
   let ambience: Ambience | null = null;
   let room: GainNode | null = null;
@@ -93,6 +89,8 @@ export function createSoundStage(root: HTMLElement): SoundStage {
   controls.append(mute, open, panel, note);
   root.append(controls);
 
+  const effects = createUiSounds(() => heardLevel(settings, 'effects'));
+  const stopTapping = tapOnEveryPress(effects);
   const narrator = createNarrator({
     volume: () => heardLevel(settings, 'voice'),
     onVoiceMissing: (missing) => {
@@ -136,9 +134,9 @@ export function createSoundStage(root: HTMLElement): SoundStage {
   }
 
   /** Takes new settings: keeps them, shows them, and silences or starts what they say should be silent or sound. */
-  function apply(next: typeof settings): void {
-    settings = next;
-    saveSoundSettings(store, settings);
+  function apply(next: SoundSettings): void {
+    board.change(() => next);
+    settings = board.settings();
     show();
     // A voice already speaking keeps the level it started with; with no level left for voices it stops at once.
     if (heardLevel(settings, 'voice') <= 0) narrator.hush();
@@ -173,6 +171,7 @@ export function createSoundStage(root: HTMLElement): SoundStage {
 
   return {
     narrator,
+    effects,
     update(listening) {
       if (!context || !room) return;
       const level = ambienceLevel({ ...listening, speaking: narrator.isSpeaking() }) * heardLevel(settings, 'ambience');
@@ -185,6 +184,8 @@ export function createSoundStage(root: HTMLElement): SoundStage {
       window.removeEventListener('pointerdown', onPointer);
       document.removeEventListener('visibilitychange', onVisibility);
       narrator.dispose();
+      stopTapping();
+      effects.dispose();
       sleep();
       controls.remove();
     },

@@ -8,6 +8,7 @@ import { jawWeight } from '../../src/scene3d/figure/jaw';
 import { ARM, OUTER } from '../../src/scene3d/figure/kaftan';
 import { ROOM_SIZE } from '../../src/scene3d/room/layout';
 import { traceryHoles } from '../../src/scene3d/room/patterns';
+import { DOOR, PLAYER_START, isAtDoor } from '../../src/scene3d/exit';
 import { FIGURE_SPOT, SHOTS, isShotName } from '../../src/scene3d/shots';
 import { boxAround, isBlocked, walk, type WalkSpace } from '../../src/scene3d/walk';
 
@@ -399,5 +400,32 @@ describe('the mouth of the figure', () => {
 
   it('moves the same way at the same moment every time', () => {
     expect(mouthOpening(1.234, true)).toBe(mouthOpening(1.234, true));
+  });
+});
+
+describe('the way out of the room', () => {
+  it('is the door in the south wall', () => {
+    expect(DOOR.z).toBeCloseTo(ROOM_SIZE.depth / 2, 6);
+    expect(Math.abs(DOOR.x)).toBeLessThan(ROOM_SIZE.width / 2);
+  });
+
+  it('is not offered where the player enters, nor in the middle of the room, nor beside the figure', () => {
+    expect(isAtDoor(PLAYER_START)).toBe(false);
+    expect(isAtDoor({ x: 0, z: 0 })).toBe(false);
+    expect(isAtDoor({ x: FIGURE_SPOT.x, z: FIGURE_SPOT.z + 1 })).toBe(false);
+  });
+
+  it('is offered to a player who has walked up to the door', () => {
+    expect(isAtDoor({ x: DOOR.x, z: DOOR.z - 0.35 })).toBe(true);
+    expect(isAtDoor({ x: DOOR.x + 0.4, z: DOOR.z - 0.4 })).toBe(true);
+  });
+
+  it('is not offered along the wall beside the door', () => {
+    expect(isAtDoor({ x: DOOR.x + 2, z: DOOR.z - 0.35 })).toBe(false);
+  });
+
+  it('lets the player in a step away from the door, facing the room', () => {
+    expect(PLAYER_START.z).toBeLessThan(DOOR.z);
+    expect(Math.hypot(PLAYER_START.x - DOOR.x, PLAYER_START.z - DOOR.z)).toBeLessThan(1.5);
   });
 });

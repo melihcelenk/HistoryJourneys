@@ -282,6 +282,7 @@ test.describe('3D scene', () => {
     await expect(page.getByTestId('volume-name-master')).toHaveText('Ana ses');
     await expect(page.getByTestId('volume-name-voice')).toHaveText('Konuşma');
     await expect(page.getByTestId('volume-name-ambience')).toHaveText('Ortam');
+    await expect(page.getByTestId('volume-name-effects')).toHaveText('Arayüz');
     // The room opens quieter than the voices.
     await expect(page.getByTestId('volume-value-voice')).toHaveText('%100');
     await expect(page.getByTestId('volume-value-ambience')).toHaveText('%50');
@@ -312,6 +313,90 @@ test.describe('3D scene', () => {
     // A fire is a low sound. Bright bursts of noise ring like struck metal; almost none of the energy may lie
     // above 2 kHz.
     expect(level.brightness).toBeLessThan(0.02);
+  });
+
+  test('the marker of the chosen figure says who he was and when, and offers a visit to his room', async ({ page }) => {
+    await openApp(page, '#/yol/mehmed-ii');
+    const marker = page.locator('.map-figure[data-slug="mehmed-ii"]');
+    await expect(marker).toHaveAttribute('data-focused', 'true');
+    const details = marker.locator('.map-figure__detail');
+    await expect(details.nth(0)).toBeVisible();
+    await expect(details.nth(0)).toContainText('7. Osmanlı padişahı');
+    await expect(details.nth(1)).toContainText('1432–1481');
+    // The same two lines as under the name on the card.
+    await expect(details.nth(0)).toHaveText((await page.locator('.card__roles').first().textContent()) ?? '');
+    await expect(details.nth(1)).toHaveText((await page.locator('.card__years').first().textContent()) ?? '');
+
+    const visit = marker.getByTestId('visit-scene');
+    await expect(visit).toBeVisible();
+    await expect(visit).toHaveText(/ziyaret et/i);
+    await expect(visit).toHaveAttribute('href', 'sahne.html');
+    await visit.click();
+    await expect(page).toHaveURL(/sahne\.html/);
+  });
+
+  test('a figure without a room is not offered a visit, and a figure that is not chosen shows only his name', async ({ page }) => {
+    await openApp(page, '#/yol/mehmed-iii');
+    const marker = page.locator('.map-figure[data-slug="mehmed-iii"]');
+    await expect(marker).toHaveAttribute('data-focused', 'true');
+    await expect(marker.locator('.map-figure__detail').first()).toBeVisible();
+    await expect(marker.getByTestId('visit-scene')).toHaveCount(0);
+    const others = page.locator('.map-figure[data-focused="false"] .map-figure__detail');
+    for (const detail of await others.all()) await expect(detail).toBeHidden();
+  });
+
+  test('the map has a sound switch, and the room follows it', async ({ page }) => {
+    await openApp(page, '#/yol/mehmed-ii');
+    const toggle = page.getByTestId('sound-toggle');
+    await expect(toggle).toHaveAttribute('data-muted', 'false');
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('data-muted', 'true');
+    await expect(toggle).toHaveAccessibleName('Sesi aç');
+
+    await openScene(page, GAME_URL);
+    await expect(page.getByTestId('sound-toggle')).toHaveAttribute('data-muted', 'true');
+    await page.getByTestId('sound-toggle').click();
+
+    await openApp(page, '#/yol/mehmed-ii');
+    await expect(page.getByTestId('sound-toggle')).toHaveAttribute('data-muted', 'false');
+  });
+
+  test('the way back to the map is offered at the door, not where the player comes in', async ({ page }, testInfo) => {
+    test.setTimeout(WALK_TIMEOUT * 2);
+    test.skip(testInfo.project.name === 'phone', 'Walking with the keyboard is a desktop control.');
+    await openScene(page, GAME_URL);
+    const leave = page.getByTestId('scene-leave');
+    await expect(leave).toBeHidden();
+    const start = await sceneInfo(page);
+
+    await page.keyboard.down('KeyS');
+    await expect(leave).toBeVisible({ timeout: WALK_TIMEOUT });
+    await page.keyboard.up('KeyS');
+    expect((await sceneInfo(page)).player.z).toBeGreaterThan(start.player.z);
+    await expect(leave).toHaveText(/haritaya dön/i);
+    await expect(leave).toHaveAttribute('href', './#/yol/mehmed-ii');
+
+    // Back into the room, the offer goes.
+    await page.keyboard.down('KeyW');
+    await expect(leave).toBeHidden({ timeout: WALK_TIMEOUT });
+    await page.keyboard.up('KeyW');
+  });
+
+  test('makes the sounds of the interface: a short tap and a rustle of parchment, neither silent nor clipped', async ({ page }) => {
+    await openScene(page, GAME_URL);
+    const measure = (sound: string): Promise<{ peak: number; rms: number; seconds: number }> =>
+      page.evaluate((name) => (window as unknown as { measureUiSound: (sound: string) => Promise<{ peak: number; rms: number; seconds: number }> }).measureUiSound(name), sound);
+    const click = await measure('click');
+    expect(click.peak).toBeGreaterThan(0.05);
+    expect(click.peak).toBeLessThan(0.95);
+    expect(click.seconds).toBeLessThan(0.15);
+    const parchment = await measure('parchment');
+    expect(parchment.peak).toBeGreaterThan(0.02);
+    expect(parchment.peak).toBeLessThan(0.95);
+    expect(parchment.seconds).toBeGreaterThan(click.seconds);
+    expect(parchment.seconds).toBeLessThan(0.6);
+    // The rustle is a background to the tap, not louder than it.
+    expect(parchment.peak).toBeLessThan(click.peak);
   });
 
   test('tells the player how to look around', async ({ page }, testInfo) => {

@@ -3,6 +3,7 @@ import { EMPTY_URL_STATE, formatHash, parseHash, type UrlState } from '../../src
 import type { FigureCard, JourneyStop, VisitedPlace } from '../../src/domain/types';
 import { buildScene, framingPoints } from '../../src/map/mapScene';
 import { figure, figureCard } from './fixtures';
+import { lifespan } from '../../src/ui/figureLabels';
 
 describe('urlState', () => {
   const full: UrlState = {
@@ -126,6 +127,22 @@ describe('buildScene', () => {
     expect(scene.figures.map((item) => [item.slug, item.portrait])).toEqual([
       ['ahmed', false],
       ['mustafa', true],
+    ]);
+  });
+
+  it('gives the marker of a figure what its card says under the name: the roles and the years', () => {
+    const [figure] = open(1609, [ahmed]).figures;
+    expect(figure?.roles).toBe(ahmed.roles.join(' · '));
+    expect(figure?.years).toBe(lifespan(ahmed));
+    expect(figure?.years).toContain(String(ahmed.birthYear));
+  });
+
+  it('tells the map which figure can be visited in a 3D scene', () => {
+    const visited = { ...mustafa, slug: 'mehmed-ii' };
+    const scene = open(1609, [visited, ahmed]);
+    expect(scene.figures.map((item) => [item.slug, item.scenePage])).toEqual([
+      ['ahmed', null],
+      ['mehmed-ii', 'sahne.html'],
     ]);
   });
 

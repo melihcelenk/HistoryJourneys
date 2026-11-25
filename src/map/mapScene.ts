@@ -1,4 +1,6 @@
 import { formatYearRange } from '../domain/calendar';
+import { lifespan, rolesLine } from '../ui/figureLabels';
+import { scenePageOf } from '../ui/scenes';
 import { currentStopIndex, groupIndexOf, type JourneyGroup, journeyGroups, shownGroup, spotName } from '../domain/journey';
 import type { FigureCard, JourneyStop, VisitedPlace } from '../domain/types';
 import type { CityMarker, FigureMarker, LonLat, MapScene, StopMarker } from './MapView';
@@ -135,6 +137,9 @@ function buildFigures(present: Presence[], activeSlug: string | undefined): Figu
       kind: card.kind,
       portrait: Boolean(card.portrait),
       focused: card.slug === activeSlug,
+      roles: rolesLine(card),
+      years: lifespan(card),
+      scenePage: scenePageOf(card.slug),
       stackIndex,
     };
   });

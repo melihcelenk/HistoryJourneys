@@ -336,9 +336,28 @@ button.map-stop__pin:focus-visible {
   background: linear-gradient(90deg, #6d5622, var(--gold-bright), #6d5622);
 }
 
-.map-figure__name {
+.map-figure__open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* The plate stands above the figure and grows upwards as lines are added to it. */
+.map-figure__plate {
   position: absolute;
-  top: -19px;
+  bottom: calc(100% + 3px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.map-figure__name {
   padding: 0 7px;
   font-family: var(--font-display);
   font-size: 0.6rem;
@@ -355,9 +374,59 @@ button.map-stop__pin:focus-visible {
 }
 
 .map-figure:hover .map-figure__name,
-.map-figure:focus-visible .map-figure__name,
+.map-figure:focus-within .map-figure__name,
 .map-figure[data-focused='true'] .map-figure__name {
   opacity: 1;
+}
+
+/* What the card says under the name, and the way into the scene: shown for the chosen figure only. */
+.map-figure__detail,
+.map-figure__visit {
+  display: none;
+  padding: 0 7px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  line-height: 1.25;
+  color: var(--parchment);
+  background: rgba(21, 17, 13, 0.85);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.map-figure__detail:empty {
+  display: none !important;
+}
+
+.map-figure[data-focused='true'] .map-figure__detail {
+  display: block;
+}
+
+.map-figure[data-focused='true'] .map-figure__visit {
+  display: block;
+  order: 1;
+  margin-top: 2px;
+  padding: 3px 12px;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffe9c9;
+  background: linear-gradient(180deg, var(--wax-bright), var(--wax-dark));
+  border: 1px solid var(--gold-bright);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.map-figure[data-focused='true'] .map-figure__visit:hover,
+.map-figure[data-focused='true'] .map-figure__visit:focus-visible {
+  filter: brightness(1.15);
+}
+
+/* The chosen figure stands above its neighbours, so that its plate is not covered by theirs. */
+.map-figure[data-focused='true'] {
+  z-index: 2;
 }
 
 .map-figure[data-focused='true'] .map-figure__banner {

@@ -536,8 +536,9 @@
     padding: 6px 8px;
   }
 
+  /* On a phone the sound switch stays; the project information is reached from the settings. */
   .topbar__title span,
-  .topbar__actions {
+  .topbar__about {
     display: none;
   }
 
