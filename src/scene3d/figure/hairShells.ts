@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import type { HairGrowth, HairShape, Vec3 } from './hairShape';
+import { JAW_ATTRIBUTE, JAW_GLSL, mouthOpen } from './jaw';
 
 /**
  * Hair drawn as shells: the skin under the hair is copied many times, each copy a little further along the hair,
@@ -23,6 +24,10 @@ export interface HairOptions {
   fullness?: number;
   /** The share of the length of the hair, from the root, that is drawn as one mass when seen from afar (0 to 1). */
   core?: number;
+  /** How much a strand narrows from root to tip (0 to 1); a low value keeps long hair dense to its end. */
+  taper?: number;
+  /** How uneven the lengths of the strands are (0 to 1); a low value gives hair that ends together, as if trimmed. */
+  ragged?: number;
 }
 
 /** Hair below this weight is not grown. */
@@ -32,6 +37,31 @@ const DEFAULT_LIFT = 0.012;
 const MIN_STRAND_PIXELS = 2.2;
 /** How much of its cell a strand fills at the root, unless the hair says otherwise. */
 const DEFAULT_FULLNESS = 0.5;
+const DEFAULT_TAPER = 0.75;
+const DEFAULT_RAGGED = 0.45;
+
+/**
+ * Name of the attribute that holds the positions of the skin before it was reshaped. Where hair grows is decided
+ * on those: hair belongs to a place on the skin, and stays there when the skin is moved.
+ */
+export const REST_POSITION = 'restPosition';
+
+function growthPositions(skin: THREE.BufferGeometry): THREE.BufferAttribute | THREE.InterleavedBufferAttribute {
+  return skin.hasAttribute(REST_POSITION) ? skin.getAttribute(REST_POSITION) : skin.getAttribute('position');
+}
+
+/** The share of the jaw's movement of each vertex of the shells: that of the skin it grows on, or none. */
+function jawShares(skin: THREE.BufferGeometry, used: readonly number[], layers: number): Float32Array {
+  const shares = new Float32Array(used.length * layers);
+  if (!skin.hasAttribute(JAW_ATTRIBUTE)) return shares;
+  const ofSkin = skin.getAttribute(JAW_ATTRIBUTE);
+  for (let layer = 0; layer < layers; layer += 1) {
+    used.forEach((vertex, i) => {
+      shares[layer * used.length + i] = ofSkin.getX(vertex);
+    });
+  }
+  return shares;
+}
 
 interface Growing {
   indices: number[];
@@ -44,7 +74,7 @@ function readVec3(attribute: THREE.BufferAttribute | THREE.InterleavedBufferAttr
 
 /** Finds the triangles of the skin on which hair grows and how it grows at each of their corners. */
 function findGrowing(skin: THREE.BufferGeometry, shape: HairShape): Growing {
-  const position = skin.getAttribute('position');
+  const position = growthPositions(skin);
   const normal = skin.getAttribute('normal');
   const index = skin.getIndex();
   if (!index) throw new Error('The skin under the hair must be an indexed geometry.');
@@ -69,7 +99,7 @@ function findGrowing(skin: THREE.BufferGeometry, shape: HairShape): Growing {
 
 /** Weight of hair at each vertex of the skin, for darkening the skin under the hair. */
 export function hairWeights(skin: THREE.BufferGeometry, shape: HairShape): Float32Array {
-  const position = skin.getAttribute('position');
+  const position = growthPositions(skin);
   const normal = skin.getAttribute('normal');
   const weights = new Float32Array(position.count);
   for (let i = 0; i < position.count; i += 1) weights[i] = shape(readVec3(position, i), readVec3(normal, i)).weight;
@@ -117,6 +147,7 @@ function buildGeometry(skin: THREE.BufferGeometry, options: HairOptions): THREE.
   geometry.setAttribute('normal', new THREE.BufferAttribute(normal, 3));
   geometry.setAttribute('aRoot', new THREE.BufferAttribute(root, 3));
   geometry.setAttribute('aShell', new THREE.BufferAttribute(shell, 2));
+  geometry.setAttribute(JAW_ATTRIBUTE, new THREE.BufferAttribute(jawShares(skin, used, options.layers), 1));
   geometry.setIndex(index);
   return geometry;
 }
@@ -128,15 +159,17 @@ function buildGeometry(skin: THREE.BufferGeometry, options: HairOptions): THREE.
 const STRAND_FUNCTIONS = /* glsl */ `
   uniform float uFullness;
   uniform float uCore;
+  uniform float uTaper;
+  uniform float uRagged;
   float hairHash(vec3 p) { return fract(sin(dot(p, vec3(127.1, 311.7, 74.7))) * 43758.5453); }
   float strandCover(vec3 q, float height, float weight, out float pick) {
     vec3 cell = floor(q);
     pick = hairHash(cell);
     // Thinner hair where the weight is low, strands of uneven length, each strand narrowing to its tip.
     if (pick > weight * 1.35) return 0.0;
-    if (height > weight * 1.5 * (0.55 + 0.45 * hairHash(cell + 7.9))) return 0.0;
+    if (height > weight * 1.5 * (1.0 - uRagged + uRagged * hairHash(cell + 7.9))) return 0.0;
     vec3 jitter = (vec3(hairHash(cell + 1.3), hairHash(cell + 2.7), hairHash(cell + 4.1)) - 0.5) * 0.9;
-    float radius = uFullness * (1.0 - 0.75 * height);
+    float radius = uFullness * (1.0 - uTaper * height);
     return 1.0 - smoothstep(radius * 0.6, radius, length(fract(q) - 0.5 - jitter));
   }
 `;
@@ -178,13 +211,17 @@ export function createHairShells(skin: THREE.BufferGeometry, options: HairOption
   const material = new THREE.MeshStandardMaterial({ roughness: 0.5, metalness: 0, side: THREE.DoubleSide });
   material.onBeforeCompile = (shader) => {
     shader.uniforms.uCells = { value: options.cells };
+    shader.uniforms.uMouthOpen = mouthOpen;
     shader.uniforms.uFullness = { value: options.fullness ?? DEFAULT_FULLNESS };
     shader.uniforms.uCore = { value: options.core ?? 0 };
+    shader.uniforms.uTaper = { value: options.taper ?? DEFAULT_TAPER };
+    shader.uniforms.uRagged = { value: options.ragged ?? DEFAULT_RAGGED };
     shader.uniforms.uRootColour = { value: new THREE.Color(options.root) };
     shader.uniforms.uTipColour = { value: new THREE.Color(options.tip) };
     shader.vertexShader = shader.vertexShader
-      .replace('#include <common>', '#include <common>\nattribute vec3 aRoot;\nattribute vec2 aShell;\nvarying vec3 vRoot;\nvarying vec2 vShell;')
-      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvRoot = aRoot;\nvShell = aShell;');
+      .replace('#include <common>', `#include <common>\nattribute vec3 aRoot;\nattribute vec2 aShell;\n${JAW_GLSL.declare}\nvarying vec3 vRoot;\nvarying vec2 vShell;`)
+      // Hair that grows on the lower jaw moves with it.
+      .replace('#include <begin_vertex>', `#include <begin_vertex>\nvRoot = aRoot;\nvShell = aShell;\n${JAW_GLSL.move}`);
     shader.fragmentShader = shader.fragmentShader
       .replace(
         '#include <common>',

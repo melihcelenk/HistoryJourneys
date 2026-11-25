@@ -4,6 +4,9 @@ import { z } from 'zod';
  * A briefing: what a figure tells at the map table, step by step. It is content, kept in `content/scenes/`; a
  * figure gets a briefing by getting such a file and a map to point at.
  */
+/** A path inside the site: no scheme, no leading slash, no step out of a folder; one of the sound formats browsers play. */
+const RECORDING_PATH = /^(?!\/)(?!.*\.\.)(?!.*:)[\w\-./]+\.(mp3|m4a|ogg)$/;
+
 const stepSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
@@ -11,6 +14,11 @@ const stepSchema = z.object({
   text: z.string().min(1),
   /** Ids of the places and routes of the map that are shown while this step is told. */
   marks: z.array(z.string().min(1)),
+  /**
+   * A recording of the step being spoken: a sound file of this site, given as a path from the root of the site.
+   * Without it the voice of the device reads the text.
+   */
+  audio: z.string().regex(RECORDING_PATH, 'must be a path to an .mp3, .m4a or .ogg file of this site').optional(),
 });
 
 const sourceSchema = z.object({

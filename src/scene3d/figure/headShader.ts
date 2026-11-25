@@ -1,12 +1,13 @@
 import type * as THREE from 'three';
 import { EYE_OPENING, FACE_CENTRE_X, SKIN_CUT_Y } from './headMetrics';
+import { JAW_GLSL, mouthOpen } from './jaw';
 
 export interface HeadShaderOptions {
   /** Review aid: draws a measuring grid in the units of the scan over the head. */
   grid: boolean;
 }
 
-const VARYING = 'varying vec3 vHeadPos;\nvarying float vHair;';
+const VARYING = 'varying vec3 vHeadPos;\nvarying float vHair;\nvarying float vJaw;';
 
 const float = (value: number): string => value.toFixed(4);
 
@@ -34,11 +35,13 @@ export const EYE_OPENING_GLSL = /* glsl */ `
 
 const GRID_FRAGMENT = /* glsl */ `
   {
+    // Lines every half unit (cyan) and every unit (yellow) along all three axes; the axes themselves in red.
     vec3 half_ = abs(fract(vHeadPos * 2.0 + 0.5) - 0.5) / fwidth(vHeadPos * 2.0);
     vec3 unit_ = abs(fract(vHeadPos + 0.5) - 0.5) / fwidth(vHeadPos);
-    if (half_.x < 0.6 || half_.y < 0.6) gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0.0, 0.9, 1.0), 0.6);
-    if (unit_.x < 1.0 || unit_.y < 1.0) gl_FragColor.rgb = vec3(1.0, 1.0, 0.0);
-    if (abs(vHeadPos.x) / fwidth(vHeadPos.x) < 1.5 || abs(vHeadPos.y) / fwidth(vHeadPos.y) < 1.5) gl_FragColor.rgb = vec3(1.0, 0.0, 0.0);
+    vec3 axis_ = abs(vHeadPos) / fwidth(vHeadPos);
+    if (min(half_.x, min(half_.y, half_.z)) < 0.6) gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0.0, 0.9, 1.0), 0.6);
+    if (min(unit_.x, min(unit_.y, unit_.z)) < 1.0) gl_FragColor.rgb = vec3(1.0, 1.0, 0.0);
+    if (min(axis_.x, min(axis_.y, axis_.z)) < 1.5) gl_FragColor.rgb = vec3(1.0, 0.0, 0.0);
   }
 `;
 
@@ -69,19 +72,36 @@ const UNDER_HAIR_FRAGMENT = /* glsl */ `
 `;
 
 /**
+ * The inside of the mouth. The scan's mouth is shut: its lips are one skin. When the jaw opens, the strip of skin
+ * between the lips is stretched; that strip is where the jaw moves by part only, and it is painted dark, as the
+ * opening of a mouth is. It is limited to the middle of the face, where the lips are.
+ */
+const MOUTH_FRAGMENT = /* glsl */ `
+  {
+    float between = smoothstep(0.02, 0.14, vJaw) * (1.0 - smoothstep(0.86, 0.99, vJaw));
+    float atLips = (1.0 - smoothstep(0.3, 0.46, abs(vHeadPos.x - (${float(FACE_CENTRE_X)})))) * step(1.8, vHeadPos.z) * step(0.1, vHeadPos.y);
+    diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.05, 0.015, 0.012), between * atLips * smoothstep(0.05, 0.5, uMouthOpen));
+  }
+`;
+
+/**
  * Extends the skin material of the head scan with what the scan lacks: the eyes of the scan are closed, so the
  * opening between the lids is cut out and its edges are shaded. The geometry must carry the attribute `aHair`,
- * the weight of the hair that grows on each vertex.
+ * the weight of the hair that grows on each vertex, and the attribute of the jaw (jaw.ts), by which the lower jaw
+ * opens when the figure speaks.
  */
 export function patchHeadMaterial(material: THREE.Material, options: HeadShaderOptions): void {
   material.onBeforeCompile = (shader) => {
     shader.uniforms.uEyeOpen = eyeOpen;
+    shader.uniforms.uMouthOpen = mouthOpen;
     shader.vertexShader = shader.vertexShader
-      .replace('#include <common>', `#include <common>\nattribute float aHair;\n${VARYING}`)
-      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvHeadPos = position;\nvHair = aHair;');
+      .replace('#include <common>', `#include <common>\nattribute float aHair;\n${JAW_GLSL.declare}\n${VARYING}`)
+      // What is painted on the skin (the lids, the beard under the hair) is placed by where a point lies at rest;
+      // only what is drawn moves with the jaw.
+      .replace('#include <begin_vertex>', `#include <begin_vertex>\nvHeadPos = position;\nvHair = aHair;\nvJaw = aJaw;\n${JAW_GLSL.move}`);
     shader.fragmentShader = shader.fragmentShader
-      .replace('#include <common>', `#include <common>\n${VARYING}\n${EYE_OPENING_GLSL}`)
-      .replace('#include <map_fragment>', `#include <map_fragment>\nif (eyeOpening(vHeadPos) > 0.0 || vHeadPos.y < ${float(SKIN_CUT_Y)}) discard;\n${LID_EDGE_FRAGMENT}\n${UNDER_HAIR_FRAGMENT}`)
+      .replace('#include <common>', `#include <common>\n${VARYING}\nuniform float uMouthOpen;\n${EYE_OPENING_GLSL}`)
+      .replace('#include <map_fragment>', `#include <map_fragment>\nif (eyeOpening(vHeadPos) > 0.0 || vHeadPos.y < ${float(SKIN_CUT_Y)}) discard;\n${LID_EDGE_FRAGMENT}\n${UNDER_HAIR_FRAGMENT}\n${MOUTH_FRAGMENT}`)
       .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n${options.grid ? GRID_FRAGMENT : ''}`);
   };
 }

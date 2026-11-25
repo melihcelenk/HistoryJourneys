@@ -3,9 +3,10 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { createEyes } from './figure/eyes';
 import { reshapeFace } from './figure/faceShape';
 import { createHands } from './figure/hands';
-import { BREATH, HEAD_TURN, lidOpening } from './figure/idle';
+import { BREATH, HEAD_TURN, lidOpening, mouthOpening } from './figure/idle';
+import { JAW_ATTRIBUTE, jawWeight, mouthOpen } from './figure/jaw';
 import { beardShape, browShape } from './figure/hairShape';
-import { createHairShells, hairWeights } from './figure/hairShells';
+import { REST_POSITION, createHairShells, hairWeights } from './figure/hairShells';
 import { EYE_HEIGHT_IN_SCAN, HEAD_SCALE } from './figure/headMetrics';
 import { eyeOpen, patchHeadMaterial } from './figure/headShader';
 import { createKaftan } from './figure/kaftan';
@@ -16,11 +17,17 @@ export interface Character {
   root: THREE.Group;
   /**
    * Advances the small movements of the figure. `lookAt` is what he looks at, in the frame of the scene: the
-   * visitor, or what he is pointing out.
+   * visitor, or what he is pointing out. `seconds` is the time since the last call; while `speaking` his mouth moves.
    */
-  update(time: number, lookAt: THREE.Vector3): void;
+  update(time: number, lookAt: THREE.Vector3, seconds?: number, speaking?: boolean): void;
 }
 
+/** Review aid: `?grid` draws a measuring grid over the head and hides the beard. */
+const MEASURING = new URLSearchParams(window.location.search).has('grid');
+/** Review aid: `?mouth=0.8` holds the mouth open by that much, to look at it in a still picture. */
+const MOUTH_PREVIEW = new URLSearchParams(window.location.search).has('mouth') ? Number(new URLSearchParams(window.location.search).get('mouth')) || 0 : null;
+/** How quickly the mouth follows the syllables; larger is quicker. */
+const MOUTH_SPEED = 28;
 const HEAD_URL = 'models/head/head.glb';
 const HEAD_MESH_NAME = 'LeePerrySmith';
 
@@ -31,9 +38,17 @@ async function loadTexture(loader: THREE.TextureLoader, url: string, colour: boo
   return texture;
 }
 
-/** Moves the points of the scan to the reshaped face; the shading of the scan is kept. */
+/**
+ * Moves the points of the scan to the reshaped face; the shading of the scan is kept, and so are the positions it
+ * had before, on which the growth of the hair is decided.
+ */
 function reshape(geometry: THREE.BufferGeometry): void {
   const position = geometry.getAttribute('position');
+  geometry.setAttribute(REST_POSITION, position.clone());
+  // Which points belong to the lower jaw is read on the scan as it was scanned, like the growth of the hair.
+  const jaw = new Float32Array(position.count);
+  for (let i = 0; i < position.count; i += 1) jaw[i] = jawWeight([position.getX(i), position.getY(i), position.getZ(i)]);
+  geometry.setAttribute(JAW_ATTRIBUTE, new THREE.BufferAttribute(jaw, 1));
   for (let i = 0; i < position.count; i += 1) {
     const [x, y, z] = reshapeFace([position.getX(i), position.getY(i), position.getZ(i)]);
     position.setXYZ(i, x, y, z);
@@ -70,7 +85,7 @@ async function loadHead(renderer: THREE.WebGLRenderer): Promise<THREE.Mesh> {
     emissive: new THREE.Color(0x3a1a12),
     emissiveIntensity: 0.15,
   });
-  patchHeadMaterial(skin, { grid: new URLSearchParams(window.location.search).has('grid') });
+  patchHeadMaterial(skin, { grid: MEASURING });
   const geometry = source.geometry as THREE.BufferGeometry;
   reshape(geometry);
   geometry.setAttribute('aHair', new THREE.BufferAttribute(hairWeights(geometry, beardShape), 1));
@@ -87,8 +102,10 @@ export async function buildCharacter(renderer: THREE.WebGLRenderer): Promise<Cha
   // Everything that sits on the head is built in the units of the scan and scaled with it.
   const scan = new THREE.Group();
   scan.scale.setScalar(HEAD_SCALE);
-  const beard = createHairShells(head.geometry, { shape: beardShape, layers: 20, cells: 60, root: 0x1c1009, tip: 0x3a2313, droop: 0.12, gather: 0.3, fullness: 0.68, core: 0.5 });
+  const beard = createHairShells(head.geometry, { shape: beardShape, layers: 30, cells: 60, root: 0x1c1009, tip: 0x3a2313, droop: 0.06, gather: 1.1, fullness: 0.74, core: 0.5, taper: 0.4, ragged: 0.12 });
   const brows = createHairShells(head.geometry, { shape: browShape, layers: 6, cells: 52, root: 0x1a0e07, tip: 0x33200f, droop: 0, gather: 0, fullness: 0.62, core: 0.3 });
+  // The measuring grid is read on the bare skin.
+  beard.visible = !MEASURING;
   scan.add(head, eyes.group, beard, brows, createTurban());
 
   const headPivot = new THREE.Group();
@@ -106,7 +123,10 @@ export async function buildCharacter(renderer: THREE.WebGLRenderer): Promise<Cha
 
   const viewerInRoot = new THREE.Vector3();
   const viewerInScan = new THREE.Vector3();
-  function update(time: number, viewer: THREE.Vector3): void {
+  function update(time: number, viewer: THREE.Vector3, seconds = 0, speaking = false): void {
+    // The mouth eases towards where speech wants it, so that it neither snaps open nor shut.
+    const wanted = MOUTH_PREVIEW ?? mouthOpening(time, speaking);
+    mouthOpen.value += (wanted - mouthOpen.value) * (seconds > 0 ? 1 - Math.exp(-seconds * MOUTH_SPEED) : 1);
     // The chest rises and falls; the head follows the visitor a little and the eyes do the rest.
     const breath = Math.sin((time * Math.PI * 2) / BREATH.seconds);
     kaftan.group.scale.z = 1 + BREATH.depth * breath;

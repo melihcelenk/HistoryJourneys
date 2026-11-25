@@ -171,3 +171,19 @@ measuring it (HJ-2, phase 6: 12–24 frames a second before, 56–60 after, on I
   picture step by step when frames are slow.
 - **The drawing budget is tested.** `tests/e2e/scene.spec.ts` fails when a frame needs more draw calls or
   triangles than the budget allows.
+
+## 3D scene: sound
+
+- **One switch.** `audio/soundStage.ts` owns everything that sounds: the narrator, the sound of the room and the
+  button (and the M key) that turns both off. The choice is kept in the browser's storage.
+- **Sound starts with the first thing the player presses**, as browsers require, and stops while the page is in
+  the background.
+- **The narrator speaks a step from its recording if the step names one (`audio` in `content/scenes/*.json`),
+  otherwise with the Turkish voice of the device.** No sound file is shipped today; which source becomes the
+  permanent one is an open decision (HJ-2, S1). Free Turkish voice models were ruled out: their licences forbid
+  commercial use.
+- **The words are always on the screen too.** Sound is never the only carrier of information.
+- **The sound of the room is generated** (`audio/ambience.ts`), not recorded; its level follows the distance to
+  the hearth and drops while the figure speaks (`audio/ambienceLevel.ts`).
+- **A test cannot listen.** The tests check what is handed to the device (text, voice, rate, pitch) and the level
+  of the generated sound. Whether it sounds right has to be judged by ear.

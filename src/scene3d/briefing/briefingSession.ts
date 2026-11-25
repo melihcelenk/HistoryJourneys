@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import type { Shot } from '../shots';
 import { createBriefingPanel, type BriefingPanel } from './briefingPanel';
-import type { Briefing } from './briefingSchema';
+import type { Briefing, BriefingStep } from './briefingSchema';
 import { createMapBoard } from './mapBoard';
 import { marksCentre, otherScript, pebblePoints, type MapDefinition, type Script } from './mapDefinition';
 import { back, begin, forward, isRunning, type Narration } from './narration';
@@ -38,6 +38,8 @@ export interface BriefingSessionOptions {
   speakerNote: string;
   /** Called when the briefing takes the screen and when it gives it back. */
   onActiveChange(active: boolean): void;
+  /** Called with the step that is now being told, and with null when the telling stops; whoever speaks listens here. */
+  onLine(line: BriefingStep | null): void;
 }
 
 /** How long the camera takes to go to the table and to come back, in seconds. */
@@ -85,6 +87,7 @@ export async function createBriefingSession(options: BriefingSessionOptions): Pr
     table.setPebbles(pebblePoints(map, marks()));
     if (isRunning(next)) panel.show(next.step);
     else panel.hide();
+    options.onLine(isRunning(next) ? (briefing.steps[next.step] ?? null) : null);
   }
   const panel: BriefingPanel = createBriefingPanel(options.root, {
     briefing,

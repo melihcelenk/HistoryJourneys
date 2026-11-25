@@ -51,6 +51,55 @@ async function distanceToFigure(page: Page): Promise<number> {
   return Math.hypot(player.x - FIGURE.x, player.z - FIGURE.z);
 }
 
+interface SpokenLine {
+  text: string;
+  voice: string;
+  lang: string;
+  rate: number;
+  pitch: number;
+  volume: number;
+}
+
+/**
+ * Replaces the voice of the device with one that writes down what it is asked to say. The test browser has no
+ * Turkish voice, and a test cannot listen; what was said, by which voice and how, can be read afterwards.
+ */
+async function listenToTheDevice(page: Page): Promise<void> {
+  await page.addInitScript(() => {
+    const heard = { spoken: [] as unknown[], cancels: 0 };
+    const voices = [
+      { name: 'Microsoft Emel Online (Natural) - Turkish (Türkiye)', lang: 'tr-TR' },
+      { name: 'Microsoft Ahmet Online (Natural) - Turkish (Türkiye)', lang: 'tr-TR' },
+      { name: 'Microsoft David - English (United States)', lang: 'en-US' },
+    ];
+    class Utterance {
+      voice: { name: string } | null = null;
+      lang = '';
+      rate = 1;
+      pitch = 1;
+      volume = 1;
+      constructor(public text: string) {}
+    }
+    const synthesis = {
+      getVoices: () => voices,
+      speak: (line: Utterance) => heard.spoken.push({ text: line.text, voice: line.voice?.name ?? '', lang: line.lang, rate: line.rate, pitch: line.pitch, volume: line.volume }),
+      cancel: () => {
+        heard.cancels += 1;
+      },
+    };
+    Object.defineProperty(window, 'speechSynthesis', { value: synthesis, configurable: true });
+    Object.assign(window, { SpeechSynthesisUtterance: Utterance, heardFromTheDevice: heard });
+  });
+}
+
+function spoken(page: Page): Promise<SpokenLine[]> {
+  return page.evaluate(() => (window as unknown as { heardFromTheDevice: { spoken: SpokenLine[] } }).heardFromTheDevice.spoken);
+}
+
+function cancels(page: Page): Promise<number> {
+  return page.evaluate(() => (window as unknown as { heardFromTheDevice: { cancels: number } }).heardFromTheDevice.cancels);
+}
+
 test.describe('3D scene', () => {
   test.describe.configure({ timeout: 240_000 });
 
@@ -85,6 +134,7 @@ test.describe('3D scene', () => {
     // The headless browser draws in software, a few frames a second, and slower still when other tests run beside it.
     test.setTimeout(WALK_TIMEOUT * 4);
     test.skip(testInfo.project.name === 'phone', 'Walking with the keyboard is a desktop control.');
+    await listenToTheDevice(page);
     await openScene(page, GAME_URL);
     const start = await sceneInfo(page);
     const prompt = page.getByTestId('scene-prompt');
@@ -116,6 +166,37 @@ test.describe('3D scene', () => {
     await expect(prompt).toBeHidden();
     await expect(page.getByTestId('scene-hint')).toBeHidden();
 
+    // He says it too: sentence by sentence, in a Turkish man's voice, a little slow and low.
+    await expect.poll(() => spoken(page).then((lines) => lines.length)).toBeGreaterThan(1);
+    const first = await spoken(page);
+    expect(first[0]?.text).toBe('Şehir karadan sarılsa bile denizden beslenirdi.');
+    expect(first.every((line) => line.voice.includes('Ahmet') && line.lang === 'tr-TR')).toBe(true);
+    expect(first[0]?.rate).toBeLessThan(1);
+    // Lower than the voice's own pitch by a good deal, but not at the bottom of what a voice can do.
+    expect(first[0]?.pitch).toBeLessThanOrEqual(0.65);
+    expect(first[0]?.pitch).toBeGreaterThanOrEqual(0.4);
+    // At the levels the scene opens with: voices at full, everything at four fifths.
+    expect(first[0]?.volume).toBeCloseTo(0.8, 5);
+    await expect(page.getByTestId('voice-note')).toBeHidden();
+
+    // A new step cuts off the old one and is spoken in its place.
+    const cancelsBefore = await cancels(page);
+    await page.keyboard.press('ArrowRight');
+    await expect(page.getByTestId('briefing-counter')).toContainText('2 / 6');
+    expect(await cancels(page)).toBeGreaterThan(cancelsBefore);
+    expect((await spoken(page)).at(first.length)?.text).toContain('Kara surları');
+
+    // With the sound off nothing is spoken; the words stay on the panel.
+    await page.keyboard.press('KeyM');
+    await expect(page.getByTestId('sound-toggle')).toHaveAttribute('data-muted', 'true');
+    const whileMuted = (await spoken(page)).length;
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.getByTestId('briefing-counter')).toContainText('1 / 6');
+    await expect(page.getByTestId('briefing-text')).toContainText('Rumeli Hisarı');
+    expect((await spoken(page)).length).toBe(whileMuted);
+    await page.keyboard.press('KeyM');
+    await expect(page.getByTestId('sound-toggle')).toHaveAttribute('data-muted', 'false');
+
     // Forward with the keyboard to the last step, back one, forward again with the button.
     for (let step = 2; step <= 6; step += 1) {
       await page.keyboard.press('ArrowRight');
@@ -134,9 +215,11 @@ test.describe('3D scene', () => {
     await page.waitForTimeout(1500);
     await page.keyboard.up('KeyS');
 
-    // After the last step the briefing ends and the player stands where he stood.
+    // After the last step the briefing ends, he falls silent and the player stands where he stood.
+    const cancelsAtEnd = await cancels(page);
     await page.getByTestId('briefing-next').click();
     await expect(panel).toBeHidden();
+    expect(await cancels(page)).toBeGreaterThan(cancelsAtEnd);
     await expect(prompt).toBeVisible({ timeout: WALK_TIMEOUT });
     const back = await sceneInfo(page);
     expect(back.player.x).toBeCloseTo(atTable.player.x, 1);
@@ -175,6 +258,62 @@ test.describe('3D scene', () => {
     await expect(page.getByTestId('script-toggle')).toHaveAttribute('data-script', 'latin');
   });
 
+  test('has a sound switch that is remembered', async ({ page }) => {
+    await openScene(page, GAME_URL);
+    const toggle = page.getByTestId('sound-toggle');
+    await expect(toggle).toHaveAttribute('data-muted', 'false');
+    await expect(toggle).toContainText('açık');
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('data-muted', 'true');
+    await expect(toggle).toContainText('kapalı');
+
+    await openScene(page, GAME_URL);
+    await expect(page.getByTestId('sound-toggle')).toHaveAttribute('data-muted', 'true');
+    await page.keyboard.press('KeyM');
+    await expect(page.getByTestId('sound-toggle')).toHaveAttribute('data-muted', 'false');
+  });
+
+  test('has separate levels for everything, for voices and for the room, and remembers them', async ({ page }) => {
+    await openScene(page, GAME_URL);
+    const panel = page.getByTestId('sound-panel');
+    await expect(panel).toBeHidden();
+    await page.getByTestId('sound-levels-toggle').click();
+    await expect(panel).toBeVisible();
+    await expect(page.getByTestId('volume-name-master')).toHaveText('Ana ses');
+    await expect(page.getByTestId('volume-name-voice')).toHaveText('Konuşma');
+    await expect(page.getByTestId('volume-name-ambience')).toHaveText('Ortam');
+    // The room opens quieter than the voices.
+    await expect(page.getByTestId('volume-value-voice')).toHaveText('%100');
+    await expect(page.getByTestId('volume-value-ambience')).toHaveText('%50');
+
+    await page.getByTestId('volume-ambience').fill('20');
+    await page.getByTestId('volume-master').fill('60');
+    await expect(page.getByTestId('volume-value-ambience')).toHaveText('%20');
+    await expect(page.getByTestId('volume-value-master')).toHaveText('%60');
+    // One level does not move another.
+    await expect(page.getByTestId('volume-value-voice')).toHaveText('%100');
+
+    await openScene(page, GAME_URL);
+    await page.getByTestId('sound-levels-toggle').click();
+    await expect(page.getByTestId('volume-ambience')).toHaveValue('20');
+    await expect(page.getByTestId('volume-master')).toHaveValue('60');
+    await expect(page.getByTestId('volume-voice')).toHaveValue('100');
+  });
+
+  test('makes a sound of the room that is neither silent, nor clipped, nor harsh', async ({ page }) => {
+    await openScene(page, GAME_URL);
+    const level = await page.evaluate(() =>
+      (window as unknown as { measureSceneAmbience: (seconds: number) => Promise<{ peak: number; rms: number; brightness: number }> }).measureSceneAmbience(12),
+    );
+    // Heard at full level: clearly there, with room to spare below the loudest a speaker can play.
+    expect(level.rms).toBeGreaterThan(0.02);
+    expect(level.rms).toBeLessThan(0.4);
+    expect(level.peak).toBeLessThan(0.95);
+    // A fire is a low sound. Bright bursts of noise ring like struck metal; almost none of the energy may lie
+    // above 2 kHz.
+    expect(level.brightness).toBeLessThan(0.02);
+  });
+
   test('tells the player how to look around', async ({ page }, testInfo) => {
     await openScene(page, GAME_URL);
     const hint = page.getByTestId('scene-hint');
@@ -194,7 +333,7 @@ test.describe('3D scene', () => {
     await openScene(page, GAME_URL);
     const viewport = page.viewportSize();
     if (!viewport) throw new Error('The test needs a viewport.');
-    for (const id of ['scene-title', 'scene-place', 'scene-hint', 'scene-back', 'scene-credits-summary', 'script-toggle']) {
+    for (const id of ['scene-title', 'scene-place', 'scene-hint', 'scene-back', 'scene-credits-summary', 'script-toggle', 'sound-toggle', 'sound-levels-toggle']) {
       const box = await page.getByTestId(id).boundingBox();
       if (!box) throw new Error(`${id} is not on the page.`);
       expect(box.x, id).toBeGreaterThanOrEqual(0);

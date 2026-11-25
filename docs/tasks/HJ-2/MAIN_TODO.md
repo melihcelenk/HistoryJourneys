@@ -33,6 +33,7 @@ Başlamadan önceki durum `release/test` dalına kaydedildi (commit `6910be8`).
 | 4 | Oyun hissi: dolaşma, ışık, etkileşim ve uygulamaya bağlama | 🟢 Tamamlandı | 100% | `PHASE4.md` |
 | 5 | İlk kullanım geri bildirimi: karakter düzeltmeleri ve haritada fetih planı | 🟡 Kısmi | 90% | `PHASE5.md` |
 | 6 | İkinci geri bildirim: dönem masası, dönemin haritası, Osmanlıca yazılar ve başarım | 🟡 Kısmi | 90% | `PHASE6.md` |
+| 7 | Ses: anlatıcının sesi, ortam sesi ve ses denetimi | 🟡 Kısmi | 80% | `PHASE7.md` |
 
 <!-- Durum ikonları: 🟢 Tamamlandı | 🟡 Kısmi | ⏳ Bekliyor | 🔴 Bloke -->
 
@@ -75,6 +76,8 @@ Başlamadan önceki durum `release/test` dalına kaydedildi (commit `6910be8`).
 | K6 | Kullanılan her hazır varlığın lisansı kayıtlıdır ve sahnede gösterilir. | İçerik denetimi, "Hakkında" metni |
 | K7 | Figür, masadaki açık haritada fetih planını adım adım anlatır (T92). | Uçtan uca test: anlatım başlar, adımlar gezilir, biter |
 | K8 | Anlatımın parçaları (adımlar arasında gezinme, harita panosu, panel) başka figürler için yeniden kullanılabilir (T92). | Anlatım yalnız veriyle tanımlanır; birim testleri veriyi doğrular |
+| K9 | Haritanın yazıları Osmanlıca harflerledir ve bir düğmeyle Latin harflerine çevrilir (T102). | Uçtan uca test: çeviri düğmesi |
+| K10 | Anlatım sesli verilir; ses Fatih'e uygundur; oyuncu sesi kapatabilir (T115). | Uçtan uca test: konuşma ve ses düğmesi; uygunluk dinlenerek |
 
 ### Test Senaryoları
 
@@ -213,3 +216,10 @@ Anlatımın parçaları figürden bağımsız, yeniden kullanılabilir modüller
 
 Harita portolan tarzı bir deri harita olur ve Osmanlıca yazılır; bir düğme Latin harflerine çevirir. Masa alçak,
 kakmalı bir kürsü olur.
+
+### 🟡 Faz 7 — Ses: anlatıcının sesi, ortam sesi ve ses denetimi
+
+**Durum:** 🟡 Kısmi · **Ayrıntı:** [`PHASE7.md`](PHASE7.md)
+
+Fatih planı cihazın Türkçe sesiyle anlatır; ocak sesi kodla üretilir; ses tek düğmeyle kapanır. Kalıcı ses kaynağı
+S1'de karar bekliyor.

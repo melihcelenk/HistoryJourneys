@@ -226,6 +226,79 @@ body {
   cursor: pointer;
 }
 
+.sound-controls {
+  position: absolute;
+  top: 62px;
+  right: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  width: min(320px, calc(100vw - 48px));
+  pointer-events: none;
+}
+
+.sound-controls > * {
+  pointer-events: auto;
+}
+
+.sound-toggle {
+  padding: 7px 16px;
+  border: 1px solid #c9a24a;
+  border-radius: 999px;
+  background: rgb(15 11 8 / 72%);
+  font: 600 15px 'EB Garamond', Georgia, serif;
+  color: #f0dcaa;
+  cursor: pointer;
+}
+
+.sound-toggle[data-muted='true'] {
+  border-color: #7d6a45;
+  color: #b9a983;
+}
+
+.sound-panel {
+  flex-basis: 100%;
+  padding: 12px 16px;
+  border: 1px solid #a8843c;
+  border-radius: 6px;
+  background: rgb(15 11 8 / 88%);
+}
+
+.sound-level {
+  display: grid;
+  grid-template-columns: 78px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 15px;
+  color: #e9dcbd;
+}
+
+.sound-level__slider {
+  width: 100%;
+  accent-color: #c9a24a;
+}
+
+.sound-level__value {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.sound-note {
+  flex-basis: 100%;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgb(15 11 8 / 78%);
+  font-size: 14px;
+  font-style: italic;
+  color: #e3d3ae;
+  text-align: right;
+}
+
+.sound-toggle:hover,
+.sound-toggle:focus-visible,
 .script-toggle:hover,
 .script-toggle:focus-visible {
   background: rgb(60 10 16 / 88%);

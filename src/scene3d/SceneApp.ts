@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { measureAmbience } from './audio/ambience';
+import { createSoundStage, type SoundStage } from './audio/soundStage';
 import { createBriefingSession, type BriefingSession } from './briefing/briefingSession';
 import type { Script } from './briefing/mapDefinition';
 import { tableBox } from './briefing/tableLayout';
@@ -8,6 +10,7 @@ import { RESOLUTION_LIMITS, createFrameMeter, nextPixelRatio } from './dynamicRe
 import { createHud, type Hud } from './hud';
 import { createPicture } from './post';
 import { ROOM_SIZE, buildRoom, type Room } from './room';
+import { FURNITURE } from './room/layout';
 import { loadSceneContent } from './sceneContent';
 import { FIGURE_SPOT, SHOTS, type Shot, type ShotName } from './shots';
 import { boxAround, type WalkSpace } from './walk';
@@ -47,6 +50,8 @@ const MEETING_DISTANCE = 2.3;
 const REFLECTION_POINT = new THREE.Vector3(0, 1.6, 0);
 const REFLECTION_BLUR = 0.03;
 const LOADING = 'Saray odası hazırlanıyor…';
+/** Where the fire burns: the sound of the room comes from here. */
+const HEARTH = FURNITURE.hearthSlab;
 const LOW_QUALITY_PIXEL_RATIO = 0.6;
 /** The speed of frames is read over this many frames at a time, after the frames of loading. */
 const FRAME_METER = { window: 45, skip: 90 } as const;
@@ -180,6 +185,9 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
   let controls: WalkControls | null = null;
   let hud: Hud | null = null;
   let briefing: BriefingSession | null = null;
+  // A still picture is silent; only the game has sound.
+  const sound: SoundStage | null = still ? null : createSoundStage(root);
+  if (sound) cleanups.push(() => sound.dispose());
   if (character) {
     const content = loadSceneContent();
     const session = await createBriefingSession({
@@ -195,6 +203,11 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
       onActiveChange: (active) => {
         controls?.setEnabled(!active);
         hud?.setWalking(!active);
+      },
+      // The figure says the step that is being told and falls silent when the telling stops.
+      onLine: (line) => {
+        if (line) sound?.narrator.say(line);
+        else sound?.narrator.hush();
       },
     });
     briefing = session;
@@ -241,8 +254,9 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
     // from one to the other instead of jumping.
     const pointedAt = briefing?.update(seconds) ?? null;
     gaze.lerp(pointedAt ?? camera.position, still ? 1 : 1 - Math.exp(-seconds * GAZE_SPEED));
-    character?.update(time, gaze);
+    character?.update(time, gaze, seconds, sound?.narrator.isSpeaking() ?? false);
     hud?.setNear(Math.hypot(camera.position.x - FIGURE_SPOT.x, camera.position.z - FIGURE_SPOT.z) < MEETING_DISTANCE);
+    sound?.update({ distanceToHearth: Math.hypot(camera.position.x - HEARTH.x, camera.position.z - HEARTH.z) });
   }
 
   /** Draws the picture a step coarser when the last frames were too slow for this graphics card. */
@@ -286,6 +300,8 @@ async function run(root: HTMLElement, options: SceneOptions, onReady: () => void
  * leaves nothing of the half-built scene behind. The returned handle stops the scene.
  */
 export async function startScene(root: HTMLElement, options: SceneOptions): Promise<RunningScene> {
+  // The tests ask how loud the generated sound of the room is; they cannot listen.
+  Object.assign(window, { measureSceneAmbience: measureAmbience });
   const veil = showLoading(root);
   const cleanups: (() => void)[] = [];
   const stop = (): void => {
