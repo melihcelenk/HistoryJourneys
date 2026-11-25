@@ -1,0 +1,14 @@
+# Test environment server (user service): the last build of release/test, on 127.0.0.1:4185, published on the
+# tailnet by `tailscale serve --bg --https=8447 4185`. Install: see docs/general/DEPLOYMENT.md.
+[Unit]
+Description=History Journeys test environment (vite preview of release/test)
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/Kodlar/HistoryJourneys
+ExecStart=/bin/bash -lc 'npx vite preview --host 127.0.0.1 --port 4185 --strictPort'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

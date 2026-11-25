@@ -1,0 +1,7 @@
+[Unit]
+Description=History Journeys test environment: follow release/test and rebuild
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Kodlar/HistoryJourneys
+ExecStart=/bin/bash -lc 'scripts/test-env/update.sh'
