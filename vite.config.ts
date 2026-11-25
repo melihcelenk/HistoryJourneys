@@ -7,6 +7,9 @@ const PRECACHE_MAX_FILE_BYTES = 8 * 1024 * 1024;
 /** The map renderers are single large chunks loaded on demand; warn only above their size. */
 const CHUNK_WARNING_LIMIT_KB = 1500;
 
+/** Addresses of the page of the 3D scene, with or without a query. */
+const SCENE_PAGE = /\/sahne\.html/;
+
 const APP_NAME = 'History Journeys';
 /** Dark stone of the interface; shown while the application starts. */
 const APP_BACKGROUND_COLOR = '#1b1612';
@@ -20,7 +23,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       workbox: {
         // Everything the application needs offline, including the map data and the content database.
-        globPatterns: ['**/*.{js,css,html,woff2,wasm,json,sqlite,png,svg,webp}'],
+        globPatterns: ['**/*.{js,css,html,woff2,wasm,json,sqlite,png,svg,webp,glb,jpg}'],
+        // The 3D scene is a page of its own; without this the service worker answers it with the game's page.
+        navigateFallbackDenylist: [SCENE_PAGE],
         maximumFileSizeToCacheInBytes: PRECACHE_MAX_FILE_BYTES,
       },
       manifest: {
@@ -42,7 +47,12 @@ export default defineConfig({
       },
     }),
   ],
-  build: { target: 'es2022', chunkSizeWarningLimit: CHUNK_WARNING_LIMIT_KB },
+  build: {
+    target: 'es2022',
+    chunkSizeWarningLimit: CHUNK_WARNING_LIMIT_KB,
+    // Two pages: the game and the 3D scene, so the 3D engine is loaded only by the page that needs it.
+    rollupOptions: { input: { main: 'index.html', scene: 'sahne.html' } },
+  },
   test: {
     include: ['tests/unit/**/*.test.ts'],
     environment: 'node',

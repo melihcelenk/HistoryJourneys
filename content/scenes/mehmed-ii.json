@@ -1,0 +1,59 @@
+{
+  "figure": "mehmed-ii",
+  "title": "Fetih planı",
+  "invitation": "Fetih planını dinle",
+  "setting": "Fatih, 1470'lerde sarayında, 1453'te İstanbul'u nasıl aldığını haritanın başında anlatıyor.",
+  "steps": [
+    {
+      "id": "bogaz",
+      "title": "Önce Boğaz'ı kestik",
+      "text": "Şehir karadan sarılsa bile denizden beslenirdi. 1452'de Boğaz'ın en dar yerine, atam Yıldırım Bayezid'in yaptırdığı Anadolu Hisarı'nın tam karşısına Rumeli Hisarı'nı yaptırdım. O günden sonra Karadeniz'den gelen hiçbir gemi, iznimiz olmadan şehre yardım götüremedi.",
+      "marks": ["rumeli-hisari", "anadolu-hisari"]
+    },
+    {
+      "id": "toplar",
+      "title": "Surlara karşı toplar",
+      "text": "Kara surları bin yıla yakın bir süredir her orduyu durdurmuştu. Usta Urban'a Edirne'de o güne dek görülmemiş büyüklükte toplar döktürdüm. Onları surların önüne, Lykos vadisinin karşısına yerleştirdik; çünkü surların en alçak yeri orasıydı.",
+      "marks": ["cannon", "land-walls"]
+    },
+    {
+      "id": "kusatma",
+      "title": "6 Nisan 1453: kuşatma",
+      "text": "Nisan'ın altıncı günü ordugâhı kara surlarının karşısına kurduk. Karadan toplar surları dövüyor, denizden donanmamız şehri sarıyordu. Şehrin içinde savunacak asker azdı, ama surlar yüksek ve üç sıraydı.",
+      "marks": ["camp", "land-walls", "city"]
+    },
+    {
+      "id": "zincir",
+      "title": "Haliç'in ağzındaki zincir",
+      "text": "Haliç tarafındaki surlar şehrin en zayıf yeriydi. Ama Haliç'in ağzına, şehirden Galata'ya kalın bir zincir gerilmişti; donanmamız içeri giremiyordu. Zinciri zorladık, kıramadık.",
+      "marks": ["chain", "bosphorus-fleet"]
+    },
+    {
+      "id": "karadan-gemiler",
+      "title": "Gemileri karadan yürüttük",
+      "text": "Zincir kırılmıyorsa çevresinden dolaşılırdı. Nisan'ın yirmi ikinci gününe bağlanan gece, yağlanmış kızakların üstünde yetmişe yakın gemiyi Galata'nın ardındaki sırtlardan aşırıp Haliç'e indirdik. Sabah olduğunda şehir, gemilerimizi zincirin iç tarafında gördü.",
+      "marks": ["overland", "horn-fleet"]
+    },
+    {
+      "id": "son-hucum",
+      "title": "29 Mayıs 1453: son hücum",
+      "text": "Mayıs'ın yirmi dokuzuncu günü, gün doğmadan, karadan ve denizden aynı anda yürüdük. Surlar Lykos vadisinde aşıldı ve şehir alındı. O gün yirmi bir yaşındaydım; o günden sonra bana Fatih dediler.",
+      "marks": ["assault", "land-walls", "city"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tdv",
+      "title": "Mehmed II",
+      "publisher": "TDV İslâm Ansiklopedisi",
+      "url": "https://islamansiklopedisi.org.tr/mehmed-ii"
+    },
+    {
+      "id": "wiki",
+      "title": "II. Mehmed",
+      "publisher": "Vikipedi",
+      "url": "https://tr.wikipedia.org/wiki/II._Mehmed",
+      "license": "CC BY-SA 4.0"
+    }
+  ]
+}

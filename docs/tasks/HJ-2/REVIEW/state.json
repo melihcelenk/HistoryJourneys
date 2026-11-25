@@ -1,0 +1,3154 @@
+{
+  "standards": "afff628f2bd76aaa5b74718a5a2dd3b341d719cd28f751fc42624107d7fe0bcd",
+  "units": {
+    "scripts/dev/shoot-scene.ts::shoot-scene::(sınıf düzeyi)": {
+      "fp": "82776706f3f92940705afa0b2ff79e5920956c664ce318da5f8d7c5a635a96cc",
+      "matrix": [
+        "| shoot-scene | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [major] Tarayıcı hata/timeout yolunda kapatılmıyor (try/finally yok, `process.exit(1)` kapatmadan çıkıyor) |",
+        "| shoot-scene | (sınıf düzeyi) | 3. Kod Kalitesi | [minor] `--size` doğrulanmıyor; `??` NaN değerini yakalamaz |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| shoot-scene | (sınıf düzeyi) | [minor] `option('size', ...).split('x').map(Number)` sonucu doğrulanmıyor: `--size abc` ya da `--size 1280` için `width`/`height` `NaN` veya `undefined` olur; `width ?? 1280` yalnız `undefined`'ı yakalar, `NaN` viewport'a gider (satır 21, 27). | Ayrıştırmadan sonra `Number.isInteger` ve `> 0` kontrolü yap; geçersizse açıklayıcı bir mesajla çık. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| shoot-scene | (sınıf düzeyi) | [major] `chromium.launch()` ile açılan tarayıcı yalnız mutlu yolda `browser.close()` ile kapanıyor (satır 53). `waitForFunction`/`waitForSelector` zaman aşımı veya `goto` hatasında betik istisnayla sonlanır, `pageerror` işleyicisi de `process.exit(1)` ile kapatmadan çıkar (satır 34); tarayıcı süreci açık kalabilir. | Gövdeyi `try { ... } finally { await browser.close(); }` içine al; `pageerror` içinde `process.exit` yerine hatayı kaydedip döngüyü reddet (ör. bir Promise'i reject et) ya da çıkmadan önce `await browser.close()` çağır. |"
+        }
+      ]
+    },
+    "scripts/dev/shoot-scene.ts::shoot-scene::option": {
+      "fp": "bbcf59a45d90ae72c0bc33f158d311a6c9f48bec741b99f80761a1a9fbafad3a",
+      "matrix": [
+        "| shoot-scene | option | 3. Kod Kalitesi | [minor] Değeri eksik seçenek bir sonraki bayrağı/shot adını değer olarak yutuyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| shoot-scene | option | [minor] `args[index + 1]` bir sonraki argümanın başka bir `--bayrak` ya da shot adı olup olmadığına bakılmadan değer sayılıyor ve `splice(index, 2)` ile siliniyor; `--out --base x` gibi bir çağrıda yanlış değer sessizce kullanılır. | Değer yoksa ya da `--` ile başlıyorsa kullanım mesajıyla hata ver. |"
+        }
+      ]
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::(sınıf düzeyi)": {
+      "fp": "5cd3b81c68d925f8d6f8c09bd112e61d34bc967e5c9d46ec9ce8f279e000cd22",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::studioLights": {
+      "fp": "1bf5544f5546190a9570570a5926ca55d20f1ef5f03c1d0b2086666691ff0ffd",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::createRenderer": {
+      "fp": "8e79dee0411d14022be4ad8442047aad4127a4b3fe10babda2288a5c2ca42bb8",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::showLoading": {
+      "fp": "6201c489713dd1c3b00af6028c6904016e521dc584222330ecc4862149c4eabe",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::showNotice": {
+      "fp": "e8ab5365d1f26368bdc82b76566c48e31530d6fc2829846c9f26c1ccd5bbabbb",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::placeCamera": {
+      "fp": "99d5b1737727597b9860659a1c507d3725ce116f6e3dadecd684c7659d52fcf5",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::buildParts": {
+      "fp": "4bf9a50572d36c4b0b24d1b65e6749f895c10efa860dc07a4f88aa4fb745baba",
+      "matrix": [
+        "| SceneApp | buildParts | 13. Potansiyel Hatalar ve Sorunlar | [minor] `only` serbest `string`; `'figure'`/`'room'` sihirli dizgeler, geçersiz değer sessizce yok sayılıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| SceneApp | buildParts | [minor] `SceneOptions.only` tipi `string \\| null`, karar ise `'figure'` ve `'room'` sihirli dizgeleriyle veriliyor (satır 100, 110); yanlış yazılmış bir değer derleme hatası vermeden sessizce \"her şeyi kur\" anlamına geliyor. Aynı fonksiyonda `0.1`, `40`, `0.55` de adsız (diğer değerler adlandırılmış). | `only: 'figure' \\| 'room' \\| null` birleşim tipi (ya da sabit bir dizi + tür) kullan ve sorgu parametresini sınırda doğrula; yansıma değerlerini adlandırılmış sabitlere çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::walkSpace": {
+      "fp": "b347190e2cc3b9892138ac8aafa1963a903e6532544a91c0721ab3fc176adcf3",
+      "matrix": [
+        "| SceneApp | walkSpace | 13. Potansiyel Hatalar ve Sorunlar | [minor] Figür kurulmadığında (`only=room`) da görünmez figür engeli ekleniyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| SceneApp | walkSpace | [minor] `boxAround(FIGURE_SPOT, FIGURE_HALF_SIZE)` engeli `character` kurulmuş mu bakılmadan ekleniyor; `only=room` ile oyun kipinde oyuncu görünmez bir engele takılır ve `hud.setNear` var olmayan figür için tetiklenir (satır 122, 159). | Engeli ve yakınlık denetimini `character !== null` koşuluna bağla (ör. `walkSpace(room, character)`). |"
+        }
+      ]
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::run": {
+      "fp": "9599cd01e8cca234244f5f5e4f8732b073d7e444d3c30a8f84fe30375ede0791",
+      "matrix": [
+        "| SceneApp | run | 13. Potansiyel Hatalar ve Sorunlar | [major] Renderer, resize dinleyicisi, kontroller ve animasyon döngüsü hiç serbest bırakılmıyor; hata yolunda canvas sayfada kalıyor |",
+        "| SceneApp | run | 6. Performans | [minor] Test amaçlı `sceneInfo` her karede yeni nesne olarak `window`'a yazılıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 6,
+          "heading": "Madde 6: Performans",
+          "row": "| SceneApp | run | [minor] Testlerin okuduğu `sceneInfo` her karede iki yeni nesne ayırıp `Object.assign(window, ...)` ile global'e yazılıyor (satır 163-164); oyun kipinde sürekli gereksiz tahsis ve üretimde test kancası. | Tek bir nesneyi bir kez `window`'a koyup alanlarını yerinde güncelle ya da yalnız still/test kipinde yaz. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| SceneApp | run | [major] Kaynaklar hiç serbest bırakılmıyor: `window` üzerindeki `resize` dinleyicisi kaldırılmıyor (satır 144), `controls.dispose()` hiç çağrılmıyor, oyun kipinde `setAnimationLoop` durdurulamıyor ve `renderer.dispose()` yok; `startScene` çağırana durdurma tutamacı döndürmüyor. Ayrıca `createRenderer` canvas'ı ekledikten sonra `buildParts` hata verirse (model/doku yüklenemedi) `catch` yalnız bildirimi ekliyor; WebGL bağlamı ve ölü canvas sayfada kalıyor. | `run`/`startScene` bir `dispose()` döndürsün (döngüyü durdur, dinleyicileri kaldır, `controls.dispose()`, `renderer.dispose()`, canvas'ı kaldır); hata yolunda da aynı temizliği çağır. |"
+        }
+      ]
+    },
+    "src/scene3d/SceneApp.ts::SceneApp::startScene": {
+      "fp": "0548e3af5464d270a48282bc3a9088abc8d2d2930b43ffc0001fb8d146b1718c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/character.ts::character::(sınıf düzeyi)": {
+      "fp": "efba41f269deec6fc5577905a579c111b7d83b8950b6bc61386347e016755de2",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/character.ts::character::loadTexture": {
+      "fp": "4b9fe9f00fc51820dd2ef1f0ce2dce47b0ca97847ad596e5e0b16de49958f198",
+      "matrix": [
+        "| character | loadTexture | 14. Best Practice'ler | [minor] Boolean parametre (`colour`) çağrı yerini okunmaz kılıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| character | loadTexture | [minor] `colour: boolean` bayrak parametresi; `loadTexture(textures, url, true, anisotropy)` çağrılarında `true`/`false` anlamı okunmuyor (satır 47-49). | Renk uzayını doğrudan parametre yap (`THREE.SRGBColorSpace` / `THREE.NoColorSpace`) ya da `loadColourTexture` / `loadDataTexture` olarak ayır. |"
+        }
+      ]
+    },
+    "src/scene3d/character.ts::character::reshape": {
+      "fp": "57e445d67abc808d40d1281c227ae441ae73315bacd59202ea839e4098dd201e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/character.ts::character::loadHead": {
+      "fp": "0f6c379675bd53019ffad182379fdbc870a3e4822d486bbe0661d3e8a1d4e2b6",
+      "matrix": [
+        "| character | loadHead | 13. Potansiyel Hatalar ve Sorunlar | [minor] Doku yolları satır içi dizge; `HEAD_URL` sabitiyle tutarsız |",
+        "| character | loadHead | 3. Kod Kalitesi | [minor] Yükleyici `window.location.search` içinden `grid` hata ayıklama bayrağını kendisi okuyor (gizli global bağımlılık) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| character | loadHead | [minor] Model yükleyen fonksiyon `new URLSearchParams(window.location.search).has('grid')` ile hata ayıklama bayrağını global'den kendisi okuyor (satır 70); diğer seçenekler `SceneOptions` üzerinden geliyor, bu ise gizli bağımlılık ve test edilmesi zor. | `grid` bayrağını seçeneklerin ayrıştırıldığı yerde oku ve `buildCharacter`/`loadHead`'e parametre olarak geçir. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| character | loadHead | [minor] `'models/head/color.jpg'`, `normal.jpg`, `specular.jpg` yolları satır içinde yazılmış; aynı klasör için `HEAD_URL` sabiti var, klasör adı dört yerde tekrarlanıyor. | Yolları `HEAD_URL` ile aynı yerde adlandırılmış sabitlere (ör. `HEAD_TEXTURES`) çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/character.ts::character::buildCharacter": {
+      "fp": "a0a139dd7b5454aab9f44ef33592d2a432acfbf3632fa0d56460ceed2f817351",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/controls.ts::controls::(sınıf düzeyi)": {
+      "fp": "1a1b3c935f6759c96079eb8acbd115bfbc32f82865094cd3dee6a1117bad907d",
+      "matrix": [
+        "| controls | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/scene3d/controls.ts::controls::createWalkControls": {
+      "fp": "6b4a6ec53339a074c99757b18d15d9128c55821ec19d77a8f836693f031a8608",
+      "matrix": [
+        "| controls | createWalkControls | 3. Kod Kalitesi | [suggestion] Yaklaşık 95 satırlık tek fonksiyon; girdi dinleme ve hareket hesabı bir arada |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| controls | createWalkControls | [suggestion] Fonksiyon yaklaşık 95 satır: klavye/işaretçi dinleyicileri, istek vektörü ve kamera güncellemesi tek kapanışta. | Girdi toplamayı (basılı tuşlar, sürüklemeler, çubuk) ayrı bir yardımcıya çıkar; `createWalkControls` yalnız hareket ve kamerayı yönetsin. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/clothTextures.ts::clothTextures::(sınıf düzeyi)": {
+      "fp": "96d6dd28be9b9b3053d2f923f690e5ac2531eb4ca0052f1d1447d85a7a8bd36d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/clothTextures.ts::clothTextures::hash": {
+      "fp": "cf2dd07e8096452a40356e660d236a1ab04e1f3c8a10d1b6ac4cc36650c9f546",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/clothTextures.ts::clothTextures::tileNoise": {
+      "fp": "770820f7460f429a7cbe2eb660e254712c9c7f44b8101c7a7e1ce2c9451ac406",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/clothTextures.ts::clothTextures::clothHeight": {
+      "fp": "736d5275b883ac2efc2615150dc3cea611f84c2ba523d12a279132491e975393",
+      "matrix": [
+        "| clothTextures | clothHeight | 13. Potansiyel Hatalar ve Sorunlar | [minor] Gürültü frekansı ve periyodu aynı sihirli sayının iki ayrı kopyası (6/6, 14/14); biri değişirse dikişsizlik bozulur |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| clothTextures | clothHeight | [minor] `tileNoise(u * 6, v * 6, 6, ...)` ve `tileNoise(u * 14, v * 14, 14, ...)` çağrılarında frekans ile periyot aynı sayının ayrı ayrı yazılmış kopyaları; biri değiştirilip diğeri unutulursa doku dikişli olur. Ağırlıklar (`0.6`, `0.4`, `0.35`, `3`) da adsız. | Oktavları `{ cells, weight }` biçiminde adlandırılmış bir sabitte tut ve frekans ile periyodu aynı alandan türet. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/clothTextures.ts::clothTextures::heightToNormalMap": {
+      "fp": "f63ff41aea03ba89fafd26bf0d5fa6a6bab42d73d84988f672d1bf354151490b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/eyes.ts::eyes::(sınıf düzeyi)": {
+      "fp": "1b7caee5365f36cf598d7a620d3fe90ed5ede41b60331ef50174496136ba65d8",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/eyes.ts::eyes::createEyeMaterial": {
+      "fp": "fdbb5b3c40997f33cffab07f04024cf3ccf6f714c7b9dca1327e597a620d98d9",
+      "matrix": [
+        "| eyes | createEyeMaterial | 14. Best Practice'ler | [minor] Boolean parametre (`socket`) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| eyes | createEyeMaterial | [minor] `socket: boolean` bayrak parametresi; `createEyeMaterial(toHead, false)` / `(socketToHead, true)` çağrıları okunmuyor ve fonksiyon içinde üç ayrı yerde dallanıyor. | `'ball' \\| 'socket'` tür parametresi ya da iki ayrı kurucu (`createBallMaterial`, `createSocketMaterial`) kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/eyes.ts::eyes::createEyes": {
+      "fp": "2a90f6e283f52ba127f1d3acb1b20d7613762e5bdd826ebc0701c6e43d57a1fe",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/fabricTextures.ts::fabricTextures::(sınıf düzeyi)": {
+      "fp": "6224a58ed2db606d4486de58567ada4311fe615b730e07ba12135df3258bb48b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/fabricTextures.ts::fabricTextures::createCanvas": {
+      "fp": "68e5194b42d7c68c289cca9a36e2636d1b37711b5a41af69d135ca1c843d658c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/fabricTextures.ts::fabricTextures::toTexture": {
+      "fp": "1797eaf4416d03bb4e33da4f123ec19ba16c0031dabdd8019cc23316e692fc77",
+      "matrix": [
+        "| fabricTextures | toTexture | 13. Potansiyel Hatalar ve Sorunlar | [minor] `anisotropy = 8` sihirli sayı; kafa dokuları cihazın azami değerini kullanıyor |",
+        "| fabricTextures | toTexture | 14. Best Practice'ler | [minor] Boolean parametre (`colour`) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| fabricTextures | toTexture | [minor] `texture.anisotropy = 8` adsız sihirli sayı; kafa dokuları `renderer.capabilities.getMaxAnisotropy()` kullanırken kumaş dokuları sabit değer alıyor (tutarsız). | Değeri adlandırılmış sabite çıkar ya da çağırandan (renderer'ın azami değeri) parametre olarak al. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| fabricTextures | toTexture | [minor] `colour: boolean` bayrak parametresi; `toTexture(canvas, true)` çağrıları okunmuyor. | Renk uzayını parametre olarak geçir ya da iki ayrı fonksiyona böl. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/fabricTextures.ts::fabricTextures::drawCintamani": {
+      "fp": "309bfc19c34dd79905ff03923f5d242191e93a87cbb6a398f772ccfd0f88a804",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/fabricTextures.ts::fabricTextures::createCintamaniSilk": {
+      "fp": "1fb7089c360c7c469c7a09bdfb04ac875acb9f26a1e96ee08341ef595704fdda",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/fabricTextures.ts::fabricTextures::random": {
+      "fp": "86c964f5b600c12e695a1fa66638d01ff08f792e43b45f3786a8c6003fe59cb3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/fabricTextures.ts::fabricTextures::createFurTexture": {
+      "fp": "eece6de5672aeb6390c8263f38b85ca08aee256660c5451a04a5de5e30327fd0",
+      "matrix": [
+        "| fabricTextures | createFurTexture | 3. Kod Kalitesi | [suggestion] `wrap = 0` için aynı çizgi iki kez çiziliyor; köşeden taşan kıllar sarılmıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| fabricTextures | createFurTexture | [suggestion] Sarma döngüsünde `wrap = 0` için `(x, y)` çizgisi hem yatay hem dikey kopya olarak iki kez yola ekleniyor; iki kenarı birden aşan (köşedeki) kıllar için çapraz kopya çizilmiyor, yorumdaki \"kenarı aşan kıllar öbür yanda sürer\" köşede tam sağlanmıyor. | `createCintamaniSilk`'teki gibi `wrapX`/`wrapY` iç içe döngüsü kullan (yalnız gerekli kopyalar), böylece tekrar da köşe eksiği de kalkar. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/faceShape.ts::faceShape::(sınıf düzeyi)": {
+      "fp": "7921251a9947f1018c1ea9bf44c535d2f7d4baacb3eba6ddafa5a15e6f206d05",
+      "matrix": [
+        "| faceShape | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/scene3d/figure/faceShape.ts::faceShape::reshapeFace": {
+      "fp": "f43af29eaabea0623bd5976775da6350fb527d727b2de9efb03bce5feb78f8f3",
+      "matrix": [
+        "| faceShape | reshapeFace | 13. Potansiyel Hatalar ve Sorunlar | [minor] `0.25` geçiş derinliği üç yerde adsız tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| faceShape | reshapeFace | [minor] Burun önündeki geçiş derinliği `0.25` üç yerde adsız yazılmış (satır 28, 30); diğer tüm ölçüler `NOSE`/`ARCH`/`TIP` içinde adlandırılmış. | `NOSE.blend` (ya da benzeri) adlı bir alana çıkar ve üç yerde onu kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/hairShape.ts::hairShape::(sınıf düzeyi)": {
+      "fp": "3976f2a9dce135281c91b9eb5420a537a4f4cfc5f52c5457600dcad54d0ff7ab",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hairShape.ts::hairShape::smoothstep": {
+      "fp": "8dbc45ffae1e7742ff67bad4ffde5e0fdaca0ebb93ac995c4500296b5e5ddc23",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hairShape.ts::hairShape::normalize": {
+      "fp": "24d33f36dc4584a9d2012a46d1e2bb9f7cc2aea80e64b1010f78edc574e0c22f",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hairShape.ts::hairShape::beardWeight": {
+      "fp": "fee2f0a04358260d4373e2859f413110a6d1adbb95abc429c5296ff43edfea36",
+      "matrix": [
+        "| hairShape | beardWeight | 13. Potansiyel Hatalar ve Sorunlar | [minor] Kulak/boyun/yanak sınırları adsız sayılar |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hairShape | beardWeight | [minor] Sakalın sınırları (`1.62`/`1.46` kulak, `-0.95`/`-0.6` boyun, `-0.35`/`0.25` ön, `0.3` yanak geçişi) taramadan okunmuş ölçüler olduğu halde adsız; diğer ölçüler `headMetrics.ts` ve dosya başındaki sabitlerde duruyor. | Bu sınırları adlandırılmış sabitlere (ör. `EAR_X`, `NECK_Y`) çıkar; taramaya ait olanları `headMetrics.ts`'e koy. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/hairShape.ts::hairShape::lipClearance": {
+      "fp": "78ca784b4eb734a84164fe4d65f198defe30e72c225bfdbbae40c390a4ab2a99",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hairShape.ts::hairShape::beardShape": {
+      "fp": "624e2140a6c6763e4bfb45c14e1093594e94aceab8c9c093d28e685f82c84884",
+      "matrix": [
+        "| hairShape | beardShape | 13. Potansiyel Hatalar ve Sorunlar | [minor] Sakal uzunluğu/yön katsayıları adsız sayılar |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hairShape | beardShape | [minor] Yüz işaretleri (`MOUTH`, `CHIN_Y`, `BROW`) adlandırılmışken sakalın biçimini belirleyen değerler (`0.085`, `0.25`, `0.35`, `1.15`, `0.2`, `0.6`, yön katsayıları `0.75`/`-0.55`/`0.35`/`0.45`) satır içinde adsız; hangi sayının taban uzunluk, hangisinin çene uzaması olduğu koddan okunamıyor. | `BROW` gibi tek bir `BEARD = { baseLength, chinLength, ... } as const` sabitinde topla. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/hairShape.ts::hairShape::browShape": {
+      "fp": "2874b64a219e01cb8eedadb7bc3042053e6b47d3119bd2b9b11f089db2698bc3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hairShells.ts::hairShells::(sınıf düzeyi)": {
+      "fp": "bb99bbcd44df19f246192b5f3e42f8061bc49b958f7ffde422bc23123a19e486",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hairShells.ts::hairShells::findGrowing": {
+      "fp": "c0fa0c83a7634d2d29877e3b830048985d8df57befdd18c3e72d59feb4c7d95e",
+      "matrix": [
+        "| hairShells | findGrowing | 13. Potansiyel Hatalar ve Sorunlar | [minor] `normal` özniteliği için koruma yok, `index` için var |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hairShells | findGrowing | [minor] `index` yokluğu açıklayıcı hata ile yakalanıyor, ama `skin.getAttribute('normal')` yoksa `readVec3(normal, vertex)` anlaşılmaz bir `TypeError` ile düşer; aynı korumasız okuma `hairWeights` ve `buildGeometry`'de de var. Fonksiyon dışarıdan gelen her geometriyle (`kaftan.createFur` bandı dahil) çağrılıyor. | `index` kontrolünün yanına `if (!normal) throw new Error('The skin under the hair must have normals.')` ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/hairShells.ts::hairShells::hairWeights": {
+      "fp": "d450807d72c517a07e896b9e7ee50cae9930034447e2b4bbbcddb3aefdf7c6d9",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hairShells.ts::hairShells::buildGeometry": {
+      "fp": "639d2a5d82003e46355259d8db563437a22255d34601897f12e8b3367ffbb209",
+      "matrix": [
+        "| hairShells | buildGeometry | 14. Best Practice'ler | [suggestion] `gather` yüz ortasına değil x=0'a topluyor |",
+        "| hairShells | buildGeometry | 3. Kod Kalitesi | [minor] `layers` 1 olduğunda 0/0 = NaN, doğrulama yok |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| hairShells | buildGeometry | [minor] `const height = layer / (options.layers - 1)` satırında `layers` 1 ise 0/0 = `NaN` olur ve tüm konum/`aShell` değerleri sessizce `NaN` dolar; `layers` 0 veya negatifse boş geometri döner. `layers` için hiçbir doğrulama yok. | Başta `if (options.layers < 2) throw new Error(...)` ile koru ya da `layers === 1` için `height = 0` kullan. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| hairShells | buildGeometry | [suggestion] `HairOptions.gather` \"yüzün ortasına doğru toplanma\" diye belgelenmiş, ama `position[at * 3] = (x + ...) * gather` x=0'a doğru ölçekliyor; tarama ortalı değil (`FACE_CENTRE_X = -0.09`), yani sakal yüz ortasına değil tarama eksenine toplanıyor. | Toplama merkezini seçenek olarak al (ör. `gatherCentreX`) ve `centre + (x - centre) * gather` uygula, ya da belgeyi \"x=0'a doğru\" diye düzelt. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/hairShells.ts::hairShells::createHairShells": {
+      "fp": "83f4bd6d4041e5bfd29c072a4e5041415946e63b6840843b9c7189b23a12ee5a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hands.ts::hands::(sınıf düzeyi)": {
+      "fp": "c1f59dddcdedc24aa01ff383ae664e9d7aa3ad56c4a55e4a08bafcc672170f2c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/hands.ts::hands::loadHand": {
+      "fp": "5f54fbb1f64621d717be4375333ab7dfc9e84842146368c5009d1f57f28cd2fd",
+      "matrix": [
+        "| hands | loadHand | 13. Potansiyel Hatalar ve Sorunlar | [minor] Bilek ötelemesi yerel `position` ile, üst düğüm dönüşümleri yok sayılıyor |",
+        "| hands | loadHand | 13. Potansiyel Hatalar ve Sorunlar | [suggestion] `traverse` son mesh'i seçiyor, `as THREE.Mesh` cast'i ile daraltma |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hands | loadHand | [minor] `geometry.translate(-wrist.position.x, ...)` bilek ekleminin yerel konumunu kullanıyor; eklem ölçekli/döndürülmüş bir üst düğümün (armature) altındaysa ya da mesh'in kendi dönüşümü varsa bilek orijine gelmez ve el yanlış yere oturur. | `gltf.scene.updateMatrixWorld(true)` sonrası `wrist.getWorldPosition(...)` ile dünya konumunu al ve mesh'in `matrixWorld`'ünü geometriye uygula. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hands | loadHand | [suggestion] `traverse` içinde `source = child` her mesh'te üzerine yazıyor (modelde birden çok mesh olursa sonuncusu sessizce seçilir) ve atama callback içinde olduğu için tip daralmıyor, bu da `(source as THREE.Mesh)` cast'ini gerektiriyor. | `const source = gltf.scene.getObjectByProperty('isMesh', true)` benzeri tek bir arama ya da ilk mesh'i döndüren küçük bir yardımcı kullan; cast'i kaldır. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/hands.ts::hands::createHands": {
+      "fp": "7aa8f97cfd4a8d4815578e51dfcce12932159f78a92a5b78a7cad9fcb62f1294",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/headMetrics.ts::headMetrics::(sınıf düzeyi)": {
+      "fp": "286d311a7c46320ac91b7ada67c336f259cf25003e46bdee37f1e9325cf6f625",
+      "matrix": [
+        "| headMetrics | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/scene3d/figure/headShader.ts::headShader::(sınıf düzeyi)": {
+      "fp": "1478231fa6c9936fada043edd6d41fe7794c3c35f6c26dbdc38495c55ed53681",
+      "matrix": [
+        "| headShader | (sınıf düzeyi) | 14. Best Practice'ler | [minor] Ağız ölçüleri `hairShape.MOUTH` ile elle paralel tekrarlanmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| headShader | (sınıf düzeyi) | [minor] `UNDER_HAIR_FRAGMENT` içindeki dudak bölgesi `vec2(FACE_CENTRE_X, 0.45)` ve `vec2(0.52, 0.2)` ile yazılmış; aynı ağız işareti `hairShape.ts`'te `MOUTH = { y: 0.45, halfWidth: 0.5, halfHeight: 0.19 }` olarak ayrıca tanımlı. Aynı şekilde `p.z < 1.0` / `vHeadPos.z > 1.0` yüz önü eşiği `browShape`'teki `z < 1` ile tekrar ediyor. Tarama ölçüsü değişirse biri güncellenmez ve dudak tonu ile sakalın dudak boşluğu sessizce ayrışır. | Ağız işaretini ve yüz önü eşiğini `headMetrics.ts`'e taşı; hem `hairShape.ts` hem shader `float(MOUTH.y)` ile oradan okusun. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/headShader.ts::headShader::patchHeadMaterial": {
+      "fp": "b1bf33b0690183ce0765ce32d60d0132b0ecb9211fb902271477a3d9c91a56c2",
+      "matrix": [
+        "| headShader | patchHeadMaterial | 13. Potansiyel Hatalar ve Sorunlar | [minor] `customProgramCacheKey` yok, `grid` açık/kapalı aynı programı paylaşabilir |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| headShader | patchHeadMaterial | [minor] `onBeforeCompile` atanıyor ama `customProgramCacheKey` tanımlanmıyor; three.js program önbellek anahtarı varsayılan olarak `onBeforeCompile.toString()`'dir ve closure metni `options.grid` true/false için aynıdır. Aynı parametreli iki malzemeden biri ızgaralı diğeri ızgarasız yamalanırsa ilk derlenen program diğerine de verilir. | `material.customProgramCacheKey = () => \\`head-${options.grid}\\`` ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/idle.ts::idle::(sınıf düzeyi)": {
+      "fp": "ff36013815686893ed8e0ddb21f2f65caa5698c78315dc6b910ef7733663070a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/idle.ts::idle::lidOpening": {
+      "fp": "2b40d602c39b3946dd3cb8f6d1cc0357283939d000477f35c317c313982021aa",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::(sınıf düzeyi)": {
+      "fp": "334c2e1e49048a56634dc1e550914666dceefce1a63b5d6e48fcff24775722b6",
+      "matrix": [
+        "| kaftan | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] `OUTER_OPENING`, `OUTER` kesitlerine elle paralel dizi |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| kaftan | (sınıf düzeyi) | [minor] `OUTER_OPENING` (11 değer) \"her kesit için\" diye belgelenmiş, ama `OUTER` kesitlerine elle paralel ayrı bir dizi; `OUTER`'a kesit eklenir/çıkarılırsa `through(OUTER_OPENING, along * (length - 1))` hata vermeden yanlış kesite yanlış açıklık verir. | Açıklığı kesitin alanı yap (`{ y, rx, rz, cz, opening }`) ve `OUTER.map((s) => s.opening)` ile türet; ya da uzunluk eşitliğini bir test/assert ile zorla. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::skirtFolds": {
+      "fp": "c4095c3a139500aa42ffae23dd2f80e478b19dd8e1efcea557f046984b470ba9",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createMaterials": {
+      "fp": "1c6b48a9c6a62993384673b080bbda05ef260200394f55b7121e5ea805cbf90d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createInner": {
+      "fp": "06936c8fd8d02175fc15d11de05646115b9a9735cf412757e0558526a6c42457",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createSashEnd": {
+      "fp": "cd529233c9a0734344a8e920eb09e7451e9f75b20c642ac50a2be515f17a7a6c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createSash": {
+      "fp": "12982549dd33e23fac3c179da663804fffab06f7b53177d612d6905fedd8296a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createOuter": {
+      "fp": "30dfaef4c292382884e098779d083e11ad371c6e0ba25a7b76759199c1e7c09d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::furPath": {
+      "fp": "929c26dee9a4a966265ee049d0edbb8ededaa644e15c5895231a71a1757698df",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createFur": {
+      "fp": "3078b60106352d1db02a3ed6446c6e9fea228a01f88d029be881bbcec4bf163a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createInnerSleeve": {
+      "fp": "c36195aa03429821914e70be815116f6490df68cb74e39b3b2ad2562f7abe5a7",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createOuterSleeve": {
+      "fp": "870a9e5881a16d02492675a6c68964ae149b87f4c0e310aa6b4faf050a17c61a",
+      "matrix": [
+        "| kaftan | createOuterSleeve | 13. Potansiyel Hatalar ve Sorunlar | [minor] Kol eklem noktaları satır içi adsız sayılar, `ARM` ile tutarsız |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| kaftan | createOuterSleeve | [minor] İç kolun eklemleri `ARM` sabitinden gelirken dış kolun noktaları (`0.14, 1.4`, `0.212, 1.368`, `0.255, 1.27`, `0.268, 1.16`) fonksiyon içinde adsız yazılmış; omuz/dirsek konumu `ARM`'da değişirse dış kol onu izlemez. Ayrıca `end` tanımlı olduğu halde manşet `points[3] as THREE.Vector3` cast'i ile konumlanıyor. | Dış kol yolunu `ARM`'ın yanında adlandırılmış bir sabite (`OUTER_SLEEVE`) çıkar ve mümkünse `ARM` eklemlerinden türet; manşet için `points.at(-1)` yerine aynalanmış `end` değişkenini kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createShoe": {
+      "fp": "f1aa25fc696ddd812a46d9115e4f15b74870adbadf52f6df052a03b9d8bfc3c4",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/kaftan.ts::kaftan::createKaftan": {
+      "fp": "ab42b62b12e5940aeddbb40321423fb88e79d79ca0e22c2c7b7ef8f30e29b6a0",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/loft.ts::loft::(sınıf düzeyi)": {
+      "fp": "7e174ffa78aede26cbad94225ffb58c6449b3dfc47a4e47036c2fc8194a3125b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/loft.ts::loft::through": {
+      "fp": "d35d32a2bba02113a6f582eeaa8c796b9db5ece81d229e6aefd9f5bcbace8a85",
+      "matrix": [
+        "| loft | through | 13. Potansiyel Hatalar ve Sorunlar | [minor] 2'den az değerde `as number` cast'i `undefined`'ı gizler, sessizce NaN döner |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| loft | through | [minor] `values.length < 2` olduğunda `i = -1` olur, `values[-1]` `undefined` döner ve `as number` cast'i bunu derleyiciden gizler; export edilen fonksiyon sessizce NaN üretir. | Başta `values.length < 2` için açıklayıcı bir hata fırlat (ya da tek değeri döndür); cast yerine denetimli erişim kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/loft.ts::loft::grid": {
+      "fp": "f0cd893f6c2393b26a57c27f3c90d2b4a2572c2a2b1ab707ec607b1f60b9a2a3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/loft.ts::loft::finish": {
+      "fp": "2c7e7a926e2aab3e10526cdb3233b78828b97cf8c59328d1b537095b63d610bd",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/loft.ts::loft::closeSeam": {
+      "fp": "008b620bb48445275b953c24f3100d03fb6d8a07f9662094607979394fa568a3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/loft.ts::loft::loft": {
+      "fp": "3d7dece00b0001107a98a98b0083427cb87852100029a0a2f7b54ee3b4ef4dd0",
+      "matrix": [
+        "| loft | loft | 13. Potansiyel Hatalar ve Sorunlar | [minor] Tek kesitte `rows - 1 = 0` → `0/0`, NaN geometri; girdi doğrulaması yok |",
+        "| loft | loft | 6. Performans | [suggestion] `through(...)` satıra bağlı olduğu halde her sütunda 4 kez yeniden hesaplanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 6,
+          "heading": "Madde 6: Performans",
+          "row": "| loft | loft | [suggestion] `through(rxs, at)`, `through(ys, at)`, `through(rzs, at)`, `through(czs, at)` yalnız satıra (`i`) bağlı, ama iç döngüde her sütun için yeniden hesaplanıyor (`rows × rowLength × 4` çağrı). | Dört değeri dış döngüde bir kez hesaplayıp iç döngüde kullan. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| loft | loft | [minor] `sections.length === 1` iken `rows = 1` ve `along = i / (rows - 1)` → `0/0 = NaN`; `around` veya `rowsPerSection` 0 olduğunda da bölme NaN/Infinity verir. Geometri hata vermeden bozuk kurulur. | Girişte `sections.length >= 2`, `around >= 1`, `rowsPerSection >= 1` koşullarını denetle ve anlamlı mesajla fırlat. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/loft.ts::loft::sweepTube": {
+      "fp": "2ec3d7263e17901f9cbe2ff1677c1e2d832787254186b37cbfff7b05dc49fa90",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/loft.ts::loft::sweepBand": {
+      "fp": "6f0d4caf215dc47f60ed62647a83740ccfeadf3cb29b826ba83004e56588f76b",
+      "matrix": [
+        "| loft | sweepBand | 13. Potansiyel Hatalar ve Sorunlar | [minor] Adsız sayılar: `-0.18`, `1.18`, `0.6`, `0.004` |",
+        "| loft | sweepBand | 13. Potansiyel Hatalar ve Sorunlar | [minor] Tek noktalı yolda `path.length - 1 = 0` → NaN |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| loft | sweepBand | [minor] `path.length === 1` iken `along = i / (path.length - 1)` → NaN; boş yolda da anlamsız geometri oluşur, hata yok. | `path.length < 2` için başta hata fırlat. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| loft | sweepBand | [minor] Bandın kenarı ne kadar sardığı (`-0.18`, `1.18`), dolgunun biçimi (`0.6`) ve gömülme payı (`0.004`) adsız sayı; `-0.18` ile `1.18` birbirine bağlı ama bu bağ kodda görünmüyor. | `BAND = { wrap: 0.18, padding: 0.6, sink: 0.004 }` gibi adlandırılmış sabite çıkar, `reach`'i `wrap`'ten türet. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/turban.ts::turban::(sınıf düzeyi)": {
+      "fp": "038ec48d452cec1a6b4857cb555ad97b998928fb0e327bda8945b0a517d26816",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/turban.ts::turban::fold": {
+      "fp": "599b65c98364e02a81164e0cac3f4bbf9dc00ea9a6b4468ac20be58fea630ca0",
+      "matrix": [
+        "| turban | fold | 13. Potansiyel Hatalar ve Sorunlar | [minor] Sarım biçimini belirleyen adsız sayılar `TURBAN` sabitinin dışında |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| turban | fold | [minor] Sarımların dalgasını ve kenarını belirleyen `1.25`, `0.8`, `0.3`, `1.4`, `0.9`, `0.55`, `0.72`, `0.2` değerleri adsız; aynı dosyada biçim parametreleri için `TURBAN` sabiti varken bunlar dışarıda kalmış. | Anlam taşıyanları (`rollSharpness`, `edgeStart`, kesişme eşiği vb.) `TURBAN` içine ya da ayrı bir `FOLD` sabitine taşı. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/turban.ts::turban::createClothGeometry": {
+      "fp": "77916239a23f775a1af5c0c8828774bac85984ae650cef3db4c5a79a387f38b2",
+      "matrix": [
+        "| turban | createClothGeometry | 13. Potansiyel Hatalar ve Sorunlar | [minor] Adsız sayılar: doku tekrarı `14`/`8`, `0.06`, `0.2`, `0.6`, `0.3`, `0.8`, `1.3`, `0.7` |",
+        "| turban | createClothGeometry | 3. Kod Kalitesi | [minor] `loft.ts` içindeki `grid`/`finish` mantığı yeniden yazılmış (DRY) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| turban | createClothGeometry | [minor] İndeks ızgarası kurma ve `BufferGeometry` toplama (`position`/`uv`/`setIndex`/`computeVertexNormals`) `loft.ts` içindeki `grid` ve `finish` ile aynı mantığın yeniden yazımı; yalnız sarım yönü ve `color` özniteliği farklı. | `grid`/`finish`'i `loft.ts`'ten export edip (isteğe bağlı ek öznitelik ve sarım yönü parametresiyle) burada kullan. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| turban | createClothGeometry | [minor] Doku tekrarı (`14`, `8`), solma ve kenar aralıkları (`0.06`, `0.2`, `0.6`), `Math.max(spread, 0.3)`, `0.8` üssü ve gölge katsayıları (`0.8`, `1.3`, `0.7`, `0.9`, `0.1`) adsız. | Doku tekrarını ve aralıkları `TURBAN` sabitine adlandırılmış alan olarak ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/figure/turban.ts::turban::createCapGeometry": {
+      "fp": "e13d24f347de249380c94dadaf8757b2b1fa956f69388c2e584d26e29a15b284",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/figure/turban.ts::turban::createTurban": {
+      "fp": "33106ecf59f2f4936bbb3bd800e2b31cb28e1b3b14ba5e945213904b2af66641",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/hud.ts::hud::(sınıf düzeyi)": {
+      "fp": "b0cbf3f09e2baf3756b3d2c72ea09fab12ad8f0c9e73feae707a0ccf74b63ee3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/hud.ts::hud::element": {
+      "fp": "2c1ba5bf8c18375d2efda0d592bfd18b1d833af1840148f926fd45ff54e82cae",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/hud.ts::hud::createCard": {
+      "fp": "c4ca6de764c74750f381c0551d8f7e001836b752486d085eae2fbcccb98dbc4b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/hud.ts::hud::createCredits": {
+      "fp": "9a1eee82ded2238924b08fc864b3fbc81fd109fc1d48674ee6fda4b842920d98",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/hud.ts::hud::createHud": {
+      "fp": "1e84f935c133ae0ca6e364472bc528d7f8834a19f433b9833fef962647b2b7cf",
+      "matrix": [
+        "| hud | createHud | 13. Potansiyel Hatalar ve Sorunlar | [minor] `keydown` tekrarı süzülmüyor: E basılı tutulunca kart sürekli açılıp kapanır |",
+        "| hud | createHud | 14. Best Practice'ler | [suggestion] Düğmedeki `E` etiketi `MEET_KEY`'den ayrı elle yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hud | createHud | [minor] `onKey` `event.repeat`'i denetlemiyor: E tuşu basılı tutulduğunda tarayıcının ürettiği tekrar olayları kartı sürekli açıp kapatır. | `if (event.repeat) return;` koruması ekle. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| hud | createHud | [suggestion] Düğme metnindeki `E` harfi `MEET_KEY = 'KeyE'` sabitinden bağımsız elle yazılmış; tuş değişirse etiket sessizce yanlış kalır. | Tuş kodunu ve etiketini tek sabitte tut (`MEET = { code: 'KeyE', label: 'E' }`) ve metni ondan üret. |"
+        }
+      ]
+    },
+    "src/scene3d/main.ts::main::(sınıf düzeyi)": {
+      "fp": "3faf2630d17b5930561beeef53d44cdefdcc04a153c4a4d5ac8c6663a8d2557c",
+      "matrix": [
+        "| main | (sınıf düzeyi) | 8. Hata Yönetimi ve Loglama | [minor] `#scene-root` yoksa sessizce hiçbir şey yapılmıyor |",
+        "| main | (sınıf düzeyi) | 8. Hata Yönetimi ve Loglama | [minor] `void startScene(...)` hatası yakalanmıyor; kullanıcı boş sayfa görür |"
+      ],
+      "bulgu": [
+        {
+          "madde": 8,
+          "heading": "Madde 8: Hata yönetimi ve loglama",
+          "row": "| main | (sınıf düzeyi) | [minor] `void startScene(...)` gerekçesiz fire-and-forget: model yüklenemezse ya da WebGL açılamazsa reddedilen promise yakalanmıyor, kullanıcı açıklamasız boş sahne görür. | `.catch(...)` ile hatayı logla ve `root` içine kullanıcıya dönük bir hata mesajı (haritaya dönüş bağlantısıyla) yaz. |"
+        },
+        {
+          "madde": 8,
+          "heading": "Madde 8: Hata yönetimi ve loglama",
+          "row": "| main | (sınıf düzeyi) | [minor] `#scene-root` bulunamazsa `else if (root)` dalı sessizce atlanır; sayfa hiçbir iz bırakmadan boş kalır. | `root` yoksa açıklayıcı bir hata fırlat ya da `console.error` ile bildir. |"
+        }
+      ]
+    },
+    "src/scene3d/post.ts::post::(sınıf düzeyi)": {
+      "fp": "bb249612a39d97ed683cd21a0ddb31bbb19a016ae9896bf0f289d20090e94833",
+      "matrix": [
+        "| post | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/scene3d/post.ts::post::createPicture": {
+      "fp": "b97f6b780372bf594563425fc679151fa233f132ec842053e73d1b76e30305bb",
+      "matrix": [
+        "| post | createPicture | 6. Performans | [minor] Render hedefi ve composer için `dispose` yok; `Picture` arayüzü temizlik sunmuyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 6,
+          "heading": "Madde 6: Performans",
+          "row": "| post | createPicture | [minor] `WebGLRenderTarget`, `EffectComposer` ve geçişler GPU kaynağı tutuyor, ama `Picture` arayüzünde `dispose` yok; sahne kapatılırken (`Hud.dispose` bunun öngörüldüğünü gösteriyor) bu kaynaklar serbest bırakılamaz. | `Picture`'a `dispose()` ekle: `composer.dispose()` ve `target.dispose()` çağır; düşük kalitede boş gövde. |"
+        }
+      ]
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::(sınıf düzeyi)": {
+      "fp": "94e23553bde2cb22569e88a50cbc76d67e2d4b9f8652d7b4c0b14efdb4b4d7d4",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::medallionHeart": {
+      "fp": "01fb750fb63c783fe0aee024508ca8a965540d963b07bce3999b8cd1779f5203",
+      "matrix": [
+        "| carpetPattern | medallionHeart | 13. Potansiyel Hatalar ve Sorunlar | [minor] Adsız sayılar: `1.6`, `2.6`, `1` |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| carpetPattern | medallionHeart | [minor] Yıldızın kenar kalınlığı (`1.6`), merkez elmasın yarıçapı (`2.6`) ve haç kalınlığı (`1`) adsız; dosyada `OUTLINE`/`INTERLACE` gibi sabitler varken bunlar gömülü. | Düğüm cinsinden ölçüleri adlandırılmış sabite (`HEART = { rim, core, cross }`) çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::octagonKnot": {
+      "fp": "1554d3b2d20acecfeb56a271e73e1e2d88acbcc8ec3af1c81baf0e51d1ff8ed9",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::diamondKnot": {
+      "fp": "8b937620d35eec6cf107649663c2755f53ddfc4bbee563c084c3090da7346c5e",
+      "matrix": [
+        "| carpetPattern | diamondKnot | 13. Potansiyel Hatalar ve Sorunlar | [minor] Adsız sayılar: `1.4`, `3`, `1.6`, `1` |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| carpetPattern | diamondKnot | [minor] Kenar ve şerit kalınlıkları (`1.4`, `3`), merkez yarıçapı (`1.6`) ve haç kalınlığı (`1`) adsız. | Adlandırılmış sabite çıkar; haç kalınlığını `medallionHeart` ile ortak sabitten al. |"
+        }
+      ]
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::holbeinFieldKnot": {
+      "fp": "b784d540ddaae02ce1736d83bf2d38e81401ee52d6a5ecab1826d69422523b5c",
+      "matrix": [
+        "| carpetPattern | holbeinFieldKnot | 13. Potansiyel Hatalar ve Sorunlar | [minor] Adsız oranlar: `0.8`, `0.44`, `2.2` |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| carpetPattern | holbeinFieldKnot | [minor] Sekizgenin (`0.8`) ve elmasın (`0.44`) hücreye oranı ile çivi yarıçapı (`2.2`) adsız; desenin oranlarını bunlar belirliyor. | `FIELD = { octagon: 0.8, diamond: 0.44, stud: 2.2 }` gibi sabite çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::guardKnot": {
+      "fp": "ce2b421de08458f187131c2eaf71cfe807079926fcd458e602b58437d0e93351",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::borderInterlace": {
+      "fp": "9812b9cbaca755f45fddbfa489ba0b8ffa4945bb648c176f7a7132e09e1149c8",
+      "matrix": [
+        "| carpetPattern | borderInterlace | 13. Potansiyel Hatalar ve Sorunlar | [minor] Faz aralıkları (`2..16`) `BORDER_PERIOD = 24`'e örtük bağlı |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| carpetPattern | borderInterlace | [minor] Faz aralıkları (`2–4`, `4–10`, `8–14`, `14–16`) `BORDER_PERIOD = 24` değerine göre elle yazılmış; periyot değişirse örgü derleme/test hatası vermeden bozulur. Bant oranları `0.32`/`0.68` de adsız. | Aralıkları `BORDER_PERIOD`'un kesri olarak türet ya da periyotla birlikte tek bir sabit tabloda tut. |"
+        }
+      ]
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::borderKnot": {
+      "fp": "f07d16dedc888bf08a35f42307be810c913dfda3db1271ee1cb2dc268ebbad1a",
+      "matrix": [
+        "| carpetPattern | borderKnot | 13. Potansiyel Hatalar ve Sorunlar | [minor] Mücevher konumları `8.5`/`20.5` `BORDER_PERIOD`'a örtük bağlı; `border < 2 × GUARD_WIDTH` denetlenmiyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| carpetPattern | borderKnot | [minor] Mücevher konumları `8.5` ve `20.5` (ve `0.3`/`0.7`, `2.4`) `BORDER_PERIOD`'a örtük bağlı adsız sayılar. Ayrıca `border < 2 × GUARD_WIDTH` iken `band` negatif olur ve iki koruma şeridi üst üste biner; denetim yok. | Konumları periyottan türet ya da adlandır; en küçük bordür genişliğini plan doğrulamasında zorunlu kıl. |"
+        }
+      ]
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::carpetKnot": {
+      "fp": "8fe13a74281d764a2bbd0802b04b5c59863b1a1515fbff8cc6270b836035df1a",
+      "matrix": [
+        "| carpetPattern | carpetKnot | 13. Potansiyel Hatalar ve Sorunlar | [minor] `CarpetPlan` doğrulanmıyor: `repeat = 0` → NaN, dar halıda negatif alan |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| carpetPattern | carpetKnot | [minor] Export edilen fonksiyon `CarpetPlan`'ı doğrulamıyor: `repeat = 0` → `positiveModulo` NaN, `knotsX`/`knotsY` `2 × border`'dan küçükse alan boyutu negatif, koordinat sınır dışıysa `depth` negatif. Hepsi sessizce yanlış renk döndürür. | Planı bir kez doğrulayan bir yardımcı (`assertCarpetPlan`) ekle ve doku üretilmeden önce çağır; sınır durumları için birim testi yaz. |"
+        }
+      ]
+    },
+    "src/scene3d/room/carpetPattern.ts::carpetPattern::abrash": {
+      "fp": "e0b325822fe6d8b8840eef1f3c74f8e2ffe871de195c43d1d05d96649569bd18",
+      "matrix": [
+        "| carpetPattern | abrash | 13. Potansiyel Hatalar ve Sorunlar | [minor] Adsız sayılar: `9`, `0.12`, `0.04` |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| carpetPattern | abrash | [minor] Bant yüksekliği (`9`) ve parlaklık genlikleri (`0.12`, `0.04`) adsız. | `ABRASH = { bandRows: 9, bandAmount: 0.12, rowAmount: 0.04 }` gibi sabite çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/ceiling.ts::ceiling::(sınıf düzeyi)": {
+      "fp": "0df171fea46a63fce5e1e46945fdd8d567588c4ed11d82a7b482ef1697956a04",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/ceiling.ts::ceiling::downPlane": {
+      "fp": "ea176053b40ec9f9ee6cf77ad755dab2cb8b9ec69ca73b7be38be76a471e4c36",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/ceiling.ts::ceiling::addField": {
+      "fp": "c575a241061062721bdbd43c51054778015a3d4644054ea2491d2ed6646fdc22",
+      "matrix": [
+        "| ceiling | addField | 13. Potansiyel Hatalar ve Sorunlar | [minor] Açıklamasız `0.98` çarpanı (`addBorder`'da da tekrarlanıyor) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| ceiling | addField | [minor] `LATH.drop * 0.98` çarpanı açıklamasız; aynı `0.98` `addBorder`'da `FRAME.drop` için tekrarlanıyor (muhtemelen kesişen kutularda z-çakışmasını önlemek için). | Tek bir adlandırılmış sabit (`CROSSING_SHRINK`) tanımla ve nedenini bir satırla açıkla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/ceiling.ts::ceiling::addBorder": {
+      "fp": "cf77a67e39c23754eb5908d762fdea839faf66ec913d50adac46d3392a6634ca",
+      "matrix": [
+        "| ceiling | addBorder | 13. Potansiyel Hatalar ve Sorunlar | [minor] `0.004` iki kez ve `0.98` adsız; `0.004` `decor.ts`'teki `DECAL_LIFT` ile aynı değer |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| ceiling | addBorder | [minor] `HEIGHT - 0.004` iki kez ve `0.98` adsız; `0.004` `decor.ts`'teki `DECAL_LIFT` ile aynı değer ve aynı amaç, iki yerde ayrı yazılmış. | Ortak bir kaldırma sabiti kullan (ör. `DECAL_LIFT`'i paylaşılan modüle taşı) ve `0.98` için `addField` ile aynı sabiti kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/ceiling.ts::ceiling::addCornice": {
+      "fp": "7177e2a753884ed393f5975eb73385f5f08b02d3f46b4dded031192fff34e280",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/ceiling.ts::ceiling::addRosette": {
+      "fp": "95332350079c167df9291b1a2363899a3dd18334d50764c652c5a8582e477b23",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/ceiling.ts::ceiling::addCeiling": {
+      "fp": "56d0274bb7695d6c149b34ed35def0aa7afda07ffdea393e1f9dc4e242d615c3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/decor.ts::decor::(sınıf düzeyi)": {
+      "fp": "5d55eed3cec37bb38124285116605bf80b1be7a49b2fcea3d6eb1cc88eef4182",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/decor.ts::decor::addWallPaintings": {
+      "fp": "db64057ef9897f0380468e60bf7dfe6a07a66befa542e22294fd711c02f7c91e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::(sınıf düzeyi)": {
+      "fp": "512fe7286cb6bc2d0bb96646bf0a4da62cad449f14e2434f6c306675db2cc23c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::shadeQuad": {
+      "fp": "d804bbe4799e89777097624a08abc59910bc532940fa8be7075928282e557dd1",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::solidRunsAtFloor": {
+      "fp": "48aa41c5b65495409dc31f12bc555301bf3e1130c3ecca5daf71eb4550de58f4",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::addWallShade": {
+      "fp": "6ee12870b33a03d45055f080acbee4bf1147fdaa4793b00f8dcd0ec2bd6a6268",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::addContactShadow": {
+      "fp": "88a593e1ee0ef8e86857ebb8752fc8de7794e0e368ce57cb4a4de1cb459428b3",
+      "matrix": [
+        "| effects | addContactShadow | 3. Kod Kalitesi | [suggestion] 7 konumsal sayısal parametre; çağrı yeri okunmuyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| effects | addContactShadow | [suggestion] Metot 7 konumsal sayı alıyor (`minX, maxX, minZ, maxZ, spread, lift`); çağrı yerinde hangi sayının ne olduğu okunmuyor ve sıra karışırsa derleyici yakalamaz. | Sınırları tek nesne olarak al (`Collider` ya da `{ minX, maxX, minZ, maxZ }`), `spread` ve `lift` için adlandırılmış seçenek nesnesi kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/effects.ts::effects::addAmbientShade": {
+      "fp": "71111bd61be374a3e655cb9a5483b5d0fd7033328aa72d31c91a9f70c553f639",
+      "matrix": [
+        "| effects | addAmbientShade | 13. Potansiyel Hatalar | [minor] Adsız sabitler (0.22, 0.016, 0.0004) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| effects | addAmbientShade | [minor] Satır 69'da `0.22`, `0.016` ve `0.0004` adsız; dosyanın geri kalanı `SHADE`, `SHAFT`, `DUST` sabit nesnelerini kullanıyor. `index * 0.0004` z-fighting önlemi olduğu koddan anlaşılmıyor. | `SHADE` nesnesine `contactSpread`, `contactLift`, `contactLiftStep` ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/effects.ts::effects::paintShade": {
+      "fp": "b8add29f062e27c9f45e507e1c4c5adce927b483b9552d44c44735387cefe1fb",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::createShadeMaterial": {
+      "fp": "39f04cd1aa49f17d397e24aac562a26453db2b6b8fdd956f271a2f52a2f60891",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::sunBeams": {
+      "fp": "ed074eb0099de249e95028c3b36bf3c8e272d936a3306f7925982238eec2752a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::shaftSheet": {
+      "fp": "98d2149ed54a546d80dacea6de03aed327b765069c378e8a08834786d3f20141",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/effects.ts::effects::createLightShafts": {
+      "fp": "c9658e0378ea8d7e9f5ae63a0555d3f68e1bb4e49e68e64acdab584d45646eea",
+      "matrix": [
+        "| effects | createLightShafts | 3. Kod Kalitesi | [suggestion] Geometri, doku boyama ve malzeme tek metotta |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| effects | createLightShafts | [suggestion] 43 satırlık metot üç iş yapıyor: levhaları dizmek, gradyan dokusunu boyamak, malzemeyi kurmak. Aynı dosyada gölge için bu ayrım yapılmış (`paintShade` + `createShadeMaterial`). | Doku boyamayı `paintShaft()` gibi bir yardımcıya çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/effects.ts::effects::createDust": {
+      "fp": "68d72f78427b7aba0130c0eee58fee15708adb38c0b78f0e3889cce4b25ff617",
+      "matrix": [
+        "| effects | createDust | 13. Potansiyel Hatalar | [minor] Işın yoksa tüm toz zerreleri orijinde çizilir |",
+        "| effects | createDust | 13. Potansiyel Hatalar | [minor] `pixelScale` yalnız oluşturulurken hesaplanır; yeniden boyutlamada güncellenmez |",
+        "| effects | createDust | 3. Kod Kalitesi | [suggestion] `quality` parametresi ve `DUST.low` erişilemez yol |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| effects | createDust | [suggestion] `buildRoom` bu metodu yalnız `high` iken çağırıyor; `quality` parametresi ve `DUST.low` dalı bu yüzden hiç çalışmıyor. | Parametreyi kaldır, ya da düşük kalitede de toz isteniyorsa `buildRoom`'daki koşulu ona göre düzenle. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| effects | createDust | [minor] `sunBeams()` boş dönerse `index % beams.length` `NaN` olur, `beam` tanımsız kalır ve döngü her zerreyi atlar; ama `count` kadar nokta (0,0,0) konumunda yine de çizilir ve odanın ortasında parlak bir leke oluşur. | Işın yoksa döngüden önce boş bir `Dust` döndür (ya da `count`'u 0 al). |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| effects | createDust | [minor] `pixelScale` uniform'u `pixelHeight` ile yalnız oluşturma anında hesaplanıyor (`buildRoom` `renderer.domElement.height` veriyor). Pencere yeniden boyutlanınca ya da ekran döndürülünce zerre boyutu eski yüksekliğe göre kalır. | `Dust`'a `resize(pixelHeight)` ekle ya da değeri `update` içinde renderer'dan oku. |"
+        }
+      ]
+    },
+    "src/scene3d/room/effects.ts::effects::sunlitFloorCentre": {
+      "fp": "e44134944ef9ef0ce4102d4f0acf45c1f6fa1cfe8363155d60bd87a6a9b26a5c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/environment.ts::environment::(sınıf düzeyi)": {
+      "fp": "d18fb00175e927ca046cc058d6e5df39808210bd271aa1d0cfad26d71102bf69",
+      "matrix": [
+        "| environment | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/scene3d/room/environment.ts::environment::standInRoom": {
+      "fp": "2b444da63a7067d53ca8670e593cbb6a279d6456fe54d3556e7415167a303c2c",
+      "matrix": [
+        "| environment | standInRoom | 13. Potansiyel Hatalar | [minor] `upperWindow` olmayan her açıklık parlak pencere sayılıyor; `sunBeams` ile tutarsız |",
+        "| environment | standInRoom | 14. Best Practice'ler | [minor] Ocak ve güneş lekesi konumları tek kaynaktan türetilmiyor, elle yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| environment | standInRoom | [minor] Döngü doğu duvarındaki her açıklığı geziyor ve `upperWindow` olmayan her şeyi tam `WINDOW_GLOW` ile parlatıyor. `effects.sunBeams` ise aynı duvarda yalnız `kind === 'window'` olanları alıyor. Doğu duvarına pencere olmayan bir açıklık (kapı, niş) eklenirse yansımada parlak bir pencere olarak görünür. | Açıklık türünü açıkça ele al: `window` ve `upperWindow` dışındakileri atla ya da tür başına parıltıyı bir eşlemeden oku. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| environment | standInRoom | [minor] Ocak parıltısı `(0, 0.55, -HALF_DEPTH + 0.02)` ve `0.7 x 0.6`, güneş lekesi `(-HALF_WIDTH * 0.3, 0.02, -1)` ve `1.6 x 3.2` olarak elle yazılmış. Aynı bilgiler başka yerde zaten tanımlı: `hearth.ts` `findOpening('north', 'hearth')` ve `FURNITURE.hearthSlab` kullanıyor, `effects.ts` `sunlitFloorCentre()` veriyor. Plan değişirse yansıma haritası sessizce eski yerde kalır. Altı kutu yüzü rengi de adsız ve sırası (+x, -x, +y, -y, +z, -z) belgelenmemiş. | Konum ve ölçüleri plan/`FURNITURE`/`sunlitFloorCentre()` üzerinden türet; yüz renklerini adlandırılmış bir nesneye taşı. |"
+        }
+      ]
+    },
+    "src/scene3d/room/environment.ts::environment::applyReflections": {
+      "fp": "dfb3e53700960151742e4c981c316335ec8aeb81971cc144fa2fc017082161cf",
+      "matrix": [
+        "| environment | applyReflections | 13. Potansiyel Hatalar | [minor] `REFLECTIVE` anahtarı malzemelerde yoksa sessizce atlanır |",
+        "| environment | applyReflections | 6. Performans | [minor] Geçici sahnenin malzemeleri dispose edilmiyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 6,
+          "heading": "Madde 6: Performans",
+          "row": "| environment | applyReflections | [minor] `standInRoom()` sahnesinin yalnız geometrileri dispose ediliyor; altı `MeshBasicMaterial` ve `glowPanel` malzemeleri bırakılıyor. Ayrıca üretilen ortam dokusunun (PMREM render target) sahibi yok: yalnız malzemelerin `envMap` alanında duruyor, onu serbest bırakacak bir yol tanımlı değil. | `traverse` içinde malzemeleri de dispose et; ortam dokusunu döndür ve odanın temizliğine bağla (bkz. `Room` bulgusu). |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| environment | applyReflections | [minor] `REFLECTIVE` `Record<string, number>` ve malzeme adlarını elle tekrarlıyor. Ad `materials` içinde yoksa ya da malzeme `MeshStandardMaterial` değilse satır 71 sessizce atlıyor; yeniden adlandırılan bir malzeme yansımasını uyarısız kaybeder. `batchToMeshes` aynı durumda hata fırlatıyor. | Anahtarları `keyof RoomMaterials` ile tipe bağla ya da eşleşmeyen adda hata fırlat. |"
+        }
+      ]
+    },
+    "src/scene3d/room/geometryTools.ts::geometryTools::(sınıf düzeyi)": {
+      "fp": "b6339d348d03ac2e8ea3d6f353c14e1006ce02916a227a6774504aa0ddc264c4",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/geometryTools.ts::geometryTools::soupToGeometry": {
+      "fp": "27d008a01b983bcf74f4329d81095e9786752d19c4a46ce0812251f013a05267",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/geometryTools.ts::geometryTools::paint": {
+      "fp": "4cbd1f6cce07f2df108d9d5aa07eccef4652b9faed6e7d29d96df38264755c8a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/geometryTools.ts::GeometryBatch::add": {
+      "fp": "13bde6eec1825c23e7c3311fff8524862598139191134fb7546605638c2152cf",
+      "matrix": [
+        "| GeometryBatch | add | 13. Potansiyel Hatalar | [minor] `TINTED` adı doğrudan verilirse geometri geçersiz renkle boyanır |",
+        "| GeometryBatch | add | 14. Best Practice'ler | [minor] İndekssiz geometride çağıranın nesnesi yerinde değiştirilir, indekslide kopyalanır |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| GeometryBatch | add | [minor] Boyama koşulu `pileName === TINTED`. `TINTED` dışa açık bir sabit; biri `add(TINTED, geometry)` çağırırsa `paint(prepared, 'tinted')` çalışır ve `THREE.Color('tinted')` geçersiz renk üretir. | Boyamayı `material.startsWith('#')` koşuluna bağla. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| GeometryBatch | add | [minor] `geometry.index` varsa kopya (`toNonIndexed`) üzerinde çalışılıyor, yoksa çağıranın nesnesi yerinde dönüştürülüyor ve `position`/`normal`/`uv` dışındaki öznitelikleri siliniyor. Davranış girdinin indeksli olup olmamasına göre değişiyor; indekssiz bir geometri (ör. `metricBox` sonucu) iki kez eklenirse dönüşüm üst üste biner. | İndekssiz durumda da `geometry.clone()` üzerinde çalış, ya da geometrinin sahipliğinin batch'e geçtiğini doc comment'te belirt. |"
+        }
+      ]
+    },
+    "src/scene3d/room/geometryTools.ts::GeometryBatch::addAt": {
+      "fp": "b8e835388aa57e55d771f30ddd6a4d1c6f2b4cee719ea3685bd9dffa1ff4a97e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/geometryTools.ts::GeometryBatch::merged": {
+      "fp": "2bfb2103617f2908f45359487239e6dbaee7715dc59e3853aa38ad160ef87d98",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/geometryTools.ts::geometryTools::batchToMeshes": {
+      "fp": "1204c910df799e41ee7db93720ded511ce979075ba59308993d3a889cb25f44a",
+      "matrix": [
+        "| geometryTools | batchToMeshes | 8. Hata Yönetimi ve Loglama | [minor] Hata mesajı eksik olanın geometri mi malzeme mi olduğunu söylemiyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 8,
+          "heading": "Madde 8: Hata yönetimi ve loglama",
+          "row": "| geometryTools | batchToMeshes | [minor] `No geometry or material for \"...\"` mesajı hangisinin eksik olduğunu söylemiyor. İki neden farklı: malzeme eksikse ad haritada yoktur; geometri `null` ise `mergeGeometries` öznitelik uyuşmazlığından (ör. bir parçada `normal` ya da `uv` yok) başarısız olmuştur. | İki koşulu ayır ve ayrı mesaj ver: `No material named \"x\"` / `Could not merge the geometries of \"x\"`. |"
+        }
+      ]
+    },
+    "src/scene3d/room/geometryTools.ts::geometryTools::metricBox": {
+      "fp": "930d4ceb16c601e0e49d64620f310f990487c2adf6632b5e25adbe603b6d98ec",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/hearth.ts::hearth::(sınıf düzeyi)": {
+      "fp": "3aa486afc4e7610b563e075b90164d025d4207a3241b09ce1d81530717168cf2",
+      "matrix": [
+        "| hearth | (sınıf düzeyi) | 14. Best Practice'ler | [minor] Ocağın yatay konumu üç ayrı kaynaktan geliyor (sabit x=0, `FURNITURE.hearthSlab`, `OPENING`) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| hearth | (sınıf düzeyi) | [minor] Ocağın yatay konumu üç kaynaktan geliyor: davlumbaz, ayaklar, odunlar, alevler ve ışık `x = 0` varsayıyor; taban taşı `FURNITURE.hearthSlab.x` ve `.z` kullanıyor; `OPENING`'in yalnız `sill` değeri okunuyor, `centre` kullanılmıyor. Plan ocağı kaydırırsa parçalar birbirinden ayrılır. | Tüm parçaları tek bir ocak merkezinden (`OPENING.centre`'ın dünya konumu) türet. |"
+        }
+      ]
+    },
+    "src/scene3d/room/hearth.ts::hearth::hoodRadius": {
+      "fp": "909231f3799721ee0d4cbd1120d754f485deae3574a03fac50b6d2e82b29227d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/hearth.ts::hearth::hoodPoint": {
+      "fp": "8c381d88ee9342993621e592ac697a728678389698f02abeee5e8fe81a2d3fa5",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/hearth.ts::hearth::hoodBand": {
+      "fp": "fe536d812d7f56ed21ea30195f73018df8b491f5af650bd809bdb6d7578e34ce",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/hearth.ts::hearth::hoodUnderside": {
+      "fp": "59a353171d5b5908fb4159fdb857d71fa4172f1b7d810fbd3f3c307899e4f92d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/hearth.ts::hearth::addHood": {
+      "fp": "7a737299c13f5f9c548630dccf1982365cf58737bd111ccf991a67f02bf62d44",
+      "matrix": [
+        "| hearth | addHood | 13. Potansiyel Hatalar | [minor] Adsız sabitler (silme, kaburga, alem ölçüleri) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hearth | addHood | [minor] Silme (`0.012`, `0.014`), kaburga (`0.004`, `0.011`, `4`), alem profili ve yerleşimi (`14`, `0.02`, `0.06`) adsız; dosyanın geri kalanı `HOOD` ve `PIER` sabit nesnelerini kullanıyor. Metot ayrıca beş ayrı parçayı kuruyor (etek, sıva halkaları, silmeler, kaburgalar, alem). | Ölçüleri `HOOD` içine (`moulding`, `rib`, `finial`) taşı; silme/kaburga/alem bölümlerini ayrı yardımcılara çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/hearth.ts::hearth::addMasonry": {
+      "fp": "d925e42581eb0b86a65a5492797183fba66dd3c9eebd3dee07b474d8ddea7601",
+      "matrix": [
+        "| hearth | addMasonry | 13. Potansiyel Hatalar | [minor] `(2 - index)` dizinin uzunluğuna elle bağlı |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hearth | addMasonry | [minor] `[0.42, 0.56, 0.7].forEach` içindeki `(2 - index) * 0.1` ifadesi dizinin üç elemanlı olduğuna elle bağlı; dördüncü basamak eklenince yükseklikler kayar. `0.05`, `0.1`, `0.03` de adsız. | Basamakları `{ reach, drop }` nesneleri olarak tanımla ya da `(steps.length - 1 - index)` kullan; ölçüleri adlandır. |"
+        }
+      ]
+    },
+    "src/scene3d/room/hearth.ts::hearth::addLogs": {
+      "fp": "4d1da473515d98f8db90ebbbf3be8d6fb78aab9dc8a1583001b8c9b31b9d9ffb",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/hearth.ts::hearth::addHearth": {
+      "fp": "2bb956ace0f67d5faab86f1ba71eae4e6109a5848cc76787242f657e13257000",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/hearth.ts::hearth::flameGeometry": {
+      "fp": "f1f77760beac22b3b314dcb80e476e615e0e2fb32d959fb83d870d5ec73ede6f",
+      "matrix": [
+        "| hearth | flameGeometry | 13. Potansiyel Hatalar | [minor] Düzlem başına 6 köşe sabit yazılmış; `seed` sayısı geometriyle uyuşmayabilir |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hearth | flameGeometry | [minor] Düzlem başına `6` köşe sabit yazılmış; bu sayı `GeometryBatch.add`'in indeksli `PlaneGeometry`'yi `toNonIndexed` ile 6 köşeye açmasına gizlice bağlı. `merged('flame')` `null` dönerse boş geometriye 30 elemanlı `seed` özniteliği yazılır. | Sayıyı düzlemin kendi köşe sayısından oku; `merged` `null` ise hata fırlat. |"
+        }
+      ]
+    },
+    "src/scene3d/room/hearth.ts::hearth::createFire": {
+      "fp": "64814538aa393999bd4a026218c0ef501404c24466f6be89e445ccdabf7fab96",
+      "matrix": [
+        "| hearth | createFire | 13. Potansiyel Hatalar | [minor] Adsız sabitler (ışık konumu, titreşim hızları ve genlikleri) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| hearth | createFire | [minor] Işığın konumu `(0, 0.8, WALL_Z + 0.8)`, titreşim hızları (`3`, `11`, `17`) ve genlikleri (`0.04`, `0.05`) adsız; `FIRE_LIGHT` nesnesi tam bunun için var. | Değerleri `FIRE_LIGHT` içine taşı (`height`, `reach`, `flickerRates`, `sway`). |"
+        }
+      ]
+    },
+    "src/scene3d/room/index.ts::index::(sınıf düzeyi)": {
+      "fp": "1b68113e520059639b10376f4b39e98272bc69ee3460261d36e37705ff78168e",
+      "matrix": [
+        "| index | (sınıf düzeyi) | 13. Potansiyel Hatalar | [minor] `SHADOW_OPTIONS` anahtarları serbest metin; yanlış ad sessizce varsayılana düşer |",
+        "| index | (sınıf düzeyi) | 6. Performans | [major] `Room` sözleşmesinde kaynak temizliği (dispose) yok |"
+      ],
+      "bulgu": [
+        {
+          "madde": 6,
+          "heading": "Madde 6: Performans",
+          "row": "| index | (sınıf düzeyi) | [major] `Room` yalnız `group`, `colliders` ve `update` veriyor; temizlik yolu yok. `buildRoom` her çağrıda GPU kaynakları üretiyor: birleştirilmiş geometriler, canvas dokuları (gölge, ışık huzmesi, alev gürültüsü), iki `ShaderMaterial`, PMREM ortam dokusu, gölge haritalı güneş. Sahne kapatılıp yeniden açılırsa bunlar birikir. Çağıranın temizliği bu parçada görünmüyor; `group` üzerinden gezerek yapılıyorsa bile `noiseMap` uniform'undaki doku ve ortam dokusu genel bir gezintiyle yakalanmaz. | `Room`'a `dispose(): void` ekle; geometri, malzeme, doku ve ortam dokusunu orada serbest bırak ve sahne kapanırken çağır. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| index | (sınıf düzeyi) | [minor] `SHADOW_OPTIONS` `Record<string, MeshOptions>` ve malzeme adlarını elle tekrarlıyor. Yanlış yazılan ya da yeniden adlandırılan bir ad derleme hatası vermez; o mesh sessizce varsayılana (gölge atar ve alır) döner. | Anahtarları malzeme adlarının tipine bağla ya da `batchToMeshes` içinde batch'te karşılığı olmayan seçenek adında hata fırlat. |"
+        }
+      ]
+    },
+    "src/scene3d/room/index.ts::index::addFloor": {
+      "fp": "2d46a003b5d914bfa5415ba21b216ec6afe68f10932a99d5b1841c95b199fbfc",
+      "matrix": [
+        "| index | addFloor | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/scene3d/room/index.ts::index::buildRoom": {
+      "fp": "3de34fccb99791e941b31bac5c6434bc5abc78a5188729994b4f939f94a01570",
+      "matrix": [
+        "| index | buildRoom | 13. Potansiyel Hatalar | [minor] Eşzamanlı hata reddedilmiş Promise yerine doğrudan fırlar |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| index | buildRoom | [minor] Metot tümüyle eşzamanlı çalışıp sonunda `Promise.resolve(...)` döndürüyor. İçeride fırlayan hata (ör. `batchToMeshes`'in `throw`'u) reddedilmiş Promise olmaz, çağrı anında doğrudan fırlar; `buildRoom(ctx).then(...).catch(...)` biçimindeki bir çağıran bunu yakalayamaz. | Metodu `async` yap (hata reddedilmiş Promise olur), ya da eşzamanlı kalacaksa `Room` döndür. |"
+        }
+      ]
+    },
+    "src/scene3d/room/joinery.ts::joinery::(sınıf düzeyi)": {
+      "fp": "6c9a76d1df61460b404657850886a2ebc0b84d97d4235d3aa3716962f45744a0",
+      "matrix": [
+        "| joinery | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] `'#6a1a16'` dört yerde, `'#1d3d30'` bir yerde PALETTE dışı sabit renk |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | (sınıf düzeyi) | [minor] Koyu kırmızı `'#6a1a16'` dört yerde (satır 142, 196, 200, 226), koyu yeşil `'#1d3d30'` bir yerde (satır 224) `PALETTE` dışında sabit yazılmış; diğer tüm boyalar `PALETTE`'ten geliyor. | `PALETTE`'e `paintRedDeep` / `paintGreenDeep` gibi girişler ekle ya da dosya başında adlandırılmış sabit tanımla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/joinery.ts::joinery::addLeaf": {
+      "fp": "051bdabd9c22d3e72a430d41ad2df4a5028369117936b6f19aa56644f5a03736",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/joinery.ts::joinery::addPull": {
+      "fp": "14e74469d100a659a0fa5f2bd68d2c3fe1f7e84219c4260fe04850f95fb11ecd",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/joinery.ts::joinery::addDoubleLeaves": {
+      "fp": "08a08a162ceb6859e1ca255653f914cd25f6afbb4a476815731c6fe54e2fdd29",
+      "matrix": [
+        "| joinery | addDoubleLeaves | 13. Potansiyel Hatalar (magic number) | [minor] Adsız ölçüler: 0.01, 0.05, 0.52, 0.06, 0.03, 0.02, 0.035 |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | addDoubleLeaves | [minor] Magic number: 0.01 (derz payı), 0.05 (üst boşluk), 0.52 (kulp yüksekliği payı), 0.06 / 0.03 / 0.02 (kiriş), 0.035 / 0.02 (bini çıtası) adsız. | Dosya başındaki STILE, LEAF_GAP gibi adlandırılmış sabitlere çıkar (ör. `BEAM_HEIGHT`, `PULL_HEIGHT_SHARE`, `ASTRAGAL`). |"
+        }
+      ]
+    },
+    "src/scene3d/room/joinery.ts::joinery::addNicheFittings": {
+      "fp": "4843932a6ef9f34f9ba2a9d39d17e3e47bf3baa6da39f73dd5c704379c1c3943",
+      "matrix": [
+        "| joinery | addNicheFittings | 3. Kod Kalitesi (DRY) | [minor] Raf kuralı (TALL_NICHE eşiği + 0.56 payı) `nicheShelfHeight` ile iki yerde tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| joinery | addNicheFittings | [minor] Rafın var olma koşulu (`spring - sill > TALL_NICHE`) ve yüksekliği (`sill + (spring - sill) * 0.56`) hem burada hem `nicheShelfHeight` içinde yazılı. Biri değişirse çizilen raf ile üstüne konan nesnelerin yüksekliği sessizce ayrışır. | Payı adlandır (`SHELF_SHARE`), raf orta yüksekliğini tek bir yardımcıda hesapla; `addNicheFittings` ve `nicheShelfHeight` ikisi de onu kullansın. |"
+        }
+      ]
+    },
+    "src/scene3d/room/joinery.ts::joinery::nicheShelfHeight": {
+      "fp": "624ca4f0ed4b8c7d432cc99ce95f2b85bc28937adf6b1a4d2f60de1b81479a3d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/joinery.ts::joinery::addOpeningJoinery": {
+      "fp": "a28c58a4ea815fef260b45ea4e72575004fd28bf27239848c15bce7f88669162",
+      "matrix": [
+        "| joinery | addOpeningJoinery | 13. Potansiyel Hatalar (exhaustiveness) | [suggestion] `opening.kind` üzerinde if/else zinciri ve `Partial` kayıt; yeni tür sessizce atlanır |",
+        "| joinery | addOpeningJoinery | 13. Potansiyel Hatalar (magic number) | [minor] Adsız ölçüler: 0.022, 0.035, 0.2, 0.05, 0.09, 0.025, 0.02 |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | addOpeningJoinery | [minor] Magic number: kulp boyları 0.022 / 0.035, ray payları `[0.5]` / `[0.22, 0.78]` ve dolap eşiği ölçüleri 0.2, 0.05, 0.09, 0.025, 0.02 çağrı yerinde adsız. | Tür başına bir kayıt hâline getir (ör. `LEAVES_BY_KIND = { cupboard: { rails, pullSize }, door: {...} }`) ve eşik ölçülerini `SILL` gibi bir sabite al. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | addOpeningJoinery | [suggestion] `OpeningKind` tek kaynak iken davranış if/else zinciri ve `Partial<Record<...>>` ile seçiliyor; yeni bir tür eklendiğinde derleme hatası vermeden doğramasız kalır. | `Record<OpeningKind, ...>` kullanıp doğraması olmayan türleri açıkça `null` yaz, ya da `switch` + `default` içinde `never` denetimi ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/joinery.ts::joinery::addJoinery": {
+      "fp": "6313da90cfab703f3724437d774322a0a9ab7a1dd470694b929e0caee6c05445",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::(sınıf düzeyi)": {
+      "fp": "5cce15160306e1f478d19384efe0ebb9d9c37cc26829f84dbd39bb4e8ec58a14",
+      "matrix": [
+        "| layout | (sınıf düzeyi) | 13. Potansiyel Hatalar (type-safety) | [minor] `WALKABLE` `ReadonlySet<string>`; FURNITURE anahtarlarına derleme zamanında bağlı değil |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| layout | (sınıf düzeyi) | [minor] `WALKABLE` `ReadonlySet<string>` olarak tiplenmiş; `'mainCarpet'`, `'entryCarpet'` FURNITURE anahtarlarının elle kopyası. Anahtar yeniden adlandırılırsa derleme hatası olmaz, halı sessizce engele dönüşür. | `ReadonlySet<keyof typeof FURNITURE>` olarak tiple; ya da yürünebilirliği FURNITURE kaydının bir alanı yap. |"
+        }
+      ]
+    },
+    "src/scene3d/room/layout.ts::layout::westUpperWindows": {
+      "fp": "fa2010077c0b67cee5536c21dc9a7b3f8bd700ed7e7292f3caf85ea26e95eb7c",
+      "matrix": [
+        "| layout | westUpperWindows | 14. Best Practice (Single Source of Truth) | [minor] `[1.9, 4.5, 7.1]` eksenleri WALLS içindeki batı açıklıklarının `centre` değerleriyle elle paralel |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| layout | westUpperWindows | [minor] Üst pencere eksenleri `[1.9, 4.5, 7.1]` literal; aynı değerler WALLS içinde `cupboard-south`, `niche-west`, `cupboard-north` için ayrıca yazılı. Doğu duvarında `WINDOW_AXES` sabiti kullanılmışken batıda iki paralel liste var; biri değişirse üst pencereler bölmelerle hizadan çıkar. | `WEST_AXES = [1.9, 4.5, 7.1] as const` tanımla; hem batı açıklıklarının `centre` değerlerini hem `westUpperWindows` listesini ondan türet. |"
+        }
+      ]
+    },
+    "src/scene3d/room/layout.ts::layout::eastOpenings": {
+      "fp": "2db0f05962fd8a29b37b7748a3c4c7fe13b1f70fdb113ee60f6054a10611e7a5",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::wallPlan": {
+      "fp": "3d6705453d5e06ab3c46cc008339ec96d18ee744ba7d2d10d82e4e876932cd0c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::findOpening": {
+      "fp": "cf9b80b9e7dacb30fc434f8afc5df42329f4093e283d8fa0b9e161ceda3eed68",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::wallToWorld": {
+      "fp": "d9c4553e46c5b7dc7a9f3abddf0c0cbdca56afba778063d1c4bbe83496919976",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::sunTravelDirection": {
+      "fp": "3c82d739127f49e0caeab4b61c72fa53ff66a3e5ebc7436e5d0f0a36e7191cc2",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::rectToCollider": {
+      "fp": "4874e407a67f73051fc7f361bd7b754cc8ec09af6f8df5ff96e5856e9cc9e1a5",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::distanceToCollider": {
+      "fp": "8d1f98d6f3fea9080d8bc84d971d6c78da8799598899a429b857dad1cc208c55",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/layout.ts::layout::isPathFree": {
+      "fp": "f8777616706da699f24218b2fec81caa4ba9edb76a1efc1c2683c07fb6c42261",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/lights.ts::lights::(sınıf düzeyi)": {
+      "fp": "e14bd338a4bbb5222b6d66e4a3315f70ff6d94e804c4ce199c4df626096b18eb",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/lights.ts::lights::fitShadowCamera": {
+      "fp": "c34c4d6e1261197e384e238ed60d1784b2f3d666ef280086c4ba5a38c264e2c2",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/lights.ts::lights::createSun": {
+      "fp": "3960234e032271693848e5269a69c4af21b1cf057f76988ca00830ecc7261e1e",
+      "matrix": [
+        "| lights | createSun | 13. Potansiyel Hatalar (magic number) | [minor] Gölge ayarları adsız: -0.0004, 0.012, 1.1 |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| lights | createSun | [minor] Magic number: `shadow.bias = -0.0004`, `normalBias = 0.012`, `radius = 1.1` adsız; aynı dosyada diğer ayarlar (SUN_INTENSITY, SHADOW_MARGIN) sabit olarak tanımlı. | `SHADOW_BIAS`, `SHADOW_NORMAL_BIAS`, `SHADOW_RADIUS` sabitlerine çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/lights.ts::lights::createFillLights": {
+      "fp": "da5b01806e5c2434ff7a745e0c9146eee0e4d055b67b2e1edc0a3f5a9f71103a",
+      "matrix": [
+        "| lights | createFillLights | 13. Potansiyel Hatalar (magic number/string) | [minor] Işık renkleri, şiddetleri ve konumları adsız; renkler PALETTE dışında |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| lights | createFillLights | [minor] Magic number/string: dört ışığın renkleri (`#cfdcf2`, `#6e4a30`, `#dfe6f5`, `#ffb070`, `#f0d2b0`), şiddet/menzil/sönüm değerleri ve konumları satır içinde. Renkler \"tek yerde toplanır\" denen PALETTE dışında. | Renkleri PALETTE'e ekle; ışıkları `{ color, intensity, distance, position }` kayıtlarından oluşan adlandırılmış bir sabitten üret, 1.6 sönümünü tek sabit yap. |"
+        }
+      ]
+    },
+    "src/scene3d/room/lights.ts::lights::paintBackdrop": {
+      "fp": "6458df58487072248d118144c01d7cbb5ba9c7beba2615528e899287b81fdf1f",
+      "matrix": [
+        "| lights | paintBackdrop | 13. Potansiyel Hatalar (magic number/string) | [minor] Üç renk PALETTE dışında literal, 256 dört kez tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| lights | paintBackdrop | [minor] Magic number/string: `#f3e3bc`, `#93a57c`, `#5f7354` PALETTE dışında (aynı gradyanda `skyTop`/`skyHorizon` PALETTE'ten geliyor); tuval boyutu 256 dört kez tekrarlanıyor. | Renkleri PALETTE'e taşı (ör. `haze`, `gardenLight`, `gardenDark`), `BACKDROP_TEXTURE_SIZE` sabiti tanımla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/lights.ts::lights::createBackdrop": {
+      "fp": "2a4f3b1f390408e2c5200528b5da175006d943a67655cc1d06ad5afea5964b7d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/materials.ts::materials::(sınıf düzeyi)": {
+      "fp": "96bdf81349516422376853f7810afe54a6d673cce59d9d64f373e15036fc5325",
+      "matrix": [
+        "| materials | (sınıf düzeyi) | 13. Potansiyel Hatalar (type-safety) | [minor] `RoomMaterials = Record<string, THREE.Material>`; malzeme adları tip denetimsiz |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| materials | (sınıf düzeyi) | [minor] `RoomMaterials = Record<string, THREE.Material>` anahtar bilgisini siler: `batch.add('walnut', ...)` gibi çağrılardaki adlar tip denetimsiz string, yazım hatası derlemede yakalanmaz; `createMaterials` içindeki spread'lerde gruplar arası aynı ad da sessizce ezilir. | Grupların dönüş tipini çıkarımdan al (`satisfies Record<string, THREE.Material>`), `RoomMaterials`'ı bunların kesişimi yap ve `MaterialName = keyof RoomMaterials` tipini `batch.add` ile TRIM_BY_KIND'da kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/materials.ts::materials::setMetres": {
+      "fp": "6bfa605e5a577259e27f906fc1834b58c6d522a7d6b38b789f4387d73ed759dc",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/materials.ts::materials::surface": {
+      "fp": "6e2a5fdb9c5b135a99a18a7b807910ccbb537a11e7df68e7ffa8186d646abd45",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/materials.ts::materials::wallMaterials": {
+      "fp": "30874f4adc4d917ed0b623e7693c3ee3168fa62805203f324bd2cbf2617d0fa0",
+      "matrix": [
+        "| materials | wallMaterials | 13. Potansiyel Hatalar (magic number/string) | [minor] `setMetres(hoodBand, 1.1, 0.22)` ve renk literalleri adsız |",
+        "| materials | wallMaterials | 6. Performans | [suggestion] `buildFrieze` yalnız farklı tekrar için ikinci kez tam üretiliyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 6,
+          "heading": "Madde 6: Performans",
+          "row": "| materials | wallMaterials | [suggestion] `hoodBand` için `buildFrieze(context)` yalnız farklı tekrar değeri vermek üzere ikinci kez çağrılıyor; aynı tuvaller iki kez üretilip iki ayrı GPU dokusu oluşuyor. | `carpetMaterial`'deki `pile.clone()` gibi friz dokularını klonla (kaynak görüntü paylaşılır), tekrarı klonda ayarla. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| materials | wallMaterials | [minor] Magic number/string: `setMetres(hoodBand, 1.1, 0.22)` adsız (diğer bantlar `*_METRES` sabiti kullanıyor); `#c9d6d2` ve `#241a15` PALETTE dışında literal. | `HOOD_BAND_METRES` sabiti tanımla, renkleri PALETTE'e ekle (ör. `nichePaint`, `soot`). |"
+        }
+      ]
+    },
+    "src/scene3d/room/materials.ts::materials::naturalMaterials": {
+      "fp": "ce1cc819aed08897f564c10d21b99aa1520149b6dde09f6803e9c0d36ca5d7d1",
+      "matrix": [
+        "| materials | naturalMaterials | 13. Potansiyel Hatalar (magic number) | [minor] 1.3 ve 0.9 metre değerleri adsız; diğerleri `*_METRES` sabiti kullanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| materials | naturalMaterials | [minor] Magic number: mermer için 1.3 ve ceviz için 0.9 metre değerleri adsız; aynı fonksiyonda zemin `FLOOR_METRES` sabitinden geliyor. | `MARBLE_METRES`, `WALNUT_METRES` sabitlerine çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/materials.ts::materials::woodworkMaterials": {
+      "fp": "53c35a06a67b4f9e228f6b8461ccdada7d273a4a3fdd36086fcd3dee2daeb61d",
+      "matrix": [
+        "| materials | woodworkMaterials | 13. Potansiyel Hatalar | [major] `offset.set(0, 0.5)` yalnız `map`'e uygulanıyor; normal/surface haritaları yarım tekrar kayık kalabilir |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| materials | woodworkMaterials | [major] `coffer.map.offset.set(0, 0.5)` ve `ceilingBorder.map.offset.set(0, 0.5)` yalnız renk haritasını kaydırıyor. `setMetres` üç haritayı (map, normalMap, surfaceMap) birlikte ayarlarken burada normal/surface haritaları ofset 0'da kalıyor; set bu haritaları içeriyorsa kabartma ve parlaklık deseni renkten yarım tekrar kayık çizilir (three.js'te her dokunun UV dönüşümü ayrıdır). | Ofseti üç haritaya birlikte uygulayan tek yol kullan: `setMetres`'e tekrar cinsinden ofset parametresi ekle ya da ayrı bir `setOffset(set, x, y)` yardımcısı yaz. |"
+        }
+      ]
+    },
+    "src/scene3d/room/materials.ts::materials::metalMaterials": {
+      "fp": "6e32de8f6c8cab276b46fdf6a0ad6c51b7874cc22c58727863b4e8559fcdc9a9",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/materials.ts::materials::windowMaterials": {
+      "fp": "d06aba2aa26b00baf267a9b5c0d1974912bf1603c40d282a86bdbb4f5b32f518",
+      "matrix": [
+        "| materials | windowMaterials | 3. Kod Kalitesi (DRY) | [suggestion] Clamp ayarı medallion için döngü dışında ikinci kez yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| materials | windowMaterials | [suggestion] `wrapS/wrapT = ClampToEdgeWrapping` ataması tracery/glass için döngüde, medallion için altında ayrıca yazılmış. | Küçük bir `clampToEdge(texture)` yardımcısı yaz ya da medallion'u oluşturup aynı döngüye kat. |"
+        }
+      ]
+    },
+    "src/scene3d/room/materials.ts::materials::carpetMaterial": {
+      "fp": "da5c1423b1fbaf8aae09ff52c8261ce590c76be9997ac18c0ae5cc244569dc21",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/materials.ts::materials::textileMaterials": {
+      "fp": "6db78f7a3012e1f19fc014dbac484d7eefd754d3c872be8de96b2c7a0bd3dafb",
+      "matrix": [
+        "| materials | textileMaterials | 3. Kod Kalitesi (DRY) | [minor] `'#7d1220'` iki kez literal; aynı değer `PALETTE.velvetCrimson` olarak var |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| materials | textileMaterials | [minor] `'#7d1220'` `stripeSilk` paletinde iki kez literal yazılmış; aynı değer `PALETTE.velvetCrimson` olarak tanımlı ve bir üst satırda o adla kullanılıyor. `#172447`, `#5a1512`, `#7a2a1c`, `#b98a2c` de PALETTE dışında. | Literal yerine `PALETTE.velvetCrimson` kullan; kalan renkleri PALETTE'e ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/materials.ts::materials::objectMaterials": {
+      "fp": "dace90006987cd1cfe205327031a75fff8433648bd4ca5ff1a8dffd996edf90b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/materials.ts::materials::createMaterials": {
+      "fp": "5fad315fb0a2aa700ad85ae5c4290894248248002013fb91ace716416f92dd22",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/palette.ts::palette::(sınıf düzeyi)": {
+      "fp": "4605661cb822772d66bce6c78ace802a85b3af0ccd9d95771cd186ff17f90f03",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/palette.ts::palette::hexToRgb": {
+      "fp": "e09942619692997de2319a0b3bb39dea1f5954d983c74873af2111c7be1138ff",
+      "matrix": [
+        "| palette | hexToRgb | 13. Potansiyel Hatalar (input validation) | [minor] Biçim doğrulanmıyor; `#rrggbb` dışı girdi sessizce NaN/yanlış kanal üretir |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| palette | hexToRgb | [minor] Dışa açık fonksiyon girdiyi doğrulamıyor: `#fff` kısa biçimi yanlış kanallar, `rgb(...)` ya da adlandırılmış renk `NaN` üretir ve hata vermez. `shade` çıktısı `rgb(r, g, b)` olduğundan `shade(shade(x, a), b)` zinciri de sessizce `rgb(NaN, NaN, NaN)` döner. | `/^#[0-9a-f]{6}$/i` ile denetleyip uymayan girdide açıklayıcı hata fırlat; mümkünse `shade` de `#rrggbb` döndürsün ki çıktısı yeniden girdi olabilsin. |"
+        }
+      ]
+    },
+    "src/scene3d/room/palette.ts::palette::shade": {
+      "fp": "cc2eb55dfe66de9b6b4c42777129c6c12d23b5456978b94369d7daa3b7bc23f4",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/patterns.ts::patterns::(sınıf düzeyi)": {
+      "fp": "35cc2c69201991b4a86d896a67f2938640ad0b2d3c403b9db75ca1f0329b29f2",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/patterns.ts::patterns::hexTriangleCell": {
+      "fp": "e638fdde9708e97912ce4c44390f395110d5133ae1cb7a0cbd513ef967978f26",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/patterns.ts::patterns::hexagonCorners": {
+      "fp": "797e3dfce92014cbc6f6f38f8c265b8069f9666eba26807945834874506c8152",
+      "matrix": [
+        "| patterns | hexagonCorners | 3. Kod Kalitesi (edge case) | [minor] `inset` büyükse yarıçap negatife düşer; `sideTriangles` kırpıyor, bu kırpmıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| patterns | hexagonCorners | [minor] `radius = side - (inset * 2) / SQRT3` kırpılmıyor: `inset` iç yarıçapı aşarsa yarıçap negatif olur ve altıgen ters dönmüş olarak çizilir. Aynı dosyadaki `sideTriangles` aynı durumu `Math.max(0, ...)` ile kırpıyor; iki fonksiyon tutarsız. | `const radius = Math.max(0, side - (inset * 2) / SQRT3);` ve bu sınır için bir birim testi. |"
+        }
+      ]
+    },
+    "src/scene3d/room/patterns.ts::patterns::sideTriangles": {
+      "fp": "0d93331364420372846f23d5a4bfd4871156d9f3226102ae661cafe4d6874ec7",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/patterns.ts::patterns::starPolygon": {
+      "fp": "e060cf1c49e37a48d38dd8294e014815059ddba654c03a6b6935031f1ca7cf8e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/patterns.ts::patterns::traceryHoles": {
+      "fp": "041da9cc672f5dd0bba5b205dfc499246b6af52c5877a48c5bc24b6fdeff3ed0",
+      "matrix": [
+        "| patterns | traceryHoles | 13. Potansiyel Hatalar (eksik validation) | [major] `spacing <= 0` için dış döngü hiç bitmez |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| patterns | traceryHoles | [major] Dışa açık fonksiyonda girdi doğrulaması yok: `spacing <= 0` olduğunda `rowStep` 0 (veya negatif) olur, `reach + row * rowStep < shape.straight + shape.rise` koşulu hiç bozulmaz ve döngü sonsuza kadar döner (sekme kilitlenir). `spacing` 0 iken `count` da `Infinity` olur. | Fonksiyon başında `if (spacing <= 0 \\|\\| radius <= 0) return [];` (ya da açıklayıcı mesajla `throw new RangeError(...)`) ve bu durum için birim testi. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::(sınıf düzeyi)": {
+      "fp": "3bf6bc9844caf84d96cfc6c72c139cbf380f49fc23195e2f661c256fa38ef172",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/props.ts::props::tube": {
+      "fp": "f6bdecf61b4929902f84a958d978629161d368e92245655e87ede0c63d0e850b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/props.ts::props::addCandlestick": {
+      "fp": "75c2aa6e0e652c760c690d16f57269dbdf538d3d5682ef60f29d019eeb1749c4",
+      "matrix": [
+        "| props | addCandlestick | 13. Potansiyel Hatalar (magic number) | [minor] `0.72` şamdan profilinin tepe yüksekliğinin elle kopyası |",
+        "| props | addCandlestick | 3. Kod Kalitesi | [suggestion] `baseY` ve `scale` parametreleri hiçbir çağrıda farklı değer almıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| props | addCandlestick | [suggestion] `baseY` her çağrıda `0`, `scale` her çağrıda varsayılan; nişteki küçük şamdan bu metodu değil doğrudan `lathe(CANDLESTICK)` çağrısını kullanıyor. Kullanılmayan esneklik. | Parametreleri kaldır ya da nişteki şamdanı da bu metottan geçir. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addCandlestick | [minor] Mumun ve fitilin oturduğu `0.72`, `CANDLESTICK` profilinin son noktasının yüksekliğinin (`[0, 0.72]`) elle kopyası. Profil değişirse mum havada kalır ya da şamdana gömülür, hiçbir şey uyarmaz. | Yüksekliği profilden türet: `const CANDLESTICK_TOP = CANDLESTICK[CANDLESTICK.length - 1]![1];` ve iki yerde bunu kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addBrazier": {
+      "fp": "fe76e31b1223d07c6865f1bdd40b835f2e36e479709ecde0a3a3b612b8caf219",
+      "matrix": [
+        "| props | addBrazier | 13. Potansiyel Hatalar (magic number) | [minor] `0.012` halı yüksekliği, `seating.ts` içindeki `CARPET_LIFT` değerinin kopyası |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addBrazier | [minor] `makeTranslation(rect.x, 0.012, rect.z)` içindeki `0.012` halının yüksekliği; aynı değer `seating.ts` içinde `CARPET_LIFT` olarak tanımlı. İki dosyada elle eşit tutulan değer, biri değişince mangal halıya gömülür ya da havada kalır. | `CARPET_LIFT` sabitini ortak bir modülden (ör. yerleşim/ölçü dosyası) dışa aç ve burada onu kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addRahle": {
+      "fp": "85eecf2a8d2cfa8a2711449ab0959eb933a708babaafba02ace5d824aaaa378b",
+      "matrix": [
+        "| props | addRahle | 13. Potansiyel Hatalar (magic number) | [minor] `0.012` halı yüksekliği kopyası |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addRahle | [minor] `makeTranslation(rect.x, 0.012, rect.z)` içinde aynı halı yüksekliği kopyası. | Ortak `CARPET_LIFT` sabitini kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addEwer": {
+      "fp": "0d1483f9f190963fa6f188f4f46af46fb3e7923f10d08bbfe350dca6f18e0344",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/props.ts::props::addFruit": {
+      "fp": "f0e779776b0c0fa7bc8c26965c0a10aac842853689247e2b2cb8d439f4069aea",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/props.ts::props::addTrayTable": {
+      "fp": "a275306d78fdd3b66f6d5067bad786bb3b79d6c8a4389755edafe6a43b6873b7",
+      "matrix": [
+        "| props | addTrayTable | 13. Potansiyel Hatalar (magic number) | [minor] `0.012` halı yüksekliği üç kez elle yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addTrayTable | [minor] `0.012` halı yüksekliği bu metotta üç kez (`stand`, tabla, `top`) elle yazılmış. | Ortak `CARPET_LIFT` sabitini kullan; `top` değerini ondan hesapla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addChest": {
+      "fp": "b20f8f9a205603fdc18284f825fc418808e7ff1c689a487d2a220b598b41fe92",
+      "matrix": [
+        "| props | addChest | 13. Potansiyel Hatalar (magic number) | [minor] ayak yüksekliği `0.04` dört kez tekrar ediyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addChest | [minor] Sandığın ayak yüksekliği `0.04` adsız olarak dört yerde (`CHEST.height / 2 + 0.04`, `CHEST.height + 0.04`) tekrar ediyor; `CHEST` sabit nesnesi varken ona konmamış. | `CHEST` içine `feet: 0.04` ekle, ifadeleri ondan türet. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addChestTop": {
+      "fp": "e4913211bded0e98b5acc98759c7291c6832ce5335016fbda0eb4b063ae1c0d9",
+      "matrix": [
+        "| props | addChestTop | 13. Potansiyel Hatalar (magic number) | [minor] `0.04` yine kopyalanmış; `index === 2` ile sıraya bağlı gizli kural |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addChestTop | [minor] `top = CHEST.height + 0.04 + CHEST.lid` içinde aynı `0.04` kopyası (sandık ile üstündekiler ayrı metotlarda elle eşit tutuluyor). Ayrıca `index === 2 ? 0.036 : 0` üçüncü rulonun diğer ikisinin üstünde durduğunu dizi sırasına gömüyor; `rolls` sırası değişirse yanlış rulo yükselir. | Sandık üst yüksekliğini tek yerde hesapla (ör. `chestTopHeight()`), yükseltmeyi `rolls` demetine beşinci alan olarak koy. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addBookPile": {
+      "fp": "d95c3239d2c64e564eb9fb6ec9d1a0f617e9d9d7c8d88737f25df478a193a62d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/props.ts::props::inNiche": {
+      "fp": "39c9428e5248cac191bb9bb4d8ac0e0759d02ccd19f7f03b4be7c4053406a061",
+      "matrix": [
+        "| props | inNiche | 14. Best Practice'ler (boolean parametre) | [minor] `onShelf` bayrak argümanı, çağrı yerleri okunmuyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| props | inNiche | [minor] `onShelf: boolean` bayrak argümanı; altı konumsal parametreyle birlikte `inNiche('west', 'niche-west', -0.28, true, 0, 0.42)` gibi çağrılar okunmuyor. | `'sill' \\| 'shelf'` birleşim tipi ya da seçenek nesnesi: `inNiche('west', 'niche-west', { offset: -0.28, on: 'shelf', scale: 0.42 })`. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addNicheObjects": {
+      "fp": "c1743649fdc598431344f8a17d23cf9120c80756b5d144d4a9315e32c38c684c",
+      "matrix": [
+        "| props | addNicheObjects | 13. Potansiyel Hatalar (magic string) | [minor] niş kimlikleri string olarak 11 çağrıda elle tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addNicheObjects | [minor] Niş kimlikleri (`'niche-north-left'`, `'niche-north-right'`, `'niche-west'`, `'niche-south'`) 11 çağrıda string olarak elle tekrarlanıyor; tek kaynak duvar planındaki açıklık tanımları. Kimlik yeniden adlandırılırsa hata derlemede değil çalışma anında çıkar. | Kimlikleri açıklık tanımlarından türeyen bir tipe (`NicheId`) bağla ya da duvar planı modülünden adlandırılmış sabit olarak al. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addHangingLamp": {
+      "fp": "0755374a5cb01891d538a9b0a4b100c00488f0ec019fea0741e9da44ec0bd652",
+      "matrix": [
+        "| props | addHangingLamp | 13. Potansiyel Hatalar (magic number) | [minor] `0.5` ve `0.165` `LAMP_BODY` profilinden türetilmeden elle yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| props | addHangingLamp | [minor] `lampTop - 0.5` üç kez tekrar ediyor ve `0.5` ile zincir ucu yarıçapı `0.165`, `LAMP_BODY` profilinin ağız noktasının (`[0.17, 0.5]`) elle kopyası; profil değişirse zincirler gövdeye değmez. `ROOM_SIZE.height - 0.36` da adsız. | Gövde yüksekliğini ve ağız yarıçapını profilden ya da adlandırılmış sabitten (`LAMP_RIM`) al, `lampBase` değişkenini bir kez hesapla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/props.ts::props::addProps": {
+      "fp": "419338fefd76593892a9b7e5da80c966094d510f637dc6b82b3e985b0a2fd8f6",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/random.ts::random::(sınıf düzeyi)": {
+      "fp": "72af2b320bb38e61138f93b501abd0524228a0742330fe230080cad92816f35f",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/random.ts::random::createRandom": {
+      "fp": "c5ee4f047b982a7302b13e71421d2e824c93a3325ebb22bae60f23456ad586b7",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/random.ts::random::hash2": {
+      "fp": "5ca0286ebfaace0e1d8610a38041f5e790c7d3b05a6837ba52ad4b0c1d39f014",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/random.ts::random::valueNoise": {
+      "fp": "afa59af8e540cf2c2d8775ada5de1d720851e356d0e61717a4b3926407ae85c8",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/random.ts::random::fractalNoise": {
+      "fp": "b3f90d5b1144188ff8388c5d1071697eb8864fbe982ba994cc3a5118cce1df5b",
+      "matrix": [
+        "| random | fractalNoise | 3. Kod Kalitesi (edge case) | [minor] `octaves <= 0` için `0 / 0` = `NaN` döner |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| random | fractalNoise | [minor] `options.octaves <= 0` olduğunda döngü hiç dönmez, `total / weight` = `0 / 0` = `NaN` döner ve doku piksellerine sessizce yayılır; dokümandaki \"[0, 1)\" sözü bozulur. Oktav tohum kaydırması `17` da adsız. | Başta `if (options.octaves < 1) throw new RangeError('octaves must be at least 1');` (ya da `Math.max(1, ...)`), `17` için adlandırılmış sabit. |"
+        }
+      ]
+    },
+    "src/scene3d/room/random.ts::random::flicker": {
+      "fp": "f62b937dc2242fb1e420bf366c5ac9bffea658dd72e41d0a2e3fcd4c84365316",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::(sınıf düzeyi)": {
+      "fp": "e56d6d13a063457755c8516f33d9fd544baaa81b915f756223c44275836fc3f8",
+      "matrix": [
+        "| seating | (sınıf düzeyi) | 1. Dokümantasyon | [minor] `SEDIR` yorumu sabitin yalnız yarısını anlatıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| seating | (sınıf düzeyi) | [minor] `SEDIR` üstündeki yorum \"Height of the top of the sedir's wooden base and of its mattress\" diyor; sabit ayrıca `backHeight` ve `backThickness` taşıyor, `mattress` de üst yükseklik değil kalınlık. Dosya başlığı da kapı perdesini saymıyor. | Yorumu sabitin tamamını anlatacak biçimde düzelt: \"Measures of the sedir: height of the wooden base, thickness of the mattress, size of the back cushions.\" |"
+        }
+      ]
+    },
+    "src/scene3d/room/seating.ts::seating::addCarpet": {
+      "fp": "1d75349c5ccc2ed92b812931743e64c5e08736a1e7e2af619a4cc67813c7b9cc",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::leaningAgainstEastWall": {
+      "fp": "56a9649fb68ef33769c6674a4646331a06c6f6dcdc098f713086a6c7f9f04661",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::addSedirBase": {
+      "fp": "214f1ee658e4f5be26e0ddf5b6090a4ca2cc31fd891f9f15e6aa4991b5eca30e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::addSedirCushions": {
+      "fp": "ec4c60e3b8520214ad9fc957ae18c37c4012eac03206d406979c37fae658271e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::addSeatOfHonour": {
+      "fp": "043cd34275f12ee587494a7596a397397989dfd2a84dcf746892b7a4319c52ea",
+      "matrix": [
+        "| seating | addSeatOfHonour | 14. Best Practice'ler (en az sürpriz) | [suggestion] şeref köşesi metodu sedirin öbür ucundaki yastığı da ekliyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| seating | addSeatOfHonour | [suggestion] Yorum \"the corner of the sedir by the hearth\" diyor, metot ayrıca sedirin karşı (güney) ucundaki `southBolster` yastığını da ekliyor. | Güney yastığını `addSedirCushions` içine taşı ya da yorumu kapsayacak biçimde genişlet. |"
+        }
+      ]
+    },
+    "src/scene3d/room/seating.ts::seating::addFloorCushions": {
+      "fp": "b4eba757e15d84b3c53934f14053a3fc963c5f0c73ea729985be1646ab30b6e7",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::pleatedCloth": {
+      "fp": "d46cb735f6fcc35d264115a3b10c0ae112e678a9e3caaf5eff2417cba147d051",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::addDoorCurtain": {
+      "fp": "02f7dba474bda52fbb66afb4087241c1d5391f454f955bfd6d15603fdd0d7bef",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/seating.ts::seating::addSeating": {
+      "fp": "7c9c257f67093cdb455748bb14f2fa105c81e099d26942ad6707c37cd4113a53",
+      "matrix": [
+        "| seating | addSeating | 14. Best Practice'ler (en az sürpriz) | [minor] ad ve yorum oturma düzenini söylüyor, kapı perdesini de ekliyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| seating | addSeating | [minor] Adı ve yorumu (\"Adds the carpets, the sedir and all cushions\") oturma düzenini söylüyor, ama `addDoorCurtain` ile kapı perdesini ve pirinç çubuğunu da ekliyor; perde ve `pleatedCloth` oturma dosyasında duruyor. | Perdeyi kendi dışa açık fonksiyonuna (ör. `addDoorCurtain` ayrı dosyada/`addHangings`) taşı ve sahne kurulumundan ayrı çağır; en azından yorumu ve dosya başlığını güncelle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/softGoods.ts::softGoods::(sınıf düzeyi)": {
+      "fp": "f5856c2b67c42dd556f37716052d65520b745743ae175fc9ca3840c8a88d4274",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/softGoods.ts::softGoods::swell": {
+      "fp": "b8d7a0efe221aa38581e750e4d67ba9e2fcdf411339e4448b854c12ceab70038",
+      "matrix": [
+        "| softGoods | swell | 13. Potansiyel Hatalar ve Sorunlar | [minor] `edge * 1.6` adsız sihirli sayı |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| softGoods | swell | [minor] `Math.pow(Math.abs(t), edge * 1.6)` içindeki `1.6` çarpanı adsız sihirli sayı; ne anlama geldiği koddan okunmuyor (satır 17). | Adlandırılmış sabite çıkar (ör. `EDGE_FALLOFF_FACTOR`) ve kısa bir \"neden\" yorumu ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/softGoods.ts::softGoods::cushionHalf": {
+      "fp": "b2c34ff5a740c00fa663c1a1e5f72434b236cade07e9d8340dd45abd363ada86",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/softGoods.ts::softGoods::cushionGeometry": {
+      "fp": "f2e852f2003a8b0abd66c750357cf003e2bcc634580d77c9bb19b204540fa4eb",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/softGoods.ts::softGoods::bolsterGeometry": {
+      "fp": "856644b0c5e74e717b4c68d840f4579426099b24e2aa8daf52c6679e58ee8904",
+      "matrix": [
+        "| softGoods | bolsterGeometry | 13. Potansiyel Hatalar ve Sorunlar | [minor] Lathe dilim sayısı `16` adsız; yastıkta `CUSHION_SEGMENTS` adlandırılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| softGoods | bolsterGeometry | [minor] `new THREE.LatheGeometry(points, 16)` içindeki dilim sayısı adsız; aynı dosyada yastık için `CUSHION_SEGMENTS` adlandırılmış, burada tutarsız (satır 80). | `BOLSTER_SEGMENTS` gibi bir sabit tanımla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::(sınıf düzeyi)": {
+      "fp": "712d882dc1754b7383a0d9284c23328116e59838fa71b8fbcdcafe425cd089f0",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::createCanvas": {
+      "fp": "ddd7c10eebc928c77653bb778f4a79e58976182f2200c9071956946c70685e25",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::canvasTexture": {
+      "fp": "09d1bf5543eba5ca3461d034a2fca022df67b6faed7ae279003a0f94442d1cd1",
+      "matrix": [
+        "| textureTools | canvasTexture | 14. Best Practice'ler | [minor] `colour: boolean` flag argümanı; çağrı yerleri `true`/`false` ile okunmuyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| textureTools | canvasTexture | [minor] `colour: boolean` flag argümanı; çağrı yerleri `canvasTexture(canvas, context, true)` / `false` biçiminde ve neyin açıldığı okunmuyor (satır 44). | `'colour' \\| 'data'` gibi bir birleşim tipi al ya da `colourTexture` / `dataTexture` olarak iki ayrı fonksiyon sun. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::heightFromCanvas": {
+      "fp": "bb0d353fd029369d7064e465a2d6c1747c996bc54183f07336c983ada1fe60de",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::blurLine": {
+      "fp": "e1112dee8d54989e2bb18c492f96450297a5fb9bf3cd1779fcda0c596207ff06",
+      "matrix": [
+        "| textureTools | blurLine | 13. Potansiyel Hatalar ve Sorunlar | [minor] `radius >= count` olduğunda negatif modulo indeksi `?? 0` ile sessizce 0 okunur |",
+        "| textureTools | blurLine | 7. İsimlendirme ve Konvansiyonlar | [minor] Yerel `window` değişkeni global `window`'u gölgeliyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 7,
+          "heading": "Madde 7: Mimari",
+          "row": "| textureTools | blurLine | [minor] Yerel `const window` tarayıcı global `window` nesnesini gölgeliyor; tarayıcı kodunda yanıltıcı (satır 65). | `windowSize` ya da `span` olarak yeniden adlandır. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| textureTools | blurLine | [minor] `(offset + count) % count` ve `(index - radius + count) % count` yalnız `radius < count` iken negatif olmaz; daha büyük yarıçapta indeks negatife düşer, `?? 0` bunu sessizce 0 olarak okur ve sarmalı bulanıklık hatasız bozulur (satır 67, 70). `blurHeight` yarıçapı alan boyutuna göre sınırlamıyor. | `blurHeight` içinde yarıçapı sınırla (`Math.min(size, Math.floor((Math.min(width, height) - 1) / 2))`) ya da çift modulo kullan: `((i % count) + count) % count`. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::blurHeight": {
+      "fp": "bdb51205480d447bb02751069c4d3e384820a5c0c40e91f1a7b33c19ce4a72bf",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::addNoise": {
+      "fp": "72ea7c16112dc1bdb244f6016120117d5656d35eca1e87fc634d000d22d60013",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::normalMapFromHeight": {
+      "fp": "45af34ff163da0805f30d44ed4b9d5306b4638f5e441367898a8de61ddc9ad0f",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::noiseCanvas": {
+      "fp": "b68bc0540bb17add28b32840611bb950c3d43c0d416e5d9f6cc402ff2db5a577",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::noiseMaskCanvas": {
+      "fp": "c0ae1be7850e84eeabe3d6a9a1dc11ef9ec0e027b77ea907d8265cfff0b96adc",
+      "matrix": [
+        "| textureTools | noiseMaskCanvas | 13. Potansiyel Hatalar ve Sorunlar | [suggestion] `softness = 0` sıfıra bölme (NaN/Infinity) korumasız |",
+        "| textureTools | noiseMaskCanvas | 3. Kod Kalitesi | [minor] `noiseCanvas` ile aynı piksel döngüsü kopyalanmış; `octaves: 4` burada sabit |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| textureTools | noiseMaskCanvas | [minor] `createCanvas` + `createImageData` + iç içe `x/y` döngüsü + `fractalNoise((x / size) * cells, (y / size) * cells, …)` + `putImageData` iskeleti `noiseCanvas`'tan kopyalanmış; yalnız piksel yazımı farklı. Ayrıca `octaves: 4` burada sabitken `noiseCanvas` ve `addNoise` bunu parametre olarak alıyor (satır 154-167). | Ortak bir yardımcıya çıkar (ör. `paintNoise(size, cells, seed, octaves, write: (data, offset, noise) => void)`) ve `octaves`'i varsayılanı 4 olan parametre yap. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| textureTools | noiseMaskCanvas | [suggestion] `(noise - threshold) / softness` ifadesi `softness = 0` için Infinity/NaN üretir; sonuç yalnız `Uint8ClampedArray` kıstırmasına güvenerek anlam kazanıyor (satır 160). | `softness`'i küçük bir alt sınıra kıstır (`Math.max(softness, Number.EPSILON)`) ya da sıfır için açık adım fonksiyonu dalı yaz. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::overlayCanvas": {
+      "fp": "b944b8b6abb27bbf66ac9daa1a03f320bf672d86fdd9858326f95644994fddf1",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textureTools.ts::textureTools::tracePolygon": {
+      "fp": "8a53a125c6a16812625d4a3dd013e09a4c4315f231e3b6d2ddaf8b977b286326",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/glass.ts::glass::(sınıf düzeyi)": {
+      "fp": "5db2806f0e8368ff5b4c884a158293cdd3e7dba45df4c5a559dc3b4d6ecf62aa",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/glass.ts::glass::glassColour": {
+      "fp": "fff0d0d2ba65c3e13350ab1d08acd731f09c06eac30a29332ab411aff708bb2c",
+      "matrix": [
+        "| glass | glassColour | 13. Potansiyel Hatalar ve Sorunlar | [minor] `0.85`, `0.08`, `100` adsız sihirli sayılar |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| glass | glassColour | [minor] Halka merkezinin yüksekliği `shape.straight * 0.85`, aykırı cam olasılığı `0.08` ve hash ızgara çarpanı `100` adsız sihirli sayılar (satır 23-24). | `RING_CENTRE_HEIGHT`, `ODD_PANE_CHANCE`, `HASH_GRID` gibi adlandırılmış sabitlere çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/glass.ts::glass::layoutCanvas": {
+      "fp": "fb6239df3904f01304447c27c3733ffb2bf89be4642657b0b32eb5ace73991b3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/glass.ts::glass::circle": {
+      "fp": "316f3f6fdae5100faabbda19fefaf12e1b48a863e0d8da562ee1914656ca9d1d",
+      "matrix": [
+        "| glass | circle | 7. İsimlendirme ve Konvansiyonlar | [suggestion] Yalnız yol açıyor, çizmiyor; `tracePolygon` adlandırmasıyla tutarsız |"
+      ],
+      "bulgu": [
+        {
+          "madde": 7,
+          "heading": "Madde 7: Mimari",
+          "row": "| glass | circle | [suggestion] Fonksiyon yalnız yolu açıyor (`beginPath` + `arc`), çizmiyor; aynı işi yapan `tracePolygon` adlandırmasıyla tutarsız ve adı çizim yapıyor izlenimi veriyor (satır 35). | `traceCircle` olarak adlandır. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/glass.ts::glass::buildTracery": {
+      "fp": "a5f04fe04c92455d59d0b11dfd5196b3d812513eeb276238c7a4d38fca5fc18e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/glass.ts::glass::buildGlass": {
+      "fp": "6727f729c647110d510c78749710115b57cf95aa5843f2ea3e1cec9f2fbd397d",
+      "matrix": [
+        "| glass | buildGlass | 13. Potansiyel Hatalar ve Sorunlar | [minor] `'#0d0b0a'` PALETTE dışı sabit renk; `HOLE_RADIUS * 1.3` iki kez yazılmış |",
+        "| glass | buildGlass | 3. Kod Kalitesi | [suggestion] Delik merkezinin tuval koordinatına çevrimi `circle` ile tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| glass | buildGlass | [suggestion] `x = hole[0] * scale`, `y = layer.canvas.height - hole[1] * scale` çevrimi `circle` içindekiyle aynı; eksen çevirme kuralı iki yerde duruyor (satır 69-70 ve 38). | Çevrimi tek bir `toCanvas(layer, hole, scale): Point2` yardımcısına al, `circle` ve `buildGlass` onu kullansın. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| glass | buildGlass | [minor] Zemin rengi `'#0d0b0a'` `PALETTE` dışında sabit yazılmış; cam yarıçapı çarpanı `HOLE_RADIUS * 1.3` aynı metotta iki kez tekrarlanıyor (satır 66, 72, 76). | Rengi `PALETTE`'e taşı; `const GLASS_RADIUS = HOLE_RADIUS * 1.3` sabiti tanımla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::(sınıf düzeyi)": {
+      "fp": "ec7264524174f635dd894354cdc5388dc750e5f1de945b6a9c0d39e68eaa6c11",
+      "matrix": [
+        "| joinery | (sınıf düzeyi) | 13. Potansiyel Hatalar ve Sorunlar | [minor] `'#6a1a16'` dört yerde, `'#1d3d30'` bir yerde PALETTE dışı sabit renk |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | (sınıf düzeyi) | [minor] Koyu kırmızı `'#6a1a16'` dört yerde (satır 142, 196, 200, 226), koyu yeşil `'#1d3d30'` bir yerde (satır 224) `PALETTE` dışında sabit yazılmış; diğer tüm boyalar `PALETTE`'ten geliyor. | `PALETTE`'e `paintRedDeep` / `paintGreenDeep` gibi girişler ekle ya da dosya başında adlandırılmış sabit tanımla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::paintStar": {
+      "fp": "4833668ce1dd91c54efd287651f7f193fff386ee998d738bbdc4c5c0dd148332",
+      "matrix": [
+        "| joinery | paintStar | 13. Potansiyel Hatalar ve Sorunlar | [minor] `'#bfae88'` ve kabartma gri tonları adsız sabit |",
+        "| joinery | paintStar | 14. Best Practice'ler | [suggestion] `layer === colour ? … : …` ile döngü içinde kimlik dallanması |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | paintStar | [minor] Fildişi çivi rengi `'#bfae88'` ve kabartma yükseklikleri `'rgb(235, 235, 235)'`, `'rgb(180, 180, 180)'`, `'rgb(255, 255, 255)'` adsız sabit; yükseklik düzeyleri `buildStarPanel`'deki `'rgb(150, 150, 150)'` / `'rgb(20, 20, 20)'` ile birlikte dağınık duruyor (satır 39, 46, 51). | Kabartma düzeylerini tek bir sabit nesnede topla (ör. `RELIEF = { ground, star, inlay, stud, groove }`); çivi rengini `PALETTE`'e taşı. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| joinery | paintStar | [suggestion] `for (const layer of [colour, relief])` döngüsünde `layer === colour ? … : …` ile nesne kimliğine göre dallanılıyor; aynı kalıp `buildStarPanel` satır 74-75'te de var (satır 48-53). | Stili veriyle eşle: `for (const [layer, fill] of [[colour, STUD_COLOUR], [relief, RELIEF.stud]] as const)`. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::buildStarPanel": {
+      "fp": "03e9191e69afc8bfe159df51f87c04802cd51caab819277b39e62a0ca59e94ec",
+      "matrix": [
+        "| joinery | buildStarPanel | 13. Potansiyel Hatalar ve Sorunlar | [minor] Normal map gücü `7` kalite ölçeğiyle ölçeklenmiyor; düşük kalitede kabartma daha sert |",
+        "| joinery | buildStarPanel | 3. Kod Kalitesi | [suggestion] Aynı yıldız ızgarası döngüsü iki kez yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| joinery | buildStarPanel | [suggestion] `row`/`column` üzerinde `0..PANEL_STARS` gezen iç içe döngü ve `[column * step, row * step]` merkez hesabı iki kez yazılmış (satır 67-72 ve 77-82). | Merkezleri bir kez üret (`const centres = …`) ve iki geçişte aynı listeyi gez. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | buildStarPanel | [minor] `normalMapFromHeight(height, 7)` gücü piksel başına eğim cinsinden; bulanıklık yarıçapı `2 * context.scale` ile ölçeklenirken güç ölçeklenmiyor. Yarım çözünürlükte aynı kenar yarı sayıda piksele yayıldığı için düşük kalite ayarında kabartma yaklaşık iki kat sert görünür (satır 85-88). | Gücü de ölçekle: `normalMapFromHeight(height, PANEL_RELIEF_STRENGTH * context.scale)`; `7`'yi adlandırılmış sabit yap. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::goldLine": {
+      "fp": "4dfe0b62fb7bee85a315692e829024d5dd215e262d1b6892b90a8e194aa1915f",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::cofferCorner": {
+      "fp": "1a9574e6b72904d30f9ef7348c0f07a32ff10224ecd88577256b1018732f0da5",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::agePaintedWood": {
+      "fp": "4e52bd74b857560b91e7bfbbf6f4214a1c0ed6ec1acc456cad9ac7c1701eedee",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::buildCoffer": {
+      "fp": "9fdbe09d3ccbc0b469341ee5e8efd30c3e3df9830f2e8326de12d0ffba5c3453",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::rosetteRing": {
+      "fp": "e3d9cc7ab652c332ea38b36a92161f02e8996d91765679a46228cb4ce294ec57",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::rosettePetals": {
+      "fp": "283d5df55ead2fc04bab543daacf9c4f6d622a7c2f9078fd9d61f053e1caac92",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::buildRosette": {
+      "fp": "2cc9fd589a5b1685c962a437a2e721926df2afcdda849abe4d3de05139a1f96b",
+      "matrix": [
+        "| joinery | buildRosette | 13. Potansiyel Hatalar ve Sorunlar | [minor] Yaprak sayısı `24`, `ROSETTE_POINTS`'ten türetilmemiş |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| joinery | buildRosette | [minor] Dış yaprak sayısı `24` sabit yazılmış; desen `ROSETTE_POINTS` (12) üzerine kurulu ve bu sayı onun iki katı. `ROSETTE_POINTS` değişirse yapraklar yıldız uçlarıyla hizasını sessizce kaybeder (satır 197). | `ROSETTE_POINTS * 2` olarak türet. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/joinery.ts::joinery::buildCeilingBorder": {
+      "fp": "2d73b75642a885db8b2112b2e76de6d18ac245c2812c1ae08e7e463a710b255e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/medallion.ts::medallion::(sınıf düzeyi)": {
+      "fp": "572c04c3182f0193f98a1a2289e38622ca53b29a18435d4e15124bacc0a7a98b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/medallion.ts::medallion::lobedPath": {
+      "fp": "52b844c06c278fd4e7a5b7e3039bb3c87dcfb6a9280feb38324ad05aa76a4cdb",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/medallion.ts::medallion::pendant": {
+      "fp": "bdd2e14a48e9910a0bc2774171c04eb204705e9b25d845b41525e560d161b5c1",
+      "matrix": [
+        "| medallion | pendant | 13. Potansiyel Hatalar ve Sorunlar | [suggestion] `direction: number` yerine `1 \\| -1` dar tipi |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| medallion | pendant | [suggestion] `direction: number` her değeri kabul ediyor, oysa yalnız `1` ve `-1` anlamlı; `softGoods.cushionHalf` aynı kavram için `side: 1 \\| -1` kullanıyor (satır 26). | Tipi `1 \\| -1` olarak daralt. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/medallion.ts::medallion::scrollwork": {
+      "fp": "20e904558f64bf4531d8ec2b93e6c5c8a8c43a56e2042de7ce90ffe2ee0f010a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/medallion.ts::medallion::buildMedallion": {
+      "fp": "496790b7d98a92ed01bd378b3fb3c19f25c0beb59c09c4934061c99497dbbddb",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/natural.ts::natural::(sınıf düzeyi)": {
+      "fp": "ad97e336765c4244ff35bc5e1e3a785c30af8091c2f2e85ebf391095892b51d8",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/natural.ts::natural::grainLine": {
+      "fp": "3c3fa38d80e633426bbc4aba03f69425156f8bfd3db156a7f5642d52d9b44337",
+      "matrix": [
+        "| natural | grainLine | 13. Potansiyel Hatalar (magic number) | [minor] Adım sayısı `32` üç yerde çıplak sayı olarak tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| natural | grainLine | [minor] Eğrinin adım sayısı `32` satır 25, 26 ve 28'de çıplak sayı olarak üç kez geçiyor; biri değiştirilip diğerleri unutulursa çizgi kanvasın altına ulaşmaz veya döşeme bozulur. | `const GRAIN_STEPS = 32;` sabiti tanımlayıp üç yerde onu kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/natural.ts::natural::buildWood": {
+      "fp": "c147b08e48ee73a51444681be3ed77916e0feb598f8f2fe87cdda9776e5d2696",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/natural.ts::natural::buildMarble": {
+      "fp": "481eec967ec4ba2b9703a282f3aa484ebbfc8f50dcd700206cfb58186680957b",
+      "matrix": [
+        "| natural | buildMarble | 6. Performans | [suggestion] Piksel başına iki seçenek nesnesi ayrılıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 6,
+          "heading": "Madde 6: Performans",
+          "row": "| natural | buildMarble | [suggestion] İç döngüde her piksel için `fractalNoise` çağrılarına iki yeni seçenek nesnesi (`{ seed, octaves, period }`) ayrılıyor; 512×512'de yarım milyondan fazla kısa ömürlü nesne. Yalnız yükleme anında çalıştığı için etkisi sınırlı. | İki seçenek nesnesini döngü dışında sabit olarak tanımla ve döngüde yeniden kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/natural.ts::natural::brickCentres": {
+      "fp": "4202446152502711d83254a91b3ec9e47f5d6477ea47b1f9f72061cacf158a8e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/natural.ts::natural::buildBrickFloor": {
+      "fp": "bd18abc32784a37d9e511cac3d8372c34ab6732ddd570295136fb24fc2bdc3ac",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/objects.ts::objects::(sınıf düzeyi)": {
+      "fp": "6eca1453443fdc134ce5f256f045aa51edeb3da3896cb8a6f8c0a9dcf68a7aa9",
+      "matrix": [
+        "| objects | (sınıf düzeyi) | 1. Dokümantasyon | [minor] Dosya başlığı yorumu köz ve patina dokularını anmıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| objects | (sınıf düzeyi) | [minor] Dosya başlığı yorumu yalnız \"the pages of the open book and blue-and-white ceramics\" diyor; dosya ayrıca köz (`buildEmbers`) ve işlenmiş metal (`buildPatina`) dokularını üretiyor. Yorum dosyanın içeriğini eksik anlatıyor. | Başlık yorumunu dört dokuyu da kapsayacak biçimde güncelle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/objects.ts::objects::scriptLines": {
+      "fp": "9f86e0be2892b274852f13ec498e5e4e3f62114f9408f640487772267c601b3d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/objects.ts::objects::pageFrame": {
+      "fp": "e204fc282c732f4f93e80302a59e71ec5c2cb51a21f8545cdb861e93e8158b64",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/objects.ts::objects::buildBookPages": {
+      "fp": "c51009dbf88d4f4ee0f300f36e5d0fb964883d00826f59a06bf93ff7f93f5783",
+      "matrix": [
+        "| objects | buildBookPages | 13. Potansiyel Hatalar (magic string) | [minor] Sayfa rengi `'#eadfc2'` PALETTE dışında sabit yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| objects | buildBookPages | [minor] Kâğıt rengi `'#eadfc2'` doğrudan yazılmış; aynı fonksiyondaki diğer bütün renkler `PALETTE` üzerinden geliyor. Renk paletin tek kaynağının dışında kalıyor. | Rengi `PALETTE`'e (ör. `PALETTE.paper`) taşı ve oradan oku. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/objects.ts::objects::buildBlueAndWhite": {
+      "fp": "8670b986165f66bc2ff11586d81ec219dc67f7f55283f2ba29df8ad0cc4b1bbc",
+      "matrix": [
+        "| objects | buildBlueAndWhite | 13. Potansiyel Hatalar (magic string) | [minor] `'#1d3a8a'` iki kez, `'#eef0ec'` bir kez PALETTE dışında sabit yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| objects | buildBlueAndWhite | [minor] Sır mavisi `'#1d3a8a'` satır 84 ve 86'da iki kez, gövde beyazı `'#eef0ec'` satır 82'de sabit yazılmış; `PALETTE` kullanılmıyor ve mavi iki yerde ayrı ayrı güncellenmek zorunda. | Renkleri `PALETTE`'e taşı ya da en azından dosya düzeyinde adlandırılmış sabitlere çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/objects.ts::objects::emberColour": {
+      "fp": "65cf2b3e41cc70211d7a257e90a0d282d65799c8fce390dcc1cc5464d26996b7",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/objects.ts::objects::buildEmbers": {
+      "fp": "112099a59f27a5eb995b8d767117a9551dc1161311d6561d5af64fd84676e626",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/objects.ts::objects::buildPatina": {
+      "fp": "4777ae385233c4c85d410ff1de636ae540772d76de8787f634e504f532f4cc75",
+      "matrix": [
+        "| objects | buildPatina | 3. Kod Kalitesi (DRY) | [suggestion] buildEmbers ile aynı iki-kanvaslı piksel döngüsü iskeleti tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| objects | buildPatina | [suggestion] `buildEmbers` ile aynı iskelet tekrarlanıyor: iki kanvas, iki `ImageData`, aynı çift `for` döngüsü, `offset` hesabı ve iki `putImageData`. Yalnız piksel formülü farklı. | Piksel başına geri çağrı alan ortak bir yardımcı (ör. `paintPixelPair(size, (u, v) => [a, b])`) çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::(sınıf düzeyi)": {
+      "fp": "8331b5b9b4dce07dbcef52f2fd6e3ced5026bce5d4bed228b77f12f36b5ddd04",
+      "matrix": [
+        "| plaster | (sınıf düzeyi) | 1. Dokümantasyon | [minor] Dosya başlığı yorumu ocak davlumbazı boyasını anmıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| plaster | (sınıf düzeyi) | [minor] Dosya başlığı yorumu sıva, kıvrım bandı ve friz'i sayıyor; dosyadaki ocak davlumbazı boyası (`buildHoodPaint`, `HOOD_PAINT_METRES`) anılmıyor. | Başlık yorumuna davlumbaz boyasını ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::buildPlaster": {
+      "fp": "e44ccf69a84174b46b051319ea6e9e618ecc8c80e8b77f6d49fd88ba63a3a5d2",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::plasterGround": {
+      "fp": "af048590dbdf0b3b4ea8d3fe6db3eb3c179300542c937134992c33bb9e06b0c6",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::weatherPaint": {
+      "fp": "d94fa1c67a46bbaad0cb1c10d282d50b08ecfbdbb8b66db120ddaa155821468b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::rumiLeaf": {
+      "fp": "2ed79319920902676b389630e579641dfcb0c51ac8aa86c7e440e68c6e334143",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::scrollRepeat": {
+      "fp": "97f46362a619fdccce3dcd626b24320064aaa166361fa31481dad932b552a833",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::buildScrollBand": {
+      "fp": "a363a4971b610e32f569d48ea0ec7e3ff1856d1f04d7c38f74a25f1ae86f0306",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::cartouchePath": {
+      "fp": "f64b8c2368ff50da7603d1ae54d0265c9d7289a837aa233d4aacefab763c2ea2",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::goldSpiral": {
+      "fp": "59b047e4e85f18cb134099b3585e76a4895bda8b108f7dfa7321fc19f87802f3",
+      "matrix": [
+        "| plaster | goldSpiral | 13. Potansiyel Hatalar (magic number) | [minor] `40` ve `46` adlandırılmamış, aralarındaki fark açıklanmamış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| plaster | goldSpiral | [minor] Sarmalın adım sayısı `40` (satır 146, 147) ile daralma böleni `46` (satır 148) adlandırılmamış. Aradaki fark kasıtlı (sarmal merkeze tam inmesin diye) ama yorumsuz olduğu için yazım hatası gibi okunuyor. | `SPIRAL_STEPS` ve daralma oranı için adlandırılmış sabitler tanımla; farkın nedenini tek satır yorumla belirt. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::friezeMedallion": {
+      "fp": "3ab7b0495f30eaebc1edddf2cfd56f3bb5da9a36bdfb51b5e5cc0adfbb5c399a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::buildFrieze": {
+      "fp": "37a6f44ab76e17c28cdddcb48b763fe1d2db063345cd4e5880d568f574763540",
+      "matrix": [
+        "| plaster | buildFrieze | 3. Kod Kalitesi (DRY) | [minor] buildScrollBand ile aynı kur/boya/yıprat/birleştir iskeleti kopyalanmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| plaster | buildFrieze | [minor] `buildScrollBand` ile aynı iskelet kopyalanmış: `plasterGround`, aynı boyutta `paint` kanvası, aynı `ctx.scale(...)`, sonunda `weatherPaint`, `layer.ctx.setTransform(1, 0, 0, 1, 0, 0)`, `drawImage` ve aynı `return`. Yedi satır iki fonksiyonda birebir aynı. | Çizimi geri çağrı olarak alan ortak bir yardımcı çıkar (ör. `paintedBand(context, seed, draw)`); iki fonksiyon yalnız kendi motifini çizsin. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::hoodSprig": {
+      "fp": "3d7b8277955b8765d32e32951ff25e3f5ffe2614a411dac1e98fb0ec2d987aa1",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/plaster.ts::plaster::buildHoodPaint": {
+      "fp": "088296cd411c28a091793560941e47477adbe83a4d75026d6dfaef6349ecd3ca",
+      "matrix": [
+        "| plaster | buildHoodPaint | 13. Potansiyel Hatalar (magic string) | [minor] Zemin rengi `'#f3ecdd'` PALETTE dışında sabit yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| plaster | buildHoodPaint | [minor] Zemin rengi `'#f3ecdd'` sabit yazılmış; aynı dosyadaki diğer zeminler `PALETTE.plaster` kullanıyor. | Rengi `PALETTE`'e taşı ve oradan oku. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::(sınıf düzeyi)": {
+      "fp": "dc93d182f01644c60851b5a30ba648d84325b65bf5aaa349046e7a8052bf925e",
+      "matrix": [
+        "| textiles | (sınıf düzeyi) | 1. Dokümantasyon | [minor] `CarpetDesign` alanlarının çoğu belgesiz, birim eki tutarsız |"
+      ],
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| textiles | (sınıf düzeyi) | [minor] Dışa açık `CarpetDesign` arayüzünde `length`, `borderMetres`, `repeatMetres` ve `seed` alanları belgesiz; \"Size of the woven part in metres\" yorumu yalnız `width` üzerinde duruyor. Ayrıca `width`/`length` birim eki taşımazken `borderMetres`/`repeatMetres` taşıyor. | Arayüze ve her alana kısa doc comment yaz; birim adlandırmasını tek biçime getir. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::carpetPlan": {
+      "fp": "f27bf603c7b3c65a020e49eb67771998841f6b61e93a6b86b66fb55d5dc81548",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::paintKnots": {
+      "fp": "78e6df861ba667923565335226e37328eeb1a3eee7c76a1c952bd9c17bd50a51",
+      "matrix": [
+        "| textiles | paintKnots | 1. Dokümantasyon | [minor] Yorum \"every other column\" diyor, kod her üçüncü sütunu boşaltıyor |",
+        "| textiles | paintKnots | 13. Potansiyel Hatalar (exhaustiveness) | [minor] Palet, `CARPET_COLOURS` sırasına elle paralel dizi; eksik renk sessizce fildişine düşüyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| textiles | paintKnots | [minor] Satır 65'teki yorum \"every other column stays clear\" diyor; kod `x % 3 === 0` ile her üçüncü sütunu, ek olarak rastgele %15'ini boşaltıyor. Yorum kodla çelişiyor. | Yorumu koda uydur (\"every third column, plus a few at random\"). |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| textiles | paintKnots | [minor] `design.palette` türü `readonly string[]` ve sırası yorumla `CARPET_COLOURS`'a bağlanmış elle paralel bir liste. `colours[carpetKnot(plan, x, y)] ?? ivory` ifadesi, palet kısa kalırsa ya da `CARPET_COLOURS`'a yeni renk eklenirse eksik rengi derleme/test hatası vermeden fildişiyle boyar. | Paleti `CARPET_COLOURS`'tan türetilen sabit uzunluklu tuple ya da `Record` türüne çevir; eksik indeks sessizce düşmek yerine hata versin. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::buildCarpet": {
+      "fp": "dc7e361ea540b4d5d7bdecb3d16fd6435c2294f0408320eaff59af8d001a24e2",
+      "matrix": [
+        "| textiles | buildCarpet | 13. Potansiyel Hatalar | [minor] `CARPET_UPSCALE * context.scale` yuvarlanmıyor; kesirli ölçekte kanvas boyutu kesirli olur |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| textiles | buildCarpet | [minor] `upscale = CARPET_UPSCALE * context.scale` yuvarlanmadan kanvas boyutuna çarpılıyor. Diğer bütün üreticiler boyutu `scaled(...)` ile alıyor. `context.scale` kesirli olabiliyorsa (bu dosyalardan doğrulanamıyor) kanvas boyutu kesirli çıkar, kesilir ve yumuşatmasız büyütmede düğümler eşit olmayan genişlikte boyanır. | Çarpanı tam sayıya yuvarla (`Math.max(1, Math.round(...))`) ya da boyutu `scaled` ile hesapla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::buildWeaveNormal": {
+      "fp": "f332b37fecd6cf759005c7d5b6d92a53f444b590bed950dbda00ed954c3cad4d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::clothLayer": {
+      "fp": "3227d118e6a940eac2bc90fc6b56cc2f46ae517b1959bbf87e1867a551563183",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::finishCloth": {
+      "fp": "a64f99c105ef748d4ad34eb9fd074730ade7693364bd902797c5b4847e545047",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::cintamani": {
+      "fp": "82cb4f330a39eb2cada4391d288985dc105fb9f823df7e47fddfdf3f671cfbc4",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::buildVelvet": {
+      "fp": "82398b0f750377be37d742f41e2671d60dee3ae67d5d1544d459baa04bbbbac7",
+      "matrix": [
+        "| textiles | buildVelvet | 1. Dokümantasyon | [minor] Yorum, bu dosyada tanımı görünmeyen `VELVET_METRES` sabitine atıf yapıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 1,
+          "heading": "Madde 1: PR ve değişiklik yönetimi",
+          "row": "| textiles | buildVelvet | [minor] Doc comment \"one repeat covers `VELVET_METRES`\" diyor; bu dosyanın sabitleri arasında `VELVET_METRES` yok. Başka dosyada tanımlı değilse atıf boşta kalıyor. | Sabit varsa tanımlandığı yeri belirt, yoksa atfı kaldır ya da sabiti bu dosyada tanımla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::ogive": {
+      "fp": "003bbbfe4ff3e9c2b332d983b68bbdca7c04118c7227a259d2b9e0fc86ce7288",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::buildBrocade": {
+      "fp": "ec7fa0c63ea8e5f6cb756e2e1ef2a84ecf4c8a385446ac21b15091e54aaadcdc",
+      "matrix": [
+        "| textiles | buildBrocade | 14. Best Practice'ler (iç içe yapı) | [suggestion] Üç seviye iç içe döngü; çiçek çizimi ayrı fonksiyona çıkarılabilir |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| textiles | buildBrocade | [suggestion] Satır/sütun/taç yaprağı olmak üzere üç seviye iç içe döngü var; altı yapraklı çiçek çizimi `plaster.hoodSprig` içindeki yaprak döngüsüne de çok benziyor. | Çiçek çizimini iyi adlandırılmış bir yardımcı fonksiyona çıkar. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/textiles.ts::textiles::buildStripes": {
+      "fp": "75112d11bd5cbe5228e90cdc26a7840e4e295520a56c7879ee11e28d1e87edae",
+      "matrix": [
+        "| textiles | buildStripes | 13. Potansiyel Hatalar (sınır) | [minor] İlk altın çizginin yarısı kanvas dışında kalıyor; döşemede ek yerinde çizgi yarı kalınlıkta |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| textiles | buildStripes | [minor] Altın ayırıcı `index * band - 4` konumunda 8 piksel genişlikte çiziliyor; `index === 0` için dikdörtgenin sol yarısı (`-4..0`) kanvas dışında kalıyor ve sağ kenarda karşılığı çizilmiyor. Doku tekrarlandığında ek yerindeki ayırıcı diğerlerinin yarı kalınlığında görünür. | İlk ayırıcının taşan yarısını sağ kenara da çiz (`CLOTH_PIXELS - 4`), ya da ayırıcıları bandın içine hizala. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::(sınıf düzeyi)": {
+      "fp": "ab6d563263bdc735b6a425a56461ef6c355c3675aff902f644adca38f9808d2d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::fillPolygon": {
+      "fp": "c2250707a47e71d515fd2d4aa92ee82fa52eaa96e8fe7e6ff34215c0d51d22ea",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::glazeGradient": {
+      "fp": "359a0bf1798c15b3569dbafd13ffc0b49b1c7af7300174ed7a5fe794711c57fd",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::petal": {
+      "fp": "d6d0239fb3e1775fdc46d49f34ef928c26673007ddf29df90fc591e3d5cc6c2e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::rosetteMotif": {
+      "fp": "e83e7ee0e53612e6a586fcbfe4763ee5e8863897e458533866838c08be3736bc",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::starMotif": {
+      "fp": "d762773a9f6828b664375a09e9473b14e586b315059ff0419e3b7f0a2ca38b61",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::scrollMotif": {
+      "fp": "d9fad7b991c1ecb59bf1b889d1e1b6a495ff2aa39d4f779b7bebcc5de8f1cdff",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::gildHexagon": {
+      "fp": "31506ee46600137f7886ef8273595224cd5cd2737c1188e2d86ca0d9806c17df",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::paintHexagon": {
+      "fp": "57a71212c85489633d59780444f297724ff2f1245d9b16bf48e01100361a2c9c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::paintTriangles": {
+      "fp": "061f6f488dec422fa0116e90f935a4b11e7225b66fdfe065cc888c7394a1e8d6",
+      "matrix": [
+        "| tiles | paintTriangles | 3. Kod Kalitesi | [minor] `lift` hesabı `paintHexagon` ile kopya; hash tuzları (11+index / 13+index) çakışıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| tiles | paintTriangles | [minor] `150 + Math.round(hash2(...) * 70)` kabartma hesabı `paintHexagon` (satır 151) ile birebir kopya. Ayrıca tuzlar `11 + index` (renk) ve `13 + index` (kabartma) çakışıyor: index 2'nin renk tuzu ile index 0'ın kabartma tuzu aynı (13), yani bağımsız olması gereken iki rastgele değer aynı hash'ten geliyor. | Ortak `reliefLift(tileId, salt)` yardımcı fonksiyonu çıkar; tuzları çakışmayacak aralıklarla adlandırılmış sabitlere bağla (ör. renk için `20 + index`, kabartma için `40 + index`). |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::paintField": {
+      "fp": "19886af09a5876e4f35995495c409ba10fbaf2796fae0d2440a22b7970cdd2bb",
+      "matrix": [
+        "| tiles | paintField | 13. Potansiyel Hatalar ve Sorunlar | [minor] `starMotif` hiçbir zaman seçilmiyor (variant yalnız 0 veya 1) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| tiles | paintField | [minor] `paintHexagon(layers, centre, tileId, index === 0 ? 0 : 1)` yalnız 0 ve 1 variant'ı üretiyor; `MOTIFS = [rosetteMotif, scrollMotif, starMotif]` içindeki üçüncü eleman (`starMotif`, satır 89-110) `variant % MOTIFS.length` ile hiçbir zaman seçilmiyor. Ya ölü kod ya da amaçlanan üç motifli dağılım sessizce eksik. | Variant'ı `MOTIFS.length` üzerinden türet (ör. `tileId` hash'i ile `% MOTIFS.length`) ya da kullanılmayacaksa `starMotif`'i ve listedeki yerini kaldır. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::applyGilding": {
+      "fp": "69ad9bbbd7033a0e1c1d7e74365f26fdf50cf4f186547f6a4f9e7e7790b68160",
+      "matrix": [
+        "| tiles | applyGilding | 13. Potansiyel Hatalar ve Sorunlar | [minor] Yüzey haritası kanal kodlaması adsız sihirli değerlerle yazılmış |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| tiles | applyGilding | [minor] `'rgb(0, 96, 255)'` (ve `buildTileField`/`paintHexagon`'daki `rgb(0, X, 0)` değerleri) yüzey haritasının kanal kodlamasını (yeşil = pürüzlülük, mavi = metallik) adsız sihirli değerlerle taşıyor; `512, 9, 0.5, 0.12`, `0.85` aşınma parametreleri de adsız. Kodlama hiçbir yerde açıklanmıyor. | Kanal anlamını tek yerde tanımla: `surfaceColour(roughness, metalness)` yardımcı fonksiyonu ve `GOLD_ROUGHNESS`, `GILDING_WEAR` gibi adlandırılmış sabitler. |"
+        }
+      ]
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::buildTileField": {
+      "fp": "4550d5c3e8c97e872de8dfcc6c3458fc0febbf3574dd5bb91cac11f44ecff7e8",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::outlined": {
+      "fp": "9b9d5c6fbbb57d6fb3e3180b4953e413326a425f17223482c1559bcd2a6f30f3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::palmette": {
+      "fp": "d54e8927f9777dea01b5976eb4a9782fb2c2bbdd647393c733513c93805b763c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::leaf": {
+      "fp": "c04966549c64fb2077260c79dbcbdb938917f642c101692542ba09d6edcb1cd1",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::borderRepeat": {
+      "fp": "bb43170237e7dacaed12142e76817db197e5d37a0cb3a0cd98f83048f6e198b3",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::borderStripes": {
+      "fp": "38ebcdbc3aecd497a1075b05407c45d89788200b6250121729e8ac456ded1029",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/textures/tiles.ts::tiles::buildTileBorder": {
+      "fp": "8eb5064a202a57b7f65bce78629c1f77f130f45d3351cb7ede03cced450fef25",
+      "matrix": [
+        "| tiles | buildTileBorder | 13. Potansiyel Hatalar ve Sorunlar | [minor] Derz döngüsü off-by-one: doku dikişindeki derz yarım genişlikte kalıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| tiles | buildTileBorder | [minor] Off-by-one: `for (let joint = 0; joint < 4; ...)` derzleri x = 0, 256, 512, 768 merkezli çiziyor. x = 0'daki derzin yalnız sağ yarısı (0..1.5) tuvale düşüyor, x = 1024'teki eşi hiç çizilmiyor; doku tekrarlandığında dikişteki derz 3 yerine 1.5 piksel genişliğinde kalıyor ve diğer derzlerden görünür biçimde ince oluyor. | Döngüyü `joint <= 4` yap (motif tekrarındaki `-1..2` taşma mantığı gibi), böylece sağ kenara da yarım derz düşer ve dikiş tam genişliğe ulaşır. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::(sınıf düzeyi)": {
+      "fp": "e6fc7b0aa4879b7221fde003ff709706d7ffa3c129f7ab2ce8b092c77bb8a18f",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::archHeight": {
+      "fp": "ea81edaf8c5a2888388e3fbf5e8b5069eaf2aa8b91fc8c4b66226b0af33ba55a",
+      "matrix": [
+        "| wallMesher | archHeight | 13. Potansiyel Hatalar ve Sorunlar | [minor] `halfWidth` 0 olduğunda sıfıra bölme, NaN sessizce köşe verisine yayılıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| wallMesher | archHeight | [minor] `centreOffset = (...) / (2 * halfWidth)`: `halfWidth` 0 (sıfır genişlikli açıklık) olduğunda 0/0 = NaN üretir; `openingTop` de aynı durumda `opening.width`'e böler. NaN hata vermeden konum tamponlarına yazılır ve geometri sessizce bozulur. Dışa açık (export) fonksiyonlarda guard yok. | `if (rise <= 0 \\|\\| halfWidth <= 0) return 0;` guard'ı ekle ya da açıklık verisini girişte doğrulayıp açıklayıcı hata fırlat (ör. `OPENING_WIDTH_NOT_POSITIVE`). |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::openingTop": {
+      "fp": "6bd793b0c2fef2d92941afbd7a65b6812cf61ebbaf631a477d226ee630ab5b2c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::openingOutline": {
+      "fp": "3d99131d79b3e3abadf7392784a85fe49e981f9645a008cef95a673be631c442",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::breakpoints": {
+      "fp": "03ea0b25949be1e114bacacf75d3caa99ceb0e5e3ae454d22a3eb9d44a080072",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::clipToHeight": {
+      "fp": "c5b9a373f78dedf14bd1212f011343a43ce61eba73996dcd5674311e5b9e0e30",
+      "matrix": [
+        "| wallMesher | clipToHeight | 14. Best Practice'ler | [minor] Boolean parametre (`keepAbove`) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| wallMesher | clipToHeight | [minor] Boolean bayrak parametresi: `clipToHeight(quad, band.bottom, true)` / `(…, band.top, false)` çağrıları okunurken hangi yarı düzlemin tutulduğu anlaşılmıyor. | İki ayrı fonksiyon (`clipAbove`, `clipBelow`) ya da `'above' \\| 'below'` union tipli parametre kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::pushVertex": {
+      "fp": "238f82e32e7e620225070c6776efa72980913d708a78315ff062fac26619297d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::pushPolygon": {
+      "fp": "de9e08526e6714343c7997e4cc5011e290e749d152813fa55c1fa1dac1bcdfbd",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::solidQuads": {
+      "fp": "f81a399147dc099a3e36a2884a88431b34bf62d23612e7524d57e2a8e19228c5",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::sortIntoBands": {
+      "fp": "b0c52b66cce695cd75a82645b8dc61c73898f7fdb0be8f30354b40d1dd1884b6",
+      "matrix": [
+        "| wallMesher | sortIntoBands | 13. Potansiyel Hatalar ve Sorunlar | [minor] Sıfır alanlı (dejenere) çokgenler elenmeden üçgenleniyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| wallMesher | sortIntoBands | [minor] `clipped.length >= 3` koşulu sıfır alanlı çokgenleri elemiyor. Eşiği 0'da olan (kapı) açıklıklarda `solidQuads` yüksekliği 0 olan bir dörtgen üretir; ayrıca üst kenarı tam bant sınırında duran bir dörtgen, `EPSILON` toleransı nedeniyle komşu bantta da tüm noktaları sınır çizgisinde olan bir çokgen verir. İkisi de dejenere üçgen olarak tampona girer (gereksiz köşe, normal/tangent hesabında risk); `soupArea` toplam alan kontrolü bunu yakalayamaz. | Üçgenlemeden önce çokgenin yükseklik aralığını (ya da alanını) `EPSILON` ile karşılaştırıp dejenere olanları atla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::meshWallFace": {
+      "fp": "a8195d4e81ca72af4502e3b1be65b8a80aa9fbaeed2aace5d33c4917ce055113",
+      "matrix": [
+        "| wallMesher | meshWallFace | 13. Potansiyel Hatalar ve Sorunlar | [minor] Açıklık geometrisi doğrulanmıyor (duvar dışı, üst üste binen, duvardan yüksek açıklık) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| wallMesher | meshWallFace | [minor] Açıklık girdisi doğrulanmıyor: `breakpoints` duvarın `[0, length]` aralığı dışına taşan açıklık kenarlarını kırpmadan ekler (duvar dışına yüz üretilir); `solidQuads` aynı şeritteki açıklıkların düşeyde üst üste binmediğini ve tepe noktasının `height`'ı aşmadığını varsayar, aksi halde ters dönmüş dörtgenler sessizce üretilir. | Fonksiyon girişinde açıklıkları doğrula (genişlik > 0, duvar içinde, `sill < spring`, tepe ≤ `height`, çakışma yok) ve ihlalde açıklayıcı hata fırlat; bu durumlar için birim testi ekle. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::pushRevealQuad": {
+      "fp": "3e612721b1ff356f10ba7466f24838effad5143dec19467a43d3a8809c2a4ff9",
+      "matrix": [
+        "| wallMesher | pushRevealQuad | 3. Kod Kalitesi | [minor] Dörtgen üçgenleme döngüsü `pushFlatQuad` ile kopya |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| wallMesher | pushRevealQuad | [minor] `for (const cornerIndex of [0, 2, 1, 0, 3, 2])` ile köşe/normal/uv itme döngüsü `pushFlatQuad` (satır 266-275) ile aynı mantığın kopyası; sarım sırası iki yerde elle tekrarlanıyor. | `pushRevealQuad` köşeleri ve uv'leri hazırlayıp `pushFlatQuad`'ı çağırsın; sarım sırası tek bir adlandırılmış sabitte (`QUAD_TRIANGLES`) dursun. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::meshReveal": {
+      "fp": "97e7140b86b1b62e672c5f870fc259b826df66f53129ca397021c7e51f53c87f",
+      "matrix": [
+        "| wallMesher | meshReveal | 14. Best Practice'ler | [minor] Boolean parametre (`includeSill`) |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| wallMesher | meshReveal | [minor] Dışa açık fonksiyonda boolean bayrak parametresi (`includeSill = true`); çağrı yerinde `meshReveal(opening, length, false)` ne anlama geldiğini söylemiyor. | Seçenek nesnesi (`{ sill: 'include' \\| 'omit' }`) ya da ayrı fonksiyon (`meshRevealWithoutSill`) kullan. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::meshOpeningPanel": {
+      "fp": "c9266c5821f3e31f28e1a61134d141b6b7f7e74f584fa9146bbe822672b37ceb",
+      "matrix": [
+        "| wallMesher | meshOpeningPanel | 3. Kod Kalitesi | [suggestion] z değeri, tampon düzenine dayanarak sonradan elle yamalanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| wallMesher | meshOpeningPanel | [suggestion] `pushPolygon` z = 0 ile yazdıktan sonra `for (let index = start + 2; …; index += 3) soup.positions[index] = -into;` ile z bileşeni tampon düzenine (3'lü adım) dayanarak sonradan yamalanıyor; `pushVertex` düzeni değişirse sessizce bozulur. | `pushVertex`/`pushPolygon`'a isteğe bağlı `depth` (z) parametresi ekle ve paneli doğrudan doğru derinlikte yaz. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::soupArea": {
+      "fp": "9a630f62b1255b1ebb731486a192ede0e07b9ac06d28c16f12cff4a71bb60a16",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::unitNormal": {
+      "fp": "1ee1dd1bc8eb30112927a5753c0e64a3d16fa8b8209475cd9dbe817a3f4f63d6",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::offsetOutline": {
+      "fp": "e72f3e105442b5dbb858de275f101b7ddd8e11ef12821917a2ce164defdb4781",
+      "matrix": [
+        "| wallMesher | offsetOutline | 13. Potansiyel Hatalar ve Sorunlar | [minor] Gönye sınırı `0.5` adsız sihirli sayı |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| wallMesher | offsetOutline | [minor] `Math.max(0.5, …)` içindeki `0.5` gönye (mitre) sınırını belirleyen adsız sihirli sayı; ayrıca sınır devreye girdiğinde bant genişliğinin köşede `distance`'tan kısa kaldığı dokümanda belirtilmiyor. | `const MIN_MITRE_COSINE = 0.5;` gibi adlandırılmış sabite çıkar ve yorumda sınırın etkisini (en çok 2 kat uzama) açıkla. |"
+        }
+      ]
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::pushFlatQuad": {
+      "fp": "2bb0e893020030e735d58165561124bc3cb822b15529f63cb26277569442eb09",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/wallMesher.ts::wallMesher::meshArchBand": {
+      "fp": "c45e63fd5eb76de1aaec29275a41b92c7c5b6113110db88cbf07955a6ca299fa",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/walls.ts::walls::(sınıf düzeyi)": {
+      "fp": "ae40bf79a1eb58b175498282b924bef77246139f3e31ff5242548f9ab79ec3a6",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/walls.ts::walls::addOpening": {
+      "fp": "96b22c385df5b5e2be61e064d119c9c610602b576f49fb05f70e9e2422b6060c",
+      "matrix": [
+        "| walls | addOpening | 14 Best Practice'ler | [suggestion] `door` özel durumu tabloların yanında elle yazılmış, boolean bayrakla aktarılıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| walls | addOpening | [suggestion] Açıklık türüne bağlı malzemeler `REVEAL_MATERIAL` / `BACK_MATERIAL` tablolarından gelirken eşik kuralı `opening.kind !== 'door'` olarak metot içinde elle yazılmış ve `meshReveal`'a boolean bayrak olarak geçiyor (satır 39-40). Yeni bir eşiksiz tür eklenince bu satır sessizce atlanır. | Eşik bilgisini de `Record<OpeningKind, …>` tablosuna (ya da `Opening` verisine) taşı; böylece yeni tür derleme hatasıyla hatırlatılır. |"
+        }
+      ]
+    },
+    "src/scene3d/room/walls.ts::walls::addWalls": {
+      "fp": "bd643ea3c6d42c01c16cf9f06ebaf046e463fe2225755650b7643caff4bf175e",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/windows.ts::windows::(sınıf düzeyi)": {
+      "fp": "266b01a9dcd9114331239107f15ce363c2a9e67215ddf9204cc98f0ab8c8f406",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/windows.ts::windows::spread": {
+      "fp": "57dc42838c9c6201191bf7319c4c230df48c1d758b605a797d5b11d072ab234a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/windows.ts::windows::addCasing": {
+      "fp": "874564f7df1bd6ce31e370f00f9d3cc752b6c2207a4e65c7af7397daa5fbbcaf",
+      "matrix": [
+        "| windows | addCasing | 13 Potansiyel Hatalar | [minor] adlandırılmamış ölçü sabitleri |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| windows | addCasing | [minor] Lento ve denizlik ölçüleri adsız sayılarla yazılmış: `0.06`, `1.2`, `1.4`, `0.6`, `0.7`, `0.08` ve iki kez geçen `0.1` (satır 47-48). Aynı `0.1` hem derinlikte hem merkez hesabında birbirine bağlı kullanılıyor; biri değişirse öteki unutulur. | Dosyanın başındaki sabitlerin yanına adlandırılmış sabitler ekle (ör. `LINTEL_OVERHANG`, `SILL_OVERHANG`, `SILL_EMBED`). |"
+        }
+      ]
+    },
+    "src/scene3d/room/windows.ts::windows::addGrille": {
+      "fp": "02e847de0d2dc176fffe9acb71fdabff4de32ee99036531a5d37a36caacfd806",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/windows.ts::windows::shutterLeaf": {
+      "fp": "a23bd536c1657c7c70a1defeac9ff9b9aff9a8d8ba7d5463df59317c56d445c6",
+      "matrix": [
+        "| windows | shutterLeaf | 13 Potansiyel Hatalar | [minor] adlandırılmamış oranlar (0.3, 0.7, 0.5) |",
+        "| windows | shutterLeaf | 7 İsimlendirme | [minor] batch'e ekleyen metot `add…` düzenine uymuyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 7,
+          "heading": "Madde 7: Mimari",
+          "row": "| windows | shutterLeaf | [minor] Metot bir şey döndürmüyor, batch'e geometri ekliyor; dosyadaki diğer ekleyiciler `addCasing` / `addGrille` / `addShutters` biçiminde adlandırılmışken bu isim bir değer döndürüyormuş izlenimi veriyor. | `addShutterLeaf` olarak yeniden adlandır. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| windows | shutterLeaf | [minor] Kayıt yükseklikleri ve pano kalınlığı adsız oranlarla verilmiş: `height * 0.3`, `height * 0.7`, `SHUTTER_THICKNESS * 0.5` (satır 80, 84). | Adlandırılmış sabitlere çıkar (ör. `SHUTTER_RAIL_HEIGHTS`, `SHUTTER_PANEL_THICKNESS`). |"
+        }
+      ]
+    },
+    "src/scene3d/room/windows.ts::windows::addShutters": {
+      "fp": "70caf09323316a019c0abb5a7f5a9aac7638f410e24b4b9acda7b0d546ce4534",
+      "matrix": [
+        "| windows | addShutters | 13 Potansiyel Hatalar | [minor] adlandırılmamış boşluk/ofset değerleri |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| windows | addShutters | [minor] Boşluk ve yerleşim değerleri adsız: `0.02`, `0.004`, `0.01`, `-0.03` (satır 90, 95). `0.02` ile `0.01` birbirine bağlı (üst-alt boşluk) ama bu ilişki kodda görünmüyor. | `SHUTTER_CLEARANCE`, `SHUTTER_JAMB_GAP`, `SHUTTER_SETBACK` gibi sabitler tanımla; yüksekliği `2 * SHUTTER_CLEARANCE` üzerinden türet. |"
+        }
+      ]
+    },
+    "src/scene3d/room/windows.ts::windows::normaliseUvs": {
+      "fp": "d24addd328c0a4d3ef0fd4baf0225929a37ebea7615cbb35c93a1138b2ef3167",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/room/windows.ts::windows::addUpperWindow": {
+      "fp": "ac03fa7fb79021518ed6b03dbd1d4b0b692bb62d91bf3cec24e9ea92df3d4a3f",
+      "matrix": [
+        "| windows | addUpperWindow | 13 Potansiyel Hatalar | [minor] adlandırılmamış pervaz ölçüleri |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| windows | addUpperWindow | [minor] Üst pencere denizliğinin ölçüleri adsız: `0.04`, `0.05`, `0.08`, `0.025`, `0.02` (satır 115); `0.025` aslında `0.05 / 2`. | Adlandırılmış sabitler tanımla ve yarı yüksekliği sabitten türet. |"
+        }
+      ]
+    },
+    "src/scene3d/room/windows.ts::windows::upperWindowShape": {
+      "fp": "14c5f76f160ccef11f81ea4d18c34f39c4e60cc6f170bc2d4f77dd40a5e0d47d",
+      "matrix": [
+        "| windows | upperWindowShape | 13 Potansiyel Hatalar | [minor] \"tüm üst pencereler aynı\" varsayımı doğrulanmıyor, `'east'` sabit |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| windows | upperWindowShape | [minor] Doküman \"tüm üst pencerelerin ortak şekli\" diyor, ama metot yalnız `'east'` duvarındaki ilk `upperWindow`'u örnek alıyor; diğerlerinin aynı ölçüde olduğu hiçbir yerde doğrulanmıyor. `addWallWindows` ise her duvarı işliyor. Farklı ölçüde bir üst pencere eklenirse cam/şebeke dokusu sessizce yanlış oranla boyanır. | Tüm `WALLS` üzerindeki `upperWindow`'ları gez ve ölçüleri farklıysa hata fırlat, ya da bu eşitliği bir birim testiyle zorunlu kıl. |"
+        }
+      ]
+    },
+    "src/scene3d/room/windows.ts::windows::addWallWindows": {
+      "fp": "a05e199b506de815122929ca872a76c024cbef68874614d28755185f09eb645c",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/shots.ts::shots::(sınıf düzeyi)": {
+      "fp": "422635469936ddbf93ed38941f34f9e2af3b91974393fb4d46fc82c3fa96c647",
+      "matrix": [
+        "| shots | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/scene3d/walk.ts::walk::(sınıf düzeyi)": {
+      "fp": "e7907026918c271f06a1e5463b45790d818e56b91795a21bcfe28fbf6518fec5",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/walk.ts::walk::isBlocked": {
+      "fp": "f86d7a09827fe676065a6d68be81d29634251da3f361f26ef71dc627c1b0218b",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/scene3d/walk.ts::walk::walk": {
+      "fp": "a29601c89510a44c2af3b8eb98b22a0c229739398d19023b034cfb8af5953540",
+      "matrix": [
+        "| walk | walk | 3 Kod Kalitesi | [suggestion] büyük adımda engelin içinden geçme (tunnelling) ele alınmıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| walk | walk | [suggestion] Yalnız adımın varış noktası denetleniyor. Adım, engelin genişliği + 2 × `radius` değerinden büyükse (düşük kare hızında büyük `dt`) oyuncu engelin içinden geçebilir; birim testleri de yalnız küçük adımları kapsıyor. | Çağıran tarafta adımı üst sınırla kırp ya da uzun adımı alt adımlara böl; bu durum için bir test ekle. |"
+        }
+      ]
+    },
+    "src/ui/FigureCard.tsx::FigureCard::(sınıf düzeyi)": {
+      "fp": "8a1c120c43ab2bd812d07bca3f0f53270fbe2779be41399d5dc31620b80c62dd",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/ui/FigureCard.tsx::FigureCard::MapSwitches": {
+      "fp": "e677920b3836b5d8db95220c40165dc3c9cbb1ccdefc276d874c817c5f41de44",
+      "matrix": [
+        "| FigureCard | MapSwitches | 7 İsimlendirme | [minor] bileşen artık sahne bağlantısını da içeriyor, adı kapsamını yansıtmıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 7,
+          "heading": "Madde 7: Mimari",
+          "row": "| FigureCard | MapSwitches | [minor] Bileşen artık iki harita anahtarının yanında 3B sahne bağlantısını da çiziyor; dokümanı \"The tools of a card\" olarak güncellenmiş ve CSS sınıfı `card__tools`, ama adı hâlâ `MapSwitches`. | `CardTools` olarak yeniden adlandır. |"
+        }
+      ]
+    },
+    "src/ui/FigureCard.tsx::FigureCard::FigureCard": {
+      "fp": "1629b0791969c4d7f2a4a6b912a49ac80de95eca875ee8acdc75bee2c01d302d",
+      "matrix": [],
+      "bulgu": []
+    },
+    "src/ui/Icon.tsx::Icon::(sınıf düzeyi)": {
+      "fp": "ee299fa33151557f6e1a9fc23af244084434d387f682363738bf006542d5a2b2",
+      "matrix": [
+        "| Icon | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "src/ui/scenes.ts::scenes::(sınıf düzeyi)": {
+      "fp": "b0f60c9a422a7155e11ff6ffdc994cc1465a8d00ff920a8256f46568df5c665c",
+      "matrix": [
+        "| scenes | (sınıf düzeyi) | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "tests/e2e/scene.spec.ts::scene.spec::(sınıf düzeyi)": {
+      "fp": "59eaaf5f6967f1020deb6c6784406800e84934afe4570eedff72000affad0d34",
+      "matrix": [
+        "| scene.spec | (sınıf düzeyi) | 13 Potansiyel Hatalar | [minor] \"every fixed camera\" testi elle yazılmış 3 kamerayı geziyor |",
+        "| scene.spec | (sınıf düzeyi) | 13 Potansiyel Hatalar | [minor] tekrarlanan `240_000` ve sabit `waitForTimeout(1500)` |",
+        "| scene.spec | (sınıf düzeyi) | 14 Best Practice'ler | [minor] `FIGURE` konumu `FIGURE_SPOT`'un elle kopyası |"
+      ],
+      "bulgu": [
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| scene.spec | (sınıf düzeyi) | [minor] Test adı \"from every fixed camera in the room\" diyor, ancak elle yazılmış `['entrance', 'windows', 'portrait']` listesini geziyor (satır 72); `SHOTS` 14 kamera tanımlıyor. Yeni ya da pahalı bir kamera bütçe denetiminin dışında kalır. | `Object.keys(SHOTS)` üzerinden gez, ya da adı kapsamı doğru söyleyecek biçimde değiştir. |"
+        },
+        {
+          "madde": 13,
+          "heading": "Madde 13: Potansiyel hatalar ve sorunlar",
+          "row": "| scene.spec | (sınıf düzeyi) | [minor] `240_000` iki `describe.configure` çağrısında (satır 52, 163) ve `WALK_TIMEOUT`'ta üç kez yazılmış; `page.waitForTimeout(1500)` (satır 93) adsız sabit bir bekleme. | Tek bir `SCENE_TEST_TIMEOUT` sabiti kullan; 1500 ms'yi gerekçesiyle adlandır (ör. `PUSH_AGAINST_FIGURE_MS`). |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| scene.spec | (sınıf düzeyi) | [minor] `FIGURE = { x: 0.35, z: -1.55 }` (satır 18) `src/scene3d/shots.ts` içindeki `FIGURE_SPOT`'un elle kopyası. Figür taşınırsa test sessizce yanlış noktaya göre mesafe ölçer. | `FIGURE_SPOT`'u kaynaktan import et (salt veri modülü, tarayıcı bağımlılığı yok). |"
+        }
+      ]
+    },
+    "tests/e2e/scene.spec.ts::scene.spec::collectErrors": {
+      "fp": "28995135c34c8aea7fde17088d1176b74bcb8d59e1b8809de9fb945331e3e472",
+      "matrix": [],
+      "bulgu": []
+    },
+    "tests/e2e/scene.spec.ts::scene.spec::openScene": {
+      "fp": "05d43ddac5c322a4791693827eb8beb6535090315cfc52b3e66d02d1fe40590a",
+      "matrix": [],
+      "bulgu": []
+    },
+    "tests/e2e/scene.spec.ts::scene.spec::distanceToFigure": {
+      "fp": "678cb8e336572523a4e48837d8e9dbad53d84620b956cbd08d233723f5229e9f",
+      "matrix": [],
+      "bulgu": []
+    },
+    "tests/unit/scene3d.test.ts::scene3d.test::(sınıf düzeyi)": {
+      "fp": "b8d4a57edfae45b5870b9a5246707de4e425141cd901c1a9f7d182f80b363693",
+      "matrix": [
+        "| scene3d.test | (sınıf düzeyi) | 2 Testler | [minor] `toBeCloseTo(…, 0)` ±0.5 m tolerans, zayıf assertion |"
+      ],
+      "bulgu": [
+        {
+          "madde": 2,
+          "heading": "Madde 2: Testler ve test coverage",
+          "row": "| scene3d.test | (sınıf düzeyi) | [minor] `expect(SHOTS.portrait.target[1]).toBeCloseTo(FIGURE_SPOT.eyeHeight, 0)` (satır 141) hassasiyet 0 ile ±0.5 m'yi kabul ediyor; kamera göğse baksa da geçer. Aynı testte figürün yalnız x'i oda içinde mi diye bakılıyor, z denetlenmiyor. | Hassasiyeti 1'e çıkar (hedef göz − 0.04 m) ve `FIGURE_SPOT.z` için de derinlik denetimi ekle. |"
+        }
+      ]
+    },
+    "tests/unit/sceneRoom.test.ts::sceneRoom.test::(sınıf düzeyi)": {
+      "fp": "22d1c5b9429f4579e25e4071309a6a4b90cf528fcace5f39059598f9dc0532d3",
+      "matrix": [
+        "| sceneRoom.test | (sınıf düzeyi) | 14 Best Practice'ler | [minor] \"uses every colour\" testi renkleri elle sayıyor |",
+        "| sceneRoom.test | (sınıf düzeyi) | 2 Testler | [minor] \"mirrored … top to bottom\" testi yalnız sol-sağ simetriyi doğruluyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 2,
+          "heading": "Madde 2: Testler ve test coverage",
+          "row": "| sceneRoom.test | (sınıf düzeyi) | [minor] \"is mirrored left to right and top to bottom\" testi (satır 187-195) yalnız sol-sağ yansımayı ve yalnız bordür düğümlerinde doğruluyor; üst-alt simetri hiç assert edilmiyor. Test adı verdiğinden fazlasını vaat ediyor. | `carpetKnot(plan, x, plan.knotsY - 1 - y)` karşılaştırmasını ekle ya da adı daralt. |"
+        },
+        {
+          "madde": 14,
+          "heading": "Madde 14: Best practice'ler",
+          "row": "| sceneRoom.test | (sınıf düzeyi) | [minor] \"uses every colour\" testi `CARPET_COLOURS` üyelerini elle sayıyor (satır 182), oysa aynı blokta `colourCount` kaynaktan türetiliyor. Palete yeni renk eklenince test onu sessizce kapsamaz. | Renkleri `Object.values(CARPET_COLOURS)` üzerinden türet ve zemine ait olmayanı (`border`) açıkça dışla. |"
+        }
+      ]
+    },
+    "tests/unit/sceneRoom.test.ts::sceneRoom.test::polygonArea": {
+      "fp": "c0f1e34685019b44615a81f7388b3f7b1d6695bb7a654494bf81123b69d25643",
+      "matrix": [
+        "| sceneRoom.test | polygonArea | 1–14 | Bulgu Yok |"
+      ],
+      "bulgu": []
+    },
+    "vite.config.ts::vite.config::(sınıf düzeyi)": {
+      "fp": "16ed83aaa34a302f5ae4f624fd980803d7c2829412423bb3faedd5328ea1367d",
+      "matrix": [
+        "| vite.config | (sınıf düzeyi) | 3 Kod Kalitesi | [minor] `sahne.html` adı birden çok yerde elle tekrarlanıyor |"
+      ],
+      "bulgu": [
+        {
+          "madde": 3,
+          "heading": "Madde 3: Kod kalitesi",
+          "row": "| vite.config | (sınıf düzeyi) | [minor] Sahne sayfasının adı elle tekrarlanıyor: `SCENE_PAGE` regex'i (satır 11), `rollupOptions.input.scene` (satır 54) ve `src/ui/scenes.ts` içindeki `SCENE_PAGES`. Dosya yeniden adlandırılırsa biri unutulabilir; regex unutulursa service worker sahneyi oyun sayfasıyla yanıtlar. | Config içinde tek bir `SCENE_PAGE_FILE` sabiti tanımla, regex'i ve rollup girdisini ondan türet. |"
+        }
+      ]
+    }
+  }
+}

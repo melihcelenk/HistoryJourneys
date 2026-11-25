@@ -149,3 +149,25 @@ are committed and cached by the service worker: the application never asks anoth
 without the crop, travels through the database (`figure.portrait_json`) to `FigureSummary.portrait`; `Medallion` shows
 the picture when there is a record and falls back to the emblem of the kind when there is none or the image fails.
 
+
+## 3D scene: performance rules
+
+The scene (`sahne.html`, `src/scene3d/`) must stay fluid on an integrated graphics card. These rules came out of
+measuring it (HJ-2, phase 6: 12–24 frames a second before, 56–60 after, on Intel Arc at 1920×1080).
+
+- **Separate in the source, one object in the output.** Whatever lies on one surface is painted into one texture
+  and drawn as one mesh. The map on the table is the example: its coasts, signs, names and marks are separate
+  functions and data, and one picture on one sheet.
+- **No texture is painted or uploaded every frame.** A picture is sent to the graphics card again only when what
+  it shows changes (`MapBoard.show`).
+- **Shadows of things that do not move are drawn once.** The scene turns the automatic update of the shadow map
+  off when it is complete.
+- **Layered effects are kept as small as they can be.** Shells of hair, samples of anti-aliasing and the size of
+  the bloom are costs paid on every pixel they cover.
+- **Measure, do not guess.** `npx tsx scripts/dev/measure-scene.ts` times the frames on the real graphics card, at
+  the door, at the table and during the briefing. Read the mean frame time, not the median; write the numbers
+  before and after into the phase document.
+- **A weak graphics card gets fewer pixels, not fewer frames.** `dynamicResolution.ts` lowers the fineness of the
+  picture step by step when frames are slow.
+- **The drawing budget is tested.** `tests/e2e/scene.spec.ts` fails when a frame needs more draw calls or
+  triangles than the budget allows.

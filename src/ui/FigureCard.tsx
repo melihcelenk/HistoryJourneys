@@ -7,6 +7,7 @@ import { CardTabs } from './CardDetails';
 import { Icon } from './Icon';
 import { Medallion } from './Medallion';
 import { RichText } from './RichText';
+import { scenePageOf } from './scenes';
 
 export function lifespan(figure: FigureSummary): string {
   const life = formatYearRange(figure.birthYear, figure.deathYear);
@@ -21,16 +22,27 @@ interface FigureCardProps {
   onClose?: () => void;
 }
 
-/** The two map switches of a card, at its top corner: the journey of the figure and the lines between stops (FR-13). */
-function MapSwitches() {
+const SCENE_LABEL = 'Üç boyutlu sahneyi aç';
+
+/**
+ * The tools of a card, at its top corner: the link to the 3D scene of the figure, when it has one, and the two map
+ * switches: the journey of the figure and the lines between stops (FR-13).
+ */
+function MapSwitches({ slug }: { slug: string }) {
   const showJourney = useAppStore((state) => state.showJourney);
   const showLines = useAppStore((state) => state.showLines);
   const toggleJourney = useAppStore((state) => state.toggleJourney);
   const toggleLines = useAppStore((state) => state.toggleLines);
   const journeyLabel = showJourney ? 'Yolculuğu haritada gizle' : 'Yolculuğu haritada göster';
   const linesLabel = showLines ? 'Haritadaki çizgileri gizle' : 'Haritadaki çizgileri göster';
+  const scenePage = scenePageOf(slug);
   return (
     <div className="card__tools">
+      {scenePage && (
+        <a className="tool-btn" data-testid="open-scene" href={scenePage} aria-label={SCENE_LABEL} title={SCENE_LABEL}>
+          <Icon name="scene" />
+        </a>
+      )}
       <button
         type="button"
         className="tool-btn"
@@ -104,7 +116,7 @@ export function FigureCard({ card, footer, onClose }: FigureCardProps) {
               </span>
             )}
           </h3>
-          <MapSwitches />
+          <MapSwitches slug={card.slug} />
         </div>
         <p className="card__roles">{card.roles.join(' · ')}</p>
         <p className="card__years">{lifespan(card)}</p>

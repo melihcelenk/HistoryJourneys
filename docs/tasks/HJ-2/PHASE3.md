@@ -1,0 +1,123 @@
+# Faz 3 — Fatih Sultan Mehmed karakteri
+
+> **Durum:** 🟡 Kısmi · **Tamamlanma:** 90% · **Efor:** tahmin yazılmadı · **Task:** HJ-2
+
+Gerçek bir insan gibi görünen ve Fatih'in yaşarken yapılmış portrelerine benzeyen figür kurulur. Bitince figür üç açıdan 1480 tarihli portreyle kıyaslanabilir.
+
+## Problem
+
+- Sahnede figür yok.
+- Bu makinede modelleme aracı yok; kodla yazılan bir yüz gerçekçi olmaz.
+- Açık lisanslı baş taramasının gözleri kapalıdır; saçı, sakalı, bedeni ve giysisi yoktur.
+
+## Çözüm
+
+- **Baş:** Lee Perry-Smith'in baş taraması (CC BY 3.0) kullanılır; gerçek bir insanın yüzüdür.
+- **Gözler:** Taramadaki kapalı göz kapağında, parça gölgelendiricisinde bir açıklık kesilir; arkasına iris ve gözbebeği kodla boyanan göz küreleri konur. Açıklık bir değerle daraldığı için figür göz kırpar; gözler ziyaretçiyi izler.
+- **Sakal, bıyık ve kaş:** Katmanlı kıl (shell) yöntemiyle: yüzün ilgili bölgesi birçok kez, her seferinde kılın biraz daha ilerisine kopyalanır; her kopyada yalnız kıl tellerinin geçtiği noktalar çizilir.
+- **Kavuk:** 1480 portresindeki gibi, kırmızı dilimli başlığın çevresine sarılmış büyük beyaz sarık; sargıların üst üste binen katları geometriyle verilir.
+- **Giysi:** Çintamani desenli ipek iç kaftan, beyaz kuşak, önü açık kürk yakalı kırmızı dış kaftan; yenler, eller ve pabuçlar. Kumaş desenleri kodla boyanır.
+- **Küçük hareketler:** Nefes, başıyla ziyaretçiyi izleme ve göz kırpma; hepsi zamanın saf işlevidir.
+
+## Alt fazlar
+
+| # | Ne yapılıyor | Durum |
+|---|--------------|-------|
+| 3.1 | Baş taraması yüklenir ve ölçülür. | 🟢 Tamamlandı |
+| 3.2 | Kapalı gözler açılır ve göz küreleri eklenir. | 🟢 Tamamlandı |
+| 3.3 | Sakal, bıyık ve kaşlar katmanlı kıl yöntemiyle eklenir. | 🟢 Tamamlandı |
+| 3.4 | Kavuk modellenir. | 🟢 Tamamlandı |
+| 3.5 | Kaftanlar, kuşak, kürk, yenler, eller ve pabuçlar eklenir. | 🟢 Tamamlandı |
+| 3.6 | Figür portrelerle üç açıdan kıyaslanır ve farklar giderilir. | 🟡 Kısmi |
+
+## Gereksinimler
+
+Bu projede Lima kullanılmıyor; gereksinimler `MAIN_TODO.md` içindeki kabul ölçütleridir (K1–K6).
+
+| Gereksinim | Kısa cümle | Alt faz |
+|------------|------------|---------|
+| K3 | Karakter gerçek bir insan gibi görünür; kavuk, sakal ve kaftan dönemine uygundur. | 3.1–3.6 |
+| K6 | Kullanılan hazır varlıkların lisansı kayıtlıdır. | 3.1, 3.5 |
+
+## Test senaryoları
+
+| Senaryo | Dosya | Durum |
+|---------|-------|-------|
+| Dudaklarda kıl yoktur, çenede vardır; sakal iki yanda aynıdır; kulak ve ense boştur. | `tests/unit/scene3d.test.ts` | 🟢 Tamamlandı |
+| Kaşlar yalnız gözlerin üstünde büyür. | `tests/unit/scene3d.test.ts` | 🟢 Tamamlandı |
+| Gözler başlangıçta açıktır, kırpmanın ortasında kapalıdır ve hep aynı anlarda kırpar. | `tests/unit/scene3d.test.ts` | 🟢 Tamamlandı |
+| Figürün yakın görüntüsü altın görüntüyle eşleşir. | `tests/e2e/scene.spec.ts` | 🟢 Tamamlandı |
+
+## Nasıl kontrol edilir
+
+- [x] `sahne.html?only=figure&shot=head-front` yüzü, gözleri açık ve sakallı gösterir.
+- [ ] `portrait` kamerasının görüntüsü 1480 portresiyle yan yana konduğunda aynı kişi tipi okunur: büyük beyaz kavuk, kırmızı başlık, koyu sivri sakal, kürk yaka, kırmızı kaftan.
+
+## Kalan
+
+- **Yüz Fatih'in yüzü değildir:** Tarama başka bir insana aittir; benzerlik kavuk, sakal, kaş, ten rengi ve giysiyle kurulur. Portredeki kemerli burun taramada yoktur.
+- **Figür yürümez:** Baş taraması iskeletsizdir; figür ayakta durur, nefes alır, başını çevirir ve göz kırpar.
+- **Eller dokusuzdur:** El modeli tek renklidir ve dinlenme duruşundadır.
+
+## Ayrıntılar
+
+### 3.1 — Baş taraması yüklenir ve ölçülür.
+
+- **Mevcut durum:** Figür yoktur.
+- **Problem:** Taramanın ölçüsü, yüzün yeri ve gözlerin konumu bilinmeden üstüne hiçbir şey oturtulamaz.
+- **Çözüm:** Taramanın üstüne ölçü ızgarası çizen bir inceleme modu (`?grid`) ile yüzün yer işaretleri okunur ve `headMetrics.ts` içine yazılır; gözler, sakal ve kavuk bu ölçülerle yerleştirilir.
+- **Dosyalar:** `src/scene3d/character.ts`, `src/scene3d/figure/headMetrics.ts`, `src/scene3d/figure/headShader.ts`, `public/models/head/`
+- **Testler:** `tests/unit/scene3d.test.ts`
+- **Durum:** 🟢 Tamamlandı.
+
+### 3.2 — Kapalı gözler açılır ve göz küreleri eklenir.
+
+- **Mevcut durum:** Taramada gözler kapalıdır.
+- **Problem:** Gözü kapalı bir figür canlı görünmez.
+- **Çözüm:** Göz kapağında badem biçimli bir açıklık kesilir; kenarları kirpik ve kapak kenarı olarak gölgelendirilir. Göz küresi açıklığın dışına taşmaz. Açıklığın genişliği ortak bir değere bağlıdır; deri ve göz birlikte kırpar.
+- **Dosyalar:** `src/scene3d/figure/headShader.ts`, `src/scene3d/figure/eyes.ts`, `src/scene3d/figure/idle.ts`
+- **Testler:** `tests/unit/scene3d.test.ts`
+- **Durum:** 🟢 Tamamlandı.
+
+### 3.3 — Sakal, bıyık ve kaşlar katmanlı kıl yöntemiyle eklenir.
+
+- **Mevcut durum:** Tarama tıraşlıdır.
+- **Problem:** Portrelerdeki Fatih'i tanıtan şeylerden biri sivri, dolgun sakalıdır.
+- **Çözüm:** Kılın nerede, ne uzunlukta ve hangi yöne büyüdüğü saf işlevlerle tanımlanır (`hairShape.ts`); dudaklar, elmacık kemikleri ve kulak boş kalır. Katmanlar `hairShells.ts` içinde üretilir; sakalın altındaki deri koyulaştırılır.
+- **Dosyalar:** `src/scene3d/figure/hairShape.ts`, `src/scene3d/figure/hairShells.ts`
+- **Testler:** `tests/unit/scene3d.test.ts`
+- **Durum:** 🟢 Tamamlandı.
+
+### 3.4 — Kavuk modellenir.
+
+- **Mevcut durum:** Baş çıplaktır.
+- **Problem:** Büyük beyaz sarık ve kırmızı başlık figürün en tanınan parçasıdır.
+- **Çözüm:** Sarık, baştan yukarı doğru bir profil boyunca üretilen yüzeydir; sargılar birbirinin üstüne binen katlar olarak yüzeyi kabartır ve alında çaprazlanır. Başlık dilimli bir kubbedir.
+- **Dosyalar:** `src/scene3d/figure/turban.ts`, `src/scene3d/figure/clothTextures.ts`
+- **Testler:** -
+- **Durum:** 🟢 Tamamlandı.
+
+### 3.5 — Kaftanlar, kuşak, kürk, yenler, eller ve pabuçlar eklenir.
+
+- **Mevcut durum:** Figürün bedeni yoktur.
+- **Problem:** Baş tek başına bir figür değildir; giysi dönemine uygun olmalıdır.
+- **Çözüm:** Giysiler bedenin yatay kesitlerinden geçirilen yüzeylerdir (`loft.ts`). Dış kaftanın ön kenarı boyunca ve yakasında kürk şeridi dolaşır; kürk de katmanlı kıl yöntemiyle çizilir. Eller, WebXR Input Profiles'ın genel el modelidir (MIT).
+- **Dosyalar:** `src/scene3d/figure/kaftan.ts`, `src/scene3d/figure/loft.ts`, `src/scene3d/figure/fabricTextures.ts`, `src/scene3d/figure/hands.ts`, `public/models/hands/`
+- **Testler:** -
+- **Durum:** 🟢 Tamamlandı.
+
+### 3.6 — Figür portrelerle üç açıdan kıyaslanır ve farklar giderilir.
+
+- **Mevcut durum:** Figür kuruldu; kıyaslama sürüyor.
+- **Problem:** Benzerlik ancak aynı açıdan yan yana bakılarak söylenebilir.
+- **Çözüm:** `head-front`, `head-side`, `head-quarter` ve `portrait` kameralarının görüntüleri Gentile Bellini'nin 1480 tarihli portresi ve Sinan Bey'e atfedilen minyatürle yan yana konur; kavuğun oranı, sakalın biçimi, yaka ve renkler buna göre düzeltilir.
+- **Dosyalar:** `src/scene3d/figure/`, `tmp/hj2-refs/` (yerel)
+- **Testler:** `tests/e2e/scene.spec.ts` (altın görüntü: `portrait`)
+- **Durum:** 🟡 Kısmi.
+
+### Referanslar
+
+- Gentile Bellini, Sultan II. Mehmed, 1480 (National Gallery, Londra) — Wikimedia Commons, `Gentile Bellini 003.jpg`
+- Sinan Bey'e atfedilen, gül koklayan Fatih minyatürü, 1480 dolayı (Topkapı Sarayı Müzesi) — Wikimedia Commons, `Sarayi Album 10a.jpg`
+- Baş taraması: Lee Perry-Smith, CC BY 3.0 — `public/models/head/LICENSE.txt`
+- El modelleri: WebXR Input Profiles, MIT — `public/models/hands/LICENSE.txt`
